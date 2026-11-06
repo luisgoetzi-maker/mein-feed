@@ -86,7 +86,7 @@ main
 ├─ routinen/taeglich.md                  Ablauf je Lauf (auch woechentlich.md,
 │                                        monatlich.md, jaehrlich.md)
 ├─ BAUPLAN.md                            dieses Dokument als Markdown
-└─ CLAUDE.md                             „Lies zuerst BAUPLAN.md“
+└─ CLAUDE.md                             „Lies vor jeder Arbeit BAUPLAN.md.“
 
 claude/feed-daten
 └─ data/
