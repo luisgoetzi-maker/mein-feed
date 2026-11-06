@@ -27,7 +27,7 @@ Vier Formate, jedes fasst einen abgeschlossenen Zeitraum zusammen und erscheint 
 | Täglich | jeden Tag, 3:07 | der Vortag | 3 Meldungen | keine | ca. 3–5 min |
 | Wöchentlich | Sonntag, 3:37 | Sonntag bis Samstag der Vorwoche | 5 Meldungen | Finanzierungsrunden der Woche, bis zu 3 Videos | ca. 6 min |
 | Monatlich | am 1., 4:07 | der Vormonat | 8 Meldungen | „Gescheitert und warum“, bis zu 5 Videos | ca. 10 min |
-| Jahresrückblick | 1.1., 4:37 | das Vorjahr | 10 Meldungen | Monatsüberblick, Ausblick, bis zu 3 Videos des Jahres | ca. 20 min, kapitelweise |
+| Jahresrückblick | 1.1., 4:37 | das Vorjahr | 10 Meldungen | Monatsüberblick, Ausblick, bis zu 5 Videos des Jahres | ca. 20 min, kapitelweise |
 
 - Die Zahlen sind Obergrenzen, keine Ziele. Ein Thema darf weniger Meldungen haben oder ganz ausfallen.
 - Die Woche zählt von Sonntag bis Samstag, damit der Sonntagsrückblick eine abgeschlossene Woche zusammenfasst. Beispiel: Der Rückblick vom 8.11.2026 umfasst den 1. bis 7.11.2026.
@@ -67,10 +67,10 @@ Startups je Format: täglich nur große Finanzierungsrunden, Börsengänge und P
 
 **YouTube-Empfehlungen**
 
-- Nur in Wochen- und Monatsrückblicken (und bis zu 3 „Videos des Jahres“ im Jahresrückblick, ausgewählt aus den Monatsempfehlungen).
-- Höchstens 1 Video pro Überthema, insgesamt höchstens 3 pro Woche und 5 pro Monat. Kein Video ist der Normalfall, kein Fehler.
-- Nur Kanäle der Positivliste in `themen.json`. Ein Kanal außerhalb nur mit Begründung und `neuer_kanal: true`. Die Startliste schlägt Claude Code beim Bau vor, du streichst und ergänzt.
-- Keine Shorts, keine Reaktionsvideos, keine Clickbait-Titel. Das Video ist im Berichtszeitraum erschienen; Ausnahme sind zeitlose Erklärvideos zu einem gerade wichtigen Thema mit `hintergrund: true`.
+- Nur in Wochen- und Monatsrückblicken (und bis zu 5 „Videos des Jahres“ im Jahresrückblick, ausgewählt aus den Monatsempfehlungen; dort dürfen mehrere Videos dasselbe Überthema haben).
+- In Wochen- und Monatsrückblicken höchstens 1 Video pro Überthema, insgesamt höchstens 3 pro Woche und 5 pro Monat. Kein Video ist der Normalfall, kein Fehler.
+- Nur Kanäle der Positivliste in `themen.json`. Ein Kanal außerhalb nur mit Begründung und `neuer_kanal: true`, höchstens 1 solches Video pro Ausgabe. Die Startliste schlägt Claude Code beim Bau vor, du streichst und ergänzt.
+- Keine Shorts (jedes Video mit `/shorts/` in der Adresse oder unter 3 Minuten Länge), keine Reaktionsvideos, keine Clickbait-Titel. Das Video ist im Berichtszeitraum erschienen; Ausnahme sind zeitlose Erklärvideos zu einem gerade wichtigen Thema mit `hintergrund: true`.
 - Claude kann Videos nicht ansehen, nur Titel, Kanal, Beschreibung, Länge und Datum prüfen. Deshalb ist die Positivliste Pflicht.
 
 ## Datenformat und Dateien
@@ -253,7 +253,7 @@ Fertig ist der Lauf, wenn die neue Ausgabe und data/index.json gültiges JSON si
 1. Zeitraum = das Vorjahr. Warten, bis der Dezember-Rückblick auf dem Branch liegt, wie oben.
 2. Quelle: alle Monatsrückblicke des Jahres. Fehlen Monate, nur die vorhandenen nutzen und `titel` auf „Kurzrückblick \<Jahr>“ setzen, sonst „Jahresrückblick \<Jahr>“.
 3. Pro Überthema höchstens 10 Meldungen, dazu `monatsueberblick` (1 bis 2 Sätze pro Monat und Thema) und `ausblick` (nur bereits angekündigte Termine und Entscheidungen des neuen Jahres).
-4. Bis zu 3 Videos des Jahres, ausgewählt aus den Monatsempfehlungen.
+4. Bis zu 5 Videos des Jahres, ausgewählt aus den Monatsempfehlungen; mehrere dürfen dasselbe Überthema haben.
 5. Schreiben, prüfen, `index.json` aktualisieren, committen, pushen. Nie etwas löschen.
 
 ## Sonderfälle
