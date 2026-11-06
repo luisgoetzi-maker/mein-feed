@@ -30,6 +30,7 @@ Vier Formate, jedes fasst einen abgeschlossenen Zeitraum zusammen und erscheint 
 | Jahresrückblick | 1.1., 4:37 | das Vorjahr | 10 Meldungen | Monatsüberblick, Ausblick, bis zu 5 Videos des Jahres | ca. 20 min, kapitelweise |
 
 - Die Zahlen sind Obergrenzen, keine Ziele. Ein Thema darf weniger Meldungen haben oder ganz ausfallen.
+- Ausnahme: Gibt es wirklich mehr wichtige Meldungen, darf ein Thema die Obergrenze um höchstens 2 überschreiten (täglich also 5, wöchentlich 7, monatlich 10, jährlich 12). Jede zusätzliche Meldung muss so wichtig sein, dass sie eine der regulären verdrängen könnte; die Begründung steht in `ausnahmen`, und die App zeigt sie beim Thema an.
 - Die Woche zählt von Sonntag bis Samstag, damit der Sonntagsrückblick eine abgeschlossene Woche zusammenfasst. Beispiel: Der Rückblick vom 8.11.2026 umfasst den 1. bis 7.11.2026.
 - Die Startzeiten liegen ein paar Minuten nach der vollen Stunde, weil Läufe genau zur vollen Stunde laut Doku oft verspätet starten.
 - Läufe pro Tag: normal 1, sonntags 2, am Monatsersten 2 (an einem Sonntag 3), am 1.1. bis zu 4. Jeder Lauf zählt gegen dein normales Abo-Kontingent. Laut aktueller Doku gibt es daneben nur noch ein Stundenlimit von 100 geplanten Läufen, die früher genannte Tagesgrenze von 5 gilt nicht mehr.
@@ -51,8 +52,9 @@ Sechs Überthemen in fester Reihenfolge; die Reihenfolge gilt in der App und bei
 **Regeln je Thema**
 
 - Weltpolitik: Die Obergrenze gilt für das ganze Thema. USA und Nahost kommen nur bei einer echten neuen Entwicklung hinein; die übrigen Plätze gehen an die wichtigsten anderen Meldungen weltweit.
-- Börse und Wirtschaft, ETFs: Meldungen zu breiten ETFs (z. B. MSCI World, S&P 500, Halbleiter- und KI-ETFs) und Änderungen bei Steuern oder Regeln für ETF-Anleger in Österreich. Einen festen Marktstand mit Indexzahlen gibt es nicht.
-- Tirol und Innsbruck: Offiziell angekündigte Veranstaltungen der nächsten 7 Tage dürfen hinein, obwohl sie nach dem Berichtszeitraum liegen. Sie zählen zur Obergrenze; der Termin steht im Text, `datum` ist der Tag der Ankündigung.
+- KI und Claude: Neuerungen bei Claude, der Claude-App und Claude Code haben Vorrang, auch kleinere Funktionen, die man direkt nutzen kann, aber keine reinen Fehlerbehebungen. Andere Anbieter kommen nur mit neuen Modellen oder wichtigen Funktionen hinein. Weil viele der größten Unternehmen eng mit der KI-Branche verbunden sind, gehören auch Wirtschaftsmeldungen hierher, wenn KI im Mittelpunkt steht (KI-Deals, KI-Investitionen, Rechenzentren, vom KI-Geschäft getriebene Quartalszahlen): Dann ist `ki` Hauptthema und `wirtschaft` weiteres Thema. Geht es vor allem um Kurs oder Markt, ist es umgekehrt.
+- Börse und Wirtschaft: Zinsentscheidungen von EZB und Fed kommen immer hinein, Indexbewegungen ab ±3 % an einem Tag nur mit klarem Grund. ETFs: Meldungen zu breiten ETFs (z. B. MSCI World, S&P 500, Halbleiter- und KI-ETFs) und Änderungen bei Steuern oder Regeln für ETF-Anleger in Österreich. Einen festen Marktstand mit Indexzahlen gibt es nicht.
+- Tirol und Innsbruck: Verkehr heißt nur Sperren, Großbaustellen, Blockabfertigung am Brenner, Streiks und größere Ausfälle bei ÖBB oder IVB, keine normalen Staus und Unfälle. Offiziell angekündigte Veranstaltungen der nächsten 7 Tage dürfen hinein, obwohl sie nach dem Berichtszeitraum liegen. Sie zählen zur Obergrenze; der Termin steht im Text, `datum` ist der Tag der Ankündigung.
 - Startups je Format: täglich nur große Finanzierungsrunden (weltweit ab 100 Mio. $, in Europa ab 20 Mio. €, in Österreich ab 5 Mio. €), Börsengänge und Pleiten; wöchentlich zusätzlich die Liste „Finanzierungsrunden der Woche“ (Runden aus KI, Hardware und Robotik ab 10 Mio. €, österreichische ab 1 Mio. €, höchstens 10 Einträge); monatlich „Gescheitert und warum“, aber nur bei einem lehrreichen Fall.
 
 **Relevanz: lieber weglassen als auffüllen**
@@ -61,14 +63,17 @@ Sechs Überthemen in fester Reihenfolge; die Reihenfolge gilt in der App und bei
 - Pflichtfeld `warum_wichtig`: ein Satz. Gibt es keinen überzeugenden Satz, fliegt die Meldung raus.
 - Laufende Geschichten (z. B. Nahost, US-Politik) kommen nur bei einer echten neuen Entwicklung wieder, markiert mit `update: true`. Dafür liest der tägliche Lauf die Ausgaben der letzten 7 Tage mit.
 - Eine Meldung darf mehreren Überthemen angehören (`themen`), hat aber genau ein `hauptthema`. Beispiel: ein EU-Gesetz zu KI gehört zu `politik` (Hauptthema) und `ki`.
-- Leere Themen werden nicht aufgefüllt, sondern in `ruhig` aufgeführt.
+- Die Obergrenze zählt die Meldungen mit diesem Hauptthema; Verweise in anderen Themen zählen nicht.
+- Leere Themen (ohne Meldung, Verweis, Video oder Abschnitt) werden nicht aufgefüllt, sondern in `ruhig` aufgeführt.
 
 **Quellen**
 
 - Zuerst die festen Quellen des Themas aus `config/themen.json` lesen, die Websuche nur ergänzend nutzen, höchstens 2 Suchen pro Thema und Lauf.
 - Jede Meldung hat mindestens eine Quelle mit Link.
 - Themen 1 und 2: mindestens zwei voneinander unabhängige Quellen, bevorzugt Nachrichtenagenturen (APA, dpa, Reuters, AP). Umstrittene Angaben wie Opferzahlen oder Schuldfragen stehen immer mit Quelle da („laut …“).
-- Erster Vorschlag für die festen Quellen (in `themen.json` anpassbar): Weltpolitik reuters.com, apnews.com, tagesschau.de, orf.at · Politik orf.at, derstandard.at, diepresse.com, tagesschau.de, faz.net, politico.eu · KI anthropic.com/news, heise.de, the-decoder.de · Wirtschaft reuters.com, handelsblatt.com, derstandard.at · Tirol tirol.orf.at, tt.com, innsbruck.gv.at · Startups brutkasten.com, trendingtopics.eu, sifted.eu, techcrunch.com.
+- Die festen Quellen stehen in `config/themen.json`, als RSS-Feeds (`feeds`) und Einstiegsseiten (`seiten`). Feeds sind zuverlässiger und sparen Kontingent. Stand 6.11.2026: Weltpolitik apnews.com, bbc.com, tagesschau.de, orf.at, derstandard.at · Politik orf.at, derstandard.at, diepresse.com, tagesschau.de, faz.net, politico.eu · KI anthropic.com/news, Änderungsprotokoll von Claude Code, heise.de, the-decoder.de, techcrunch.com · Wirtschaft handelsblatt.com, derstandard.at, tagesschau.de, bbc.com · Tirol tirol.orf.at, tt.com, innsbruck.gv.at · Startups brutkasten.com, trendingtopics.eu, sifted.eu, techcrunch.com.
+- reuters.com ist keine feste Quelle, weil Claude die Seite nicht abrufen kann. Meldungen von Reuters, APA und dpa kommen über die Medien, die sie übernehmen, und werden mit „laut Reuters“ usw. gekennzeichnet.
+- Ist eine feste Quelle im Lauf nicht erreichbar, nutzt der Lauf die anderen oder die Websuche; das ist kein Fehler. Fällt eine Quelle dauerhaft aus, ersetzt Claude Code sie durch eine gleichwertige.
 
 **YouTube-Empfehlungen**
 
@@ -92,6 +97,8 @@ main
 ├─ config/regeln.md                      Inhaltsregeln für alle Läufe
 ├─ routinen/taeglich.md                  Ablauf je Lauf (auch woechentlich.md,
 │                                        monatlich.md, jaehrlich.md)
+├─ routinen/feed.py                      Hilfsskript der Läufe: Zeitraum, Quellen,
+│                                        Prüfung, Index, Aufräumen, Pushen
 ├─ BAUPLAN.md                            dieses Dokument als Markdown
 └─ CLAUDE.md                             „Lies vor jeder Arbeit BAUPLAN.md.“
 
@@ -109,12 +116,14 @@ claude/feed-daten
 ```json
 {
   "format": "taeglich",
+  "titel": "Donnerstag, 5. November 2026",
   "zeitraum": { "von": "2026-11-05", "bis": "2026-11-05" },
   "erschienen": "2026-11-06T03:12:00+01:00",
   "status": "ok",
   "fehler": null,
   "ruhig": ["tirol", "startups"],
   "luecken": [],
+  "ausnahmen": [],
   "meldungen": [
     {
       "id": "2026-11-05-politik-1",
@@ -134,12 +143,14 @@ claude/feed-daten
 }
 ```
 
+- `titel`: lesbarer Name der Ausgabe, z. B. „Woche vom 1. bis 7. November 2026“ oder „Kurzrückblick 2026“.
 - `status`: `ok`, `ruhig` (nichts Wichtiges) oder `fehler` (mit kurzem Text in `fehler`).
 - `luecken`: Tage, die ein Rückblick selbst nachrecherchieren musste.
+- `ausnahmen[]`: `thema` und `grund`, nur wenn ein Thema die Obergrenze überschreitet.
 - `datum_bis`: nur in Rückblicken, wenn eine Meldung eine Entwicklung über mehrere Tage zusammenfasst.
 - `videos[]`: `titel`, `kanal`, `dauer_min`, `datum`, `url`, `thema`, `warum`, `hintergrund`, `neuer_kanal`.
-- `abschnitte[]`: Extras mit `typ` (`finanzierungsrunden`, `gescheitert`, `monatsueberblick`, `ausblick`), `titel` und `eintraege`.
-- `index.json`: `aktualisiert` plus `ausgaben[]` mit `format`, `zeitraum`, `datei`, `status`. Die App liest zuerst diese Datei.
+- `abschnitte[]`: Extras mit `typ` (`finanzierungsrunden`, `gescheitert`, `monatsueberblick`, `ausblick`), `thema`, `titel` und `eintraege`; die Felder der Einträge stehen in `config/regeln.md`.
+- `index.json`: `aktualisiert`, `start` (Berichtstag der ersten Tagesausgabe) und `ausgaben[]` mit `format`, `titel`, `zeitraum`, `datei`, `status`, `erschienen`. Die App liest zuerst diese Datei; `routinen/feed.py` baut sie aus den vorhandenen Dateien neu auf.
 
 **`config/themen.json`** (ein Thema gezeigt, die anderen fünf genauso):
 
@@ -152,9 +163,14 @@ claude/feed-daten
       "name": "Weltpolitik",
       "reihenfolge": 1,
       "schwerpunkte": ["USA", "Nahost-Konflikt", "3 wichtigste weitere Meldungen weltweit"],
-      "quellen": ["reuters.com", "apnews.com", "tagesschau.de", "orf.at"],
+      "quellen": ["apnews.com", "bbc.com", "tagesschau.de", "orf.at", "derstandard.at"],
+      "feeds": [{ "name": "ORF News", "url": "https://rss.orf.at/news.xml" }],
+      "seiten": [{ "name": "AP World News", "url": "https://apnews.com/world-news" }],
       "zwei_quellen_pflicht": true,
-      "youtube_kanaele": []
+      "videos": true,
+      "youtube_kanaele": [
+        { "name": "CaspianReport", "handle": "@CaspianReport", "kanal_id": "UCwnKziETDbHJtx78nIkfYug", "sprache": "en", "vorschlag": true }
+      ]
     }
   ]
 }
@@ -166,12 +182,14 @@ Jede Stufe bleibt, bis die nächsthöhere sie vollständig abdeckt, und zusätzl
 
 | Ausgabe | Wird gelöscht, sobald | und |
 | --- | --- | --- |
-| Täglich | der Wochenrückblick mit ihrem Berichtstag erschienen ist | die Ausgabe mindestens 7 Tage alt ist |
-| Wöchentlich | alle 7 Tage der Woche in erschienenen Monatsrückblicken stecken (eine Woche über einen Monatswechsel also erst nach dem zweiten Monat) | die Ausgabe mindestens 7 Tage alt ist |
-| Monatlich | der Jahresrückblick ihres Jahres erschienen ist | die Ausgabe mindestens 7 Tage alt ist |
+| Täglich | der Wochenrückblick mit ihrem Berichtstag erschienen ist | dieser Rückblick seit mindestens 7 Tagen erschienen ist |
+| Wöchentlich | alle 7 Tage der Woche in erschienenen Monatsrückblicken stecken (eine Woche über einen Monatswechsel also erst nach dem zweiten Monat) | der letzte dieser Rückblicke seit mindestens 7 Tagen erschienen ist |
+| Monatlich | der Jahresrückblick ihres Jahres erschienen ist | dieser Rückblick seit mindestens 7 Tagen erschienen ist |
 | Jahresrückblick | nie |  |
 
 - „Erschienen“ heißt: Die Datei existiert mit `status` `ok` oder `ruhig`. Ein Rückblick mit `fehler` löscht nichts.
+- Fehlt eine Zwischenstufe dauerhaft, deckt die nächsthöhere ab: Hat etwa ein Wochenrückblick `fehler`, verschwinden seine Tagesausgaben 7 Tage nach dem Monatsrückblick.
+- Was gelöscht wird, rechnet `routinen/feed.py` aus, nicht Claude selbst, damit nichts zu früh verschwindet.
 - Aufgeräumt wird nur vom täglichen Lauf, als letzter Schritt: Datei auf `claude/feed-daten` löschen und aus `index.json` entfernen. Im Git-Verlauf bleibt alles erhalten; bei News ist das harmlos, Persönliches gehört deshalb nie ins Repo.
 - Die 7-Tage-Schonfrist verhindert, dass etwa die Sonntags-Tagesausgabe oder der Dezember-Rückblick am selben Morgen verschwinden, an dem sie erscheinen.
 - **Merkliste:** Der Speichern-Knopf kopiert eine Meldung, ein Video oder eine ganze Ausgabe in den Speicher des Handys (IndexedDB, mit `navigator.storage.persist()`). Sie bleibt dort, egal was im Repo gelöscht wird, ist privat und wird nicht zwischen Geräten abgeglichen. Export und Import als JSON-Datei sichern sie.
@@ -184,10 +202,11 @@ Die App zeigt immer die neueste Ausgabe zuerst, gegliedert nach Überthemen, und
 **Ansichten und Anzeige**
 
 - Tabs: Heute, Woche, Monat, Jahr, Merkliste. In jedem Tab die neueste Ausgabe oben, ältere noch vorhandene darunter.
-- Kopf jeder Ausgabe: Zeitraum, Erscheinungszeit („Stand: …“) und Status. Bei `fehler` ein deutlicher Hinweis mit dem Datum der letzten erfolgreichen Ausgabe.
+- Kopf jeder Ausgabe: Titel, Zeitraum, Erscheinungszeit („Stand: …“) und Status. Bei `fehler` ein deutlicher Hinweis mit dem Datum der letzten erfolgreichen Ausgabe.
 - Überthemen in der Reihenfolge aus `themen.json`. Eine Meldung steht vollständig in ihrem Hauptthema; in jedem weiteren Thema nur eine Verweiszeile („→ siehe KI und Claude“), die beim Antippen hinspringt.
 - Leere Themen sind ausgeblendet. Ganz unten steht „Heute ruhig: Tirol und Innsbruck, Startups“; bei `status: ruhig` nur „Heute nichts Wichtiges“.
 - Themen-Chips oben filtern die Ansicht.
+- Überschreitet ein Thema die Obergrenze, steht beim Thema ein kleiner Hinweis „5 statt 3 Meldungen, weil …“ mit dem Grund aus `ausnahmen`.
 - Meldung: Titel, Text, „Warum wichtig“, Kennzeichen „Update“, Quellenlinks, Knöpfe „Speichern“ und „Unnötig“.
 - Videos: Karte mit Titel, Kanal, Länge und Begründung; Antippen spielt das Video eingebettet über youtube-nocookie.com in der App, ohne YouTube-Startseite.
 - Abschnitte wie „Finanzierungsrunden der Woche“ als kompakte Liste am Ende ihres Themas.
@@ -208,7 +227,7 @@ Die App zeigt immer die neueste Ausgabe zuerst, gegliedert nach Überthemen, und
 
 ## Die vier geplanten Aufgaben
 
-Alle vier Aufgaben bekommen denselben kurzen Prompt; nur die erste Zeile unterscheidet sich. Der genaue Ablauf steht im Repo unter `routinen/`, damit du ihn mit Claude Code ändern kannst, ohne die Aufgaben anzufassen.
+Alle vier Aufgaben bekommen denselben kurzen Prompt; nur die erste Zeile unterscheidet sich. Der genaue Ablauf steht im Repo unter `routinen/`, damit du ihn mit Claude Code ändern kannst, ohne die Aufgaben anzufassen. Datumsrechnung, Abruf der Feeds, Prüfung, `index.json`, Aufräumen und Pushen erledigt das Hilfsskript `routinen/feed.py`; Claude recherchiert, wählt aus und schreibt.
 
 **Prompt zum Einfügen** (erste Zeile je Aufgabe: `taeglich`, `woechentlich`, `monatlich` oder `jaehrlich`):
 
@@ -231,7 +250,7 @@ Fertig ist der Lauf, wenn die neue Ausgabe und data/index.json gültiges JSON si
 1. Berichtstag = gestern (Europe/Vienna). Branch `claude/feed-daten` holen und auschecken; gibt es ihn noch nicht, mit einer leeren `data/index.json` anlegen.
 2. Existiert `data/taeglich/<Berichtstag>.json` schon mit `ok` oder `ruhig`, beenden (kein Doppellauf).
 3. Die Tagesausgaben der letzten 7 Tage lesen, um Wiederholungen zu vermeiden und Updates zu erkennen.
-4. Pro Überthema: feste Quellen lesen, höchstens 2 Websuchen, Kandidaten nach `regeln.md` prüfen, höchstens 3 behalten.
+4. Pro Überthema: feste Quellen lesen, höchstens 2 Websuchen, Kandidaten nach `regeln.md` prüfen, höchstens 3 behalten (Ausnahme bis 5).
 5. Ausgabe schreiben; bleibt keine einzige Meldung, `status: ruhig`.
 6. JSON prüfen: lässt sich parsen, Pflichtfelder vorhanden, jedes `hauptthema` steht in `themen`.
 7. Aufräumen nach den Löschregeln.
@@ -240,7 +259,7 @@ Fertig ist der Lauf, wenn die neue Ausgabe und data/index.json gültiges JSON si
 **`routinen/woechentlich.md`**
 
 1. Zeitraum = Sonntag bis Samstag der Vorwoche.
-2. Warten, bis die heutige Tagesausgabe auf dem Branch liegt: alle 10 Minuten neu holen, höchstens 3 Mal.
+2. Warten, bis die heutige Tagesausgabe auf dem Branch liegt: alle 10 Minuten neu holen, höchstens 3 Mal. Liegt sie dann nicht vor, ohne sie weitermachen und den Tag als Lücke behandeln.
 3. Die 7 Tagesausgaben lesen. Fehlt eine oder hat sie `fehler`, die Tage kurz selbst nachrecherchieren und in `luecken` eintragen.
 4. Pro Überthema höchstens 5 Meldungen; zusammengehörige Tagesmeldungen zu einer Entwicklung bündeln (`datum` und `datum_bis`).
 5. Abschnitt `finanzierungsrunden` für Startups; Videos nach den YouTube-Regeln.
@@ -248,7 +267,7 @@ Fertig ist der Lauf, wenn die neue Ausgabe und data/index.json gültiges JSON si
 
 **`routinen/monatlich.md`**
 
-1. Zeitraum = der Vormonat. Warten auf die heutige Tagesausgabe wie oben.
+1. Zeitraum = der Vormonat. Warten auf die heutige Tagesausgabe wie oben, an einem Sonntag auch auf den Wochenrückblick.
 2. Quellen: alle Wochenrückblicke, die den Monat berühren (nur Meldungen mit Datum im Monat), dazu die Tagesausgaben der Tage, die noch in keinem Wochenrückblick stecken. Lücken wie oben.
 3. Pro Überthema höchstens 8 Meldungen plus die größeren Entwicklungen des Monats.
 4. Abschnitt `gescheitert` nur bei einem lehrreichen Fall; höchstens 5 Videos, höchstens 2 pro Überthema.
@@ -282,6 +301,11 @@ Jeder Fall hat eine feste Lösung, damit die Läufe ohne Rückfrage durchlaufen.
 | GitHub-Verbindung läuft ab | Die Aufgaben setzen laut Doku bis zu 72 Stunden aus und schalten sich danach ab: neu verbinden und wieder einschalten |
 | Bildschirm geht während des Vorlesens aus oder App wird gewechselt | Wake Lock neu anfordern, „Weiter ab Satz …“ anbieten |
 | Video wird später gelöscht oder privat | Die Karte zeigt „Video nicht mehr verfügbar“; in der Merkliste bleiben Titel und Begründung stehen |
+| Feed startet mitten in einer Woche oder einem Monat | Tage vor der ersten Tagesausgabe (`start` in `index.json`) zählen nicht als Lücke; der Rückblick sagt im Titel, ab wann er gilt |
+| Der Monatserste ist ein Sonntag | Der Monatsrückblick wartet auch auf den Wochenrückblick |
+| Die Vorstufe liegt nach 3 Versuchen nicht vor | Ohne sie weitermachen und ihre Tage als Lücke selbst nachrecherchieren |
+| Ein Wochenrückblick fehlt dauerhaft | Seine Tagesausgaben werden 7 Tage nach dem Monatsrückblick gelöscht |
+| Eine feste Quelle ist nicht erreichbar | Andere feste Quellen oder Websuche nutzen; kein Fehler |
 
 ## Einrichtung Schritt für Schritt
 
@@ -340,7 +364,7 @@ Gebaut wird in fünf kleinen Claude-Code-Sitzungen, erst mit Beispieldaten, dann
 
 1. Diesen Bauplan als Markdown exportieren und auf github.com ins Repo laden (**Add file** → **Upload files**) als `BAUPLAN.md`. Dazu eine `CLAUDE.md` mit dem Satz „Lies vor jeder Arbeit BAUPLAN.md.“
 2. In Claude Code (claude.ai/code, Repo `mein-feed`) je eine Sitzung:
-   1. Konfiguration: `config/themen.json`, `config/regeln.md` und die vier `routinen/*.md`.
+   1. Konfiguration: `config/themen.json`, `config/regeln.md`, die vier `routinen/*.md` und `routinen/feed.py`.
    2. Beispieldaten auf `claude/feed-daten`: eine Tages- und eine Wochenausgabe, als Beispiel gekennzeichnet.
    3. App: Ansichten, Gruppierung, Verweise, Filter, Status, Merkliste, Feedback.
    4. Vorlesen: Vorlese-Ansicht, Wake Lock, Weiterlesen.
