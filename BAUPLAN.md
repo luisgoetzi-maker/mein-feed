@@ -42,13 +42,18 @@ Sechs Überthemen in fester Reihenfolge; die Reihenfolge gilt in der App und bei
 | Nr. | Überthema | ID | Schwerpunkte |
 | --- | --- | --- | --- |
 | 1 | Weltpolitik | `weltpolitik` | USA, Nahost-Konflikt, dazu die 3 wichtigsten anderen Meldungen weltweit |
-| 2 | Politik in Österreich, Deutschland und der EU | `politik` | Regierungen, Gesetze, Wahlen; Markierung „betrifft dich“ bei direkter Wirkung auf Schule, Führerschein oder Arbeit |
+| 2 | Politik in Österreich, Deutschland und der EU | `politik` | Regierungen, Gesetze, Wahlen |
 | 3 | KI und Claude | `ki` | neue Modelle, Funktionen und Tools |
 | 4 | Börse und Wirtschaft | `wirtschaft` | Märkte und Unternehmen, vor allem KI-Infrastruktur und Chips weltweit, inklusive Energie für Rechenzentren, dazu ETFs |
 | 5 | Tirol und Innsbruck | `tirol` | Lokales, Verkehr, Veranstaltungen |
 | 6 | Startups | `startups` | KI-Startups, Finanzierungsrunden, gescheiterte Startups, Börsengänge, Szene in Deutschland und Europa, Hardware und Robotik |
 
-Startups je Format: täglich nur große Finanzierungsrunden, Börsengänge und Pleiten; wöchentlich zusätzlich die Liste „Finanzierungsrunden der Woche“; monatlich „Gescheitert und warum“, aber nur bei einem lehrreichen Fall.
+**Regeln je Thema**
+
+- Weltpolitik: Die Obergrenze gilt für das ganze Thema. USA und Nahost kommen nur bei einer echten neuen Entwicklung hinein; die übrigen Plätze gehen an die wichtigsten anderen Meldungen weltweit.
+- Börse und Wirtschaft, ETFs: Meldungen zu breiten ETFs (z. B. MSCI World, S&P 500, Halbleiter- und KI-ETFs) und Änderungen bei Steuern oder Regeln für ETF-Anleger in Österreich. Einen festen Marktstand mit Indexzahlen gibt es nicht.
+- Tirol und Innsbruck: Offiziell angekündigte Veranstaltungen der nächsten 7 Tage dürfen hinein, obwohl sie nach dem Berichtszeitraum liegen. Sie zählen zur Obergrenze; der Termin steht im Text, `datum` ist der Tag der Ankündigung.
+- Startups je Format: täglich nur große Finanzierungsrunden (weltweit ab 100 Mio. $, in Europa ab 20 Mio. €, in Österreich ab 5 Mio. €), Börsengänge und Pleiten; wöchentlich zusätzlich die Liste „Finanzierungsrunden der Woche“ (Runden aus KI, Hardware und Robotik ab 10 Mio. €, österreichische ab 1 Mio. €, höchstens 10 Einträge); monatlich „Gescheitert und warum“, aber nur bei einem lehrreichen Fall.
 
 **Relevanz: lieber weglassen als auffüllen**
 
@@ -67,10 +72,12 @@ Startups je Format: täglich nur große Finanzierungsrunden, Börsengänge und P
 
 **YouTube-Empfehlungen**
 
+- Nur für die Überthemen KI und Claude (`ki`), Politik (`politik`) sowie Börse und Wirtschaft (`wirtschaft`). Die übrigen Themen bekommen keine Videos und keine Kanäle in der Positivliste.
 - Nur in Wochen- und Monatsrückblicken (und bis zu 5 „Videos des Jahres“ im Jahresrückblick, ausgewählt aus den Monatsempfehlungen; dort dürfen mehrere Videos dasselbe Überthema haben).
 - In Wochen- und Monatsrückblicken höchstens 1 Video pro Überthema, insgesamt höchstens 3 pro Woche und 5 pro Monat. Kein Video ist der Normalfall, kein Fehler.
 - Nur Kanäle der Positivliste in `themen.json`. Ein Kanal außerhalb nur mit Begründung und `neuer_kanal: true`, höchstens 1 solches Video pro Ausgabe. Die Startliste schlägt Claude Code beim Bau vor, du streichst und ergänzt.
 - Keine Shorts (jedes Video mit `/shorts/` in der Adresse oder unter 3 Minuten Länge), keine Reaktionsvideos, keine Clickbait-Titel. Das Video ist im Berichtszeitraum erschienen; Ausnahme sind zeitlose Erklärvideos zu einem gerade wichtigen Thema mit `hintergrund: true`.
+- Sprache Deutsch oder Englisch. Die Sprache spielt bei der Auswahl keine Rolle, entscheidend ist die Qualität.
 - Claude kann Videos nicht ansehen, nur Titel, Kanal, Beschreibung, Länge und Datum prüfen. Deshalb ist die Positivliste Pflicht.
 
 ## Datenformat und Dateien
@@ -119,7 +126,6 @@ claude/feed-daten
       "themen": ["politik", "ki"],
       "hauptthema": "politik",
       "update": false,
-      "betrifft_dich": false,
       "quellen": [{ "name": "ORF", "url": "https://…" }]
     }
   ],
@@ -182,7 +188,7 @@ Die App zeigt immer die neueste Ausgabe zuerst, gegliedert nach Überthemen, und
 - Überthemen in der Reihenfolge aus `themen.json`. Eine Meldung steht vollständig in ihrem Hauptthema; in jedem weiteren Thema nur eine Verweiszeile („→ siehe KI und Claude“), die beim Antippen hinspringt.
 - Leere Themen sind ausgeblendet. Ganz unten steht „Heute ruhig: Tirol und Innsbruck, Startups“; bei `status: ruhig` nur „Heute nichts Wichtiges“.
 - Themen-Chips oben filtern die Ansicht.
-- Meldung: Titel, Text, „Warum wichtig“, Kennzeichen „Update“ und „Betrifft dich“, Quellenlinks, Knöpfe „Speichern“ und „Unnötig“.
+- Meldung: Titel, Text, „Warum wichtig“, Kennzeichen „Update“, Quellenlinks, Knöpfe „Speichern“ und „Unnötig“.
 - Videos: Karte mit Titel, Kanal, Länge und Begründung; Antippen spielt das Video eingebettet über youtube-nocookie.com in der App, ohne YouTube-Startseite.
 - Abschnitte wie „Finanzierungsrunden der Woche“ als kompakte Liste am Ende ihres Themas.
 
@@ -347,7 +353,7 @@ Gebaut wird in fünf kleinen Claude-Code-Sitzungen, erst mit Beispieldaten, dann
 Start-Prompt für die erste Sitzung:
 
 ```
-Lies BAUPLAN.md. Erstelle config/themen.json, config/regeln.md und routinen/taeglich.md, woechentlich.md, monatlich.md und jaehrlich.md genau nach dem Bauplan. Schlag pro Überthema 3 bis 5 YouTube-Kanäle für die Positivliste vor und markiere sie als Vorschlag, damit ich sie prüfen kann.
+Lies BAUPLAN.md. Erstelle config/themen.json, config/regeln.md und routinen/taeglich.md, woechentlich.md, monatlich.md und jaehrlich.md genau nach dem Bauplan. Schlag für KI und Claude, Politik sowie Börse und Wirtschaft je 3 bis 5 YouTube-Kanäle für die Positivliste vor und markiere sie als Vorschlag, damit ich sie prüfen kann.
 ```
 
 **Abnahme**
