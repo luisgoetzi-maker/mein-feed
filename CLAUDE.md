@@ -1,1 +1,1 @@
-  Lies vor jeder Arbeit BAUPLAN.md
+  Lies vor jeder Arbeit Bauplan.md
