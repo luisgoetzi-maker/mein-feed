@@ -401,7 +401,9 @@ def cmd_veroeffentlichen(args):
             return
         print(f"Push abgelehnt (Versuch {versuch + 1}): {r.stderr.strip()}")
         time.sleep(2 ** (versuch + 1))
-        git("fetch", "--quiet", "origin", REFSPEC, cwd=WORKTREE)
+        if git("fetch", "--quiet", "origin", REFSPEC, cwd=WORKTREE, pruefen=False).returncode != 0:
+            # Branch noch nicht auf origin (erster Lauf) oder Netz kurz weg: nichts zu holen, neu pushen
+            continue
         r = git("rebase", REMOTE_REF, cwd=WORKTREE, pruefen=False)
         if r.returncode != 0:
             konflikte = set(git("diff", "--name-only", "--diff-filter=U", cwd=WORKTREE,
