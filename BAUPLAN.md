@@ -328,7 +328,7 @@ Du stellst an drei Stellen etwas ein: GitHub, die geplanten Aufgaben bei Claude 
 1. claude.ai/code/routines öffnen → **New task** (oder **New routine**) → **Set up manually**.
 2. **Advanced settings** → **General** → **Repository**: `mein-feed`.
 3. Darunter bei **Cloud environment** eine eigene Umgebung „Mein Feed“ anlegen, damit **Default** unverändert bleibt. **Network access** = **Full**. Grund: Die Standardstufe **Trusted** lässt nur Paketquellen und ähnliche Entwicklerseiten durch, Nachrichtenseiten würden mit Fehler 403 abgelehnt.
-4. Enger ginge **Custom**: die Quellen-Domains aus `themen.json` plus `youtube.com` unter **Allowed domains** eintragen und **Also include default list of common package managers** anhaken.
+4. Enger ginge **Custom**: die Quellen-Domains aus `themen.json`, die Hosts ihrer `feeds` und `seiten` (z. B. `rss.orf.at`, `feeds.bbci.co.uk`, `raw.githubusercontent.com`) plus `youtube.com` unter **Allowed domains** eintragen und **Also include default list of common package managers** anhaken.
 
 **D. Die vier Aufgaben anlegen**
 

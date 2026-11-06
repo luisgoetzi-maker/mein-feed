@@ -1,0 +1,138 @@
+{
+  "gueltig_ab": "2026-11-09",
+  "hinweis": "Feeds und Seiten am 6.11.2026 geprüft. Kanäle mit \"vorschlag\": true sind von Claude Code vorgeschlagen und noch nicht von dir geprüft; das Feld ist nur ein Merker für die Durchsicht und hat für die Läufe keine Bedeutung. Fehlt eine kanal_id, ermittelt sie routinen/feed.py über den Handle.",
+  "themen": [
+    {
+      "id": "weltpolitik",
+      "name": "Weltpolitik",
+      "reihenfolge": 1,
+      "schwerpunkte": ["USA", "Nahost-Konflikt", "3 wichtigste weitere Meldungen weltweit"],
+      "quellen": ["apnews.com", "bbc.com", "tagesschau.de", "orf.at", "derstandard.at"],
+      "feeds": [
+        { "name": "ORF News", "url": "https://rss.orf.at/news.xml" },
+        { "name": "tagesschau Ausland", "url": "https://www.tagesschau.de/ausland/index~rss2.xml" },
+        { "name": "DER STANDARD International", "url": "https://www.derstandard.at/rss/international" },
+        { "name": "BBC World", "url": "https://feeds.bbci.co.uk/news/world/rss.xml" }
+      ],
+      "seiten": [
+        { "name": "AP World News", "url": "https://apnews.com/world-news" }
+      ],
+      "zwei_quellen_pflicht": true,
+      "videos": true,
+      "youtube_kanaele": [
+        { "name": "ARTEde", "handle": "@ARTEde", "kanal_id": null, "sprache": "de", "hinweis": "Nur die Reihen „Mit offenen Karten“ und „ARTE Hintergrund“; der Kanal zeigt sonst viele Dokus ohne Politikbezug.", "vorschlag": true },
+        { "name": "ZDFheute Nachrichten", "handle": "@ZDFheute", "kanal_id": "UCeqKIgPQfNInOswGRWt48kQ", "sprache": "de", "hinweis": "Erklärformate wie „auslandsjournal“ und „global politix“, keine kurzen Nachrichtenclips.", "vorschlag": true },
+        { "name": "CaspianReport", "handle": "@CaspianReport", "kanal_id": "UCwnKziETDbHJtx78nIkfYug", "sprache": "en", "hinweis": "Geopolitische Analysen, meist 13 bis 18 Minuten.", "vorschlag": true },
+        { "name": "TLDR News Global", "handle": "@TLDRnewsGLOBAL", "kanal_id": null, "sprache": "en", "hinweis": "Kurze, sachliche Erklärvideos zu Weltpolitik, etwa 9 Minuten.", "vorschlag": true }
+      ]
+    },
+    {
+      "id": "politik",
+      "name": "Politik in Österreich, Deutschland und der EU",
+      "reihenfolge": 2,
+      "schwerpunkte": ["Regierungen", "Gesetze", "Wahlen"],
+      "quellen": ["orf.at", "derstandard.at", "diepresse.com", "tagesschau.de", "faz.net", "politico.eu"],
+      "feeds": [
+        { "name": "ORF News", "url": "https://rss.orf.at/news.xml" },
+        { "name": "DER STANDARD Inland", "url": "https://www.derstandard.at/rss/inland" },
+        { "name": "Die Presse Politik", "url": "https://www.diepresse.com/rss/politik" },
+        { "name": "tagesschau Inland", "url": "https://www.tagesschau.de/inland/index~rss2.xml" },
+        { "name": "FAZ Politik", "url": "https://www.faz.net/rss/aktuell/politik/" },
+        { "name": "POLITICO Europe", "url": "https://www.politico.eu/feed/" }
+      ],
+      "seiten": [],
+      "zwei_quellen_pflicht": true,
+      "videos": true,
+      "youtube_kanaele": [
+        { "name": "MrWissen2go", "handle": "@MrWissen2go", "kanal_id": null, "sprache": "de", "hinweis": "Erklärvideos zu Politik und Zeitgeschehen (funk, ARD und ZDF). Titel sind teils zugespitzt, deshalb Titel genau prüfen.", "vorschlag": true },
+        { "name": "DER STANDARD", "handle": "@derStandardat", "kanal_id": null, "sprache": "de", "hinweis": "Vor allem die Reihe „Österreich, erklärt“ und Interviews; keine Podcast-Mitschnitte zu Chronik oder True Crime.", "vorschlag": true },
+        { "name": "TLDR News EU", "handle": "@TLDRnewsEU", "kanal_id": "UC-eegKVWEgBCa4OzjnK_PtA", "sprache": "en", "hinweis": "EU-Politik kurz erklärt, etwa 9 Minuten.", "vorschlag": true },
+        { "name": "phoenix", "handle": "@phoenix", "kanal_id": null, "sprache": "de", "hinweis": "Nur Gesprächsrunden und Analysen wie „phoenix runde“, keine stundenlangen Live-Mitschnitte aus dem Bundestag.", "vorschlag": true }
+      ]
+    },
+    {
+      "id": "ki",
+      "name": "KI und Claude",
+      "reihenfolge": 3,
+      "schwerpunkte": ["neue Modelle", "Funktionen und Tools", "Claude, Claude-App und Claude Code mit Vorrang", "Wirtschaftsmeldungen, in denen KI im Mittelpunkt steht"],
+      "quellen": ["anthropic.com", "github.com", "heise.de", "the-decoder.de", "techcrunch.com"],
+      "feeds": [
+        { "name": "Claude Code Releases", "url": "https://github.com/anthropics/claude-code/releases.atom" },
+        { "name": "THE DECODER", "url": "https://the-decoder.de/feed/" },
+        { "name": "TechCrunch AI", "url": "https://techcrunch.com/category/artificial-intelligence/feed/" },
+        { "name": "heise online", "url": "https://www.heise.de/rss/heise-atom.xml" }
+      ],
+      "seiten": [
+        { "name": "Anthropic News", "url": "https://www.anthropic.com/news" },
+        { "name": "Claude Code Änderungsprotokoll", "url": "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md" },
+        { "name": "heise Thema KI", "url": "https://www.heise.de/thema/Kuenstliche-Intelligenz" }
+      ],
+      "zwei_quellen_pflicht": false,
+      "videos": true,
+      "youtube_kanaele": [
+        { "name": "Anthropic", "handle": "@anthropic-ai", "kanal_id": null, "sprache": "en", "hinweis": "Offizieller Kanal: Forschung, Vorstellung neuer Funktionen, Claude Code.", "vorschlag": true },
+        { "name": "AI Explained", "handle": "@aiexplained-official", "kanal_id": "UCNJ1Ymd5yFuUPtn21xtRbbw", "sprache": "en", "hinweis": "Gründliche Einordnung neuer Modelle und Studien.", "vorschlag": true },
+        { "name": "c't 3003", "handle": "@ct3003", "kanal_id": null, "sprache": "de", "hinweis": "Tests und Einordnung von heise/c't, viel zu KI-Werkzeugen.", "vorschlag": true },
+        { "name": "Two Minute Papers", "handle": "@TwoMinutePapers", "kanal_id": "UCbfYPyITQ-7l4upoX8nvctg", "sprache": "en", "hinweis": "Kurze Erklärungen von Forschungsarbeiten. Titel sind oft überschwänglich, deshalb Titel genau prüfen.", "vorschlag": true },
+        { "name": "Dwarkesh Patel", "handle": "@DwarkeshPatel", "kanal_id": "UCXl4i9dYBrFOabk0xGmbkRA", "sprache": "en", "hinweis": "Lange, gut recherchierte Interviews zu KI und Chips; Clips nur vom Hauptkanal.", "vorschlag": true }
+      ]
+    },
+    {
+      "id": "wirtschaft",
+      "name": "Börse und Wirtschaft",
+      "reihenfolge": 4,
+      "schwerpunkte": ["Märkte und Unternehmen", "KI-Infrastruktur und Chips weltweit", "Energie für Rechenzentren", "Zinsentscheidungen von EZB und Fed", "ETFs"],
+      "quellen": ["handelsblatt.com", "derstandard.at", "tagesschau.de", "bbc.com"],
+      "feeds": [
+        { "name": "Handelsblatt Schlagzeilen", "url": "https://www.handelsblatt.com/contentexport/feed/schlagzeilen" },
+        { "name": "DER STANDARD Wirtschaft", "url": "https://www.derstandard.at/rss/wirtschaft" },
+        { "name": "tagesschau Wirtschaft", "url": "https://www.tagesschau.de/wirtschaft/index~rss2.xml" },
+        { "name": "BBC Business", "url": "https://feeds.bbci.co.uk/news/business/rss.xml" }
+      ],
+      "seiten": [],
+      "zwei_quellen_pflicht": false,
+      "videos": true,
+      "youtube_kanaele": [
+        { "name": "Finanzfluss", "handle": "@Finanzfluss", "kanal_id": null, "sprache": "de", "hinweis": "ETFs und Geldanlage, sachlich; keine Werbe- oder Vergleichsvideos.", "vorschlag": true },
+        { "name": "Asianometry", "handle": "@Asianometry", "kanal_id": "UC1LpsuAUaKoMzzJSEt5WImw", "sprache": "en", "hinweis": "Video-Essays zu Halbleitern, TSMC und Chipindustrie.", "vorschlag": true },
+        { "name": "TechTechPotato", "handle": "@TechTechPotato", "kanal_id": null, "sprache": "en", "hinweis": "Chip-Analyst Ian Cutress, KI-Hardware und Rechenzentren.", "vorschlag": true },
+        { "name": "Patrick Boyle", "handle": "@PBoyle", "kanal_id": null, "sprache": "en", "hinweis": "Finanzmärkte und Wirtschaft, trocken-humorvoll, etwa 30 Minuten.", "vorschlag": true },
+        { "name": "Ben Felix", "handle": "@BenFelixCSI", "kanal_id": null, "sprache": "en", "hinweis": "Evidenzbasiertes Investieren, ETFs und Indexfonds.", "vorschlag": true }
+      ]
+    },
+    {
+      "id": "tirol",
+      "name": "Tirol und Innsbruck",
+      "reihenfolge": 5,
+      "schwerpunkte": ["Lokales", "Verkehr (Sperren, Großbaustellen, Blockabfertigung, Streiks, größere Ausfälle bei ÖBB oder IVB)", "Veranstaltungen der nächsten 7 Tage"],
+      "quellen": ["tirol.orf.at", "tt.com", "innsbruck.gv.at"],
+      "feeds": [
+        { "name": "tirol.ORF.at", "url": "https://rss.orf.at/tirol.xml" },
+        { "name": "Tiroler Tageszeitung", "url": "https://www.tt.com/rss/news.xml" }
+      ],
+      "seiten": [
+        { "name": "Innsbruck informiert", "url": "https://presse.innsbruck.gv.at/" }
+      ],
+      "zwei_quellen_pflicht": false,
+      "videos": false,
+      "youtube_kanaele": []
+    },
+    {
+      "id": "startups",
+      "name": "Startups",
+      "reihenfolge": 6,
+      "schwerpunkte": ["KI-Startups", "Finanzierungsrunden", "gescheiterte Startups", "Börsengänge", "Szene in Österreich, Deutschland und Europa", "Hardware und Robotik"],
+      "quellen": ["brutkasten.com", "trendingtopics.eu", "sifted.eu", "techcrunch.com"],
+      "feeds": [
+        { "name": "brutkasten", "url": "https://brutkasten.com/feed/" },
+        { "name": "Trending Topics", "url": "https://www.trendingtopics.eu/feed/" },
+        { "name": "Sifted", "url": "https://sifted.eu/feed/" },
+        { "name": "TechCrunch Startups", "url": "https://techcrunch.com/category/startups/feed/" }
+      ],
+      "seiten": [],
+      "zwei_quellen_pflicht": false,
+      "videos": false,
+      "youtube_kanaele": []
+    }
+  ]
+}
