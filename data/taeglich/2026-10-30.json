@@ -1,0 +1,18 @@
+{
+  "beispiel": true,
+  "format": "taeglich",
+  "titel": "Freitag, 30. Oktober 2026",
+  "zeitraum": {
+    "von": "2026-10-30",
+    "bis": "2026-10-30"
+  },
+  "erschienen": "2026-10-31T03:12:00+01:00",
+  "status": "fehler",
+  "fehler": "Beispiel: Keine der festen Quellen war erreichbar, die Ausgabe konnte nicht erstellt werden.",
+  "ruhig": [],
+  "luecken": [],
+  "ausnahmen": [],
+  "meldungen": [],
+  "videos": [],
+  "abschnitte": []
+}

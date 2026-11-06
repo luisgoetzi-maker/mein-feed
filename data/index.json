@@ -1,0 +1,39 @@
+{
+  "aktualisiert": "2026-11-06T18:21:34+01:00",
+  "start": "2026-10-25",
+  "ausgaben": [
+    {
+      "format": "taeglich",
+      "titel": "Samstag, 31. Oktober 2026",
+      "zeitraum": {
+        "von": "2026-10-31",
+        "bis": "2026-10-31"
+      },
+      "datei": "data/taeglich/2026-10-31.json",
+      "status": "ok",
+      "erschienen": "2026-11-01T03:12:00+01:00"
+    },
+    {
+      "format": "taeglich",
+      "titel": "Freitag, 30. Oktober 2026",
+      "zeitraum": {
+        "von": "2026-10-30",
+        "bis": "2026-10-30"
+      },
+      "datei": "data/taeglich/2026-10-30.json",
+      "status": "fehler",
+      "erschienen": "2026-10-31T03:12:00+01:00"
+    },
+    {
+      "format": "woechentlich",
+      "titel": "Woche vom 25. bis 31. Oktober 2026",
+      "zeitraum": {
+        "von": "2026-10-25",
+        "bis": "2026-10-31"
+      },
+      "datei": "data/woechentlich/2026-10-25_2026-10-31.json",
+      "status": "ok",
+      "erschienen": "2026-11-01T03:40:00+01:00"
+    }
+  ]
+}

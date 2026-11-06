@@ -1,0 +1,314 @@
+{
+  "beispiel": true,
+  "format": "woechentlich",
+  "titel": "Woche vom 25. bis 31. Oktober 2026",
+  "zeitraum": {
+    "von": "2026-10-25",
+    "bis": "2026-10-31"
+  },
+  "erschienen": "2026-11-01T03:40:00+01:00",
+  "status": "ok",
+  "fehler": null,
+  "ruhig": [
+    "tirol"
+  ],
+  "luecken": [
+    "2026-10-28"
+  ],
+  "ausnahmen": [],
+  "meldungen": [
+    {
+      "id": "2026-10-25_2026-10-31-weltpolitik-1",
+      "datum": "2026-10-27",
+      "datum_bis": "2026-10-31",
+      "titel": "Nordmark und Südmark: Waffenruhe hält, Verhandlungen beginnen am Mittwoch",
+      "text": "Nach drei Wochen Kämpfen einigten sich die fiktiven Nachbarstaaten Nordmark und Südmark am Dienstag auf eine Waffenruhe. Sie hielt die ganze Woche und wurde am Samstag bis Ende November verlängert. Ab Mittwoch verhandeln beide Seiten in Mittelburg über einen dauerhaften Grenzverlauf; laut Beispiel-Agentur wurden seit Dienstag keine neuen Angriffe gemeldet.",
+      "warum_wichtig": "Zum ersten Mal reden beide Seiten über eine dauerhafte Lösung statt nur über eine Feuerpause.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Beispiel-Zeitung",
+          "url": "https://example.com/weltpolitik/2026-10-27/waffenruhe-nordmark-suedmark"
+        },
+        {
+          "name": "Muster-Rundschau",
+          "url": "https://example.org/ausland/nordmark-suedmark-waffenruhe-bis-ende-november"
+        },
+        {
+          "name": "Beispiel-Agentur",
+          "url": "https://example.com/agentur/2026-10-31/mittelburg-verhandlungen"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-25_2026-10-31-weltpolitik-2",
+      "datum": "2026-10-26",
+      "datum_bis": "2026-10-31",
+      "titel": "Gipfel der Mustergemeinschaft endet mit verbindlichem Klimaziel für 2040",
+      "text": "Sechs Tage lang verhandelten die zwölf Staaten der fiktiven Mustergemeinschaft in Seestadt. Am Samstag einigten sie sich darauf, ihren Ausstoß an Treibhausgasen bis 2040 um 80 Prozent gegenüber 1990 zu senken, mit längeren Fristen für zwei Staaten mit vielen Kohlekraftwerken. Am selben Tag trat der Inselstaat Musterhafen dem Handelsabkommen der Gemeinschaft bei.",
+      "warum_wichtig": "Die Mitgliedsstaaten müssen ihre nationalen Klimapläne bis Mitte 2027 an das neue Ziel anpassen.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Beispiel-Zeitung",
+          "url": "https://example.com/weltpolitik/2026-10-31/klimaziel-2040"
+        },
+        {
+          "name": "Muster-Rundschau",
+          "url": "https://example.org/ausland/gipfel-seestadt-einigung"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-25_2026-10-31-weltpolitik-3",
+      "datum": "2026-10-31",
+      "datum_bis": null,
+      "titel": "Beispielland: Regierungsbündnis verliert bei Parlamentswahl seine Mehrheit",
+      "text": "Bei der Wahl am Samstag fiel das Bündnis von Ministerpräsidentin Erika Muster auf 41 Prozent. Stärkste Einzelpartei wurde die oppositionelle Musterpartei mit 33 Prozent, die noch am Wahlabend Gespräche mit kleineren Parteien ankündigte.",
+      "warum_wichtig": "Eine neue Regierung im größten Land der Region könnte das gemeinsame Handelsabkommen neu verhandeln.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Beispiel-Zeitung",
+          "url": "https://example.com/weltpolitik/2026-10-31/wahl-beispielland"
+        },
+        {
+          "name": "Muster-Rundschau",
+          "url": "https://example.org/ausland/beispielland-regierung-verliert-mehrheit"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-25_2026-10-31-politik-1",
+      "datum": "2026-10-26",
+      "datum_bis": "2026-10-31",
+      "titel": "Musterland: Kennzeichnungspflicht für KI-Texte in Behörden kommt ins Parlament",
+      "text": "Am Montag stellte das Digitalministerium des fiktiven EU-Mitglieds Musterland einen Entwurf vor, nach dem Behörden mit KI erstellte Texte kennzeichnen müssen. Nach Kritik der Gemeinden wurde die Frist für die Umstellung von drei auf sechs Monate verlängert. Bei der Klausur am Samstag einigte sich die Regierung auf diese Fassung; sie kommt im Dezember ins Parlament und soll ab Juli 2027 gelten.",
+      "warum_wichtig": "Wer einen Bescheid bekommt, soll erkennen können, ob ein KI-System ihn verfasst hat, und einen Menschen erreichen.",
+      "themen": [
+        "politik",
+        "ki"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Beispiel-Zeitung",
+          "url": "https://example.com/politik/2026-10-26/ki-kennzeichnung-entwurf"
+        },
+        {
+          "name": "Muster-Rundschau",
+          "url": "https://example.org/inland/klausur-bergdorf-ki-gesetz"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-25_2026-10-31-politik-2",
+      "datum": "2026-10-31",
+      "datum_bis": null,
+      "titel": "Musterland halbiert Mehrwertsteuer auf Grundnahrungsmittel ab Jänner",
+      "text": "Ab 1. Jänner 2027 sinkt die Mehrwertsteuer auf Brot, Milch, Obst und Gemüse von 10 auf 5 Prozent. Die rund 900 Millionen Euro im Jahr soll eine höhere Abgabe auf Kurzstreckenflüge decken.",
+      "warum_wichtig": "Ein Haushalt mit durchschnittlichem Einkauf spart laut Finanzministerium etwa 15 Euro im Monat.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Beispiel-Zeitung",
+          "url": "https://example.com/politik/2026-10-31/mehrwertsteuer-lebensmittel"
+        },
+        {
+          "name": "Muster-Rundschau",
+          "url": "https://example.org/inland/mehrwertsteuer-halbiert"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-25_2026-10-31-ki-1",
+      "datum": "2026-10-29",
+      "datum_bis": "2026-10-31",
+      "titel": "Muster-KI stellt Sprachmodell Muster-7 vor und gibt es nach zwei Tagen für alle frei",
+      "text": "Am Donnerstag präsentierte das fiktive Unternehmen Muster-KI sein neues Sprachmodell Muster-7, zunächst nur für zahlende Kunden. Seit Samstag steht es allen Nutzern offen. Es verarbeitet laut Hersteller doppelt so lange Texte wie der Vorgänger und ist für Entwickler um 20 Prozent günstiger; unabhängige Vergleichstests stehen noch aus.",
+      "warum_wichtig": "Lange Dokumente wie Verträge oder Bücher lassen sich damit in einem Stück auswerten, statt sie in Teile zu zerlegen.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Beispiel-Zeitung",
+          "url": "https://example.com/ki/2026-10-29/muster-7-vorgestellt"
+        },
+        {
+          "name": "Muster-Rundschau",
+          "url": "https://example.org/technik/muster-7-test"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-25_2026-10-31-ki-2",
+      "datum": "2026-10-28",
+      "datum_bis": null,
+      "titel": "Muster-KI mietet Rechenzentren von Beispiel-Cloud für 2 Milliarden Euro",
+      "text": "Muster-KI hat mit dem fiktiven Betreiber Beispiel-Cloud einen Vertrag über fünf Jahre und 2 Milliarden Euro geschlossen. Beispiel-Cloud stellt dafür ab Mitte 2027 Rechenleistung in zwei neuen Rechenzentren bereit; es ist der größte Auftrag in der Geschichte des Betreibers.",
+      "warum_wichtig": "Der Vertrag zeigt, wie viel Rechenleistung sich KI-Firmen schon Jahre im Voraus sichern.",
+      "themen": [
+        "ki",
+        "wirtschaft"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Muster-Rundschau",
+          "url": "https://example.org/wirtschaft/muster-ki-beispiel-cloud-vertrag"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-25_2026-10-31-wirtschaft-1",
+      "datum": "2026-10-29",
+      "datum_bis": null,
+      "titel": "Beispiel-Zentralbank lässt den Leitzins bei 2 Prozent",
+      "text": "Die fiktive Beispiel-Zentralbank hat den Leitzins für die Mustergemeinschaft zum dritten Mal in Folge nicht verändert. Die Inflation lag im September bei 2,1 Prozent und damit nahe am Ziel. Die nächste Entscheidung fällt am 17. Dezember.",
+      "warum_wichtig": "Kredit- und Sparzinsen bleiben damit vorerst auf dem jetzigen Niveau.",
+      "themen": [
+        "wirtschaft"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Beispiel-Zeitung",
+          "url": "https://example.com/wirtschaft/2026-10-29/leitzins-unveraendert"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-25_2026-10-31-wirtschaft-2",
+      "datum": "2026-10-27",
+      "datum_bis": "2026-10-31",
+      "titel": "Beispiel-Halbleiter baut Chipwerk für 4 Milliarden Euro in Musterstadt",
+      "text": "Nachdem am Dienstag erste Pläne bekannt geworden waren, bestätigte der fiktive Chiphersteller Beispiel-Halbleiter am Samstag den Standort Musterstadt. Ab 2029 sollen dort Speicherchips für Rechenzentren entstehen, geplant sind rund 1.800 Arbeitsplätze. Der Staat übernimmt 900 Millionen Euro der Kosten.",
+      "warum_wichtig": "Speicherchips für KI-Rechenzentren sind knapp, und das Werk wäre eines der größten seiner Art in Europa.",
+      "themen": [
+        "wirtschaft"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Beispiel-Zeitung",
+          "url": "https://example.com/wirtschaft/2026-10-31/chipwerk-musterstadt"
+        },
+        {
+          "name": "Muster-Rundschau",
+          "url": "https://example.org/wirtschaft/beispiel-halbleiter-standort"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-25_2026-10-31-startups-1",
+      "datum": "2026-10-27",
+      "datum_bis": null,
+      "titel": "Schnelllieferdienst Musterkiste meldet Insolvenz an",
+      "text": "Das fiktive Startup Musterkiste, das Lebensmittel in zehn Minuten liefern wollte, hat Insolvenz angemeldet. Betroffen sind rund 400 Beschäftigte in sechs Städten. Eine Finanzierungsrunde über 30 Millionen Euro war im September gescheitert.",
+      "warum_wichtig": "Der Fall zeigt, wie schwer sich Schnelllieferdienste ohne neues Geld halten können.",
+      "themen": [
+        "startups"
+      ],
+      "hauptthema": "startups",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Beispiel-Zeitung",
+          "url": "https://example.com/startups/2026-10-27/musterkiste-insolvenz"
+        }
+      ]
+    }
+  ],
+  "videos": [
+    {
+      "titel": "Beispielvideo: Muster-7 im Praxistest",
+      "kanal": "AI Explained",
+      "dauer_min": 14,
+      "datum": "2026-10-30",
+      "url": "https://www.youtube.com/watch?v=Beispiel-00",
+      "thema": "ki",
+      "warum": "Erfundenes Beispiel mit ungültiger Video-ID: Hier soll die App „Video nicht mehr verfügbar“ anzeigen.",
+      "hintergrund": false,
+      "neuer_kanal": false
+    },
+    {
+      "titel": "Silicon Valley Walks the Jagged Edge",
+      "kanal": "Asianometry",
+      "dauer_min": 19,
+      "datum": "2026-10-30",
+      "url": "https://www.youtube.com/watch?v=gADulYiRSww",
+      "thema": "wirtschaft",
+      "warum": "Ein Reisebericht von der Halbleitermesse Semicon West, der zeigt, wie Chipbranche, KI-Startups und Investoren im Silicon Valley gerade über Rechenleistung, Geschäftsmodelle und die Aussichten des KI-Booms denken.",
+      "hintergrund": false,
+      "neuer_kanal": false
+    }
+  ],
+  "abschnitte": [
+    {
+      "typ": "finanzierungsrunden",
+      "thema": "startups",
+      "titel": "Finanzierungsrunden der Woche",
+      "eintraege": [
+        {
+          "name": "Musterhand Robotics",
+          "betrag": "48 Millionen Euro",
+          "land": "Deutschland",
+          "bereich": "Robotik",
+          "investoren": "Beispiel Ventures, Muster Capital",
+          "datum": "2026-10-26",
+          "quelle": {
+            "name": "Beispiel-Zeitung",
+            "url": "https://example.com/startups/2026-10-26/musterhand-robotics"
+          }
+        },
+        {
+          "name": "Beispiel Labs",
+          "betrag": "22 Millionen Euro",
+          "land": "Frankreich",
+          "bereich": "KI",
+          "investoren": "Muster Capital",
+          "datum": "2026-10-29",
+          "quelle": {
+            "name": "Muster-Rundschau",
+            "url": "https://example.org/startups/beispiel-labs-finanzierung"
+          }
+        },
+        {
+          "name": "Alpenmuster",
+          "betrag": "3 Millionen Euro",
+          "land": "Österreich",
+          "bereich": "Hardware",
+          "investoren": null,
+          "datum": "2026-10-30",
+          "quelle": {
+            "name": "Beispiel-Zeitung",
+            "url": "https://example.com/startups/2026-10-30/alpenmuster"
+          }
+        }
+      ]
+    }
+  ]
+}
