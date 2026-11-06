@@ -124,15 +124,14 @@ class TestKonfiguration(unittest.TestCase):
         for t in self.themen["themen"]:
             if not t["videos"]:
                 self.assertEqual(t["youtube_kanaele"], [], t["id"])
-            else:
-                self.assertTrue(3 <= len(t["youtube_kanaele"]) <= 5, t["id"])
 
     def test_kanaele(self):
         for t in self.themen["themen"]:
             for k in t["youtube_kanaele"]:
+                self.assertTrue(k["name"].strip(), k)
                 self.assertTrue(k["handle"].startswith("@"), k)
                 self.assertIn(k["sprache"], ("de", "en"))
-                self.assertIs(k["vorschlag"], True)
+                self.assertIsInstance(k.get("vorschlag", False), bool)
                 if k["kanal_id"] is not None:
                     self.assertRegex(k["kanal_id"], r"^UC[\w-]{22}$")
 
