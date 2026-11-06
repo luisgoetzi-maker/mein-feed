@@ -99,6 +99,7 @@ main
 │                                        monatlich.md, jaehrlich.md)
 ├─ routinen/feed.py                      Hilfsskript der Läufe: Zeitraum, Quellen,
 │                                        Prüfung, Index, Aufräumen, Pushen
+├─ routinen/test_feed.py                 Tests: python3 -m unittest discover -s routinen
 ├─ BAUPLAN.md                            dieses Dokument als Markdown
 └─ CLAUDE.md                             „Lies vor jeder Arbeit BAUPLAN.md.“
 
@@ -143,6 +144,7 @@ claude/feed-daten
 }
 ```
 
+- `beispiel`: nur in Beispieldaten, dann `true`; die App kennzeichnet solche Ausgaben als Beispiel.
 - `titel`: lesbarer Name der Ausgabe, z. B. „Woche vom 1. bis 7. November 2026“ oder „Kurzrückblick 2026“.
 - `status`: `ok`, `ruhig` (nichts Wichtiges) oder `fehler` (mit kurzem Text in `fehler`).
 - `luecken`: Tage, die ein Rückblick selbst nachrecherchieren musste.
@@ -369,9 +371,9 @@ Gebaut wird in fünf kleinen Claude-Code-Sitzungen, erst mit Beispieldaten, dann
    3. App: Ansichten, Gruppierung, Verweise, Filter, Status, Merkliste, Feedback.
    4. Vorlesen: Vorlese-Ansicht, Wake Lock, Weiterlesen.
    5. PWA: Manifest, Service Worker, Icons.
-3. Claude Code arbeitet auf eigenen `claude/`-Branches. Die App-Änderungen übernimmst du nach jeder Sitzung per Pull Request nach `main`.
+3. Claude Code arbeitet auf eigenen `claude/`-Branches. Die App-Änderungen übernimmst du nach jeder Sitzung per Pull Request nach `main`. Ändert eine Sitzung `routinen/feed.py` oder die Konfiguration, müssen vorher die Tests laufen: `python3 -m unittest discover -s routinen`.
 4. Pages einschalten (B) und am Handy installieren (F).
-5. Beispieldaten löschen, die Aufgaben anlegen (C, D) und testen (E).
+5. Beispieldaten löschen, am einfachsten den ganzen Branch `claude/feed-daten` (der erste tägliche Lauf legt ihn neu an, mit dem richtigen Startdatum). Dann die Aufgaben anlegen (C, D) und testen (E).
 6. Nach einer Woche „Feedback kopieren“ und Claude Code damit `config/regeln.md` nachschärfen lassen.
 
 Start-Prompt für die erste Sitzung:

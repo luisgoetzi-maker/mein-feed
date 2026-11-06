@@ -156,8 +156,9 @@ def relpfad(fmt, von, bis):
     return f"data/{fmt}/{schluessel(fmt, von, bis)}.json"
 
 
-def ausgaben(daten=DATEN):
+def ausgaben(daten=None):
     """Alle vorhandenen Ausgaben als Liste von dicts (ohne index.json)."""
+    daten = daten or DATEN
     liste = []
     for fmt in FORMATE:
         ordner = daten / fmt
@@ -180,7 +181,8 @@ def ausgaben(daten=DATEN):
     return liste
 
 
-def feed_start(daten=DATEN):
+def feed_start(daten=None):
+    daten = daten or DATEN
     index = daten / "index.json"
     if index.exists():
         try:
@@ -302,8 +304,8 @@ def cmd_zeitraum(args):
 
 # ---------------------------------------------------------------- git
 
-def git(*befehl, cwd=REPO, pruefen=True, leise=False):
-    r = subprocess.run(["git", *befehl], cwd=cwd, text=True, capture_output=True)
+def git(*befehl, cwd=None, pruefen=True, leise=False):
+    r = subprocess.run(["git", *befehl], cwd=cwd or REPO, text=True, capture_output=True)
     if pruefen and r.returncode != 0:
         raise SystemExit(f"git {' '.join(befehl)} fehlgeschlagen:\n{r.stdout}{r.stderr}")
     if not leise and r.stdout.strip():
@@ -374,10 +376,11 @@ def cmd_warten(args):
             print("Vorstufe liegt vor: " + ", ".join(benoetigt))
             cmd_vorbereiten()
             return
-        if time.monotonic() >= ende:
+        rest = ende - time.monotonic()
+        if rest <= 0:
             print("Noch nicht da: " + ", ".join(fehlend))
             sys.exit(3)
-        time.sleep(60)
+        time.sleep(min(60, rest))
 
 
 def cmd_veroeffentlichen(args):
@@ -426,8 +429,9 @@ def cmd_veroeffentlichen(args):
 
 # ---------------------------------------------------------------- index
 
-def baue_index(daten=DATEN):
+def baue_index(daten=None):
     """Baut index.json neu. Gibt True zurück, wenn sich der Inhalt geändert hat."""
+    daten = daten or DATEN
     pfad = daten / "index.json"
     try:
         alt = lies_json(pfad) if pfad.exists() else leerer_index()
@@ -692,7 +696,8 @@ def domain(url):
     return ".".join(teile[-2:])
 
 
-def pruefe_ausgabe(pfad, daten=DATEN):
+def pruefe_ausgabe(pfad, daten=None):
+    daten = daten or DATEN
     fehler, hinweise = [], []
     F, H = fehler.append, hinweise.append
     try:

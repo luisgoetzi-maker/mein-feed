@@ -155,6 +155,8 @@ Die Datei `data/<format>/<zeitraum>.json` auf dem Branch `claude/feed-daten` hat
 
 **Video:** `titel`, `kanal` (Name wie in der Positivliste), `dauer_min` (ganze Minuten), `datum`, `url` (`https://www.youtube.com/watch?v=…`), `thema`, `warum`, `hintergrund`, `neuer_kanal`.
 
+**Beispieldaten:** Nur Beispieldaten haben zusätzlich `"beispiel": true`. Ein echter Lauf setzt dieses Feld nie.
+
 **Fehlerausgabe:** Geht etwas schief, wird die Ausgabe trotzdem geschrieben, mit `"status": "fehler"`, einem kurzen Satz in `fehler` und allem, was schon fertig ist (oder leeren Listen). So sieht man in der App, dass etwas nicht stimmt.
 
 ## 12. Prüfung vor dem Speichern
