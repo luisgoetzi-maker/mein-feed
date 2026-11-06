@@ -72,9 +72,9 @@ Sechs Überthemen in fester Reihenfolge; die Reihenfolge gilt in der App und bei
 
 **YouTube-Empfehlungen**
 
-- Nur für die Überthemen KI und Claude (`ki`), Politik (`politik`) sowie Börse und Wirtschaft (`wirtschaft`). Die übrigen Themen bekommen keine Videos und keine Kanäle in der Positivliste.
+- Nur für die Überthemen Weltpolitik (`weltpolitik`), Politik (`politik`), KI und Claude (`ki`) sowie Börse und Wirtschaft (`wirtschaft`). Die übrigen Themen bekommen keine Videos und keine Kanäle in der Positivliste.
 - Nur in Wochen- und Monatsrückblicken (und bis zu 5 „Videos des Jahres“ im Jahresrückblick, ausgewählt aus den Monatsempfehlungen; dort dürfen mehrere Videos dasselbe Überthema haben).
-- In Wochen- und Monatsrückblicken höchstens 1 Video pro Überthema, insgesamt höchstens 3 pro Woche und 5 pro Monat. Kein Video ist der Normalfall, kein Fehler.
+- Im Wochenrückblick höchstens 1 Video pro Überthema, im Monatsrückblick höchstens 2; insgesamt höchstens 3 pro Woche und 5 pro Monat. Kein Video ist der Normalfall, kein Fehler.
 - Nur Kanäle der Positivliste in `themen.json`. Ein Kanal außerhalb nur mit Begründung und `neuer_kanal: true`, höchstens 1 solches Video pro Ausgabe. Die Startliste schlägt Claude Code beim Bau vor, du streichst und ergänzt.
 - Keine Shorts (jedes Video mit `/shorts/` in der Adresse oder unter 3 Minuten Länge), keine Reaktionsvideos, keine Clickbait-Titel. Das Video ist im Berichtszeitraum erschienen; Ausnahme sind zeitlose Erklärvideos zu einem gerade wichtigen Thema mit `hintergrund: true`.
 - Sprache Deutsch oder Englisch. Die Sprache spielt bei der Auswahl keine Rolle, entscheidend ist die Qualität.
@@ -251,7 +251,7 @@ Fertig ist der Lauf, wenn die neue Ausgabe und data/index.json gültiges JSON si
 1. Zeitraum = der Vormonat. Warten auf die heutige Tagesausgabe wie oben.
 2. Quellen: alle Wochenrückblicke, die den Monat berühren (nur Meldungen mit Datum im Monat), dazu die Tagesausgaben der Tage, die noch in keinem Wochenrückblick stecken. Lücken wie oben.
 3. Pro Überthema höchstens 8 Meldungen plus die größeren Entwicklungen des Monats.
-4. Abschnitt `gescheitert` nur bei einem lehrreichen Fall; höchstens 5 Videos.
+4. Abschnitt `gescheitert` nur bei einem lehrreichen Fall; höchstens 5 Videos, höchstens 2 pro Überthema.
 5. Schreiben, prüfen, `index.json` aktualisieren, committen, pushen. Nicht aufräumen.
 
 **`routinen/jaehrlich.md`**
@@ -353,7 +353,7 @@ Gebaut wird in fünf kleinen Claude-Code-Sitzungen, erst mit Beispieldaten, dann
 Start-Prompt für die erste Sitzung:
 
 ```
-Lies BAUPLAN.md. Erstelle config/themen.json, config/regeln.md und routinen/taeglich.md, woechentlich.md, monatlich.md und jaehrlich.md genau nach dem Bauplan. Schlag für KI und Claude, Politik sowie Börse und Wirtschaft je 3 bis 5 YouTube-Kanäle für die Positivliste vor und markiere sie als Vorschlag, damit ich sie prüfen kann.
+Lies BAUPLAN.md. Erstelle config/themen.json, config/regeln.md und routinen/taeglich.md, woechentlich.md, monatlich.md und jaehrlich.md genau nach dem Bauplan. Schlag für Weltpolitik, Politik, KI und Claude sowie Börse und Wirtschaft je 3 bis 5 YouTube-Kanäle für die Positivliste vor und markiere sie als Vorschlag, damit ich sie prüfen kann.
 ```
 
 **Abnahme**
