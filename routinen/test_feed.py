@@ -724,6 +724,24 @@ class TestGitAblauf(unittest.TestCase):
         nachricht = self.lauf(["git", "log", "-1", "--format=%s", feed.BRANCH], self.origin).strip()
         self.assertEqual(nachricht, "taeglich 2026-11-05")
 
+    def test_erster_push_wird_wiederholt(self):
+        # origin lehnt den ersten Push einmal ab (wie ein Netzaussetzer), der Branch existiert noch nicht
+        haken = self.origin / "hooks" / "pre-receive"
+        haken.write_text("#!/bin/sh\nif [ ! -e einmal-abgelehnt ]; then touch einmal-abgelehnt; "
+                         "echo 'Test: abgelehnt' >&2; exit 1; fi\n", encoding="utf-8")
+        haken.chmod(0o755)
+        self.sitzung("a")
+        self.leise(feed.cmd_vorbereiten)
+        feed.schreib_json(feed.DATEN / "taeglich" / "2026-11-05.json", tagesausgabe())
+        schlaf, feed.time.sleep = feed.time.sleep, lambda s: None
+        try:
+            text = self.leise(feed.cmd_veroeffentlichen, argparse.Namespace(nachricht="taeglich 2026-11-05"))
+        finally:
+            feed.time.sleep = schlaf
+        self.assertIn("Push abgelehnt (Versuch 1)", text)
+        self.assertIn("Gepusht", text)
+        self.assertEqual(sorted(self.dateien_auf_origin()), ["data/index.json", "data/taeglich/2026-11-05.json"])
+
     def test_gleichzeitige_laeufe_und_index_konflikt(self):
         self.sitzung("a")
         self.leise(feed.cmd_vorbereiten)
