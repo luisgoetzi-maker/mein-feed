@@ -7,8 +7,9 @@
  * data/index.json vom Daten-Branch claude/feed-daten, dann die einzelnen Ausgaben.
  * Überthemen und ihre Reihenfolge kommen aus config/themen.json (Branch main).
  *
- * Lokal gespeichert: Merkliste (IndexedDB) und Feedback (localStorage).
- * Vorlesen (Sitzung 4) und PWA (Sitzung 5) kommen später dazu.
+ * Lokal gespeichert: Merkliste (IndexedDB), Feedback, Vorlese-Position, Stimme und
+ * Tempo (localStorage). Vorgelesen wird mit der Web Speech API, Satz für Satz; ein
+ * Screen Wake Lock hält dabei den Bildschirm an. Die PWA kommt in Sitzung 5 dazu.
  */
 
 (() => {
@@ -54,6 +55,10 @@
   const WOCHENTAGE = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
 
   const FEEDBACK_SCHLUESSEL = 'mein-feed.feedback.v1';
+  const VORLESE_SCHLUESSEL = 'mein-feed.vorlesen.v1'; // Stimme und Tempo
+  const POSITION_SCHLUESSEL = 'mein-feed.vorleseposition.v1'; // Ausgabe und Satz
+  const TEMPI = [0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.5];
+  const NACH_ABBRUCH_MS = 100; // Chrome verschluckt manchmal ein speak() direkt nach cancel()
   const AUTO_NEU_LADEN_MS = 30 * 60 * 1000;
   const DATEI_MUSTER = /^data\/[a-z]+\/[0-9A-Za-z_-]+\.json$/;
 
@@ -513,11 +518,13 @@
       );
       return art;
     }
-    art.append(ausgabeKopf(meta, ausgabe, opt, schalter, true), ausgabeKoerper(ausgabe, meta, opt));
+    // Satzliste fürs Vorlesen, einmal pro Ausgabe; Kopf und Themen nutzen dieselbe.
+    const plan = kannVorlesen() ? vorleseplan(ausgabe, opt.namen || null) : null;
+    art.append(ausgabeKopf(meta, ausgabe, opt, schalter, true, plan), ausgabeKoerper(ausgabe, meta, opt, plan));
     return art;
   }
 
-  function ausgabeKopf(meta, ausgabe, opt, schalter, offen) {
+  function ausgabeKopf(meta, ausgabe, opt, schalter, offen, plan = null) {
     const a = ausgabe || {};
     const titel = str(a.titel || meta.titel) || 'Ausgabe';
     const status = a.status || meta.status;
@@ -542,12 +549,16 @@
     if (status) pills.push(el('span', { class: `pill pill--${str(status).replace(/[^a-z]/g, '')}`, text: STATUS_TEXT[status] || str(status) }));
     if (pills.length) kopf.append(el('p', { class: 'pills' }, pills));
 
+    const knoepfe = [];
+    if (ausgabe && plan && plan.saetze.length) {
+      knoepfe.push(vorleseKnoepfe({ ausgabe, meta, namen: opt.namen || null, plan, thema: null }));
+    }
     if (ausgabe && hatInhalt(ausgabe)) {
       const schluessel = `ausgabe:${meta.datei}`;
-      kopf.append(el('div', { class: 'aktionen aktionen--kopf' },
-        merkKnopf(schluessel, 'ausgabe', () => neuerEintrag('ausgabe', schluessel, ausgabe,
-          herkunftVon(ausgabe, meta), namenFuer(themenReihenfolge(ausgabe), opt.namen)))));
+      knoepfe.push(merkKnopf(schluessel, 'ausgabe', () => neuerEintrag('ausgabe', schluessel, ausgabe,
+        herkunftVon(ausgabe, meta), namenFuer(themenReihenfolge(ausgabe), opt.namen))));
     }
+    if (knoepfe.length) kopf.append(el('div', { class: 'aktionen aktionen--kopf' }, knoepfe));
     return kopf;
   }
 
@@ -561,7 +572,7 @@
     };
   }
 
-  function ausgabeKoerper(ausgabe, meta, opt) {
+  function ausgabeKoerper(ausgabe, meta, opt, plan = null) {
     const format = ausgabe.format || meta.format;
     const ctx = {
       meta,
@@ -569,6 +580,8 @@
       namen: opt.namen || null,
       herkunft: herkunftVon(ausgabe, meta),
       kontext: opt.kontext,
+      ausgabe,
+      plan,
     };
     const koerper = el('div', { class: 'ausgabe-koerper' });
     if (ausgabe.status === 'fehler') koerper.append(fehlerHinweis(ausgabe, meta, ctx));
@@ -661,8 +674,14 @@
   // ------------------------------------------------------------ Thema, Meldung, Verweis
 
   function themaSektion(g, ctx) {
+    const titel = el('h3', { class: 'thema-titel', text: themaName(g.id, ctx.namen) });
+    // Ein Thema nur mit Verweisen hat nichts zum Vorlesen und bekommt keinen Knopf.
+    const vorlesbar = ctx.plan && ctx.plan.themen.some((t) => t.id === g.id);
     const s = el('section', { class: 'thema', dataset: { thema: g.id, farbe: farbe(g.id) } },
-      el('h3', { class: 'thema-titel', text: themaName(g.id, ctx.namen) }));
+      vorlesbar
+        ? el('div', { class: 'thema-kopf' }, titel,
+          vorleseKnoepfe({ ausgabe: ctx.ausgabe, meta: ctx.meta, namen: ctx.namen, plan: ctx.plan, thema: g.id }))
+        : titel);
     if (g.ausnahme) s.append(ausnahmeHinweis(g, ctx));
     for (const m of g.meldungen) s.append(meldungKarte(m, ctx));
     if (g.verweise.length) {
@@ -1412,6 +1431,694 @@
     return bereich;
   }
 
+  // ------------------------------------------------------------ Vorlesen: Satzliste
+
+  function kannVorlesen() {
+    return 'speechSynthesis' in window && typeof window.SpeechSynthesisUtterance === 'function';
+  }
+
+  // Nach diesen Abkürzungen (klein, ohne Punkt) endet kein Satz.
+  const ABKUERZUNGEN = new Set([
+    'abb', 'abg', 'abs', 'allg', 'anm', 'apr', 'art', 'aug', 'bd', 'bgm', 'bsp', 'bspw', 'bzgl', 'bzw',
+    'ca', 'chr', 'co', 'corp', 'dez', 'dipl', 'dkfm', 'dr', 'ehem', 'engl', 'etc', 'evtl', 'exkl', 'feb',
+    'ff', 'fr', 'geb', 'gem', 'gest', 'ggf', 'hl', 'hr', 'hrsg', 'inc', 'ing', 'inkl', 'insb', 'jan',
+    'jh', 'jhd', 'jr', 'jul', 'jun', 'kap', 'lt', 'ltd', 'mag', 'max', 'min', 'mind', 'mio', 'mr', 'mrd',
+    'mrs', 'ms', 'mär', 'no', 'nov', 'nr', 'okt', 'pkt', 'präs', 'prof', 'rd', 'sen', 'sep', 'sept', 'sog',
+    'sr', 'st', 'std', 'str', 'tel', 'tsd', 'univ', 'usw', 'vgl', 'vs', 'wr', 'zit', 'zzgl',
+  ]);
+  // Mögliches Satzende: Satzzeichen (auch vor schließenden Anführungszeichen), dann Leerzeichen
+  // und ein Großbuchstabe, eine Ziffer oder ein öffnendes Anführungszeichen.
+  const SATZ_ENDE = /[.!?…]+["'“”»«’)\]]*(?= +["'„“‚»«(\[]?[\p{Lu}\d])/gu;
+
+  function keineSatzgrenze(davor, zeichen) {
+    if (zeichen !== '.') return false; // „!“, „?“ und „…“ beenden den Satz immer
+    const wort = (/(\S+)$/.exec(davor) || ['', ''])[1].replace(/^[^\p{L}\d]+/u, '');
+    if (!wort) return false;
+    if (/^\d{1,3}$/.test(wort)) return true; // Ordnungszahl: „17. Dezember“, „2. Lesung“
+    if (/^\p{L}$/u.test(wort)) return true; // „z. B.“, „u. a.“, Initialen wie „J. Muster“
+    if (/^[\p{L}\d]{1,4}(\.[\p{L}\d]{1,4})+$/u.test(wort)) return true; // „z.B.“, „1.1.“
+    return ABKUERZUNGEN.has(wort.toLowerCase());
+  }
+
+  function teileSaetze(text) {
+    const t = str(text).replace(/\s+/g, ' ').trim();
+    if (!t) return [];
+    const saetze = [];
+    let anfang = 0;
+    for (const m of t.matchAll(SATZ_ENDE)) {
+      const zeichen = m[0].replace(/["'“”»«’)\]]+$/u, '');
+      if (keineSatzgrenze(t.slice(anfang, m.index), zeichen)) continue;
+      const ende = m.index + m[0].length;
+      saetze.push(t.slice(anfang, ende).trim());
+      anfang = ende;
+    }
+    saetze.push(t.slice(anfang).trim());
+    return saetze.filter(Boolean);
+  }
+
+  function zahlwort(n) {
+    return { 2: 'zwei', 3: 'drei', 4: 'vier', 5: 'fünf' }[n] || String(n);
+  }
+
+  function abschnittSaetze(a) {
+    const typ = str(a.typ);
+    const ergebnis = [];
+    const mitVorne = (text, vorne) => teileSaetze(text).map((t, i) => (i === 0 && vorne ? `${vorne}: ${t}` : t));
+    for (const e of liste(a.eintraege).filter(istObjekt)) {
+      if (typ === 'finanzierungsrunden') {
+        // Ein kurzer Satz pro Runde: Name, Betrag, Land.
+        if (str(e.name).trim()) ergebnis.push([e.name, e.betrag, e.land].map((x) => str(x).trim()).filter(Boolean).join(', '));
+      } else if (typ === 'monatsueberblick') {
+        ergebnis.push(...mitVorne(e.text, monatName(e.monat)));
+      } else if (typ === 'ausblick') {
+        ergebnis.push(...mitVorne(e.text, datumLang(e.datum)));
+      } else {
+        const name = str(e.name || e.titel).trim();
+        if (name) ergebnis.push(name);
+        ergebnis.push(...teileSaetze(e.text));
+      }
+    }
+    return ergebnis;
+  }
+
+  /*
+   * Satzliste einer Ausgabe, immer mit allen Themen (unabhängig vom Filter), damit die gemerkte
+   * Satznummer stimmt. Gebaut aus gruppiere() wie die Anzeige: Themenname, pro Meldung Titel, Text
+   * und „Warum wichtig“, dann ein Satz zu Videos und die Abschnitte. Verweise werden nicht gelesen.
+   * themen[]: { id, start, ende } je Überthema mit Inhalt (im Jahresrückblick die Kapitel).
+   */
+  function vorleseplan(ausgabe, namen) {
+    const saetze = [];
+    const themen = [];
+    const satz = (text, thema, art) => ({ text, thema, art });
+    if (ausgabe.status === 'fehler') {
+      const fehler = teileSaetze(ausgabe.fehler);
+      for (const t of fehler.length ? fehler : ['Bei dieser Ausgabe ist etwas schiefgegangen.']) saetze.push(satz(t, null, 'fehler'));
+    }
+    for (const g of gruppiere(ausgabe)) {
+      const teil = [];
+      const dazu = (text, art, vorne = '') => {
+        teileSaetze(text).forEach((t, i) => teil.push(satz(i === 0 ? vorne + t : t, g.id, art)));
+      };
+      for (const m of g.meldungen) {
+        dazu(m.titel, 'titel');
+        dazu(m.text, 'text');
+        dazu(m.warum_wichtig, 'warum', 'Warum wichtig: ');
+      }
+      if (g.videos.length) {
+        const n = g.videos.length;
+        teil.push(satz(n === 1 ? 'Dazu gibt es eine Video-Empfehlung.' : `Dazu gibt es ${zahlwort(n)} Video-Empfehlungen.`, g.id, 'video'));
+      }
+      for (const a of g.abschnitte) {
+        const eintraege = abschnittSaetze(a);
+        if (!eintraege.length) continue;
+        teil.push(satz(str(a.titel) || ABSCHNITT_TITEL[str(a.typ)] || 'Weitere Einträge', g.id, 'abschnitt'));
+        eintraege.forEach((t) => teil.push(satz(t, g.id, 'abschnitt')));
+      }
+      if (!teil.length) continue; // nur Verweise
+      themen.push({ id: g.id, start: saetze.length, ende: saetze.length + 1 + teil.length });
+      saetze.push(satz(themaName(g.id, namen), g.id, 'thema'), ...teil);
+    }
+    const [ruhigLabel, nichtsLabel] = RUHIG_TEXT[ausgabe.format] || ['Ruhig', 'Nichts Wichtiges'];
+    if (ausgabe.status === 'ruhig') {
+      saetze.push(satz(nichtsLabel, null, 'ruhig'));
+    } else {
+      const ruhige = liste(ausgabe.ruhig).filter((id) => typeof id === 'string');
+      if (ruhige.length) saetze.push(satz(`${ruhigLabel}: ${ruhige.map((id) => themaName(id, namen)).join(', ')}`, null, 'ruhig'));
+    }
+    return { saetze, themen };
+  }
+
+  function vorleseBereich(plan, thema) {
+    if (!thema) return { start: 0, ende: plan.saetze.length };
+    return plan.themen.find((t) => t.id === thema) || null;
+  }
+
+  // ------------------------------------------------------------ Vorlesen: Zustand und Speicher
+
+  const vorlesen = {
+    status: 'aus', // aus | liest | pausiert | unterbrochen | fertig
+    plan: null,
+    datei: '',
+    erschienen: '',
+    titel: '',
+    format: '',
+    namen: null,
+    thema: null, // null = ganze Ausgabe, sonst nur dieses Überthema
+    start: 0,
+    ende: 0,
+    i: 0, // aktueller Satz (Index in plan.saetze)
+    nr: 0, // zählt jeden Start und Abbruch; Meldungen alter Äußerungen werden daran erkannt
+    aeusserung: null, // laufende Äußerung festhalten, sonst verliert Chrome manchmal onend
+    sperre: null,
+    sperreAnfrage: false,
+    sperreFehler: false,
+    hinweis: '',
+    ort: null, // Knopfgruppe, von der aus gestartet wurde (Fokus beim Schließen)
+    ansicht: null,
+    farben: null,
+    einstellungen: { stimme: null, tempo: 1 },
+  };
+  const vorleseOrte = new WeakMap(); // .vorlese-knoepfe -> { ausgabe, meta, namen, plan, thema }
+
+  function ladeEinstellungen() {
+    try {
+      const e = JSON.parse(localStorage.getItem(VORLESE_SCHLUESSEL));
+      if (istObjekt(e)) {
+        return { stimme: typeof e.stimme === 'string' ? e.stimme : null, tempo: TEMPI.includes(e.tempo) ? e.tempo : 1 };
+      }
+    } catch { /* Standard */ }
+    return { stimme: null, tempo: 1 };
+  }
+
+  function speichereEinstellungen() {
+    try {
+      localStorage.setItem(VORLESE_SCHLUESSEL, JSON.stringify(vorlesen.einstellungen));
+    } catch { /* gilt dann nur bis zum Neuladen */ }
+  }
+
+  // Gemerkt wird nur das Vorlesen der ganzen Ausgabe; ein einzelnes Thema überschreibt die Position nicht.
+  function merkePosition() {
+    const v = vorlesen;
+    if (v.thema || !v.plan || v.i >= v.ende) return;
+    try {
+      localStorage.setItem(POSITION_SCHLUESSEL, JSON.stringify({
+        datei: v.datei, erschienen: v.erschienen, gesamt: v.plan.saetze.length, satz: v.i, zeit: new Date().toISOString(),
+      }));
+    } catch { /* ohne Speicher kein „Weiter ab Satz …“ */ }
+  }
+
+  function loeschePosition() {
+    if (vorlesen.thema) return;
+    try {
+      localStorage.removeItem(POSITION_SCHLUESSEL);
+    } catch { /* egal */ }
+  }
+
+  // Die gemerkte Position passt nur, wenn Ausgabe, Erscheinungszeit und Satzzahl gleich sind.
+  function gemerktePosition(info) {
+    if (info.thema) return null;
+    let p = null;
+    try {
+      p = JSON.parse(localStorage.getItem(POSITION_SCHLUESSEL));
+    } catch { /* keine */ }
+    if (!istObjekt(p) || p.datei !== str(info.meta.datei) || p.erschienen !== str(info.ausgabe.erschienen)) return null;
+    if (p.gesamt !== info.plan.saetze.length || !Number.isInteger(p.satz)) return null;
+    return p.satz > 0 && p.satz < p.gesamt ? p : null;
+  }
+
+  // ------------------------------------------------------------ Vorlesen: Stimmen
+
+  function stimmenId(s) {
+    return s ? str(s.voiceURI) || str(s.name) : '';
+  }
+
+  function stimmenName(s) {
+    const name = str(s.name) || 'Stimme';
+    const sprache = str(s.lang).replace('_', '-');
+    return sprache && !name.includes(sprache) ? `${name} (${sprache})` : name;
+  }
+
+  // Nur deutsche Stimmen; österreichische vor deutschen, Stimmen auf dem Gerät vor Online-Stimmen.
+  function deutscheStimmen() {
+    const rang = (s) => ({ 'de-at': 0, 'de-de': 1 }[str(s.lang).replace('_', '-').toLowerCase()] ?? 2);
+    return liste(window.speechSynthesis.getVoices())
+      .filter((s) => s && /^de(?:[-_]|$)/i.test(str(s.lang)))
+      .sort((a, b) => rang(a) - rang(b) || Number(b.localService === true) - Number(a.localService === true));
+  }
+
+  function gewaehlteStimme() {
+    const alle = deutscheStimmen();
+    return alle.find((s) => stimmenId(s) === vorlesen.einstellungen.stimme) || alle[0] || null;
+  }
+
+  // Die Stimmen kommen oft erst nach dem Start (voiceschanged); dann wird die Auswahl neu gefüllt.
+  function zeichneStimmen() {
+    const a = vorlesen.ansicht;
+    if (!a) return;
+    const deutsche = deutscheStimmen();
+    if (deutsche.length) {
+      a.stimme.replaceChildren(...deutsche.map((s) => el('option', { value: stimmenId(s) }, stimmenName(s))));
+      a.stimme.value = stimmenId(gewaehlteStimme());
+      a.stimme.disabled = false;
+    } else {
+      a.stimme.replaceChildren(el('option', { value: '' }, 'Standardstimme des Geräts'));
+      a.stimme.disabled = true;
+    }
+    const keineDeutsche = !deutsche.length && liste(window.speechSynthesis.getVoices()).length > 0;
+    a.stimmeHinweis.textContent = keineDeutsche
+      ? 'Auf diesem Gerät ist keine deutsche Stimme installiert. Du findest sie in den Einstellungen des Handys unter „Sprachausgabe“.'
+      : '';
+    a.stimmeHinweis.hidden = !keineDeutsche;
+  }
+
+  // ------------------------------------------------------------ Vorlesen: Sprechen
+
+  function stoppeSprache() {
+    vorlesen.aeusserung = null;
+    try {
+      window.speechSynthesis.cancel();
+    } catch { /* egal */ }
+  }
+
+  // Spricht den aktuellen Satz von vorn. Pause ist cancel() und später ein Neustart hier,
+  // weil pause() und resume() auf Android unzuverlässig sind.
+  function sprich() {
+    const v = vorlesen;
+    const nr = ++v.nr;
+    const satz = v.plan.saetze[v.i];
+    merkePosition();
+    pruefeSperre();
+    zeichneVorlesen();
+
+    const synth = window.speechSynthesis;
+    const u = new window.SpeechSynthesisUtterance(satz.text);
+    const stimme = gewaehlteStimme();
+    if (stimme) u.voice = stimme;
+    u.lang = stimme ? str(stimme.lang).replace('_', '-') : 'de-DE';
+    u.rate = v.einstellungen.tempo;
+    u.onend = () => {
+      if (nr === v.nr && v.status === 'liest') naechsterSatz();
+    };
+    u.onerror = (e) => {
+      if (nr !== v.nr || v.status !== 'liest') return;
+      const art = str(e && e.error);
+      // Eigene Abbrüche erhöhen vorher nr; ein Abbruch hier kam von außen (etwa Anruf, andere App).
+      if (art === 'interrupted' || art === 'canceled') {
+        pausiere('unterbrochen');
+        return;
+      }
+      v.hinweis = art === 'not-allowed'
+        ? 'Tippe auf „Weiter“, um das Vorlesen zu starten.'
+        : `Vorlesen ging nicht (${art || 'unbekannter Fehler'}). Tippe auf „Weiter“, um es noch einmal zu versuchen.`;
+      pausiere('pausiert');
+    };
+    v.aeusserung = u;
+    const los = () => {
+      if (nr !== v.nr) return;
+      try {
+        if (synth.paused) synth.resume();
+        synth.speak(u);
+      } catch (fehler) {
+        v.hinweis = `Vorlesen ging nicht (${str(fehler && fehler.message) || 'unbekannter Fehler'}).`;
+        pausiere('pausiert');
+      }
+    };
+    if (synth.speaking || synth.pending) {
+      synth.cancel();
+      setTimeout(los, NACH_ABBRUCH_MS);
+    } else {
+      los();
+    }
+  }
+
+  function lies() {
+    vorlesen.status = 'liest';
+    vorlesen.hinweis = '';
+    sprich();
+  }
+
+  function naechsterSatz() {
+    if (vorlesen.i + 1 < vorlesen.ende) {
+      vorlesen.i += 1;
+      sprich();
+    } else {
+      beendeVorlesen();
+    }
+  }
+
+  function pausiere(status) {
+    const v = vorlesen;
+    v.nr += 1;
+    v.status = status;
+    stoppeSprache();
+    merkePosition();
+    pruefeSperre();
+    zeichneVorlesen();
+  }
+
+  function beendeVorlesen() {
+    const v = vorlesen;
+    v.nr += 1;
+    v.status = 'fertig';
+    v.i = v.ende;
+    stoppeSprache();
+    loeschePosition();
+    pruefeSperre();
+    zeichneVorlesen();
+  }
+
+  // Beim Lesen sofort den neuen Satz sprechen, sonst nur hinspringen.
+  function springe(ziel) {
+    const v = vorlesen;
+    if (v.status === 'aus') return;
+    if (ziel >= v.ende) {
+      beendeVorlesen();
+      return;
+    }
+    v.i = Math.max(v.start, ziel);
+    v.hinweis = '';
+    if (v.status === 'liest') {
+      sprich();
+    } else {
+      v.status = 'pausiert';
+      merkePosition();
+      pruefeSperre();
+      zeichneVorlesen();
+    }
+  }
+
+  function naechstesThema() {
+    const v = vorlesen;
+    return v.plan.themen.find((t) => t.start > v.i && t.start < v.ende) || null;
+  }
+
+  function hauptAktion() {
+    const v = vorlesen;
+    if (v.status === 'liest') {
+      pausiere('pausiert');
+    } else {
+      if (v.status === 'fertig') v.i = v.start;
+      lies(); // nach Pause oder Unterbrechung: der aktuelle Satz von vorn
+    }
+  }
+
+  // ------------------------------------------------------------ Vorlesen: Bildschirm wach halten
+
+  function sollWachBleiben() {
+    const s = vorlesen.status;
+    return (s === 'liest' || s === 'unterbrochen') && document.visibilityState === 'visible';
+  }
+
+  // Beim Lesen anfordern, bei Pause und Ende freigeben. Beim Verstecken gibt der Browser die
+  // Sperre selbst frei; kommt die App zurück, wird sie neu angefordert.
+  function pruefeSperre() {
+    if (sollWachBleiben()) halteWach();
+    else gibBildschirmFrei();
+  }
+
+  async function halteWach() {
+    const v = vorlesen;
+    if (v.sperre || v.sperreAnfrage) return;
+    if (!navigator.wakeLock || typeof navigator.wakeLock.request !== 'function') {
+      v.sperreFehler = true;
+      zeichneVorlesen();
+      return;
+    }
+    v.sperreAnfrage = true;
+    try {
+      const sperre = await navigator.wakeLock.request('screen');
+      v.sperreAnfrage = false;
+      if (!sollWachBleiben()) {
+        sperre.release().catch(() => {});
+        return;
+      }
+      v.sperre = sperre;
+      v.sperreFehler = false;
+      sperre.addEventListener('release', () => {
+        if (v.sperre === sperre) v.sperre = null;
+      });
+    } catch (fehler) {
+      v.sperreAnfrage = false;
+      v.sperreFehler = true;
+      console.warn('Bildschirm kann nicht wach gehalten werden:', fehler);
+    }
+    zeichneVorlesen();
+  }
+
+  function gibBildschirmFrei() {
+    const sperre = vorlesen.sperre;
+    vorlesen.sperre = null;
+    if (sperre && !sperre.released) sperre.release().catch(() => {});
+  }
+
+  // ------------------------------------------------------------ Vorlesen: Ansicht
+
+  const SVG_NS = 'http://www.w3.org/2000/svg';
+  const LINIE = { fill: 'none', stroke: 'currentColor', 'stroke-width': '2', 'stroke-linecap': 'round' };
+  const SYMBOL = {
+    lautsprecher: [{ d: 'M3 9.5v5h4l5 4.5v-14L7 9.5z', fill: 'currentColor' }, { d: 'M15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11', ...LINIE }],
+    zurueck: [{ d: 'M6 5h2.5v14H6zM19 5.5v13L9.5 12z', fill: 'currentColor' }],
+    vor: [{ d: 'M15.5 5H18v14h-2.5zM5 5.5v13l9.5-6.5z', fill: 'currentColor' }],
+    pause: [{ d: 'M7 5h3.5v14H7zM13.5 5H17v14h-3.5z', fill: 'currentColor' }],
+    start: [{ d: 'M8 5.5v13l10.5-6.5z', fill: 'currentColor' }],
+    schliessen: [{ d: 'M6 6l12 12M18 6L6 18', ...LINIE, 'stroke-width': '2.2' }],
+    weiter: [{ d: 'M9 6l6 6-6 6', ...LINIE }],
+  };
+
+  function symbol(pfade) {
+    const svg = document.createElementNS(SVG_NS, 'svg');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('focusable', 'false');
+    for (const p of pfade) {
+      const pfad = document.createElementNS(SVG_NS, 'path');
+      for (const [k, wert] of Object.entries(p)) pfad.setAttribute(k, wert);
+      svg.append(pfad);
+    }
+    return svg;
+  }
+
+  function tempoText(t) {
+    return t === 1 ? '1× (normal)' : `${String(t).replace('.', ',')}×`;
+  }
+
+  function baueVorleseAnsicht() {
+    const a = {};
+    a.titel = el('p', { class: 'vl-ausgabe', id: 'vl-titel' });
+    a.themaName = el('span', { class: 'vl-thema-name' });
+    a.kapitel = el('span', { class: 'vl-kapitel' });
+    a.thema = el('p', { class: 'vl-thema' }, a.themaName, a.kapitel);
+    a.satz = el('p', { class: 'vl-satz' });
+    a.fuellung = el('div', { class: 'vl-fuellung' });
+    a.balken = el('div', { class: 'vl-balken', role: 'progressbar', 'aria-label': 'Fortschritt', 'aria-valuemin': '1' }, a.fuellung);
+    a.zaehler = el('p', { class: 'vl-zaehler' });
+    a.hinweis = el('p', { class: 'vl-hinweis', hidden: true });
+    a.zurueck = el('button', { type: 'button', class: 'vl-rund vl-zurueck', 'aria-label': 'Satz zurück', title: 'Satz zurück', onclick: () => springe(vorlesen.i - 1) }, symbol(SYMBOL.zurueck));
+    a.haupt = el('button', { type: 'button', class: 'vl-haupt', onclick: hauptAktion });
+    a.vor = el('button', { type: 'button', class: 'vl-rund vl-vor', 'aria-label': 'Satz vor', title: 'Satz vor', onclick: () => springe(vorlesen.i + 1) }, symbol(SYMBOL.vor));
+    a.naechstesName = el('span', { class: 'vl-naechstes-name' });
+    a.naechstes = el('button', {
+      type: 'button',
+      class: 'vl-naechstes',
+      onclick: () => {
+        const t = naechstesThema();
+        if (t) springe(t.start);
+      },
+    }, el('span', { class: 'vl-naechstes-label', text: 'Nächstes Thema' }), a.naechstesName, symbol(SYMBOL.weiter));
+    a.stimme = el('select', {
+      id: 'vl-stimme',
+      onchange: () => {
+        vorlesen.einstellungen.stimme = a.stimme.value || null;
+        speichereEinstellungen();
+        if (vorlesen.status === 'liest') sprich();
+      },
+    });
+    a.stimmeHinweis = el('p', { class: 'vl-stimme-hinweis', hidden: true });
+    a.tempo = el('select', {
+      id: 'vl-tempo',
+      onchange: () => {
+        const t = Number(a.tempo.value);
+        if (!TEMPI.includes(t)) return;
+        vorlesen.einstellungen.tempo = t;
+        speichereEinstellungen();
+        if (vorlesen.status === 'liest') sprich();
+      },
+    }, TEMPI.map((t) => el('option', { value: String(t) }, tempoText(t))));
+    a.wurzel = el('div', { id: 'vorlesen', class: 'vorlesen', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'vl-titel', hidden: true },
+      el('div', { class: 'vl-innen' },
+        el('header', { class: 'vl-kopf' },
+          el('div', { class: 'vl-kopf-text' }, a.titel, a.thema),
+          el('button', { type: 'button', class: 'vl-rund vl-schliessen', 'aria-label': 'Vorlesen schließen', title: 'Schließen', onclick: () => schliesseVorlesen() }, symbol(SYMBOL.schliessen))),
+        el('div', { class: 'vl-satz-box' }, a.satz),
+        el('div', { class: 'vl-fortschritt' }, a.balken, a.zaehler),
+        a.hinweis,
+        el('div', { class: 'vl-steuerung' }, a.zurueck, a.haupt, a.vor),
+        a.naechstes,
+        el('details', { class: 'vl-einstellungen' },
+          el('summary', null, 'Stimme und Tempo'),
+          el('label', { class: 'vl-feld' }, el('span', { text: 'Stimme' }), a.stimme),
+          a.stimmeHinweis,
+          el('label', { class: 'vl-feld' }, el('span', { text: 'Tempo' }), a.tempo))));
+    a.wurzel.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') schliesseVorlesen();
+    });
+    document.body.append(a.wurzel);
+    return a;
+  }
+
+  function zeichneVorlesen() {
+    const v = vorlesen;
+    const a = v.ansicht;
+    if (!a || v.status === 'aus') return;
+    const fertig = v.status === 'fertig';
+    const n = v.ende - v.start;
+    const satz = fertig ? null : v.plan.saetze[v.i];
+    const nummer = fertig ? n : v.i - v.start + 1;
+
+    a.wurzel.dataset.zustand = v.status;
+    a.titel.textContent = v.titel;
+    const thema = satz && satz.thema;
+    a.thema.dataset.farbe = thema ? farbe(thema) : 'x';
+    a.themaName.textContent = thema ? themaName(thema, v.namen) : satz && satz.art === 'fehler' ? 'Hinweis' : '';
+    // Jahresrückblick kapitelweise: jedes Überthema ist ein Kapitel.
+    const kapitel = v.format === 'jaehrlich' && !v.thema && thema ? v.plan.themen.findIndex((t) => t.id === thema) : -1;
+    a.kapitel.textContent = kapitel >= 0 ? `Kapitel ${kapitel + 1} von ${v.plan.themen.length}` : '';
+    a.thema.hidden = !a.themaName.textContent;
+
+    a.satz.textContent = satz ? satz.text : v.thema ? 'Thema fertig vorgelesen.' : 'Ausgabe fertig vorgelesen.';
+    a.satz.classList.toggle('vl-satz--ende', fertig);
+    a.fuellung.style.width = `${n ? (nummer / n) * 100 : 0}%`;
+    a.balken.setAttribute('aria-valuemax', String(n));
+    a.balken.setAttribute('aria-valuenow', String(nummer));
+    a.balken.setAttribute('aria-valuetext', `Satz ${nummer} von ${n}`);
+    a.zaehler.textContent = `Satz ${nummer} von ${n}`;
+
+    const [sym, text] = {
+      liest: ['pause', 'Pause'],
+      pausiert: ['start', 'Weiter'],
+      unterbrochen: ['start', `Weiter ab Satz ${nummer}`],
+      fertig: ['start', 'Von vorn'],
+    }[v.status];
+    a.haupt.replaceChildren(symbol(SYMBOL[sym]), el('span', { text }));
+    a.zurueck.disabled = !fertig && v.i <= v.start;
+    a.vor.disabled = fertig;
+    const naechstes = fertig ? null : naechstesThema();
+    a.naechstes.disabled = !naechstes;
+    a.naechstesName.textContent = naechstes ? themaName(naechstes.id, v.namen) : '';
+
+    const hinweis = v.hinweis
+      || (v.status === 'unterbrochen' ? 'Das Vorlesen wurde unterbrochen.' : '')
+      || (v.sperreFehler && v.status === 'liest' ? 'Der Bildschirm kann nicht wach gehalten werden. Lass ihn selbst an, sonst stoppt das Vorlesen.' : '');
+    a.hinweis.textContent = hinweis;
+    a.hinweis.hidden = !hinweis;
+  }
+
+  function hintergrund() {
+    return [$('.app-kopf'), $('#inhalt'), $('.tabs')].filter(Boolean);
+  }
+
+  function oeffneVorleseAnsicht() {
+    const a = vorlesen.ansicht || (vorlesen.ansicht = baueVorleseAnsicht());
+    zeichneStimmen();
+    a.tempo.value = String(vorlesen.einstellungen.tempo);
+    if (!a.wurzel.hidden) return;
+    a.wurzel.hidden = false;
+    document.body.classList.add('vorlesen-offen');
+    for (const e of hintergrund()) e.inert = true;
+    vorlesen.farben = [...document.querySelectorAll('meta[name="theme-color"]')].map((m) => [m, m.content]);
+    vorlesen.farben.forEach(([m]) => { m.content = '#0c0e11'; });
+    // Eigener Verlaufseintrag: Die Zurück-Taste am Handy schließt die Vorlese-Ansicht.
+    if (!(history.state && history.state.vorlesen)) history.pushState({ vorlesen: true }, '');
+    a.haupt.focus({ preventScroll: true });
+  }
+
+  function starteVorlesen(info, ab) {
+    if (!kannVorlesen()) {
+      toast('Dieser Browser kann nicht vorlesen.');
+      return;
+    }
+    const bereich = vorleseBereich(info.plan, info.thema);
+    if (!bereich || bereich.ende <= bereich.start) return;
+    schliesseVideo();
+    const v = vorlesen;
+    if (v.status !== 'aus') {
+      v.nr += 1;
+      stoppeSprache();
+    }
+    Object.assign(v, {
+      plan: info.plan,
+      datei: str(info.meta.datei),
+      erschienen: str(info.ausgabe.erschienen),
+      titel: str(info.ausgabe.titel || info.meta.titel) || 'Ausgabe',
+      format: str(info.ausgabe.format || info.meta.format),
+      namen: info.namen || null,
+      thema: info.thema || null,
+      start: bereich.start,
+      ende: bereich.ende,
+      i: Math.max(bereich.start, Math.min(Number.isInteger(ab) ? ab : bereich.start, bereich.ende - 1)),
+      ort: info.box || null,
+    });
+    oeffneVorleseAnsicht();
+    lies();
+  }
+
+  function schliesseVorlesen({ ausVerlauf = false } = {}) {
+    const v = vorlesen;
+    if (v.status === 'aus') return;
+    v.nr += 1;
+    stoppeSprache();
+    if (v.status !== 'fertig') merkePosition();
+    v.status = 'aus';
+    pruefeSperre();
+    const a = v.ansicht;
+    a.wurzel.hidden = true;
+    document.body.classList.remove('vorlesen-offen');
+    for (const e of hintergrund()) e.inert = false;
+    (v.farben || []).forEach(([m, farbwert]) => { m.content = farbwert; });
+    if (!ausVerlauf && history.state && history.state.vorlesen) history.back();
+    aktualisiereVorleseKnoepfe();
+    const knopf = v.ort && v.ort.isConnected ? v.ort.querySelector('button') : null;
+    if (knopf) knopf.focus({ preventScroll: true });
+  }
+
+  // ------------------------------------------------------------ Vorlesen: Knöpfe im Feed
+
+  function vorleseKnoepfe(info) {
+    const box = el('span', { class: 'vorlese-knoepfe' });
+    vorleseOrte.set(box, info);
+    fuelleVorleseKnoepfe(box);
+    return box;
+  }
+
+  function fuelleVorleseKnoepfe(box) {
+    const info = vorleseOrte.get(box);
+    const bereich = vorleseBereich(info.plan, info.thema);
+    const knoepfe = [el('button', {
+      type: 'button',
+      class: `knopf knopf--vorlesen ${info.thema ? 'knopf--klein' : 'knopf--primaer'}`,
+      'aria-label': info.thema ? `${themaName(info.thema, info.namen)} vorlesen` : 'Ausgabe vorlesen',
+      onclick: () => starteVorlesen({ ...info, box }, bereich.start),
+    }, symbol(SYMBOL.lautsprecher), 'Vorlesen')];
+    const p = gemerktePosition(info);
+    if (p) {
+      knoepfe.push(el('button', {
+        type: 'button',
+        class: 'knopf knopf--weiter',
+        onclick: () => starteVorlesen({ ...info, box }, p.satz),
+      }, `Weiter ab Satz ${p.satz + 1}`));
+    }
+    box.replaceChildren(...knoepfe);
+  }
+
+  function aktualisiereVorleseKnoepfe() {
+    document.querySelectorAll('.vorlese-knoepfe').forEach((box) => {
+      if (vorleseOrte.has(box)) fuelleVorleseKnoepfe(box);
+    });
+  }
+
+  function richteVorlesenEin() {
+    if (!kannVorlesen()) return;
+    vorlesen.einstellungen = ladeEinstellungen();
+    window.speechSynthesis.addEventListener('voiceschanged', zeichneStimmen);
+    window.speechSynthesis.getVoices(); // stößt in Chrome das Laden der Stimmen an
+    if (history.state && history.state.vorlesen) history.replaceState(null, '');
+    window.addEventListener('popstate', () => {
+      if (vorlesen.status !== 'aus') schliesseVorlesen({ ausVerlauf: true });
+    });
+    // Bildschirm aus oder App gewechselt: anhalten und die Stelle merken. Bei der Rückkehr
+    // den Bildschirm wieder wach halten und „Weiter ab Satz …“ anbieten.
+    document.addEventListener('visibilitychange', () => {
+      if (vorlesen.status === 'aus') return;
+      if (document.visibilityState !== 'visible' && vorlesen.status === 'liest') pausiere('unterbrochen');
+      else pruefeSperre();
+      zeichneVorlesen();
+    });
+    window.addEventListener('pagehide', () => {
+      if (vorlesen.status === 'liest') pausiere('unterbrochen');
+    });
+  }
+
   // ------------------------------------------------------------ Chips, Tabs, Toast
 
   function zeigeChips() {
@@ -1507,6 +2214,7 @@
     });
 
     zustand.feedback = ladeFeedback();
+    richteVorlesenEin();
     await Promise.all([ladeThemen(), ladeMerkliste()]);
     zeigeChips();
     await aktualisiere();
