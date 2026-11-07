@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!--
+    Mein Feed – Icon (Vorlage für die PNGs in diesem Ordner)
+
+    Drei Meldungskarten wie in der App: weiße Karte, links ein Streifen in der Farbe des
+    Überthemas (t0, t1 und t3 aus styles.css), darin eine Titelzeile. Hintergrund wie bg.
+
+    icon-192.png, icon-512.png   diese Datei, so wie sie ist (Ecken durchsichtig)
+    icon-maskable-512.png        Hintergrund vollflächig ohne Rundung, Motiv auf 88 % verkleinert,
+                                 damit es im Sicherheitskreis (Radius 40 %) bleibt
+    apple-touch-icon.png         180 × 180, Hintergrund vollflächig ohne Rundung, Motiv unverändert
+  -->
+  <defs>
+    <clipPath id="karte-1"><rect x="88" y="104" width="336" height="88" rx="22"/></clipPath>
+    <clipPath id="karte-2"><rect x="88" y="212" width="336" height="88" rx="22"/></clipPath>
+    <clipPath id="karte-3"><rect x="88" y="320" width="336" height="88" rx="22"/></clipPath>
+  </defs>
+  <rect id="hintergrund" width="512" height="512" rx="112" fill="#f3f2ee"/>
+  <g id="motiv">
+    <g clip-path="url(#karte-1)">
+      <rect x="88" y="104" width="336" height="88" fill="#ffffff"/>
+      <rect x="88" y="104" width="26" height="88" fill="#2459d1"/>
+    </g>
+    <rect x="148" y="135" width="196" height="26" rx="13" fill="#1c1e22"/>
+    <g clip-path="url(#karte-2)">
+      <rect x="88" y="212" width="336" height="88" fill="#ffffff"/>
+      <rect x="88" y="212" width="26" height="88" fill="#b4235a"/>
+    </g>
+    <rect x="148" y="243" width="148" height="26" rx="13" fill="#1c1e22"/>
+    <g clip-path="url(#karte-3)">
+      <rect x="88" y="320" width="336" height="88" fill="#ffffff"/>
+      <rect x="88" y="320" width="26" height="88" fill="#13804a"/>
+    </g>
+    <rect x="148" y="351" width="172" height="26" rx="13" fill="#1c1e22"/>
+  </g>
+</svg>
