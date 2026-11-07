@@ -1,0 +1,63 @@
+{
+  "beispiel": true,
+  "format": "jaehrlich",
+  "titel": "Kurzrückblick 2026",
+  "zeitraum": {
+    "von": "2026-01-01",
+    "bis": "2026-12-31"
+  },
+  "erschienen": "2027-01-01T04:40:00+01:00",
+  "status": "ok",
+  "fehler": null,
+  "ruhig": [
+    "weltpolitik",
+    "politik",
+    "ki",
+    "wirtschaft",
+    "startups"
+  ],
+  "luecken": [],
+  "ausnahmen": [],
+  "meldungen": [],
+  "videos": [],
+  "abschnitte": [
+    {
+      "typ": "monatsueberblick",
+      "thema": "tirol",
+      "titel": "Monatsüberblick",
+      "eintraege": [
+        {
+          "monat": "2026-11",
+          "text": "Im November viel los."
+        },
+        {
+          "monat": "2026-12",
+          "text": "Im Dezember Schnee."
+        }
+      ]
+    },
+    {
+      "typ": "ausblick",
+      "thema": "tirol",
+      "titel": "Ausblick auf 2027",
+      "eintraege": [
+        {
+          "datum": "2027-01-15",
+          "text": "Gemeinderatssitzung.",
+          "quelle": {
+            "name": "Stadt",
+            "url": "https://example.com/s"
+          }
+        },
+        {
+          "datum": "2027-03",
+          "text": "Baustart.",
+          "quelle": {
+            "name": "Land",
+            "url": "https://example.com/l"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "beispiel": true,
+  "format": "taeglich",
+  "titel": "Sonntag, 1. November 2026",
+  "zeitraum": {
+    "von": "2026-11-01",
+    "bis": "2026-11-01"
+  },
+  "erschienen": "2026-11-02T03:12:00+01:00",
+  "status": "ruhig",
+  "fehler": null,
+  "ruhig": [
+    "weltpolitik",
+    "politik",
+    "ki",
+    "wirtschaft",
+    "tirol",
+    "startups"
+  ],
+  "meldungen": [],
+  "luecken": [],
+  "ausnahmen": [],
+  "videos": [],
+  "abschnitte": []
+}

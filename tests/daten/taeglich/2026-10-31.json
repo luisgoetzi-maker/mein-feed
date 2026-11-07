@@ -1,0 +1,231 @@
+{
+  "beispiel": true,
+  "format": "taeglich",
+  "titel": "Samstag, 31. Oktober 2026",
+  "zeitraum": {
+    "von": "2026-10-31",
+    "bis": "2026-10-31"
+  },
+  "erschienen": "2026-11-01T03:12:00+01:00",
+  "status": "ok",
+  "fehler": null,
+  "ruhig": [
+    "tirol",
+    "startups"
+  ],
+  "luecken": [],
+  "ausnahmen": [
+    {
+      "thema": "weltpolitik",
+      "grund": "Wahl, Waffenruhe, Klimagipfel und Handelsbeitritt fielen auf denselben Tag, und keine dieser Entscheidungen ließ sich zugunsten einer anderen streichen."
+    }
+  ],
+  "meldungen": [
+    {
+      "id": "2026-10-31-weltpolitik-1",
+      "datum": "2026-10-31",
+      "datum_bis": null,
+      "titel": "Parlamentswahl in Beispielland: Regierungsbündnis verliert seine Mehrheit",
+      "text": "Bei der Parlamentswahl im fiktiven Beispielland ist das Bündnis von Ministerpräsidentin Erika Muster auf 41 Prozent der Stimmen gefallen und hat damit seine Mehrheit verloren. Stärkste Einzelpartei wurde die oppositionelle Musterpartei mit 33 Prozent. Die Wahlbeteiligung lag laut Wahlbehörde bei 68 Prozent.",
+      "warum_wichtig": "Beispielland ist das größte Land der Region, und eine neue Regierung könnte das gemeinsame Handelsabkommen neu verhandeln.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Beispiel-Zeitung",
+          "url": "https://example.com/weltpolitik/2026-10-31/wahl-beispielland"
+        },
+        {
+          "name": "Muster-Rundschau",
+          "url": "https://example.org/ausland/beispielland-regierung-verliert-mehrheit"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-31-weltpolitik-2",
+      "datum": "2026-10-31",
+      "datum_bis": null,
+      "titel": "Waffenruhe zwischen Nordmark und Südmark um 30 Tage verlängert",
+      "text": "Die am Dienstag vereinbarte Waffenruhe zwischen den fiktiven Nachbarstaaten Nordmark und Südmark gilt nun bis Ende November. Beide Regierungen bestätigten die Verlängerung am Samstag nach Gesprächen in der Hauptstadt Mittelburg. Laut Beispiel-Agentur beginnen dort am Mittwoch auch Verhandlungen über einen dauerhaften Grenzverlauf.",
+      "warum_wichtig": "Erstmals seit Beginn der Kämpfe reden beide Seiten nicht nur über eine Feuerpause, sondern über eine dauerhafte Lösung.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "Beispiel-Zeitung",
+          "url": "https://example.com/weltpolitik/2026-10-31/waffenruhe-verlaengert"
+        },
+        {
+          "name": "Muster-Rundschau",
+          "url": "https://example.org/ausland/nordmark-suedmark-waffenruhe-bis-ende-november"
+        },
+        {
+          "name": "Beispiel-Agentur",
+          "url": "https://example.com/agentur/2026-10-31/mittelburg-verhandlungen"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-31-weltpolitik-3",
+      "datum": "2026-10-31",
+      "datum_bis": null,
+      "titel": "Mustergemeinschaft einigt sich auf verbindliches Klimaziel für 2040",
+      "text": "Die zwölf Staaten der fiktiven Mustergemeinschaft haben sich zum Abschluss ihres Gipfels in Seestadt verpflichtet, ihren Ausstoß an Treibhausgasen bis 2040 um 80 Prozent gegenüber 1990 zu senken. Die Einigung gelang nach sechs Verhandlungstagen. Zwei Staaten setzten längere Übergangsfristen für ihre Kohlekraftwerke durch.",
+      "warum_wichtig": "Das Ziel ist verbindlich und zwingt die Mitgliedsstaaten, ihre nationalen Klimapläne bis Mitte 2027 nachzuschärfen.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Beispiel-Zeitung",
+          "url": "https://example.com/weltpolitik/2026-10-31/klimaziel-2040"
+        },
+        {
+          "name": "Muster-Rundschau",
+          "url": "https://example.org/ausland/gipfel-seestadt-einigung"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-31-weltpolitik-4",
+      "datum": "2026-10-31",
+      "datum_bis": null,
+      "titel": "Inselstaat Musterhafen tritt dem Handelsabkommen der Mustergemeinschaft bei",
+      "text": "Das Parlament des fiktiven Inselstaats Musterhafen hat den Beitritt mit 54 zu 21 Stimmen gebilligt. Damit fallen ab März 2027 die Zölle auf die meisten Waren zwischen Musterhafen und den zwölf Mitgliedsstaaten weg.",
+      "warum_wichtig": "Der Wirtschaftsraum der Mustergemeinschaft wächst damit zum ersten Mal seit zehn Jahren.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Beispiel-Zeitung",
+          "url": "https://example.com/weltpolitik/2026-10-31/musterhafen-beitritt"
+        },
+        {
+          "name": "Muster-Rundschau",
+          "url": "https://example.org/ausland/musterhafen-handelsabkommen"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-31-politik-1",
+      "datum": "2026-10-31",
+      "datum_bis": null,
+      "titel": "Musterland: Regierung einigt sich auf Kennzeichnungspflicht für KI-Texte",
+      "text": "Die Regierung des fiktiven EU-Mitglieds Musterland hat sich bei ihrer Klausur in Bergdorf auf ein Gesetz geeinigt, nach dem Behörden mit KI erstellte Texte kennzeichnen müssen. Bescheide, die ganz oder teilweise von einem KI-System stammen, bekommen einen Hinweis und eine Ansprechperson. Das Gesetz soll im Dezember ins Parlament kommen und ab Juli 2027 gelten.",
+      "warum_wichtig": "Wer einen Bescheid bekommt, soll erkennen können, ob ein KI-System ihn verfasst hat, und einen Menschen erreichen.",
+      "themen": [
+        "politik",
+        "ki"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Beispiel-Zeitung",
+          "url": "https://example.com/politik/2026-10-31/ki-kennzeichnung-einigung"
+        },
+        {
+          "name": "Muster-Rundschau",
+          "url": "https://example.org/inland/klausur-bergdorf-ki-gesetz"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-31-politik-2",
+      "datum": "2026-10-31",
+      "datum_bis": null,
+      "titel": "Musterland halbiert Mehrwertsteuer auf Grundnahrungsmittel ab Jänner",
+      "text": "Bei derselben Klausur beschloss die Regierung, die Mehrwertsteuer auf Brot, Milch, Obst und Gemüse ab 1. Jänner 2027 von 10 auf 5 Prozent zu senken. Das kostet laut Finanzministerium rund 900 Millionen Euro im Jahr. Gegenfinanziert werden soll es durch eine höhere Abgabe auf Kurzstreckenflüge.",
+      "warum_wichtig": "Ein Haushalt mit durchschnittlichem Einkauf spart laut Finanzministerium etwa 15 Euro im Monat.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Beispiel-Zeitung",
+          "url": "https://example.com/politik/2026-10-31/mehrwertsteuer-lebensmittel"
+        },
+        {
+          "name": "Muster-Rundschau",
+          "url": "https://example.org/inland/mehrwertsteuer-halbiert"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-31-ki-1",
+      "datum": "2026-10-31",
+      "datum_bis": null,
+      "titel": "Muster-KI schaltet Sprachmodell Muster-7 für alle Nutzer frei",
+      "text": "Das fiktive Unternehmen Muster-KI hat sein neues Sprachmodell Muster-7 nach zwei Tagen Testphase für alle Nutzer freigegeben. Es verarbeitet laut Hersteller doppelt so lange Texte wie der Vorgänger und ist für Entwickler um 20 Prozent günstiger. Unabhängige Vergleichstests stehen noch aus.",
+      "warum_wichtig": "Lange Dokumente wie Verträge oder Bücher lassen sich damit in einem Stück auswerten, statt sie in Teile zu zerlegen.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Beispiel-Zeitung",
+          "url": "https://example.com/ki/2026-10-31/muster-7-fuer-alle"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-31-wirtschaft-1",
+      "datum": "2026-10-31",
+      "datum_bis": null,
+      "titel": "Beispiel-Halbleiter bestätigt Chipwerk für 4 Milliarden Euro in Musterstadt",
+      "text": "Der fiktive Chiphersteller Beispiel-Halbleiter baut sein nächstes Werk in Musterstadt. Ab 2029 sollen dort Speicherchips für Rechenzentren entstehen, geplant sind rund 1.800 Arbeitsplätze. Der Staat übernimmt 900 Millionen Euro der Kosten.",
+      "warum_wichtig": "Speicherchips für KI-Rechenzentren sind knapp, und das Werk wäre eines der größten seiner Art in Europa.",
+      "themen": [
+        "wirtschaft"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Beispiel-Zeitung",
+          "url": "https://example.com/wirtschaft/2026-10-31/chipwerk-musterstadt"
+        },
+        {
+          "name": "Muster-Rundschau",
+          "url": "https://example.org/wirtschaft/beispiel-halbleiter-standort"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-31-wirtschaft-2",
+      "datum": "2026-10-31",
+      "datum_bis": null,
+      "titel": "Musterstrom liefert 15 Jahre lang Windstrom an drei Rechenzentren",
+      "text": "Der fiktive Energieversorger Musterstrom hat mit dem Betreiber Beispiel-Cloud einen Liefervertrag über 15 Jahre abgeschlossen. Ein neuer Windpark vor der Küste soll ab 2028 jährlich rund 2 Terawattstunden Strom für drei Rechenzentren liefern, etwa so viel, wie 500.000 Haushalte verbrauchen.",
+      "warum_wichtig": "Rechenzentren sichern sich ihren Strom zunehmend über eigene Langfristverträge statt über den allgemeinen Strommarkt.",
+      "themen": [
+        "wirtschaft"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Muster-Rundschau",
+          "url": "https://example.org/wirtschaft/musterstrom-windpark-rechenzentren"
+        }
+      ]
+    }
+  ],
+  "videos": [],
+  "abschnitte": []
+}

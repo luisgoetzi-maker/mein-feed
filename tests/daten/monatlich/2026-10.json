@@ -1,0 +1,279 @@
+{
+  "beispiel": true,
+  "format": "monatlich",
+  "titel": "Oktober 2026 (ab 25. Oktober)",
+  "zeitraum": {
+    "von": "2026-10-01",
+    "bis": "2026-10-31"
+  },
+  "erschienen": "2026-11-01T04:10:00+01:00",
+  "status": "ok",
+  "fehler": null,
+  "ruhig": [
+    "tirol"
+  ],
+  "luecken": [],
+  "ausnahmen": [
+    {
+      "thema": "ki",
+      "grund": "Test-Grund für die Ausnahme."
+    }
+  ],
+  "meldungen": [
+    {
+      "id": "2026-10-politik-1",
+      "datum": "2026-10-28",
+      "datum_bis": "2026-11-02",
+      "titel": "<img src=x onerror=\"window.__xss=1\"> Titel mit HTML",
+      "text": "Text <b>nicht fett</b>.",
+      "warum_wichtig": "Weil.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "Böse",
+          "url": "javascript:window.__xss=2"
+        },
+        {
+          "name": "Gut",
+          "url": "https://example.com/a"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-ki-1",
+      "datum": "2026-10-29",
+      "datum_bis": null,
+      "titel": "KI-Meldung 1",
+      "text": "Text.",
+      "warum_wichtig": "Weil.",
+      "themen": [
+        "ki",
+        "kultur"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Q",
+          "url": "https://example.com/k"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-ki-2",
+      "datum": "2026-10-29",
+      "datum_bis": null,
+      "titel": "KI-Meldung 2",
+      "text": "Text.",
+      "warum_wichtig": "Weil.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Q",
+          "url": "https://example.com/k"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-ki-3",
+      "datum": "2026-10-29",
+      "datum_bis": null,
+      "titel": "KI-Meldung 3",
+      "text": "Text.",
+      "warum_wichtig": "Weil.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Q",
+          "url": "https://example.com/k"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-ki-4",
+      "datum": "2026-10-29",
+      "datum_bis": null,
+      "titel": "KI-Meldung 4",
+      "text": "Text.",
+      "warum_wichtig": "Weil.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Q",
+          "url": "https://example.com/k"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-ki-5",
+      "datum": "2026-10-29",
+      "datum_bis": null,
+      "titel": "KI-Meldung 5",
+      "text": "Text.",
+      "warum_wichtig": "Weil.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Q",
+          "url": "https://example.com/k"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-ki-6",
+      "datum": "2026-10-29",
+      "datum_bis": null,
+      "titel": "KI-Meldung 6",
+      "text": "Text.",
+      "warum_wichtig": "Weil.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Q",
+          "url": "https://example.com/k"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-ki-7",
+      "datum": "2026-10-29",
+      "datum_bis": null,
+      "titel": "KI-Meldung 7",
+      "text": "Text.",
+      "warum_wichtig": "Weil.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Q",
+          "url": "https://example.com/k"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-ki-8",
+      "datum": "2026-10-29",
+      "datum_bis": null,
+      "titel": "KI-Meldung 8",
+      "text": "Text.",
+      "warum_wichtig": "Weil.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Q",
+          "url": "https://example.com/k"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-ki-9",
+      "datum": "2026-10-29",
+      "datum_bis": null,
+      "titel": "KI-Meldung 9",
+      "text": "Text.",
+      "warum_wichtig": "Weil.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Q",
+          "url": "https://example.com/k"
+        }
+      ]
+    },
+    {
+      "id": "2026-10-kultur-1",
+      "datum": "2026-10-30",
+      "datum_bis": null,
+      "titel": "Meldung aus einem alten Thema",
+      "text": "Das Thema gibt es in themen.json nicht mehr.",
+      "warum_wichtig": "Weil.",
+      "themen": [
+        "kultur"
+      ],
+      "hauptthema": "kultur",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Q",
+          "url": "https://example.com/c"
+        }
+      ]
+    }
+  ],
+  "videos": [
+    {
+      "titel": "Kaputtes Video",
+      "kanal": "AI Explained",
+      "dauer_min": 12,
+      "datum": "2026-10-20",
+      "url": "https://www.youtube.com/watch?v=Beispiel-00",
+      "thema": "ki",
+      "warum": "Soll als nicht verfügbar erscheinen.",
+      "hintergrund": false,
+      "neuer_kanal": false
+    },
+    {
+      "titel": "Erklärvideo",
+      "kanal": "Neuer Kanal X",
+      "dauer_min": 25,
+      "datum": "2026-05-01",
+      "url": "https://www.youtube.com/watch?v=abcdefghijk",
+      "thema": "politik",
+      "warum": "Zeitlos.",
+      "hintergrund": true,
+      "neuer_kanal": true
+    }
+  ],
+  "abschnitte": [
+    {
+      "typ": "gescheitert",
+      "thema": "startups",
+      "titel": "Gescheitert und warum",
+      "eintraege": [
+        {
+          "name": "Musterkiste",
+          "text": "Wollte in zehn Minuten liefern. Scheiterte am Geld. Lehre: Wachstum kostet.",
+          "quelle": {
+            "name": "Beispiel-Zeitung",
+            "url": "https://example.com/m"
+          }
+        }
+      ]
+    }
+  ]
+}
