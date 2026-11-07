@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f3f2ee">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111317">
+  <meta name="description" content="Eigene Nachrichten statt Social-Media-Feed">
+  <title>Mein Feed</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="app-kopf">
+    <div class="app-zeile">
+      <h1 class="app-titel">Mein Feed</h1>
+      <button type="button" id="neu-laden" class="symbol-knopf" aria-label="Aktualisieren" title="Aktualisieren">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false">
+          <path d="M20 12a8 8 0 1 1-2.34-5.66" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M20 4v5h-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+    <div id="chips" class="chips" role="group" aria-label="Nach Themen filtern"></div>
+  </header>
+
+  <main id="inhalt" tabindex="-1">
+    <p class="laden">Lädt …</p>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+  <nav class="tabs" aria-label="Ansichten">
+    <a href="#heute" data-tab="heute">Heute</a>
+    <a href="#woche" data-tab="woche">Woche</a>
+    <a href="#monat" data-tab="monat">Monat</a>
+    <a href="#jahr" data-tab="jahr">Jahr</a>
+    <a href="#merkliste" data-tab="merkliste">Merkliste</a>
+  </nav>
+
+  <noscript><p class="hinweis hinweis--fehler">Mein Feed braucht JavaScript.</p></noscript>
+</body>
+</html>
