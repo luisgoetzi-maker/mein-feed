@@ -1,0 +1,18 @@
+{
+  "beispiel": true,
+  "format": "taeglich",
+  "titel": "Montag, 2. November 2026",
+  "zeitraum": {
+    "von": "2026-11-02",
+    "bis": "2026-11-02"
+  },
+  "erschienen": "2026-11-03T03:12:00+01:00",
+  "status": "fehler",
+  "fehler": "Test: Das Skript ist abgestürzt.",
+  "ruhig": [],
+  "meldungen": [],
+  "luecken": [],
+  "ausnahmen": [],
+  "videos": [],
+  "abschnitte": []
+}
