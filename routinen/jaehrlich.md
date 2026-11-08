@@ -9,6 +9,16 @@ Der Jahresrückblick fasst das **Vorjahr** zusammen und erscheint am 1. Jänner 
 - Der Jahresrückblick löscht **nie** etwas.
 - Geht etwas schief, schreibst du trotzdem eine Ausgabe mit `"status": "fehler"` (wie in `taeglich.md`, Schritt 9).
 
+## 0. Nur am 1. Jänner
+
+Die Aufgabe startet an jedem Monatsersten um 4:37, weil sich in den geplanten Aufgaben kein jährlicher Zeitplan einstellen lässt. Prüfe deshalb zuerst das Datum in Wien:
+
+```bash
+TZ=Europe/Vienna date +%m-%d
+```
+
+Ist das Ergebnis nicht `01-01`, beende den Lauf sofort: nichts vorbereiten, nichts schreiben, nichts pushen. Das ist kein Fehler, also auch keine Ausgabe mit `"status": "fehler"`; der Lauf ist damit fertig.
+
 ## 1. Vorbereiten
 
 ```bash

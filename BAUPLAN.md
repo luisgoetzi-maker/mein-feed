@@ -33,7 +33,7 @@ Vier Formate, jedes fasst einen abgeschlossenen Zeitraum zusammen und erscheint 
 - Ausnahme: Gibt es wirklich mehr wichtige Meldungen, darf ein Thema die Obergrenze um höchstens 2 überschreiten (täglich also 5, wöchentlich 7, monatlich 10, jährlich 12). Jede zusätzliche Meldung muss so wichtig sein, dass sie eine der regulären verdrängen könnte; die Begründung steht in `ausnahmen`, und die App zeigt sie beim Thema an.
 - Die Woche zählt von Sonntag bis Samstag, damit der Sonntagsrückblick eine abgeschlossene Woche zusammenfasst. Beispiel: Der Rückblick vom 8.11.2026 umfasst den 1. bis 7.11.2026.
 - Die Startzeiten liegen ein paar Minuten nach der vollen Stunde, weil Läufe genau zur vollen Stunde laut Doku oft verspätet starten.
-- Läufe pro Tag: normal 1, sonntags 2, am Monatsersten 2 (an einem Sonntag 3), am 1.1. bis zu 4. Jeder Lauf zählt gegen dein normales Abo-Kontingent. Laut aktueller Doku gibt es daneben nur noch ein Stundenlimit von 100 geplanten Läufen, die früher genannte Tagesgrenze von 5 gilt nicht mehr.
+- Läufe pro Tag: normal 1, sonntags 2, am Monatsersten 3 (an einem Sonntag 4), am 1.1. bis zu 4. Der jährliche Lauf startet an jedem Monatsersten, endet aber außer am 1.1. sofort (siehe Teil D). Jeder Lauf zählt gegen dein normales Abo-Kontingent. Laut aktueller Doku gibt es daneben nur noch ein Stundenlimit von 100 geplanten Läufen, die früher genannte Tagesgrenze von 5 gilt nicht mehr.
 - Der erste Jahresrückblick am 1.1.2027 deckt nur November und Dezember 2026 ab und heißt deshalb „Kurzrückblick 2026“.
 
 ## Überthemen und Inhaltsregeln
@@ -277,6 +277,7 @@ Fertig ist der Lauf, wenn die neue Ausgabe und data/index.json gültiges JSON si
 
 **`routinen/jaehrlich.md`**
 
+0. Ist heute in Wien nicht der 1. Jänner, sofort beenden, ohne etwas zu schreiben (die Aufgabe startet jeden Monatsersten, siehe Teil D).
 1. Zeitraum = das Vorjahr. Warten, bis der Dezember-Rückblick auf dem Branch liegt, wie oben.
 2. Quelle: alle Monatsrückblicke des Jahres. Fehlen Monate, nur die vorhandenen nutzen und `titel` auf „Kurzrückblick \<Jahr>“ setzen, sonst „Jahresrückblick \<Jahr>“.
 3. Pro Überthema höchstens 10 Meldungen, dazu `monatsueberblick` (1 bis 2 Sätze pro Monat und Thema) und `ausblick` (nur bereits angekündigte Termine und Entscheidungen des neuen Jahres).
@@ -341,9 +342,10 @@ Für jede Aufgabe gilt: Prompt aus dem Abschnitt oben einfügen und die erste Ze
 | Mein Feed · täglich | `Format: taeglich` | **Schedule** → Daily | 3:07 |
 | Mein Feed · wöchentlich | `Format: woechentlich` | **Schedule** → Weekly, Sonntag | 3:37 |
 | Mein Feed · monatlich | `Format: monatlich` | **Custom**: `CRON_TZ=Europe/Vienna 7 4 1 * *` | am 1., 4:07 |
-| Mein Feed · jährlich | `Format: jaehrlich` | **Custom**: `CRON_TZ=Europe/Vienna 37 4 1 1 *` | 1.1., 4:37 |
+| Mein Feed · jährlich | `Format: jaehrlich` | **Custom**: `CRON_TZ=Europe/Vienna 37 4 1 * *` | am 1., 4:37; arbeitet nur am 1.1. |
 
 - Bei den Voreinstellungen (Daily, Weekly) gibst du die Uhrzeit in deiner Ortszeit ein.
+- Einen jährlichen Zeitplan (`37 4 1 1 *`) nimmt die Oberfläche nicht an. Die jährliche Aufgabe startet deshalb an jedem Monatsersten um 4:37; `routinen/jaehrlich.md` beendet den Lauf sofort, wenn nicht 1. Jänner ist. Das kostet elf kurze Läufe im Jahr.
 - **Custom** gibt es erst nach dem Anlegen: Aufgabe mit einer beliebigen Voreinstellung erstellen, dann im Menü neben dem Namen **Edit** → im **Trigger**-Feld **Custom** wählen, den Ausdruck einfügen, **Save changes**. Der Teil `CRON_TZ=Europe/Vienna` sorgt dafür, dass die Stunden Wiener Zeit sind, auch nach der Zeitumstellung.
 
 **E. Testen**
