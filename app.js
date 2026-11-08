@@ -9,7 +9,10 @@
  *
  * Lokal gespeichert: Merkliste (IndexedDB), Feedback, Vorlese-Position, Stimme und
  * Tempo (localStorage). Vorgelesen wird mit der Web Speech API, Satz für Satz; ein
- * Screen Wake Lock hält dabei den Bildschirm an. Die PWA kommt in Sitzung 5 dazu.
+ * Screen Wake Lock hält dabei den Bildschirm an.
+ *
+ * Als PWA hält der Service Worker (sw.js) die App und die zuletzt geladenen Ausgaben für den
+ * Offline-Fall bereit. Kommen Daten aus seinem Cache, zeigt die App „Offline – Stand vom …“.
  */
 
 (() => {
@@ -61,6 +64,7 @@
   const NACH_ABBRUCH_MS = 100; // Chrome verschluckt manchmal ein speak() direkt nach cancel()
   const AUTO_NEU_LADEN_MS = 30 * 60 * 1000;
   const DATEI_MUSTER = /^data\/[a-z]+\/[0-9A-Za-z_-]+\.json$/;
+  const STAND_KOPF = 'X-Mein-Feed-Stand'; // setzt sw.js bei Daten aus seinem Cache
 
   // ------------------------------------------------------------ Zustand
 
@@ -70,6 +74,7 @@
     farben: {}, // id -> 0..5
     index: null,
     ladefehler: null,
+    offline: null, // Zeitpunkt (ISO) des letzten frischen Ladens, wenn index.json aus dem Cache kam
     geladen: 0,
     zeitstempel: '',
     cache: new Map(), // datei -> Promise<Ausgabe>
@@ -133,10 +138,15 @@
     return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   }
 
-  async function ladeJson(url) {
+  // stand: gesetzt, wenn die Antwort aus dem Cache des Service Workers kommt (offline).
+  async function holeJson(url) {
     const antwort = await fetch(url, { cache: 'no-cache' });
     if (!antwort.ok) throw Object.assign(new Error(`HTTP ${antwort.status}`), { status: antwort.status });
-    return antwort.json();
+    return { daten: await antwort.json(), stand: antwort.headers.get(STAND_KOPF) };
+  }
+
+  async function ladeJson(url) {
+    return (await holeJson(url)).daten;
   }
 
   // ------------------------------------------------------------ Datum
@@ -183,6 +193,19 @@
   function standText(iso) {
     const m = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/.exec(str(iso));
     return m ? `${+m[3]}.${+m[2]}.${m[1]}, ${+m[4]}:${m[5]} Uhr` : str(iso);
+  }
+
+  // Beliebiger Zeitpunkt (etwa „2026-11-07T07:15:00.000Z“) in Wiener Zeit.
+  function ortszeitText(iso) {
+    const d = new Date(iso);
+    if (Number.isNaN(d.getTime())) return '';
+    const t = {};
+    const format = new Intl.DateTimeFormat('de-AT', {
+      timeZone: 'Europe/Vienna', day: 'numeric', month: 'numeric', year: 'numeric',
+      hour: 'numeric', minute: '2-digit', hourCycle: 'h23',
+    });
+    for (const p of format.formatToParts(d)) t[p.type] = p.value;
+    return `${t.day}.${t.month}.${t.year}, ${t.hour}:${t.minute} Uhr`;
   }
 
   function meldungsDatum(von, bis) {
@@ -335,8 +358,9 @@
     knopf.classList.add('dreht');
     try {
       let neu;
+      let stand = null;
       try {
-        neu = await ladeJson(`${DATEN_BASIS}data/index.json`);
+        ({ daten: neu, stand } = await holeJson(`${DATEN_BASIS}data/index.json`));
       } catch (fehler) {
         // Noch kein Daten-Branch (vor dem ersten Lauf): keine Ausgaben statt Fehlermeldung.
         if (fehler.status !== 404) throw fehler;
@@ -352,16 +376,22 @@
           if (a) zustand.cache.delete(a.datei);
         }
       }
-      if (manuell) zustand.cache.clear();
+      // Wieder online nach Daten aus dem Cache: auch die Ausgaben frisch laden.
+      if (manuell || (zustand.offline && !stand)) zustand.cache.clear();
       const warFehler = Boolean(zustand.ladefehler);
+      const offlineGeaendert = zustand.offline !== stand;
       zustand.index = neu;
       zustand.ladefehler = null;
+      zustand.offline = stand;
       zustand.geladen = Date.now();
-      const neuZeichnen = geaendert || warFehler || manuell || zeitStempel() !== zustand.zeitstempel;
+      const neuZeichnen = geaendert || warFehler || manuell || offlineGeaendert || zeitStempel() !== zustand.zeitstempel;
       if (neuZeichnen && (zustand.tab !== 'merkliste' || !zustand.renderNr)) {
         await zeigeAnsicht({ scrollBehalten: !geaendert });
       }
-      if (manuell) toast(geaendert ? 'Neue Ausgaben geladen.' : 'Alles aktuell.');
+      if (manuell) {
+        toast(stand ? 'Keine Verbindung. Du siehst den zuletzt geladenen Stand.'
+          : geaendert ? 'Neue Ausgaben geladen.' : 'Alles aktuell.');
+      }
     } catch (fehler) {
       console.warn('index.json nicht geladen:', fehler);
       if (!zustand.index) {
@@ -412,6 +442,7 @@
       box.append(zustand.ladefehler ? ladefehlerBox() : el('p', { class: 'laden', text: 'Lädt …' }));
       return box;
     }
+    if (zustand.offline) box.append(offlineHinweis());
     const eintraege = ausgabenVon(format);
     const fehlt = fehlendeAusgabe(format, eintraege);
     if (fehlt) box.append(fehltHinweis(format, fehlt));
@@ -428,10 +459,16 @@
     return box;
   }
 
-  // Fehlt die Ausgabe, die nach 6:00 Uhr schon da sein müsste?
+  // Daten aus dem Cache des Service Workers: alte Daten sollen nicht wie frische aussehen.
+  function offlineHinweis() {
+    return el('p', { class: 'offline-hinweis' },
+      el('span', null, el('strong', { text: 'Offline' }), ` – Stand vom ${ortszeitText(zustand.offline)}`));
+  }
+
+  // Fehlt die Ausgabe, die nach 6:00 Uhr schon da sein müsste? Offline lässt sich das nicht sagen.
   function fehlendeAusgabe(format, eintraege) {
     const start = zustand.index && zustand.index.start;
-    if (!start) return null;
+    if (!start || zustand.offline) return null;
     const jetzt = wienJetzt();
     if (jetzt.stunde < 6) return null;
     const z = erwarteterZeitraum(format, jetzt.datum);
@@ -2190,6 +2227,28 @@
     toastUhr = setTimeout(() => { box.hidden = true; }, aktion ? 6000 : 2800);
   }
 
+  // ------------------------------------------------------------ Offline (Service Worker)
+
+  function richteOfflineEin() {
+    window.addEventListener('online', () => {
+      if (zustand.offline || zustand.ladefehler) aktualisiere();
+    });
+    if (!('serviceWorker' in navigator)) return;
+    const sw = navigator.serviceWorker;
+    // Beim ersten Besuch kommen die Daten noch ohne Service Worker. Sobald er übernimmt, einmal
+    // durch ihn laden, damit index.json und die gezeigten Ausgaben auch offline da sind.
+    if (!sw.controller) sw.addEventListener('controllerchange', fuerOfflineMerken, { once: true });
+    const anmelden = () => sw.register('sw.js', { scope: './', updateViaCache: 'none' })
+      .catch((fehler) => console.warn('Service Worker nicht angemeldet:', fehler));
+    if (document.readyState === 'complete') anmelden();
+    else window.addEventListener('load', anmelden, { once: true });
+  }
+
+  function fuerOfflineMerken() {
+    const dateien = ['data/index.json', ...zustand.cache.keys()];
+    return Promise.all(dateien.map((datei) => fetch(DATEN_BASIS + datei, { cache: 'no-cache' }).catch(() => null)));
+  }
+
   // ------------------------------------------------------------ Start
 
   async function start() {
@@ -2209,12 +2268,13 @@
     $('#neu-laden').addEventListener('click', () => aktualisiere({ manuell: true }));
     document.addEventListener('visibilitychange', () => {
       if (document.visibilityState !== 'visible') return;
-      if (Date.now() - zustand.geladen > AUTO_NEU_LADEN_MS) aktualisiere();
+      if (zustand.offline || Date.now() - zustand.geladen > AUTO_NEU_LADEN_MS) aktualisiere();
       else if (zustand.tab !== 'merkliste' && zeitStempel() !== zustand.zeitstempel) zeigeAnsicht({ scrollBehalten: true });
     });
 
     zustand.feedback = ladeFeedback();
     richteVorlesenEin();
+    richteOfflineEin();
     await Promise.all([ladeThemen(), ladeMerkliste()]);
     zeigeChips();
     await aktualisiere();

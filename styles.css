@@ -440,6 +440,32 @@ main:focus {
   margin-top: 0.25rem;
 }
 
+/* Daten aus dem Cache des Service Workers */
+.offline-hinweis {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0 0;
+  padding: 0.45rem 0.8rem;
+  border-radius: 10px;
+  background: var(--warn-bg);
+  color: var(--warn);
+  font-size: 0.875rem;
+}
+
+.offline-hinweis::before {
+  content: "";
+  flex: none;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.offline-hinweis + .ausgabe .ausgabe-kopf {
+  padding-top: 0.85rem;
+}
+
 .link-knopf {
   padding: 0;
   border: 0;

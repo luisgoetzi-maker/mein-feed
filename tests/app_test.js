@@ -19,6 +19,11 @@
  * Stimmen hat. Ob echte Stimmen, Wake Lock und App-Wechsel am Handy funktionieren, lässt
  * sich nur dort prüfen.
  *
+ * Alle Szenarien bis auf „PWA“ blockieren den Service Worker. Das PWA-Szenario liefert die App
+ * wie GitHub Pages unter /mein-feed/ aus (nicht im Wurzelverzeichnis), prüft Manifest und Icons
+ * und mit echtem Service Worker den Offline-Fall. Weil Playwright Anfragen, die der Test selbst
+ * beantwortet, auch bei context.setOffline(true) durchlässt, bricht der Test sie dann zusätzlich ab.
+ *
  * Exit-Code 0, wenn alle Prüfungen bestehen.
  */
 
@@ -30,6 +35,7 @@ const path = require('path');
 const { chromium } = require('playwright');
 
 const WURZEL = path.resolve(__dirname, '..');
+const APP = '/mein-feed/'; // Pfad der App auf GitHub Pages, nur im PWA-Szenario genutzt
 const DATEN = path.join(__dirname, 'daten');
 const START = '2026-10-25'; // „start“ in index.json (erste Tagesausgabe der Beispieldaten)
 const BEISPIEL = new Set([
@@ -64,13 +70,26 @@ const TYPEN = {
   '.png': 'image/png',
 };
 
+// Nur fürs PWA-Szenario, je angefragtem Pfad: eine neue Version der Datei auf dem Server (ersatz)
+// oder ein Server, der so viele Millisekunden nicht antwortet (verzoegerung). Das gehört in den
+// Server, weil der Browser das Update von sw.js an context.route vorbei lädt.
+const SERVER = { ersatz: new Map(), verzoegerung: new Map() };
+
 function starteServer() {
-  const server = http.createServer((anfrage, antwort) => {
-    const pfad = decodeURIComponent(new URL(anfrage.url, 'http://x').pathname);
+  const server = http.createServer(async (anfrage, antwort) => {
+    const angefragt = decodeURIComponent(new URL(anfrage.url, 'http://x').pathname);
+    if (SERVER.verzoegerung.has(angefragt)) await warte(SERVER.verzoegerung.get(angefragt));
+    // Wie auf GitHub Pages liegt die App auch unter /mein-feed/.
+    const pfad = angefragt.startsWith(APP) ? angefragt.slice(APP.length - 1) : angefragt;
     const datei = path.join(WURZEL, pfad === '/' ? 'index.html' : pfad);
     if (!datei.startsWith(WURZEL + path.sep)) {
       antwort.writeHead(403);
       antwort.end();
+      return;
+    }
+    if (SERVER.ersatz.has(angefragt)) {
+      antwort.writeHead(200, { 'content-type': TYPEN[path.extname(datei)] || 'application/octet-stream' });
+      antwort.end(SERVER.ersatz.get(angefragt));
       return;
     }
     fs.readFile(datei, (fehler, inhalt) => {
@@ -120,6 +139,10 @@ function zusatzAusgaben(zusatz) {
  * einstellungen.index: 'normal', '404' oder 'offline'
  * einstellungen.zusatz: weitere Ausgaben nur für dieses Szenario, { datei: Ausgabe }
  * einstellungen.vorbereitung: Funktion, die vor app.js in jeder Seite läuft (Attrappen)
+ * Nur PWA-Szenario:
+ * einstellungen.serviceWorker: true lässt den Service Worker zu
+ * einstellungen.offline: true bricht jede Anfrage ab (zusätzlich zu context.setOffline)
+ * einstellungen.anfragen: Array, sammelt alle Adressen (auch die des Service Workers)
  */
 async function szenario(browser, basis, name, einstellungen, ablauf) {
   console.log(`\n${name}`);
@@ -127,12 +150,15 @@ async function szenario(browser, basis, name, einstellungen, ablauf) {
     viewport: { width: 390, height: 844 },
     locale: 'de-AT',
     acceptDownloads: true,
-    serviceWorkers: 'block', // ab Sitzung 5: sonst liefert der Service Worker alte Dateien
+    // Ohne Block liefert der Service Worker alte Dateien aus seinem Cache; nur das PWA-Szenario lässt ihn zu.
+    serviceWorkers: einstellungen.serviceWorker ? 'allow' : 'block',
   });
   await ctx.grantPermissions(['clipboard-read', 'clipboard-write'], { origin: basis });
   if (einstellungen.vorbereitung) await ctx.addInitScript(einstellungen.vorbereitung);
   await ctx.route('**/*', async (route) => {
     const url = route.request().url();
+    if (einstellungen.anfragen) einstellungen.anfragen.push(url);
+    if (einstellungen.offline) return route.abort('internetdisconnected');
     if (url.startsWith(basis)) return route.continue();
     const daten = url.split('/claude/feed-daten/')[1];
     if (url.startsWith('https://raw.githubusercontent.com/') && daten) {
@@ -166,6 +192,11 @@ async function szenario(browser, basis, name, einstellungen, ablauf) {
   });
   try {
     await ablauf(seite, ctx);
+    if (!einstellungen.serviceWorker) {
+      const sw = await seite.evaluate(async () => !navigator.serviceWorker
+        || (!navigator.serviceWorker.controller && (await navigator.serviceWorker.getRegistrations()).length === 0));
+      pruefe('Service Worker blockiert', sw);
+    }
   } catch (e) {
     pruefe(`${name}: Ablauf ohne Abbruch`, false, e.stack || String(e));
   }
@@ -642,6 +673,275 @@ async function offline(seite, ctx, basis) {
   pruefe('Offline: Merkliste geht trotzdem', (await seite.$$('.merk-kopf')).length === 1);
 }
 
+// ------------------------------------------------------------ PWA: Manifest, Icons, Service Worker
+
+const DATEN_URL = 'https://raw.githubusercontent.com/luisgoetzi-maker/mein-feed/refs/heads/claude/feed-daten/';
+const APP_DATEIEN = ['', 'app.js', 'config/themen.json', 'icons/apple-touch-icon.png', 'icons/icon-192.png', 'icons/icon-512.png',
+  'icons/icon-maskable-512.png', 'icons/icon.svg', 'manifest.webmanifest', 'styles.css'];
+
+function cacheInhalt(seite) {
+  return seite.evaluate(async () => {
+    const inhalt = {};
+    for (const name of await caches.keys()) inhalt[name] = (await (await caches.open(name)).keys()).map((r) => r.url);
+    return inhalt;
+  });
+}
+
+async function datenImCache(seite) {
+  return ((await cacheInhalt(seite))['mein-feed-daten'] || []).map((u) => u.replace(DATEN_URL, '')).sort();
+}
+
+// Wartet, bis genau diese Dateien vom Daten-Branch im Cache liegen.
+async function warteAufDaten(seite, erwartet) {
+  const ende = Date.now() + 10000;
+  let jetzt = await datenImCache(seite);
+  while (JSON.stringify(jetzt) !== JSON.stringify(erwartet) && Date.now() < ende) {
+    await warte(100);
+    jetzt = await datenImCache(seite);
+  }
+  return jetzt;
+}
+
+function pngKopf(datei) {
+  const b = fs.readFileSync(datei);
+  const png = b.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10])) && b.toString('ascii', 12, 16) === 'IHDR';
+  return png ? { breite: b.readUInt32BE(16), hoehe: b.readUInt32BE(20) } : null;
+}
+
+// Zeitpunkt in Wiener Zeit wie „7.11.2026, 8:15 Uhr“.
+function wienZeit(iso) {
+  const t = {};
+  const format = new Intl.DateTimeFormat('de-AT', {
+    timeZone: 'Europe/Vienna', day: 'numeric', month: 'numeric', year: 'numeric', hour: 'numeric', minute: '2-digit', hourCycle: 'h23',
+  });
+  for (const p of format.formatToParts(new Date(iso))) t[p.type] = p.value;
+  return `${t.day}.${t.month}.${t.year}, ${t.hour}:${t.minute} Uhr`;
+}
+
+async function pwa(seite, ctx, basis, einstellungen) {
+  const app = `${basis}${APP}`;
+  const beginn = Date.now();
+  await seite.clock.setFixedTime(new Date('2026-11-01T08:00:00+01:00'));
+  await seite.goto(app);
+  await seite.waitForSelector('.ausgabe .meldung');
+
+  // Manifest
+  const kopf = await seite.evaluate(() => ({
+    manifest: document.querySelector('link[rel="manifest"]').href,
+    apple: document.querySelector('link[rel="apple-touch-icon"]').href,
+    icon: document.querySelector('link[rel="icon"]').href,
+    farben: [...document.querySelectorAll('meta[name="theme-color"]')].map((m) => [m.media, m.content]),
+  }));
+  const m = await seite.evaluate((url) => fetch(url).then((a) => a.json()), kopf.manifest);
+  const css = fs.readFileSync(path.join(WURZEL, 'styles.css'), 'utf8');
+  const hell = (/:root\s*{[^}]*--bg:\s*(#[0-9a-f]{6})/i.exec(css) || [])[1];
+  const dunkel = (/prefers-color-scheme:\s*dark\)\s*{\s*:root\s*{[^}]*--bg:\s*(#[0-9a-f]{6})/i.exec(css) || [])[1];
+  pruefe('Manifest verlinkt und neben index.html', kopf.manifest === `${app}manifest.webmanifest`, kopf.manifest);
+  pruefe('Manifest: Name und Kurzname „Mein Feed“, standalone, Sprache de', m.name === 'Mein Feed' && m.short_name === 'Mein Feed' && m.display === 'standalone' && m.lang === 'de', JSON.stringify(m));
+  pruefe('Manifest: start_url und scope „./“, alle Pfade relativ', m.start_url === './' && m.scope === './'
+    && [m.id, m.start_url, m.scope, ...m.icons.map((i) => i.src)].every((p) => typeof p === 'string' && !/^(\/|[a-z]+:)/i.test(p)), JSON.stringify(m));
+  pruefe('Farben wie styles.css (hell #f3f2ee, dunkel #111317)', hell === '#f3f2ee' && dunkel === '#111317' && m.theme_color === hell && m.background_color === hell
+    && JSON.stringify(kopf.farben) === JSON.stringify([['(prefers-color-scheme: light)', hell], ['(prefers-color-scheme: dark)', dunkel]]), JSON.stringify([hell, dunkel, m.theme_color, kopf.farben]));
+  const cdp = await ctx.newCDPSession(seite);
+  const chrome = await cdp.send('Page.getAppManifest');
+  pruefe('Chrome liest das Manifest ohne Fehler, Start und Scope im App-Ordner', chrome.errors.length === 0 && chrome.manifest
+    && chrome.manifest.startUrl === app && chrome.manifest.scope === app, JSON.stringify([chrome.errors, chrome.manifest && [chrome.manifest.startUrl, chrome.manifest.scope]]));
+
+  // Icons: PNG-Größen wie angegeben, maskable mit Sicherheitsrand, apple-touch-icon ohne Transparenz
+  const icons = m.icons.map((i) => ({ ...i, url: new URL(i.src, kopf.manifest).href, datei: path.join(WURZEL, i.src) }));
+  const png = icons.filter((i) => i.type === 'image/png');
+  pruefe('Icons: PNG in 192 und 512 Pixeln, Größe stimmt', ['192x192', '512x512'].every((g) => png.some((i) => i.sizes === g && i.purpose === 'any'))
+    && png.every((i) => { const k = pngKopf(i.datei); return k && `${k.breite}x${k.hoehe}` === i.sizes; }), JSON.stringify(png.map((i) => [i.src, i.sizes, pngKopf(i.datei)])));
+  const bild = (url) => seite.evaluate(async ({ url: u, hg }) => {
+    const img = new Image();
+    img.src = u;
+    await img.decode();
+    const n = img.naturalWidth;
+    const c = document.createElement('canvas');
+    c.width = n;
+    c.height = img.naturalHeight;
+    const g = c.getContext('2d');
+    g.drawImage(img, 0, 0);
+    const d = g.getImageData(0, 0, c.width, c.height).data;
+    let durchsichtig = 0;
+    let ausserhalb = 0;
+    let motiv = 0;
+    for (let y = 0; y < c.height; y += 1) {
+      for (let x = 0; x < n; x += 1) {
+        const i = (y * n + x) * 4;
+        if (d[i + 3] < 255) durchsichtig += 1;
+        const hintergrund = Math.abs(d[i] - hg[0]) <= 2 && Math.abs(d[i + 1] - hg[1]) <= 2 && Math.abs(d[i + 2] - hg[2]) <= 2;
+        if (!hintergrund) {
+          motiv += 1;
+          if (Math.hypot(x + 0.5 - n / 2, y + 0.5 - c.height / 2) > 0.4 * n) ausserhalb += 1;
+        }
+      }
+    }
+    return { breite: n, hoehe: c.height, durchsichtig, ausserhalb, motiv };
+  }, { url, hg: [0xf3, 0xf2, 0xee] });
+  const maskable = icons.find((i) => i.purpose === 'maskable');
+  const mb = maskable && await bild(maskable.url);
+  pruefe('Maskable-Icon: vollflächig, Motiv nur im Sicherheitskreis (Radius 40 %)', mb && mb.breite >= 512 && mb.durchsichtig === 0 && mb.ausserhalb === 0 && mb.motiv > 0, JSON.stringify(mb));
+  const ab = await bild(kopf.apple);
+  pruefe('apple-touch-icon: 180 Pixel, ohne Transparenz', ab.breite === 180 && ab.hoehe === 180 && ab.durchsichtig === 0 && ab.motiv > 0, JSON.stringify(ab));
+  const svg = await seite.evaluate((u) => { const img = new Image(); img.src = u; return img.decode().then(() => true, () => false); }, kopf.icon);
+  pruefe('SVG-Vorlage als Favicon und im Manifest', svg && kopf.icon === `${app}icons/icon.svg` && icons.some((i) => i.type === 'image/svg+xml' && i.url === kopf.icon));
+  const install = await cdp.send('Page.getInstallabilityErrors');
+  const installFehler = install.installabilityErrors.map((f) => f.errorId).filter((id) => id !== 'in-incognito');
+  pruefe('Chrome: App installierbar', installFehler.length === 0, JSON.stringify(install.installabilityErrors));
+  await cdp.detach();
+
+  // Service Worker übernimmt; was schon geladen war, landet im Cache
+  await seite.waitForFunction(() => Boolean(navigator.serviceWorker.controller), null, { timeout: 10000 });
+  const sw = await seite.evaluate(async () => {
+    const reg = await navigator.serviceWorker.getRegistration();
+    return { scope: reg.scope, skript: reg.active.scriptURL, steuert: navigator.serviceWorker.controller.scriptURL };
+  });
+  pruefe('Service Worker liegt neben index.html, Scope ist der App-Ordner', sw.scope === app && sw.skript === `${app}sw.js` && sw.steuert === sw.skript, JSON.stringify(sw));
+  let daten = await warteAufDaten(seite, ['data/index.json', 'data/taeglich/2026-10-31.json']);
+  pruefe('Nach dem ersten Laden: index.json und die gezeigte Ausgabe im Cache', JSON.stringify(daten) === '["data/index.json","data/taeglich/2026-10-31.json"]', JSON.stringify(daten));
+  let c = await cacheInhalt(seite);
+  const appCache = (c['mein-feed-app'] || []).map((u) => u.replace(app, '')).sort();
+  pruefe('App-Dateien im Cache', JSON.stringify(appCache) === JSON.stringify(APP_DATEIEN), JSON.stringify(appCache));
+  pruefe('Alle App-Anfragen bleiben im App-Ordner', einstellungen.anfragen.filter((u) => u.startsWith(basis)).every((u) => u.startsWith(app)),
+    JSON.stringify(einstellungen.anfragen.filter((u) => u.startsWith(basis) && !u.startsWith(app))));
+
+  // Woche öffnen, etwas merken, ein Video abspielen
+  await seite.click('.tabs a[data-tab="woche"]');
+  await seite.waitForSelector('.abschnitt--finanzierungsrunden');
+  await seite.click('[data-meldung="2026-10-25_2026-10-31-weltpolitik-1"] .knopf--merk');
+  await warte(150);
+  const video = seite.locator('.thema[data-thema="wirtschaft"] .video');
+  await video.locator('.video-start').click();
+  await seite.waitForSelector('.thema[data-thema="wirtschaft"] .video iframe');
+  await video.locator('.video-start').click();
+  daten = await warteAufDaten(seite, ['data/index.json', 'data/taeglich/2026-10-31.json', 'data/woechentlich/2026-10-25_2026-10-31.json']);
+  pruefe('Jede geladene Ausgabe kommt in den Cache', daten.includes('data/woechentlich/2026-10-25_2026-10-31.json'), JSON.stringify(daten));
+  c = await cacheInhalt(seite);
+  const fremd = Object.values(c).flat().filter((u) => !u.startsWith(app) && !u.startsWith(DATEN_URL));
+  const yt = einstellungen.anfragen.filter((u) => /youtube(-nocookie)?\.com/.test(u));
+  pruefe('YouTube und andere fremde Seiten nicht im Cache', fremd.length === 0 && yt.length >= 2, JSON.stringify([fremd, yt]));
+
+  // Neue Version auf dem Server: kommt beim nächsten Laden sofort an
+  const stil = fs.readFileSync(path.join(WURZEL, 'styles.css'), 'utf8');
+  SERVER.ersatz.set(`${APP}styles.css`, `${stil}\n:root { --pwa-test: neu; }\n`);
+  await seite.reload();
+  await seite.waitForSelector('.ausgabe .meldung');
+  const version = await seite.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue('--pwa-test').trim());
+  SERVER.ersatz.delete(`${APP}styles.css`);
+  pruefe('Neue Version einer App-Datei gilt beim ersten Neuladen, ohne Versionsnummer', version === 'neu', version);
+
+  // Server antwortet nicht: nach etwa 4 Sekunden aus dem Cache
+  SERVER.verzoegerung.set(`${APP}app.js`, 9000);
+  const t0 = Date.now();
+  await seite.reload();
+  await seite.waitForSelector('.ausgabe .meldung');
+  const dauer = Date.now() - t0;
+  SERVER.verzoegerung.delete(`${APP}app.js`);
+  pruefe('Hängt der Server, kommt app.js nach etwa 4 Sekunden aus dem Cache', dauer >= 3800 && dauer < 7000, `${dauer} ms`);
+
+  // Offline: zuletzt geladene Ausgaben mit Hinweis
+  await seite.clock.setFixedTime(new Date('2026-11-02T09:00:00+01:00')); // online wäre „Heute noch keine Ausgabe“ fällig
+  einstellungen.offline = true;
+  await ctx.setOffline(true);
+  const vorher = einstellungen.anfragen.length;
+  await seite.goto('about:blank');
+  await seite.goto(`${app}#heute`);
+  await seite.waitForSelector('.ausgabe .meldung');
+  const stand = await seite.evaluate((url) => caches.match(url).then((a) => a.headers.get('X-Mein-Feed-Stand')), `${DATEN_URL}data/index.json`);
+  let o = await seite.evaluate(() => ({
+    online: navigator.onLine,
+    hinweis: [...document.querySelectorAll('.offline-hinweis')].map((h) => h.textContent),
+    titel: [...document.querySelectorAll('.ausgabe-titel')].map((h) => h.textContent),
+    meldungen: document.querySelectorAll('.ausgabe:first-of-type .meldung').length,
+    warnung: Boolean(document.querySelector('.hinweis--warnung')),
+  }));
+  pruefe('Offline: App startet aus dem Cache, obwohl jede Anfrage scheitert', !o.online && einstellungen.anfragen.length > vorher, JSON.stringify(o));
+  const tag = JSON.parse(fs.readFileSync(path.join(DATEN, 'taeglich/2026-10-31.json'), 'utf8'));
+  pruefe('Offline: zuletzt geladene Ausgaben', JSON.stringify(o.titel) === '["Samstag, 31. Oktober 2026","Freitag, 30. Oktober 2026"]' && o.meldungen === tag.meldungen.length, JSON.stringify(o));
+  pruefe('Offline-Hinweis mit dem Zeitpunkt des letzten frischen Ladens', stand && Date.parse(stand) >= beginn && Date.parse(stand) <= Date.now()
+    && JSON.stringify(o.hinweis) === JSON.stringify([`Offline – Stand vom ${wienZeit(stand)}`]), JSON.stringify([stand, o.hinweis]));
+  pruefe('Offline: kein „Heute noch keine Ausgabe“', !o.warnung);
+  await seite.click('.ausgabe--zu .ausgabe-umschalter');
+  await seite.waitForSelector('.ausgabe[data-datei="data/taeglich/2026-10-30.json"] .hinweis--fehler');
+  const nie = await seite.$eval('.ausgabe[data-datei="data/taeglich/2026-10-30.json"] .hinweis--fehler', (h) => h.textContent);
+  pruefe('Offline: nie geöffnete Ausgabe ist nicht im Cache', nie.startsWith('Diese Ausgabe konnte nicht geladen werden'), nie);
+  await seite.click('#neu-laden');
+  await seite.waitForSelector('#toast:not([hidden])');
+  const t = await seite.$eval('#toast', (x) => x.textContent);
+  pruefe('Offline: „Aktualisieren“ meldet keine Verbindung', t === 'Keine Verbindung. Du siehst den zuletzt geladenen Stand.', t);
+  await seite.click('.tabs a[data-tab="woche"]');
+  await seite.waitForSelector('.abschnitt--finanzierungsrunden');
+  o = await seite.evaluate(() => [document.querySelectorAll('.offline-hinweis').length, document.querySelector('.ausgabe-titel').textContent]);
+  pruefe('Offline: auch der Wochenrückblick mit Hinweis', o[0] === 1 && o[1] === 'Woche vom 25. bis 31. Oktober 2026', JSON.stringify(o));
+  await seite.click('.tabs a[data-tab="merkliste"]');
+  await seite.waitForSelector('.merk-eintrag');
+  pruefe('Offline: Merkliste da, ohne Offline-Hinweis', (await merkAnzahl(seite)) === 1 && !(await seite.$('.offline-hinweis')));
+
+  // Wieder online, im Repo inzwischen: neue Tagesausgabe, Wochenrückblick gelöscht
+  einstellungen.dateien.add('data/taeglich/2026-11-01.json');
+  einstellungen.dateien.delete('data/woechentlich/2026-10-25_2026-10-31.json');
+  await seite.click('.tabs a[data-tab="heute"]');
+  await seite.waitForSelector('.offline-hinweis');
+  einstellungen.offline = false;
+  await ctx.setOffline(false);
+  await seite.waitForFunction(() => !document.querySelector('.offline-hinweis')
+    && (document.querySelector('.ausgabe-titel') || {}).textContent === 'Sonntag, 1. November 2026', null, { timeout: 10000 }).catch(() => {});
+  o = await seite.evaluate(() => ({
+    hinweis: document.querySelectorAll('.offline-hinweis').length,
+    titel: [...document.querySelectorAll('.ausgabe-titel')].map((h) => h.textContent),
+    ruhig: (document.querySelector('.ruhig') || {}).textContent,
+  }));
+  pruefe('Wieder online: frische Daten ohne Hinweis, ohne Neuladen', o.hinweis === 0 && o.titel[0] === 'Sonntag, 1. November 2026' && o.ruhig === 'Heute nichts Wichtiges', JSON.stringify(o));
+  // 30.10. ist offline aufgeklappt worden und wird jetzt frisch geladen; die Woche steht nicht mehr in index.json.
+  const erwartet = ['data/index.json', 'data/taeglich/2026-10-30.json', 'data/taeglich/2026-10-31.json', 'data/taeglich/2026-11-01.json'];
+  daten = await warteAufDaten(seite, erwartet);
+  pruefe('Ausgabe, die nicht mehr in index.json steht, fliegt aus dem Cache', JSON.stringify(daten) === JSON.stringify(erwartet), JSON.stringify(daten));
+  await seite.click('.tabs a[data-tab="merkliste"]');
+  await seite.waitForSelector('.merk-eintrag');
+  const merk = await seite.$$eval('.merk-eintrag .meldung-titel', (h) => h.map((x) => x.textContent));
+  pruefe('Merkliste bleibt davon unberührt', merk.length === 1 && merk[0].length > 0, JSON.stringify(merk));
+
+  // Neuer Service Worker übernimmt ohne Rückfrage und räumt alte Caches auf
+  await seite.evaluate(async () => {
+    await (await caches.open('mein-feed-alt')).put('/alt', new Response('alt'));
+    await (await caches.open('andere-seite')).put('/fremd', new Response('fremd'));
+    window.__alterSw = navigator.serviceWorker.controller;
+    window.__wechsel = 0;
+    navigator.serviceWorker.addEventListener('controllerchange', () => { window.__wechsel += 1; });
+  });
+  SERVER.ersatz.set(`${APP}sw.js`, `${fs.readFileSync(path.join(WURZEL, 'sw.js'), 'utf8')}\n// neue Fassung\n`);
+  await seite.evaluate(async () => (await navigator.serviceWorker.getRegistration()).update());
+  // controllerchange kommt schon beim Aktivieren, das Aufräumen im activate-Ereignis danach.
+  await seite.waitForFunction(() => window.__wechsel > 0 && navigator.serviceWorker.controller !== window.__alterSw
+    && navigator.serviceWorker.controller.state === 'activated', null, { timeout: 10000 }).catch(() => {});
+  const neu = await seite.evaluate(async () => {
+    const reg = await navigator.serviceWorker.getRegistration();
+    return { wechsel: window.__wechsel, wartet: Boolean(reg.waiting), steuert: Boolean(reg.active) && reg.active === navigator.serviceWorker.controller, caches: (await caches.keys()).sort() };
+  });
+  SERVER.ersatz.delete(`${APP}sw.js`);
+  pruefe('Neuer Service Worker übernimmt sofort, ohne Rückfrage', neu.wechsel === 1 && !neu.wartet && neu.steuert, JSON.stringify(neu));
+  pruefe('Alte Caches von Mein Feed weg, fremde bleiben', JSON.stringify(neu.caches) === '["andere-seite","mein-feed-app","mein-feed-daten"]', JSON.stringify(neu.caches));
+
+  // Daten-Branch gelöscht (index.json 404): keine alten Daten mehr, auch nicht offline
+  einstellungen.index = '404';
+  await seite.click('.tabs a[data-tab="heute"]');
+  await seite.click('#neu-laden');
+  await seite.waitForSelector('#inhalt .leer');
+  daten = await warteAufDaten(seite, []);
+  pruefe('index.json 404: Daten-Cache geleert', daten.length === 0, JSON.stringify(daten));
+  einstellungen.offline = true;
+  await ctx.setOffline(true);
+  await seite.reload();
+  await seite.waitForSelector('#inhalt .hinweis--fehler');
+  pruefe('Danach offline: Hinweis statt alter Beispieldaten', (await seite.$eval('#inhalt', (x) => x.textContent)).includes('Die Ausgaben konnten nicht geladen werden.') && !(await seite.$('.ausgabe')));
+  await seite.click('.tabs a[data-tab="merkliste"]');
+  await seite.waitForSelector('.merk-eintrag');
+  pruefe('Merkliste auch dann noch da', (await merkAnzahl(seite)) === 1);
+  einstellungen.offline = false;
+  await ctx.setOffline(false);
+}
+
 // Zustand der Vorlese-Ansicht und der Attrappen auf einen Blick.
 function vlZustand(seite) {
   return seite.evaluate(() => {
@@ -974,6 +1274,15 @@ function teileZumTest(text) {
     await szenario(browser, basis, 'Vorlesen (Attrappen für Sprachausgabe und Wake Lock)', vorleseDaten, (seite, ctx) => vorlesenTests(seite, ctx, `${basis}/`));
     await szenario(browser, basis, 'Noch kein Daten-Branch', { dateien: new Set(), index: '404' }, (seite, ctx) => ohneDaten(seite, ctx, `${basis}/`));
     await szenario(browser, basis, 'Offline', { dateien: new Set(), index: 'offline' }, (seite, ctx) => offline(seite, ctx, `${basis}/`));
+    const pwaDaten = {
+      dateien: new Set(BEISPIEL),
+      youtube: 'attrappe',
+      index: 'normal',
+      serviceWorker: true,
+      offline: false,
+      anfragen: [],
+    };
+    await szenario(browser, basis, 'PWA (unter /mein-feed/, mit Service Worker)', pwaDaten, (seite, ctx) => pwa(seite, ctx, basis, pwaDaten));
   } finally {
     await browser.close();
     server.close();
