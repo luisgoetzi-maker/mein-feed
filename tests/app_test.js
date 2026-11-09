@@ -19,10 +19,23 @@
  * Stimmen hat. Ob echte Stimmen, Wake Lock und App-Wechsel am Handy funktionieren, lässt
  * sich nur dort prüfen.
  *
- * Alle Szenarien bis auf „PWA“ blockieren den Service Worker. Das PWA-Szenario liefert die App
- * wie GitHub Pages unter /mein-feed/ aus (nicht im Wurzelverzeichnis), prüft Manifest und Icons
- * und mit echtem Service Worker den Offline-Fall. Weil Playwright Anfragen, die der Test selbst
- * beantwortet, auch bei context.setOffline(true) durchlässt, bricht der Test sie dann zusätzlich ab.
+ * Alle Szenarien bis auf „PWA“ und „Azure-Stimme mit Service Worker“ blockieren den Service Worker.
+ * Das PWA-Szenario liefert die App wie GitHub Pages unter /mein-feed/ aus (nicht im
+ * Wurzelverzeichnis), prüft Manifest und Icons und mit echtem Service Worker den Offline-Fall. Weil
+ * Playwright Anfragen, die der Test selbst beantwortet, auch bei context.setOffline(true)
+ * durchlässt, bricht der Test sie dann zusätzlich ab.
+ *
+ * Die Azure-Stimme wird mit einer Attrappe des Speech SDK geprüft (azureAttrappe): Sie liefert für
+ * jedes Stück einen kurzen Ton (WAV mit Stille) und Marken-Ereignisse mit Zeitpunkten; die Token-
+ * Anfrage an Azure beantwortet der Test selbst (azureNetz). Wie die echte Stimme klingt und ob sie
+ * bei gesperrtem Bildschirm weiterläuft, lässt sich nur am Handy prüfen.
+ *
+ * Mit MEIN_FEED_SDK=<Pfad zu microsoft.cognitiveservices.speech.sdk.bundle-min.js> prüft der Test
+ * zusätzlich, ob die SRI in app.js zur Datei passt, und lässt das echte SDK durch die App laufen;
+ * den Sprachdienst auf der WebSocket-Verbindung spielt dann der Test. Die Datei steht im npm-Paket
+ * microsoft-cognitiveservices-speech-sdk unter distrib/browser/.
+ *
+ * NUR=<Teil des Namens> führt nur passende Szenarien aus, etwa NUR=Azure.
  *
  * Exit-Code 0, wenn alle Prüfungen bestehen.
  */
@@ -145,6 +158,7 @@ function zusatzAusgaben(zusatz) {
  * einstellungen.anfragen: Array, sammelt alle Adressen (auch die des Service Workers)
  */
 async function szenario(browser, basis, name, einstellungen, ablauf) {
+  if (process.env.NUR && !name.includes(process.env.NUR)) return; // z. B. NUR=Azure node tests/app_test.js
   console.log(`\n${name}`);
   const ctx = await browser.newContext({
     viewport: { width: 390, height: 844 },
@@ -154,10 +168,14 @@ async function szenario(browser, basis, name, einstellungen, ablauf) {
     serviceWorkers: einstellungen.serviceWorker ? 'allow' : 'block',
   });
   await ctx.grantPermissions(['clipboard-read', 'clipboard-write'], { origin: basis });
-  if (einstellungen.vorbereitung) await ctx.addInitScript(einstellungen.vorbereitung);
+  for (const skript of [].concat(einstellungen.vorbereitung || [])) await ctx.addInitScript(skript);
   await ctx.route('**/*', async (route) => {
     const url = route.request().url();
     if (einstellungen.anfragen) einstellungen.anfragen.push(url);
+    if (einstellungen.mitschnitt) {
+      const r = route.request();
+      einstellungen.mitschnitt.push({ url, methode: r.method(), kopf: r.headers(), inhalt: r.postData() || '' });
+    }
     if (einstellungen.offline) return route.abort('internetdisconnected');
     if (url.startsWith(basis)) return route.continue();
     const daten = url.split('/claude/feed-daten/')[1];
@@ -181,6 +199,10 @@ async function szenario(browser, basis, name, einstellungen, ablauf) {
     }
     if (url.startsWith('https://www.youtube-nocookie.com/')) {
       return route.fulfill({ contentType: 'text/html', body: '<body style="background:#333;color:#fff">Player</body>' });
+    }
+    if (einstellungen.azure) {
+      if (AZ_TOKEN_URL.test(url)) return einstellungen.azure.token(route);
+      if (url.startsWith('https://cdn.jsdelivr.net/')) return einstellungen.azure.cdn(route);
     }
     return route.abort(); // alles andere: kein Netz im Test
   });
@@ -365,6 +387,290 @@ const JAHR_2025_SAETZE = [
   'Dazu gibt es zwei Video-Empfehlungen.',
   'Dieses Jahr ruhig: Tirol und Innsbruck, Startups',
 ];
+
+// ------------------------------------------------------------ Attrappen für die Azure-Stimme
+
+const AZ_SCHLUESSEL = 'AzureTestSchluessel0123456789abcdefXYZ'; // erfunden
+const AZ_TOKEN_URL = /^https:\/\/[a-z0-9]+\.api\.cognitive\.microsoft\.com\/sts\/v1\.0\/issueToken$/;
+const AZ_SDK_URL = /^https:\/\/cdn\.jsdelivr\.net\/npm\/microsoft-cognitiveservices-speech-sdk@\d+\.\d+\.\d+\/distrib\/browser\/microsoft\.cognitiveservices\.speech\.sdk\.bundle-min\.js$/;
+
+/*
+ * Läuft vor app.js in der Seite. Fängt das <script> fürs Speech SDK ab, bevor der Browser es lädt
+ * (die echte Datei gibt es im Test nicht, und eine andere bestünde die Integritätsprüfung nicht),
+ * und setzt stattdessen eine Attrappe von window.SpeechSDK ein. Sie liefert für jedes Stück einen
+ * Ton (WAV mit Stille, je Satz msProSatz Millisekunden) und Marken-Ereignisse mit den Zeitpunkten.
+ * Steuerung über window.__azure:
+ *   skripte[]      angehängte SDK-Skripte mit src, integrity, crossOrigin
+ *   configs[]      SpeechConfig-Aufrufe (art: token oder schluessel)
+ *   synthesen[]    jede speakSsmlAsync-Anfrage: ssml, marken (Satznummern), stimme, format, zeit
+ *   modus          'ok', '401' oder '429' (Abbruch wie das SDK ihn meldet)
+ *   scheitertAb    ab dieser Anfrage (1 = erste) gilt modus, davor 'ok'
+ *   sdkFehler      das Skript lädt nicht (wie bei falscher Integrität oder ohne Netz)
+ *   aktionen{}     Media-Session-Aktionen, wie sie Sperrbildschirm und Kopfhörer auslösen
+ */
+function azureAttrappe() {
+  const log = {
+    skripte: [], configs: [], synthesen: [], aktionen: {},
+    modus: 'ok', scheitertAb: 1, sdkFehler: false, msProSatz: 100, verzoegerung: 30,
+  };
+  window.__azure = log;
+
+  function wav(ms) {
+    const rate = 8000;
+    const n = Math.max(1, Math.round((rate * ms) / 1000));
+    const d = new DataView(new ArrayBuffer(44 + n * 2));
+    const text = (o, t) => [...t].forEach((c, i) => d.setUint8(o + i, c.charCodeAt(0)));
+    text(0, 'RIFF'); d.setUint32(4, 36 + n * 2, true); text(8, 'WAVE'); text(12, 'fmt ');
+    d.setUint32(16, 16, true); d.setUint16(20, 1, true); d.setUint16(22, 1, true); d.setUint32(24, rate, true);
+    d.setUint32(28, rate * 2, true); d.setUint16(32, 2, true); d.setUint16(34, 16, true); text(36, 'data'); d.setUint32(40, n * 2, true);
+    return d.buffer;
+  }
+
+  const FORMATE = { Audio16Khz32KBitRateMonoMp3: 3, Audio24Khz48KBitRateMonoMp3: 8, Riff24Khz16BitMonoPcm: 9 };
+  const sdk = {
+    ResultReason: { Canceled: 1, SynthesizingAudioCompleted: 8 },
+    CancellationErrorCode: { NoError: 0, AuthenticationFailure: 1, BadRequestParameters: 2, TooManyRequests: 3, ConnectionFailure: 4 },
+    SpeechSynthesisOutputFormat: FORMATE,
+    CancellationDetails: { fromResult: (r) => r.details },
+    SpeechConfig: {
+      fromAuthorizationToken(token, region) {
+        const c = { art: 'token', wert: token, region, speechSynthesisOutputFormat: null };
+        log.configs.push(c);
+        return c;
+      },
+      fromSubscription(schluessel, region) {
+        const c = { art: 'schluessel', wert: schluessel, region, speechSynthesisOutputFormat: null };
+        log.configs.push(c);
+        return c;
+      },
+    },
+    SpeechSynthesizer: function SpeechSynthesizer(config, audioConfig) {
+      this.bookmarkReached = null;
+      this.close = () => {};
+      this.speakSsmlAsync = (ssml, ok) => {
+        const marken = [...ssml.matchAll(/<bookmark mark="s(\d+)"\/>/g)].map((m) => Number(m[1]));
+        const format = Object.keys(FORMATE).find((k) => FORMATE[k] === config.speechSynthesisOutputFormat) || null;
+        log.synthesen.push({
+          ssml, marken, format, audioConfig, token: config.wert, region: config.region,
+          stimme: (/<voice name="([^"]+)"/.exec(ssml) || [])[1], zeit: Date.now(), msProSatz: log.msProSatz,
+        });
+        const nr = log.synthesen.length;
+        const ms = log.msProSatz;
+        setTimeout(() => {
+          const modus = nr >= log.scheitertAb ? log.modus : 'ok';
+          const abbruch = (code, text) => ok({ reason: 1, errorDetails: text, details: { reason: 1, ErrorCode: code, errorDetails: text } });
+          if (modus === '401') return abbruch(1, 'WebSocket upgrade failed: Authentication error (401). Please check subscription information and region name.');
+          if (modus === '429') return abbruch(3, 'Status(StatusCode="ResourceExhausted", Detail="Too many requests") 429');
+          marken.forEach((satz, k) => {
+            if (this.bookmarkReached) this.bookmarkReached(this, { text: `s${satz}`, audioOffset: k * ms * 10000 }); // 100 ns
+          });
+          return ok({ reason: 8, audioData: wav(Math.max(1, marken.length) * ms), audioDuration: marken.length * ms * 10000 });
+        }, log.verzoegerung);
+      };
+    },
+  };
+
+  const anhaengen = Element.prototype.append;
+  Element.prototype.append = function append(...knoten) {
+    const rest = knoten.filter((k) => {
+      if (!(k instanceof HTMLScriptElement) || !String(k.src).includes('microsoft-cognitiveservices-speech-sdk')) return true;
+      log.skripte.push({ src: k.src, integrity: k.integrity, crossOrigin: k.crossOrigin, zeit: Date.now() });
+      setTimeout(() => {
+        if (!log.sdkFehler) window.SpeechSDK = sdk;
+        k.dispatchEvent(new Event(log.sdkFehler ? 'error' : 'load'));
+      }, 20);
+      return false;
+    });
+    return anhaengen.apply(this, rest);
+  };
+
+  if (navigator.mediaSession) {
+    const setzen = navigator.mediaSession.setActionHandler.bind(navigator.mediaSession);
+    navigator.mediaSession.setActionHandler = (aktion, los) => {
+      log.aktionen[aktion] = los;
+      setzen(aktion, los);
+    };
+  }
+}
+
+// Gegenstück im Netz: issueToken bei Azure und (nur für den Service-Worker-Test) das CDN.
+function azureNetz() {
+  return {
+    modus: 'ok', // 'ok', '401', '429'
+    anfragen: [],
+    token(route) {
+      const r = route.request();
+      const kopf = { 'access-control-allow-origin': '*', 'access-control-allow-headers': '*', 'access-control-allow-methods': 'POST' };
+      if (r.method() === 'OPTIONS') return route.fulfill({ status: 204, headers: kopf });
+      this.anfragen.push({ url: r.url(), methode: r.method(), schluessel: r.headers()['ocp-apim-subscription-key'] || null });
+      if (this.modus === '401') return route.fulfill({ status: 401, body: '{"error":{"code":"401","message":"Access denied"}}', headers: kopf });
+      if (this.modus === '429') return route.fulfill({ status: 429, body: '', headers: kopf });
+      return route.fulfill({ status: 200, body: `TOKEN-${this.anfragen.length}`, contentType: 'text/plain', headers: kopf });
+    },
+    cdn(route) {
+      return route.fulfill({ status: 200, body: '/* Attrappe */', contentType: 'text/javascript', headers: { 'access-control-allow-origin': '*' } });
+    },
+  };
+}
+
+// Erfundener Jahresrückblick mit einem langen Thema, das in mehrere Stücke geteilt werden muss.
+const JAHR_LANG = {
+  beispiel: true,
+  format: 'jaehrlich',
+  titel: 'Jahresrückblick 2024',
+  zeitraum: { von: '2024-01-01', bis: '2024-12-31' },
+  erschienen: '2025-01-01T04:40:00+01:00',
+  status: 'ok',
+  fehler: null,
+  ruhig: ['politik', 'tirol', 'startups'],
+  luecken: [],
+  ausnahmen: [],
+  meldungen: [
+    { id: '2024-weltpolitik-1', datum: '2024-02-01', datum_bis: null, titel: 'Erstes Kapitel', text: 'Ein kurzer Satz.', warum_wichtig: 'Zum Einstieg.', themen: ['weltpolitik'], hauptthema: 'weltpolitik', update: false, quellen: [{ name: 'Q', url: 'https://example.com/w' }] },
+    ...Array.from({ length: 12 }, (_, i) => ({
+      id: `2024-ki-${i + 1}`,
+      datum: `2024-${String(i + 1).padStart(2, '0')}-10`,
+      datum_bis: null,
+      titel: `KI-Monat ${i + 1}: Ein neues Modell & ein „Werkzeug“ <für> alle`,
+      text: `Im Monat ${i + 1} erschien ein neues Modell mit deutlich längerem Kontext und besseren Werkzeugen für Entwickler. Die Preise sanken um rund ein Drittel, und mehrere Anbieter zogen innerhalb weniger Wochen nach. Fachleute sprachen von einem großen Schritt für den Alltag in Büros und Schulen.`,
+      warum_wichtig: 'Es verändert, wie viele Menschen täglich arbeiten und lernen.',
+      themen: ['ki'],
+      hauptthema: 'ki',
+      update: false,
+      quellen: [{ name: 'Q', url: `https://example.com/k${i}` }],
+    })),
+    { id: '2024-wirtschaft-1', datum: '2024-12-01', datum_bis: null, titel: 'Letztes Kapitel', text: 'Der Zins bleibt.', warum_wichtig: 'Kredite bleiben gleich teuer.', themen: ['wirtschaft'], hauptthema: 'wirtschaft', update: false, quellen: [{ name: 'Q', url: 'https://example.com/x' }] },
+  ],
+  videos: [],
+  abschnitte: [],
+};
+
+// Zustand der Vorlese-Ansicht, des Audio-Elements und der Attrappen auf einen Blick. Hat das
+// Audio-Element gerade ein neues Stück bekommen, erst warten, bis seine Länge bekannt ist.
+async function azZustand(seite) {
+  await seite.waitForFunction(() => {
+    const a = document.querySelector('#vorlesen audio');
+    return !a || !a.getAttribute('src') || a.readyState >= 1;
+  }, null, { timeout: 3000 });
+  return seite.evaluate(() => {
+    const w = document.getElementById('vorlesen');
+    const q = (sel) => (w ? w.querySelector(sel) : null);
+    const text = (sel) => (q(sel) ? q(sel).textContent : null);
+    const sichtbar = (sel) => (q(sel) && !q(sel).hidden ? q(sel).textContent : '');
+    const audio = q('audio');
+    const ms = navigator.mediaSession;
+    const az = window.__azure || { aktionen: {}, synthesen: [], skripte: [] }; // ohne Attrappe: echtes SDK
+    const sp = window.__sprache;
+    const zaehler = text('.vl-zaehler') || '';
+    return {
+      offen: Boolean(w && !w.hidden),
+      satz: text('.vl-satz'),
+      nummer: Number((/Satz (\d+)/.exec(zaehler) || [])[1]),
+      gesamt: Number((/von (\d+)/.exec(zaehler) || [])[1]),
+      haupt: text('.vl-haupt'),
+      thema: sichtbar('.vl-thema') ? text('.vl-thema-name') : '',
+      kapitel: text('.vl-kapitel'),
+      hinweis: sichtbar('.vl-hinweis'),
+      quelle: text('.vl-quelle'),
+      rueckfall: Boolean(q('.vl-quelle') && q('.vl-quelle').classList.contains('vl-quelle--rueckfall')),
+      status: sichtbar('.vl-azure-status'),
+      audio: audio ? { src: audio.getAttribute('src') || '', paused: audio.paused, t: audio.currentTime, d: audio.duration, rate: audio.playbackRate } : null,
+      medien: ms ? { titel: ms.metadata ? ms.metadata.title : null, thema: ms.metadata ? ms.metadata.artist : null, zustand: ms.playbackState } : null,
+      aktionen: Object.keys(az.aktionen).filter((k) => typeof az.aktionen[k] === 'function').sort(),
+      synthesen: az.synthesen.length,
+      skripte: az.skripte.length,
+      gesprochen: sp.gesprochen.length,
+      gesprochenText: (sp.gesprochen[sp.gesprochen.length - 1] || {}).text,
+      wach: sp.wach(),
+      anforderungen: sp.anforderungen,
+      position: JSON.parse(localStorage.getItem('mein-feed.vorleseposition.v1')),
+      einstellungen: JSON.parse(localStorage.getItem('mein-feed.vorlesen.v1')),
+    };
+  });
+}
+
+const azSynthesen = (seite) => seite.evaluate(() => window.__azure.synthesen.map((s) => ({ ...s, audioConfig: s.audioConfig === null ? null : 'gesetzt' })));
+
+// Sätze eines Stücks aus seinem SSML: Satznummer -> gesprochener Text.
+function ssmlSaetze(ssml) {
+  const teile = ssml.split(/<bookmark mark="s(\d+)"\/>/);
+  const saetze = new Map();
+  for (let i = 1; i < teile.length; i += 2) {
+    const roh = teile[i + 1].replace(/<\/voice><\/speak>$/, '');
+    saetze.set(Number(teile[i]), {
+      text: roh.replace(/<break[^>]*\/>/g, '').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&amp;/g, '&').trim(),
+      pause: (/<break time="(\d+)ms"\/>/.exec(roh) || [])[1] || null,
+    });
+  }
+  return saetze;
+}
+
+// Das zuletzt angeforderte Stück, das diesen Satz enthält.
+function stueckMit(synthesen, satz) {
+  for (let i = synthesen.length - 1; i >= 0; i -= 1) if (synthesen[i].marken.includes(satz)) return synthesen[i];
+  return null;
+}
+
+// Steht das Audio-Element am Anfang dieses Satzes (Satznummer ab 0)?
+function amSatzAnfang(z, synthesen, satz) {
+  const st = stueckMit(synthesen, satz);
+  if (!st || !z.audio) return false;
+  const soll = ((satz - st.marken[0]) * st.msProSatz) / 1000;
+  return z.audio.t >= soll - 0.02 && z.audio.t < soll + 0.25 && Math.abs(z.audio.d - (st.marken.length * st.msProSatz) / 1000) < 0.02;
+}
+
+// Zeichnet bei jedem timeupdate auf, welche Stelle im Ton läuft und welchen Satz die Ansicht zeigt.
+const azProbenStarten = (seite) => seite.evaluate(() => {
+  const a = document.querySelector('#vorlesen audio');
+  window.__proben = [];
+  if (a.__probe) return;
+  a.__probe = true;
+  a.addEventListener('timeupdate', () => {
+    const z = document.querySelector('#vorlesen .vl-zaehler').textContent;
+    if (document.querySelector('#vorlesen .vl-haupt').textContent !== 'Pause' || a.paused) return;
+    window.__proben.push({ t: a.currentTime, d: a.duration, rate: a.playbackRate, satz: Number(/Satz (\d+)/.exec(z)[1]) - 1 });
+  });
+});
+
+// Passt jede Probe zu den Marken? Erwartet: der letzte Satz, dessen Marke (k * msProSatz) erreicht ist.
+// Die App liest die Zeit im selben Ereignis kurz vor der Probe; deshalb 10 ms Spielraum nach unten.
+function probenStimmen(proben, synthesen) {
+  const falsch = [];
+  for (const p of proben) {
+    const st = stueckMit(synthesen, p.satz);
+    if (!st) {
+      falsch.push({ ...p, grund: 'kein Stück' });
+      continue;
+    }
+    const ms = st.msProSatz;
+    const satzBei = (t) => st.marken[0] + Math.min(st.marken.length - 1, Math.floor((t * 1000 + 40) / ms));
+    const soll = satzBei(p.t);
+    if ((p.satz !== soll && p.satz !== satzBei(p.t - 0.01)) || Math.abs(p.d - (st.marken.length * ms) / 1000) > 0.02) falsch.push({ ...p, soll });
+  }
+  return falsch;
+}
+
+// Prüft die Stücke einer ganzen Sitzung: lückenlos, Themenanfang = Stückanfang, Längen.
+function stueckePruefen(stuecke, gesamt, themenNamen, erstesMax = 500) {
+  const fehler = [];
+  let naechster = stuecke.length ? stuecke[0].marken[0] : 0;
+  stuecke.forEach((st, i) => {
+    if (st.marken[0] !== naechster) fehler.push(`Stück ${i} beginnt bei ${st.marken[0]} statt ${naechster}`);
+    if (st.marken.some((m, k) => m !== st.marken[0] + k)) fehler.push(`Stück ${i} nicht lückenlos`);
+    naechster = st.marken[st.marken.length - 1] + 1;
+    const saetze = ssmlSaetze(st.ssml);
+    const zeichen = [...saetze.values()].reduce((n, s) => n + s.text.length + 1, 0);
+    const max = i === 0 ? erstesMax : 1500;
+    if (zeichen > max && saetze.size > 1) fehler.push(`Stück ${i} hat ${zeichen} Zeichen (höchstens ${max})`);
+    saetze.forEach((s, nr) => {
+      const istThema = themenNamen.includes(s.text);
+      if (istThema && nr !== st.marken[0]) fehler.push(`Thema „${s.text}“ (Satz ${nr}) mitten in Stück ${i}`);
+      if (istThema && s.pause !== '700') fehler.push(`nach „${s.text}“ fehlt die Pause`);
+    });
+  });
+  if (naechster !== gesamt) fehler.push(`endet bei ${naechster} statt ${gesamt}`);
+  return fehler;
+}
 
 // ------------------------------------------------------------ Szenarien
 
@@ -1246,6 +1552,509 @@ async function vorlesenTests(seite, ctx, basis) {
   pruefe('Nie pause() aufgerufen, nie zwei Äußerungen gleichzeitig', z.pausen === 0 && z.doppelt === 0, JSON.stringify(z));
 }
 
+// ------------------------------------------------------------ Azure-Stimme
+
+// Vor jedem Abschnitt: Der Takt (höchstens 15 Anfragen pro Minute) gilt sonst über den ganzen Test.
+const taktLeeren = (seite) => seite.evaluate(() => localStorage.removeItem('mein-feed.azure-takt.v1'));
+const warteAufTon = (seite) => seite.waitForFunction(() => {
+  const a = document.querySelector('#vorlesen audio');
+  return a && !a.paused && a.getAttribute('src');
+}, null, { timeout: 5000 });
+const warteAufStatus = (seite) => seite.waitForFunction(() => {
+  const p = document.querySelector('#vorlesen .vl-azure-status');
+  return p && !p.hidden && !p.textContent.startsWith('Teste');
+}, null, { timeout: 5000 });
+const tonDa = (seite, url) => seite.evaluate((u) => fetch(u).then(() => 'da', () => 'weg'), url);
+
+async function azureTests(seite, ctx, basis, einstellungen, ordner) {
+  const netz = einstellungen.azure;
+  const konsole = [];
+  seite.on('console', (m) => konsole.push(m.text()));
+  await seite.clock.setSystemTime(new Date('2026-11-01T08:00:00+01:00')); // Uhr läuft weiter
+  await seite.goto(`${basis}#heute`);
+  await seite.waitForSelector('.aktionen--kopf .knopf--vorlesen');
+  const KOPF = '.ausgabe:first-of-type .aktionen--kopf .knopf--vorlesen';
+  const THEMEN = ['Weltpolitik', 'Politik in Österreich, Deutschland und der EU', 'KI und Claude', 'Börse und Wirtschaft'];
+  const KEIN_SCHLUESSEL = 'Stimme des Handys – kein Azure-Schlüssel eingetragen (unter „Stimme und Tempo“).';
+
+  // Für die Prüfung von Export und Feedback: eine Meldung merken, eine als unnötig markieren.
+  await seite.click('[data-meldung="2026-10-31-wirtschaft-1"] .knopf--merk');
+  await seite.click('[data-meldung="2026-10-31-weltpolitik-4"] .knopf--unnoetig');
+
+  // Ohne Schlüssel
+  await seite.click(KOPF);
+  await warteAufSaetze(seite, 1);
+  await warteAufWach(seite, true);
+  let z = await azZustand(seite);
+  pruefe('Ohne Schlüssel: Stimme des Handys, mit Hinweis warum', z.gesprochenText === 'Weltpolitik' && z.wach && z.rueckfall && z.quelle === KEIN_SCHLUESSEL, JSON.stringify(z));
+  pruefe('Ohne Schlüssel: Speech SDK nicht geladen, keine Anfrage an Azure', z.skripte === 0 && netz.anfragen.length === 0
+    && !(await seite.evaluate(() => 'SpeechSDK' in window)), JSON.stringify([z.skripte, netz.anfragen]));
+  pruefe('Ohne Schlüssel: Media Session bleibt leer', z.medien && z.medien.titel === null && z.aktionen.length === 0, JSON.stringify([z.medien, z.aktionen]));
+
+  // Schlüssel und Region eintragen, testen
+  await seite.click('.vl-einstellungen summary');
+  const feld = await seite.$eval('#vl-azure-schluessel', (f) => ({ typ: f.type, auto: f.autocomplete, wert: f.value }));
+  pruefe('Schlüsselfeld zeigt verdeckt', feld.typ === 'password' && feld.wert === '' && feld.auto === 'off', JSON.stringify(feld));
+  await taktLeeren(seite);
+  await seite.fill('#vl-azure-schluessel', `  ${AZ_SCHLUESSEL} `);
+  await seite.fill('#vl-azure-region', 'westeurope');
+  await seite.click('.vl-azure .vl-knopf--primaer');
+  await warteAufStatus(seite);
+  z = await azZustand(seite);
+  let syn = await azSynthesen(seite);
+  const skript = await seite.evaluate(() => window.__azure.skripte[0]);
+  const configs = await seite.evaluate(() => window.__azure.configs);
+  pruefe('Testen: SDK erst jetzt geladen, feste Version vom CDN mit Integritätsprüfung', z.skripte === 1 && AZ_SDK_URL.test(skript.src)
+    && /^sha384-[A-Za-z0-9+/]{64}$/.test(skript.integrity) && skript.crossOrigin === 'anonymous', JSON.stringify(skript));
+  pruefe('Testen: Schlüssel nur im Kopf der Token-Anfrage an Azure', netz.anfragen.length === 1 && netz.anfragen[0].methode === 'POST'
+    && netz.anfragen[0].url === 'https://westeurope.api.cognitive.microsoft.com/sts/v1.0/issueToken' && netz.anfragen[0].schluessel === AZ_SCHLUESSEL, JSON.stringify(netz.anfragen));
+  pruefe('Testen: das SDK bekommt nur das Token; MP3, mono, 48 kbit/s; Ton nur als Daten', configs.length === 1 && configs[0].art === 'token'
+    && configs[0].wert === 'TOKEN-1' && configs[0].region === 'westeurope' && syn[0].format === 'Audio24Khz48KBitRateMonoMp3' && syn[0].audioConfig === null,
+  JSON.stringify([configs, syn[0] && syn[0].format, syn[0] && syn[0].audioConfig]));
+  const gespeichert = await seite.evaluate(() => JSON.parse(localStorage.getItem('mein-feed.azure.v1')));
+  pruefe('Testen: Erfolg gemeldet, Schlüssel und Region gespeichert, Feld wieder leer', z.status.startsWith('Die Azure-Stimme funktioniert.')
+    && (await seite.$eval('#vl-azure-schluessel', (f) => f.value)) === '' && gespeichert.schluessel === AZ_SCHLUESSEL && gespeichert.region === 'westeurope', JSON.stringify([z.status, gespeichert && gespeichert.region]));
+  const stimmen = await seite.$$eval('#vl-stimme option', (o) => o.map((x) => [x.value, x.textContent]));
+  pruefe('Azure-Stimmen: Ingrid und Jonas zuerst, dann deutsche', stimmen[0][0] === 'de-AT-IngridNeural' && stimmen[1][0] === 'de-AT-JonasNeural'
+    && stimmen.length > 3 && stimmen.slice(2).every(([id]) => id.startsWith('de-DE-')) && (await seite.$eval('#vl-stimme', (s) => s.value)) === 'de-AT-IngridNeural', JSON.stringify(stimmen));
+  pruefe('Testen hält das Vorlesen an, danach liest Azure', z.haupt === 'Weiter' && z.quelle === 'Azure-Stimme' && !z.rueckfall && !z.wach
+    && syn[0].stimme === 'de-AT-IngridNeural' && syn[0].marken.length === 0, JSON.stringify(z));
+
+  // Weiter: Azure liest
+  await taktLeeren(seite);
+  await seite.evaluate(() => { window.__azure.msProSatz = 400; });
+  await seite.click('.vl-haupt');
+  await warteAufTon(seite);
+  z = await azZustand(seite);
+  syn = await azSynthesen(seite);
+  const gesamt = z.gesamt;
+  pruefe('Weiter: Azure liest den gemerkten Satz, Ton als Blob im Arbeitsspeicher', z.nummer === 1 && z.satz === 'Weltpolitik' && z.haupt === 'Pause'
+    && z.audio.src.startsWith('blob:') && syn[1].marken[0] === 0 && amSatzAnfang(z, syn, 0), JSON.stringify([z, syn[1] && syn[1].marken]));
+  pruefe('Azure: kein Wake Lock', !z.wach && z.anforderungen === 1, JSON.stringify(z));
+  pruefe('Media Session: Ausgabe und Thema, Pause/Weiter, Satz zurück/vor', z.medien.titel === 'Samstag, 31. Oktober 2026' && z.medien.thema === 'Weltpolitik'
+    && z.medien.zustand === 'playing' && JSON.stringify(z.aktionen) === '["nexttrack","pause","play","previoustrack"]', JSON.stringify([z.medien, z.aktionen]));
+  await seite.waitForFunction((n) => window.__azure.synthesen.slice(1).some((s) => s.marken.includes(n - 1)), gesamt, { timeout: 5000 });
+  syn = await azSynthesen(seite);
+  const sitzung = syn.slice(1);
+  const stueckFehler = stueckePruefen(sitzung, gesamt, THEMEN);
+  pruefe('Stücke: je Überthema, das erste kurz, lückenlos bis zum letzten Satz, im Hintergrund geladen', !stueckFehler.length && sitzung.length > THEMEN.length,
+    JSON.stringify([stueckFehler, sitzung.map((s) => s.marken)]));
+  const xmlOk = await seite.evaluate((liste) => liste.every((x) => !new DOMParser().parseFromString(x, 'application/xml').querySelector('parsererror')), syn.map((s) => s.ssml));
+  const alleSaetze = new Map(sitzung.flatMap((s) => [...ssmlSaetze(s.ssml)]));
+  const politik = [...alleSaetze].find(([, s]) => s.text === THEMEN[1])[0];
+  pruefe('SSML: gültiges XML, eine Marke pro Satz, gleiche Sätze wie mit der Stimme des Handys', xmlOk && alleSaetze.size === gesamt
+    && alleSaetze.get(0).text === 'Weltpolitik' && alleSaetze.get(gesamt - 1).text === 'Heute ruhig: Tirol und Innsbruck, Startups' && politik > 10, JSON.stringify([xmlOk, alleSaetze.size, gesamt]));
+
+  // Satz vor und zurück, nächstes Thema
+  await seite.click('.vl-vor');
+  z = await azZustand(seite);
+  pruefe('Satz vor: springt im Ton an den Anfang des nächsten Satzes', z.nummer === 2 && amSatzAnfang(z, syn, 1) && !z.audio.paused && z.synthesen === syn.length, JSON.stringify(z));
+  await seite.click('.vl-vor');
+  await seite.click('.vl-zurueck');
+  z = await azZustand(seite);
+  pruefe('Satz zurück: an den Anfang des vorigen Satzes', z.nummer === 2 && amSatzAnfang(z, syn, 1) && !z.audio.paused, JSON.stringify(z));
+  await seite.click('.vl-naechstes');
+  z = await azZustand(seite);
+  pruefe('Nächstes Thema: an den Anfang des Stücks mit dem nächsten Thema', z.satz === THEMEN[1] && z.nummer === politik + 1 && amSatzAnfang(z, syn, politik)
+    && z.medien.thema === THEMEN[1] && z.synthesen === syn.length, JSON.stringify(z));
+
+  // Sperrbildschirm und Kopfhörer (Media Session)
+  await seite.evaluate(() => window.__azure.aktionen.nexttrack());
+  z = await azZustand(seite);
+  pruefe('Media Session: Satz vor', z.nummer === politik + 2 && amSatzAnfang(z, syn, politik + 1), JSON.stringify(z));
+  await seite.evaluate(() => window.__azure.aktionen.previoustrack());
+  z = await azZustand(seite);
+  pruefe('Media Session: Satz zurück', z.nummer === politik + 1 && amSatzAnfang(z, syn, politik), JSON.stringify(z));
+  await seite.evaluate(() => window.__azure.aktionen.pause());
+  z = await azZustand(seite);
+  pruefe('Media Session: Pause, Stelle gemerkt', z.haupt === 'Weiter' && z.audio.paused && z.medien.zustand === 'paused' && z.position && z.position.satz === politik, JSON.stringify(z));
+  await seite.evaluate(() => window.__azure.aktionen.play());
+  z = await azZustand(seite);
+  pruefe('Media Session: Weiter, derselbe Satz von vorn', z.haupt === 'Pause' && !z.audio.paused && amSatzAnfang(z, syn, politik) && z.medien.zustand === 'playing', JSON.stringify(z));
+
+  // Tempo: nur die Abspielgeschwindigkeit
+  const vorTempo = await azZustand(seite);
+  await seite.selectOption('#vl-tempo', '1.2');
+  z = await azZustand(seite);
+  pruefe('Tempo: nur schneller abspielen, nichts neu laden', z.audio.rate === 1.2 && z.audio.src === vorTempo.audio.src && !z.audio.paused
+    && z.synthesen === vorTempo.synthesen && z.audio.t >= vorTempo.audio.t && z.einstellungen.tempo === 1.2, JSON.stringify([vorTempo.audio, z.audio]));
+
+  // Stimmwechsel: neu ab dem aktuellen Satz
+  await taktLeeren(seite);
+  await seite.click('.vl-vor'); // an einen Satzanfang, damit der Satz sicher noch läuft
+  const vorStimme = await azZustand(seite);
+  await seite.selectOption('#vl-stimme', 'de-AT-JonasNeural');
+  await seite.waitForFunction((n) => window.__azure.synthesen.length > n, vorStimme.synthesen, { timeout: 5000 });
+  await warteAufTon(seite);
+  z = await azZustand(seite);
+  syn = await azSynthesen(seite);
+  const neu = syn[vorStimme.synthesen];
+  pruefe('Stimmwechsel: lädt ab dem aktuellen Satz mit der neuen Stimme neu', neu.stimme === 'de-AT-JonasNeural' && neu.marken[0] === vorStimme.nummer - 1
+    && z.nummer === vorStimme.nummer && amSatzAnfang(z, syn, vorStimme.nummer - 1) && z.audio.src !== vorStimme.audio.src
+    && z.einstellungen.azureStimme === 'de-AT-JonasNeural' && z.audio.rate === 1.2, JSON.stringify([neu.marken, vorStimme.nummer, z]));
+  pruefe('Stimmwechsel: der Ton der alten Stimme ist freigegeben', (await tonDa(seite, vorStimme.audio.src)) === 'weg');
+
+  // Bildschirm aus oder App gewechselt: Azure liest weiter
+  const vorSicht = await azZustand(seite);
+  await seite.evaluate(() => window.__sprache.sichtbarkeit('hidden'));
+  await warte(300);
+  z = await azZustand(seite);
+  pruefe('Bildschirm aus oder App gewechselt: Azure liest weiter, ohne Wake Lock', z.haupt === 'Pause' && !z.audio.paused && z.nummer >= vorSicht.nummer
+    && z.anforderungen === vorSicht.anforderungen && !z.wach && z.hinweis === '', JSON.stringify(z));
+  await seite.evaluate(() => window.__sprache.sichtbarkeit('visible'));
+  await warte(100);
+  z = await azZustand(seite);
+  pruefe('Zurück in der App: liest weiter, kein Wake Lock angefordert', z.haupt === 'Pause' && !z.audio.paused && z.anforderungen === vorSicht.anforderungen, JSON.stringify(z));
+
+  // Pause von außen (Anruf, andere App, Kopfhörer abgezogen)
+  await seite.evaluate(() => document.querySelector('#vorlesen audio').pause());
+  await seite.waitForFunction(() => document.querySelector('#vorlesen .vl-haupt').textContent.startsWith('Weiter ab Satz'), null, { timeout: 3000 });
+  z = await azZustand(seite);
+  const gemerkt = z.nummer;
+  pruefe('Pause von außen: „Weiter ab Satz …“ mit gemerkter Stelle', z.haupt === `Weiter ab Satz ${gemerkt}` && z.hinweis === 'Das Vorlesen wurde unterbrochen.'
+    && z.position.satz === gemerkt - 1 && z.medien.zustand === 'paused', JSON.stringify(z));
+  await seite.click('.vl-haupt');
+  z = await azZustand(seite);
+  pruefe('„Weiter ab Satz …“ spielt den gemerkten Satz von vorn', z.haupt === 'Pause' && z.nummer === gemerkt && amSatzAnfang(z, syn, gemerkt - 1) && z.hinweis === '', JSON.stringify(z));
+
+  // Schließen: Ton weg, Stelle gemerkt
+  const vorSchliessen = await azZustand(seite);
+  await seite.click('.vl-schliessen');
+  await warte(100);
+  z = await azZustand(seite);
+  pruefe('Schließen: Ton freigegeben, Media Session leer', !z.offen && z.audio.src === '' && (await tonDa(seite, vorSchliessen.audio.src)) === 'weg'
+    && z.medien.titel === null && z.medien.zustand === 'none' && z.aktionen.length === 0, JSON.stringify(z));
+  const weiter = await seite.$$eval('.knopf--weiter', (b) => b.map((x) => x.textContent));
+  pruefe('Kopf bietet „Weiter ab Satz …“ an, wie mit der Stimme des Handys', JSON.stringify(weiter) === JSON.stringify([`Weiter ab Satz ${vorSchliessen.nummer}`]), JSON.stringify(weiter));
+
+  await taktLeeren(seite);
+  const n0 = (await azSynthesen(seite)).length;
+  await seite.click('.knopf--weiter');
+  await warteAufTon(seite);
+  z = await azZustand(seite);
+  syn = await azSynthesen(seite);
+  pruefe('„Weiter ab Satz …“ im Feed: Azure lädt ab diesem Satz, mit der gewählten Stimme', syn[n0].marken[0] === vorSchliessen.nummer - 1 && syn[n0].stimme === 'de-AT-JonasNeural'
+    && z.nummer === vorSchliessen.nummer && amSatzAnfang(z, syn, vorSchliessen.nummer - 1) && z.quelle === 'Azure-Stimme', JSON.stringify([syn[n0].marken, z]));
+  await seite.click('.vl-schliessen');
+  await warte(100);
+
+  // Die ganze Ausgabe am Stück: Satzgrenzen aus den Marken, Stücke schließen an
+  await taktLeeren(seite);
+  await seite.evaluate(() => { window.__azure.msProSatz = 60; });
+  const n1 = (await azSynthesen(seite)).length;
+  await seite.click(KOPF);
+  await warteAufTon(seite);
+  await azProbenStarten(seite);
+  await warteAufHaupt(seite, 'Von vorn');
+  z = await azZustand(seite);
+  syn = await azSynthesen(seite);
+  const lauf = syn.slice(n1);
+  let proben = await seite.evaluate(() => window.__proben);
+  let falsch = probenStimmen(proben, syn);
+  pruefe('Ganze Ausgabe: angezeigter Satz passt immer zur Marke im Ton', proben.length >= 5 && !falsch.length, JSON.stringify([proben.length, falsch.slice(0, 4)]));
+  const laufFehler = stueckePruefen(lauf, gesamt, THEMEN);
+  pruefe('Ganze Ausgabe: alle Stücke lückenlos, Tempo gilt auch im nächsten Stück', !laufFehler.length && lauf.every((s) => s.stimme === 'de-AT-JonasNeural')
+    && proben.every((p) => p.rate === 1.2) && new Set(proben.map((p) => p.d)).size > 1, JSON.stringify(laufFehler));
+  pruefe('Ende: Ruhig-Zeile zuletzt, keine Position mehr', z.satz === 'Ausgabe fertig vorgelesen.' && z.nummer === gesamt && z.position === null
+    && z.medien.zustand === 'paused', JSON.stringify(z));
+  await seite.click('.vl-schliessen');
+  await warte(100);
+
+  // Jahresrückblick: langes Thema in mehreren Stücken, Kapitel
+  await seite.click('.tabs a[data-tab="jahr"]');
+  await seite.waitForSelector('.ausgabe .aktionen--kopf .knopf--vorlesen');
+  await taktLeeren(seite);
+  await seite.evaluate(() => { window.__azure.msProSatz = 50; }); // länger als die 40 ms Spielraum der App
+  const n2 = (await azSynthesen(seite)).length;
+  await seite.click(KOPF);
+  await warteAufTon(seite);
+  await seite.click('.vl-haupt');
+  await seite.click('.vl-naechstes');
+  z = await azZustand(seite);
+  pruefe('Jahresrückblick: „Nächstes Thema“ springt ins nächste Kapitel', z.thema === 'KI und Claude' && z.kapitel === 'Kapitel 2 von 3' && z.haupt === 'Weiter', JSON.stringify(z));
+  const kiStart = z.nummer - 1;
+  await seite.click('.vl-haupt');
+  await seite.waitForFunction((n) => window.__azure.synthesen.some((s) => s.marken[0] === n), kiStart, { timeout: 5000 });
+  await warteAufTon(seite);
+  syn = await azSynthesen(seite);
+  z = await azZustand(seite);
+  pruefe('Kapitel 2 beginnt mit seinem Stück', z.nummer === kiStart + 1 && amSatzAnfang(z, syn, kiStart),
+    JSON.stringify([z.audio, syn.slice(n2).map((s) => [s.marken[0], s.marken.length, s.msProSatz])]));
+  const jahrGesamt = z.gesamt;
+  await azProbenStarten(seite);
+  await warteAufHaupt(seite, 'Von vorn');
+  syn = await azSynthesen(seite);
+  const jahr = syn.slice(n2).sort((a, b) => a.marken[0] - b.marken[0]);
+  const ki = jahr.filter((s) => [...ssmlSaetze(s.ssml).values()].some((x) => x.text.startsWith('KI-Monat')));
+  const jahrFehler = stueckePruefen(jahr, jahrGesamt, ['Weltpolitik', 'KI und Claude', 'Börse und Wirtschaft']);
+  const jahrSaetze = new Map(jahr.flatMap((s) => [...ssmlSaetze(s.ssml)]));
+  pruefe('Langes Thema: in mehrere Stücke zu höchstens 1500 Zeichen geteilt, lückenlos', ki.length >= 3 && !jahrFehler.length && jahrSaetze.size === jahrGesamt, JSON.stringify([jahrFehler, jahr.map((s) => s.marken[0])]));
+  pruefe('SSML: Sonderzeichen sicher, Text unverändert', [...jahrSaetze.values()].some((s) => s.text === 'KI-Monat 1: Ein neues Modell & ein „Werkzeug“ <für> alle')
+    && jahr.every((s) => !s.ssml.includes('<für>')));
+  proben = await seite.evaluate(() => window.__proben);
+  falsch = probenStimmen(proben, syn);
+  pruefe('Jahresrückblick: Satzgrenzen passen auch über geteilte Stücke', proben.length >= 3 && !falsch.length, JSON.stringify([proben.length, falsch.slice(0, 4)]));
+  await seite.click('.vl-schliessen');
+  await seite.click('.tabs a[data-tab="heute"]');
+  await seite.waitForSelector(KOPF);
+
+  // Rückfall: offline
+  z = await azZustand(seite);
+  const vorOffline = { synthesen: z.synthesen, token: netz.anfragen.length, gesprochen: z.gesprochen };
+  await ctx.setOffline(true);
+  await seite.click(KOPF);
+  await warteAufSaetze(seite, vorOffline.gesprochen + 1);
+  z = await azZustand(seite);
+  pruefe('Offline: Stimme des Handys mit Hinweis, keine Anfrage an Azure', z.quelle === 'Stimme des Handys – offline, Azure ist nicht erreichbar.' && z.rueckfall
+    && z.gesprochenText === 'Weltpolitik' && z.synthesen === vorOffline.synthesen && netz.anfragen.length === vorOffline.token, JSON.stringify(z));
+  await seite.click('.vl-schliessen');
+  await ctx.setOffline(false);
+
+  // Rückfall: Schlüssel ungültig (401)
+  netz.modus = '401';
+  await seite.reload();
+  await seite.waitForSelector(KOPF);
+  await seite.click(KOPF);
+  await warteAufSaetze(seite, 1);
+  await warteAufWach(seite, true);
+  z = await azZustand(seite);
+  pruefe('Schlüssel ungültig (401): Stimme des Handys mit Hinweis', z.quelle === 'Stimme des Handys – Azure lehnt den Schlüssel ab (ungültig oder falsche Region).'
+    && z.rueckfall && z.gesprochenText === 'Weltpolitik' && z.haupt === 'Pause' && z.wach && z.synthesen === 0
+    && netz.anfragen[netz.anfragen.length - 1].schluessel === AZ_SCHLUESSEL, JSON.stringify(z));
+  await seite.click('.vl-einstellungen summary');
+  await seite.fill('#vl-azure-schluessel', 'FalscherSchluessel0123456789');
+  await seite.click('.vl-azure .vl-knopf--primaer');
+  await warteAufStatus(seite);
+  z = await azZustand(seite);
+  const nochDa = await seite.evaluate(() => JSON.parse(localStorage.getItem('mein-feed.azure.v1')).schluessel);
+  pruefe('Testen mit falschem Schlüssel: Hinweis, der gespeicherte bleibt', z.status === 'Azure lehnt den Schlüssel ab. Prüfe „Schlüssel 1“ und die Region.' && nochDa === AZ_SCHLUESSEL, z.status);
+  await seite.click('.vl-schliessen');
+  netz.modus = 'ok';
+
+  // Rückfall: Kontingent aufgebraucht (429), gleich beim ersten Stück
+  await taktLeeren(seite);
+  await seite.reload();
+  await seite.waitForSelector(KOPF);
+  await seite.evaluate(() => { window.__azure.modus = '429'; });
+  await seite.click(KOPF);
+  await warteAufSaetze(seite, 1);
+  z = await azZustand(seite);
+  pruefe('Kontingent aufgebraucht (429): Stimme des Handys mit Hinweis', z.quelle === 'Stimme des Handys – das Azure-Kontingent ist aufgebraucht (oder zu viele Anfragen).'
+    && z.rueckfall && z.gesprochenText === 'Weltpolitik' && z.synthesen === 1, JSON.stringify(z));
+  await seite.click('.vl-schliessen');
+
+  // … und mitten in der Ausgabe: das geladene Stück zu Ende, dann die Stimme des Handys
+  await taktLeeren(seite);
+  await seite.reload();
+  await seite.waitForSelector(KOPF);
+  await seite.evaluate(() => { Object.assign(window.__azure, { modus: '429', scheitertAb: 2, msProSatz: 60 }); });
+  await seite.click(KOPF);
+  await warteAufSaetze(seite, 1);
+  z = await azZustand(seite);
+  syn = await azSynthesen(seite);
+  const zweites = syn[1] && ssmlSaetze(syn[1].ssml).get(syn[1].marken[0]);
+  pruefe('Kontingent mitten in der Ausgabe: erst das geladene Stück, dann weiter mit der Stimme des Handys', syn.length === 2 && zweites
+    && z.gesprochenText === zweites.text && z.nummer === syn[1].marken[0] + 1 && z.quelle.includes('Kontingent') && z.audio.src === '', JSON.stringify([z, syn.map((s) => s.marken)]));
+  await seite.click('.vl-schliessen');
+
+  // Rückfall: Speech SDK lädt nicht
+  await seite.reload();
+  await seite.waitForSelector(KOPF);
+  await seite.evaluate(() => { window.__azure.sdkFehler = true; });
+  const vorSdk = netz.anfragen.length;
+  await seite.click(KOPF);
+  await warteAufSaetze(seite, 1);
+  z = await azZustand(seite);
+  pruefe('Speech SDK lädt nicht: Stimme des Handys mit Hinweis', z.quelle === 'Stimme des Handys – das Sprachpaket von Microsoft ließ sich nicht laden.'
+    && z.skripte === 1 && netz.anfragen.length === vorSdk && z.gesprochenText === 'Weltpolitik', JSON.stringify(z));
+  await seite.click('.vl-schliessen');
+
+  // Takt: sind 15 Anfragen in der letzten Minute, wartet die nächste
+  await seite.reload();
+  await seite.waitForSelector(KOPF);
+  const t0 = await seite.evaluate(() => {
+    const jetzt = Date.now();
+    localStorage.setItem('mein-feed.azure-takt.v1', JSON.stringify(Array.from({ length: 15 }, () => jetzt - 59300)));
+    return jetzt;
+  });
+  await seite.click(KOPF);
+  await seite.waitForFunction(() => window.__azure.synthesen.length > 0, null, { timeout: 5000 });
+  const t1 = await seite.evaluate(() => window.__azure.synthesen[0].zeit);
+  const takt = await seite.evaluate(() => JSON.parse(localStorage.getItem('mein-feed.azure-takt.v1')));
+  pruefe('Höchstens 15 Anfragen pro Minute: die nächste wartet, bis eine alte herausfällt', t1 - t0 >= 600 && t1 - t0 < 3000
+    && takt.every((t) => t > t0) && takt.some((t) => Math.abs(t - t1) < 100), `${t1 - t0} ms, ${JSON.stringify(takt.map((t) => t - t0))}`);
+  await warteAufTon(seite);
+  await seite.click('.vl-schliessen');
+
+  // Der Schlüssel taucht nirgends auf
+  await seite.click('.tabs a[data-tab="merkliste"]');
+  await seite.waitForSelector('.merk-eintrag');
+  const [download] = await Promise.all([seite.waitForEvent('download'), seite.click('.merk-kopf .knopf:has-text("Exportieren")')]);
+  const exportPfad = path.join(ordner, `azure-${download.suggestedFilename()}`);
+  await download.saveAs(exportPfad);
+  const exportText = fs.readFileSync(exportPfad, 'utf8');
+  await seite.click('#feedback .knopf--primaer');
+  await warte(200);
+  const feedback = await seite.evaluate(() => navigator.clipboard.readText());
+  pruefe('Schlüssel nicht im Export der Merkliste und nicht im Feedback-Text', JSON.parse(exportText).eintraege.length === 1 && !exportText.includes(AZ_SCHLUESSEL)
+    && feedback.includes('Als „Unnötig“ markiert (1)') && !feedback.includes(AZ_SCHLUESSEL), feedback);
+  const mitSchluessel = einstellungen.mitschnitt.filter((a) => JSON.stringify(a).includes(AZ_SCHLUESSEL));
+  pruefe('Schlüssel nur in Anfragen an Azure: im Kopf, nie in einer Adresse oder im Inhalt', mitSchluessel.length >= 3
+    && mitSchluessel.every((a) => AZ_TOKEN_URL.test(a.url) && a.kopf['ocp-apim-subscription-key'] === AZ_SCHLUESSEL && !a.url.includes(AZ_SCHLUESSEL) && !a.inhalt.includes(AZ_SCHLUESSEL)),
+  JSON.stringify(mitSchluessel.map((a) => a.url)));
+  const spuren = await seite.evaluate((s) => ({
+    dom: document.documentElement.outerHTML.includes(s) || [...document.querySelectorAll('input, textarea')].some((f) => f.value.includes(s)),
+    speicher: Object.keys(localStorage).filter((k) => String(localStorage.getItem(k)).includes(s)),
+    sdk: window.__azure.configs.some((c) => JSON.stringify(c).includes(s)) || window.__azure.synthesen.some((x) => x.ssml.includes(s)),
+  }), AZ_SCHLUESSEL);
+  pruefe('Schlüssel nur im lokalen Speicher: nicht im DOM, nicht beim SDK, nicht in der Konsole', !spuren.dom && JSON.stringify(spuren.speicher) === '["mein-feed.azure.v1"]'
+    && !spuren.sdk && konsole.length >= 0 && !konsole.some((t) => t.includes(AZ_SCHLUESSEL)), JSON.stringify(spuren));
+
+  // Löschen: zurück zur Stimme des Handys
+  await seite.click('.tabs a[data-tab="heute"]');
+  await seite.waitForSelector(KOPF);
+  await taktLeeren(seite);
+  await seite.click(KOPF);
+  await warteAufTon(seite);
+  z = await azZustand(seite);
+  await seite.click('.vl-einstellungen summary');
+  await seite.click('.vl-azure .vl-knopf:not(.vl-knopf--primaer)');
+  await warteAufSaetze(seite, z.gesprochen + 1);
+  z = await azZustand(seite);
+  const nachLoeschen = await seite.evaluate(() => ({ zugang: localStorage.getItem('mein-feed.azure.v1'), region: document.querySelector('#vl-azure-region').value }));
+  pruefe('Löschen: Schlüssel und Region weg, die Stimme des Handys liest weiter', nachLoeschen.zugang === null && nachLoeschen.region === '' && z.quelle === KEIN_SCHLUESSEL
+    && z.status === 'Schlüssel und Region gelöscht. Es liest die Stimme des Handys.' && z.audio.src === '' && z.haupt === 'Pause', JSON.stringify([nachLoeschen, z]));
+  await seite.click('.vl-schliessen');
+}
+
+// Mit echtem Service Worker: Er speichert nichts von Azure, vom CDN und keinen Ton.
+async function azureMitServiceWorker(seite, ctx, basis, einstellungen) {
+  const app = `${basis}${APP}`;
+  await seite.clock.setSystemTime(new Date('2026-11-01T08:00:00+01:00'));
+  await seite.goto(app);
+  await seite.waitForSelector('.ausgabe .aktionen--kopf .knopf--vorlesen');
+  await seite.waitForFunction(() => Boolean(navigator.serviceWorker.controller), null, { timeout: 10000 });
+  await seite.evaluate((s) => localStorage.setItem('mein-feed.azure.v1', JSON.stringify({ schluessel: s, region: 'westeurope' })), AZ_SCHLUESSEL);
+  await seite.click('.ausgabe:first-of-type .aktionen--kopf .knopf--vorlesen');
+  await warteAufTon(seite);
+  const gesamt = (await azZustand(seite)).gesamt;
+  await seite.waitForFunction((n) => window.__azure.synthesen.some((s) => s.marken.includes(n - 1)), gesamt, { timeout: 5000 });
+  // Gleiche Adressen auch direkt aus der Seite, damit sie sicher durch den Service Worker gehen.
+  const durch = await seite.evaluate(async (s) => ({
+    cdn: await fetch('https://cdn.jsdelivr.net/npm/microsoft-cognitiveservices-speech-sdk@1.53.0/distrib/browser/microsoft.cognitiveservices.speech.sdk.bundle-min.js').then((a) => a.status, () => 0),
+    token: await fetch('https://westeurope.api.cognitive.microsoft.com/sts/v1.0/issueToken', { method: 'POST', headers: { 'Ocp-Apim-Subscription-Key': s } }).then((a) => a.status, () => 0),
+    ton: await fetch(document.querySelector('#vorlesen audio').src).then((a) => a.status, () => 0),
+  }), AZ_SCHLUESSEL);
+  await warte(300);
+  const c = await cacheInhalt(seite);
+  const alle = Object.values(c).flat();
+  const fremd = alle.filter((u) => !u.startsWith(app) && !u.startsWith(DATEN_URL));
+  pruefe('Service Worker: nichts von Azure und vom CDN im Cache, kein Ton', durch.cdn === 200 && durch.token === 200 && durch.ton === 200
+    && fremd.length === 0 && !alle.some((u) => /microsoft|jsdelivr|^blob:/.test(u)), JSON.stringify([durch, fremd]));
+  pruefe('Anfragen an CDN und Azure gingen am Service Worker vorbei ins Netz', einstellungen.anfragen.some((u) => u.startsWith('https://cdn.jsdelivr.net/'))
+    && einstellungen.anfragen.some((u) => AZ_TOKEN_URL.test(u)));
+  const speicher = await seite.evaluate(async () => ({ caches: (await caches.keys()).sort(), dbs: (await indexedDB.databases()).map((d) => d.name).sort() }));
+  pruefe('Kein Ton im Speicher des Handys: nur App- und Daten-Cache und die Merkliste', JSON.stringify(speicher.caches) === '["mein-feed-app","mein-feed-daten"]'
+    && JSON.stringify(speicher.dbs) === '["mein-feed"]', JSON.stringify(speicher));
+  const ton = await seite.evaluate(() => document.querySelector('#vorlesen audio').src);
+  await seite.click('#vorlesen .vl-schliessen');
+  await warte(100);
+  pruefe('Nach dem Schließen ist der Ton auch im Arbeitsspeicher weg', (await tonDa(seite, ton)) === 'weg');
+}
+
+/*
+ * Nur mit MEIN_FEED_SDK=<Pfad zur echten …bundle-min.js>: Das echte Speech SDK läuft durch die App.
+ * Der Test liefert die Datei unter der CDN-Adresse aus (die App prüft sie per SRI) und spielt
+ * selbst den Sprachdienst von Azure auf der WebSocket-Verbindung: turn.start, response, Marken
+ * (audio.metadata, Zeitpunkte in 100 ns), Ton und turn.end, wie es das SDK erwartet.
+ */
+function wavPuffer(ms) {
+  const rate = 8000;
+  const n = Math.max(1, Math.round((rate * ms) / 1000));
+  const b = Buffer.alloc(44 + n * 2);
+  b.write('RIFF', 0, 'ascii'); b.writeUInt32LE(36 + n * 2, 4); b.write('WAVE', 8, 'ascii'); b.write('fmt ', 12, 'ascii');
+  b.writeUInt32LE(16, 16); b.writeUInt16LE(1, 20); b.writeUInt16LE(1, 22); b.writeUInt32LE(rate, 24); b.writeUInt32LE(rate * 2, 28);
+  b.writeUInt16LE(2, 32); b.writeUInt16LE(16, 34); b.write('data', 36, 'ascii'); b.writeUInt32LE(n * 2, 40);
+  return b;
+}
+
+async function echtesSdk(seite, ctx, basis, einstellungen) {
+  const MS = 300;
+  const dienst = { urls: [], nachrichten: [], synthesen: [] };
+  await ctx.routeWebSocket(/^wss:\/\/[a-z0-9]+\.tts\.speech\.microsoft\.com\//, (ws) => {
+    dienst.urls.push(ws.url());
+    ws.onMessage((nachricht) => {
+      if (typeof nachricht !== 'string') return;
+      dienst.nachrichten.push(nachricht);
+      const [kopfText, ...rest] = nachricht.split('\r\n\r\n');
+      const kopf = Object.fromEntries(kopfText.split('\r\n').map((z) => [z.slice(0, z.indexOf(':')).trim().toLowerCase(), z.slice(z.indexOf(':') + 1).trim()]));
+      if (kopf.path !== 'ssml') return;
+      if (dienst.schliessen) {
+        ws.close(dienst.schliessen);
+        return;
+      }
+      const ssml = rest.join('\r\n\r\n');
+      const marken = [...ssml.matchAll(/<bookmark mark="s(\d+)"\/>/g)].map((m) => Number(m[1]));
+      dienst.synthesen.push({ ssml, marken, msProSatz: MS });
+      const id = kopf['x-requestid'];
+      const text = (pfad, inhalt) => ws.send(`Path:${pfad}\r\nX-RequestId:${id}\r\nContent-Type:application/json; charset=utf-8\r\n\r\n${inhalt}`);
+      text('turn.start', '{"context":{"serviceTag":"test"}}');
+      text('response', '{"context":{"serviceTag":"test"},"audio":{"type":"inline","streamId":"S1"}}');
+      marken.forEach((satz, k) => text('audio.metadata', JSON.stringify({ Metadata: [{ Type: 'Bookmark', Data: { Offset: k * MS * 10000, Bookmark: `s${satz}` } }] })));
+      const kopfTon = Buffer.from(`Path:audio\r\nX-RequestId:${id}\r\nX-StreamId:S1\r\n`, 'ascii');
+      const laenge = Buffer.alloc(2);
+      laenge.writeUInt16BE(kopfTon.length);
+      ws.send(Buffer.concat([laenge, kopfTon, wavPuffer(Math.max(1, marken.length) * MS)]));
+      text('turn.end', '{}');
+    });
+  });
+  await seite.clock.setSystemTime(new Date('2026-11-01T08:00:00+01:00'));
+  await seite.goto(`${basis}#heute`);
+  await seite.waitForSelector('.aktionen--kopf .knopf--vorlesen');
+  await seite.evaluate((s) => localStorage.setItem('mein-feed.azure.v1', JSON.stringify({ schluessel: s, region: 'westeurope' })), AZ_SCHLUESSEL);
+  await seite.click('.ausgabe:first-of-type .aktionen--kopf .knopf--vorlesen');
+  await warteAufTon(seite).catch(() => {});
+  const sdk = await seite.evaluate(() => ({
+    echt: Boolean(window.SpeechSDK && window.SpeechSDK.SpeechSynthesizer && !window.__azure),
+    format: window.SpeechSDK && window.SpeechSDK.SpeechSynthesisOutputFormat.Audio24Khz48KBitRateMonoMp3,
+    quelle: document.querySelector('#vorlesen .vl-quelle').textContent,
+  }));
+  pruefe('Echtes SDK: lädt mit der SRI aus app.js, Azure liest', sdk.echt && Number.isInteger(sdk.format) && sdk.quelle === 'Azure-Stimme', JSON.stringify(sdk));
+  const url = dienst.urls[0] || '';
+  pruefe('Echtes SDK: WebSocket zur Region mit Token, ohne Schlüssel in der Adresse', /^wss:\/\/westeurope\.tts\.speech\.microsoft\.com\/(tts\/)?cognitiveservices\/websocket\/v1\?/.test(url)
+    && /[?&]Authorization=Bearer(%20|\+)TOKEN-\d/.test(url) && !url.includes(AZ_SCHLUESSEL) && !url.includes('Ocp-Apim'), url.replace(/TOKEN-\d+/, 'TOKEN'));
+  pruefe('Echtes SDK: verlangt MP3, mono, 48 kbit/s', dienst.nachrichten.some((n) => n.includes('audio-24khz-48kbitrate-mono-mp3')));
+  await seite.click('#vorlesen .vl-vor');
+  const z = await azZustand(seite);
+  pruefe('Echtes SDK: Marken in 100 ns werden zu Satzgrenzen im Ton', z.nummer === 2 && amSatzAnfang(z, dienst.synthesen, 1), JSON.stringify([z.audio, dienst.synthesen.map((s) => s.marken)]));
+  const geladen = () => dienst.synthesen.reduce((n, s) => Math.max(n, ...s.marken), 0);
+  for (let i = 0; i < 50 && geladen() < z.gesamt - 1; i += 1) await warte(100);
+  pruefe('Echtes SDK: alle Stücke im Hintergrund geladen', geladen() === z.gesamt - 1, `${geladen()} / ${z.gesamt}`);
+  await seite.click('#vorlesen .vl-schliessen');
+
+  // Der Dienst schließt die Verbindung mit 4429 (zu viele Anfragen): Rückfall mit dem richtigen Grund.
+  dienst.schliessen = { code: 4429, reason: 'Too many requests' };
+  await seite.reload();
+  await seite.waitForSelector('.aktionen--kopf .knopf--vorlesen');
+  await seite.click('.ausgabe:first-of-type .aktionen--kopf .knopf--vorlesen');
+  await warteAufSaetze(seite, 1);
+  const r = await azZustand(seite);
+  pruefe('Echtes SDK: Abbruch mit 4429 führt zur Stimme des Handys mit Hinweis aufs Kontingent', r.quelle === 'Stimme des Handys – das Azure-Kontingent ist aufgebraucht (oder zu viele Anfragen).'
+    && r.gesprochenText === 'Weltpolitik', JSON.stringify(r));
+  await seite.click('#vorlesen .vl-schliessen');
+}
+
+// Keine Audiodateien im Repo (außer in .git).
+function audioImRepo(ordner = WURZEL, gefunden = []) {
+  for (const eintrag of fs.readdirSync(ordner, { withFileTypes: true })) {
+    if (eintrag.name === '.git' || eintrag.name === 'node_modules') continue;
+    const voll = path.join(ordner, eintrag.name);
+    if (eintrag.isDirectory()) audioImRepo(voll, gefunden);
+    else if (/\.(mp3|wav|ogg|oga|opus|m4a|aac|flac|weba|webm)$/i.test(eintrag.name)) gefunden.push(path.relative(WURZEL, voll));
+  }
+  return gefunden;
+}
+
 // Gleiche Satztrennung wie die App für einfache Texte ohne Abkürzungen (nur für erwartete Werte).
 function teileZumTest(text) {
   return text.split(/(?<=[.!?])\s+(?=[A-ZÄÖÜ])/);
@@ -1272,6 +2081,16 @@ function teileZumTest(text) {
       vorbereitung: sprachAttrappe,
     };
     await szenario(browser, basis, 'Vorlesen (Attrappen für Sprachausgabe und Wake Lock)', vorleseDaten, (seite, ctx) => vorlesenTests(seite, ctx, `${basis}/`));
+    const azureDaten = {
+      dateien: new Set([...BEISPIEL, 'data/jaehrlich/2024.json']),
+      zusatz: { 'data/jaehrlich/2024.json': JAHR_LANG },
+      youtube: 'gesperrt',
+      index: 'normal',
+      vorbereitung: [sprachAttrappe, azureAttrappe],
+      azure: azureNetz(),
+      mitschnitt: [],
+    };
+    await szenario(browser, basis, 'Azure-Stimme (Attrappe des Speech SDK)', azureDaten, (seite, ctx) => azureTests(seite, ctx, `${basis}/`, azureDaten, ordner));
     await szenario(browser, basis, 'Noch kein Daten-Branch', { dateien: new Set(), index: '404' }, (seite, ctx) => ohneDaten(seite, ctx, `${basis}/`));
     await szenario(browser, basis, 'Offline', { dateien: new Set(), index: 'offline' }, (seite, ctx) => offline(seite, ctx, `${basis}/`));
     const pwaDaten = {
@@ -1283,6 +2102,39 @@ function teileZumTest(text) {
       anfragen: [],
     };
     await szenario(browser, basis, 'PWA (unter /mein-feed/, mit Service Worker)', pwaDaten, (seite, ctx) => pwa(seite, ctx, basis, pwaDaten));
+    const azureSw = {
+      dateien: new Set(BEISPIEL),
+      youtube: 'gesperrt',
+      index: 'normal',
+      serviceWorker: true,
+      offline: false,
+      anfragen: [],
+      vorbereitung: [sprachAttrappe, azureAttrappe],
+      azure: azureNetz(),
+    };
+    await szenario(browser, basis, 'Azure-Stimme mit Service Worker', azureSw, (seite, ctx) => azureMitServiceWorker(seite, ctx, basis, azureSw));
+
+    console.log('\nDateien');
+    const audio = audioImRepo();
+    pruefe('Keine Audiodateien im Repo', audio.length === 0, audio.join(', '));
+    const sri = (/AZURE_SDK_SRI = '([^']+)'/.exec(fs.readFileSync(path.join(WURZEL, 'app.js'), 'utf8')) || [])[1];
+    if (process.env.MEIN_FEED_SDK) {
+      // Beim Wechsel der SDK-Version: MEIN_FEED_SDK=<Pfad zu …bundle-min.js> node tests/app_test.js
+      const soll = `sha384-${require('crypto').createHash('sha384').update(fs.readFileSync(process.env.MEIN_FEED_SDK)).digest('base64')}`;
+      pruefe('SRI in app.js passt zur SDK-Datei aus MEIN_FEED_SDK', sri === soll, `${sri} ≠ ${soll}`);
+      const echt = {
+        dateien: new Set(BEISPIEL),
+        youtube: 'gesperrt',
+        index: 'normal',
+        vorbereitung: sprachAttrappe,
+        azure: Object.assign(azureNetz(), {
+          cdn: (route) => route.fulfill({ status: 200, body: fs.readFileSync(process.env.MEIN_FEED_SDK), contentType: 'text/javascript', headers: { 'access-control-allow-origin': '*' } }),
+        }),
+      };
+      await szenario(browser, basis, 'Echtes Speech SDK (MEIN_FEED_SDK)', echt, (seite, ctx) => echtesSdk(seite, ctx, `${basis}/`, echt));
+    } else {
+      console.log('  – SRI und echtes SDK: übersprungen (MEIN_FEED_SDK nicht gesetzt)');
+    }
   } finally {
     await browser.close();
     server.close();
