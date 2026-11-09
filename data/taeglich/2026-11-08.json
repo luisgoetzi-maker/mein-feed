@@ -1,0 +1,109 @@
+{
+  "format": "taeglich",
+  "titel": "Sonntag, 8. November 2026",
+  "zeitraum": { "von": "2026-11-08", "bis": "2026-11-08" },
+  "erschienen": "2026-11-09T03:08:58+01:00",
+  "status": "ok",
+  "fehler": null,
+  "ruhig": ["tirol", "startups"],
+  "luecken": [],
+  "ausnahmen": [],
+  "meldungen": [
+    {
+      "id": "2026-11-08-weltpolitik-1",
+      "datum": "2026-11-08",
+      "datum_bis": null,
+      "titel": "Trump hält neue Angriffe auf den Iran während der Gespräche für sehr unwahrscheinlich",
+      "text": "US-Präsident Donald Trump sagte laut CNN in einem Telefoninterview, neue Angriffe auf den Iran seien bei guten Gesprächen sehr unwahrscheinlich. Das hänge davon ab, ob der Iran ein sehr starkes Abkommen unterzeichne. Zugleich drohte er, laut CNN, mit der Zerstörung von 38 Brücken im Iran innerhalb einer Stunde. Im Golf von Oman setzte das US-Militär einen Frachter außer Gefecht, der die amerikanische Seeblockade durchbrechen wollte.",
+      "warum_wichtig": "Die Aussage dämpft die Sorge vor einer neuen Eskalation nach den US-Zwischenwahlen, während die Seeblockade den iranischen Ölexport weiter blockiert.",
+      "themen": ["weltpolitik"],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        { "name": "DER STANDARD", "url": "https://www.derstandard.at/story/3000000348078/us-milit228r-frachter-im-golf-von-oman-untauglich-gemacht?ref=rss" },
+        { "name": "tagesschau", "url": "https://www.tagesschau.de/ausland/asien/usa-iran-seeblockade-angriff-handelsschiff-100.html" },
+        { "name": "ORF", "url": "https://orf.at/stories/3447629/" }
+      ]
+    },
+    {
+      "id": "2026-11-08-weltpolitik-2",
+      "datum": "2026-11-08",
+      "datum_bis": null,
+      "titel": "Israels Präsident beauftragt Oppositionsführer Eisenkot mit der Regierungsbildung",
+      "text": "Präsident Jizchak Herzog hat Gadi Eisenkot offiziell den Auftrag zur Bildung einer neuen Regierung erteilt. Eisenkot hat 28 Tage Zeit, bei Bedarf mit einer Verlängerung um 14 Tage. Er will eine nationale Notstandsregierung bilden. Laut ORF empfahlen ihn 67 der 120 Abgeordneten, doch seine Partei wurde bei der Wahl nur Zweite hinter Netanjahus Likud.",
+      "warum_wichtig": "Gelingt die Koalition, endet die Amtszeit von Langzeitpremier Netanjahu, andernfalls drohen Neuwahlen.",
+      "themen": ["weltpolitik"],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        { "name": "ORF", "url": "https://orf.at/stories/3447618/" },
+        { "name": "tagesschau", "url": "https://www.tagesschau.de/ausland/asien/israel-auftrag-regierungsbildung-eisenkot-100.html" },
+        { "name": "DER STANDARD", "url": "https://www.derstandard.at/story/3000000348077/offiziell-eisenkots-huerdenlauf-einer-regierungsbildung-in-israel-beginnt?ref=rss" }
+      ]
+    },
+    {
+      "id": "2026-11-08-weltpolitik-3",
+      "datum": "2026-11-08",
+      "datum_bis": null,
+      "titel": "Krakau: Staatsanwaltschaft ermittelt wegen Terrorismus, auch eine Österreicherin getötet",
+      "text": "Nach den Schüssen auf dem Marktplatz von Krakau mit sechs Toten hat die polnische Staatsanwaltschaft Terrorermittlungen eingeleitet. Der mutmaßliche Täter, ein 25-jähriger Pole, soll laut dem polnischen Innenminister von rechtsextremen Ideologien fasziniert gewesen sein. Laut polnischen Medien wurden außerdem seine Eltern und seine Schwester tot in seinem Haus gefunden. Unter den Toten ist eine 51-jährige Niederösterreicherin, ihr Mann wurde verletzt. Polen hat zwei Tage Staatstrauer ausgerufen.",
+      "warum_wichtig": "Der Anschlag erschüttert Polen kurz vor dem Unabhängigkeitstag und trifft auch Österreich direkt.",
+      "themen": ["weltpolitik"],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        { "name": "ORF", "url": "https://orf.at/stories/3447628/" },
+        { "name": "tagesschau", "url": "https://www.tagesschau.de/ausland/europa/krakau-schuesse-trauer-102.html" },
+        { "name": "DER STANDARD", "url": "https://www.derstandard.at/story/3000000348045/anschlag-in-krakau-eine-verletzte-person-aus-214sterreich?ref=rss" }
+      ]
+    },
+    {
+      "id": "2026-11-08-politik-1",
+      "datum": "2026-11-08",
+      "datum_bis": null,
+      "titel": "Merz will Ilse Aigner als Bundespräsidentin vorschlagen",
+      "text": "CDU-Chef und Kanzler Friedrich Merz will die CSU-Politikerin Ilse Aigner, Präsidentin des bayerischen Landtags, als Nachfolgerin von Frank-Walter Steinmeier vorschlagen. Er teilte das dem engsten Führungszirkel der CDU mit; die offizielle Nominierung durch die Parteigremien ist für Montag vorgesehen. Die Zustimmung von CDU, CSU und SPD gilt als sicher. Aigner wäre die erste Frau im Amt.",
+      "warum_wichtig": "Mit der Einigung der Koalition ist die Wahl der ersten Bundespräsidentin in Deutschland praktisch vorentschieden.",
+      "themen": ["politik"],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        { "name": "ORF", "url": "https://orf.at/stories/3447632/" },
+        { "name": "tagesschau", "url": "https://www.tagesschau.de/inland/innenpolitik/aigner-bundespraesidentin-merz-100.html" },
+        { "name": "Handelsblatt", "url": "https://www.handelsblatt.com/politik/deutschland/kandidatur-fuer-staatsspitze-merz-aigner-soll-bundespraesidentin-werden/100268262.html" }
+      ]
+    },
+    {
+      "id": "2026-11-08-ki-1",
+      "datum": "2026-11-08",
+      "datum_bis": null,
+      "titel": "Anthropic soll 3,4 Milliarden Dollar in gasbetriebene Stromgeneratoren stecken",
+      "text": "Anthropic hat sich laut Financial Times, die sich auf eine nicht genannte Person beruft, gasbetriebene Generatoren mit 1,7 Gigawatt Leistung für rund 3,4 Milliarden Dollar gesichert. Lieferant ist demnach OnePWR Solutions aus San Antonio in Texas; der Vertrag umfasst auch Planung und Bau. Die Zusagen soll Anthropic Ende September gemacht haben. Keines der Unternehmen hat sich bisher geäußert.",
+      "warum_wichtig": "Die Investition zeigt, wie stark der Strombedarf für Claude und die Rechenzentren zum Engpass des KI-Geschäfts wird.",
+      "themen": ["ki", "wirtschaft"],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        { "name": "Handelsblatt (laut Financial Times)", "url": "https://www.handelsblatt.com/unternehmen/dienstleister/ki-anthropic-steckt-34-milliarden-dollar-in-stromgeneratoren/100268219.html" }
+      ]
+    },
+    {
+      "id": "2026-11-08-wirtschaft-1",
+      "datum": "2026-11-08",
+      "datum_bis": null,
+      "titel": "Nvidia-Verwaltungsrat untersucht Verbindung von Konzernchef Huang zu mutmaßlicher chinesischer Agentin",
+      "text": "Nvidia-Chef Jensen Huang hat in einem Brief an die Belegschaft eine Affäre eingeräumt. Laut Financial Times und New York Times soll die Frau für Chinas Geheimdienst gearbeitet haben und offiziell bei Megaspeed, einem Nvidia-Kunden, angestellt sein. Der Verwaltungsrat leitet mit externer Hilfe eine Untersuchung ein, ob Huang Ziel eines ausländischen Geheimdienstes wurde. Hinweise auf gefährdete Staatsgeheimnisse oder Geschäftsgeheimnisse sieht das Gremium bisher nicht.",
+      "warum_wichtig": "Der Fall trifft den wichtigsten KI-Chiphersteller der Welt mitten im Streit um Exportbeschränkungen für Chips nach China.",
+      "themen": ["wirtschaft", "ki"],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        { "name": "heise online", "url": "https://www.heise.de/news/Jensen-Huang-gesteht-Affaere-ein-Nvidia-beginnt-Untersuchung-11516757.html" },
+        { "name": "Handelsblatt", "url": "https://www.handelsblatt.com/technik/it-internet/chip-riese-nvidia-prueft-berichte-zu-auslaendischer-spionage-gegen-chef/100268273.html" },
+        { "name": "TechCrunch", "url": "https://techcrunch.com/2026/11/08/nvidia-says-its-investigating-ceo-jensen-huangs-relationship-with-possible-chinese-spy/" }
+      ]
+    }
+  ],
+  "videos": [],
+  "abschnitte": []
+}
