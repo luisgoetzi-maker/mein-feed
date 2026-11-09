@@ -82,11 +82,13 @@
       "name": "Börse und Wirtschaft",
       "reihenfolge": 4,
       "schwerpunkte": ["Märkte und Unternehmen", "KI-Infrastruktur und Chips weltweit", "Energie für Rechenzentren", "Zinsentscheidungen von EZB und Fed", "ETFs"],
-      "quellen": ["handelsblatt.com", "derstandard.at", "tagesschau.de", "bbc.com"],
+      "quellen": ["handelsblatt.com", "derstandard.at", "tagesschau.de", "n-tv.de", "bbc.com"],
       "feeds": [
         { "name": "Handelsblatt Schlagzeilen", "url": "https://www.handelsblatt.com/contentexport/feed/schlagzeilen" },
         { "name": "DER STANDARD Wirtschaft", "url": "https://www.derstandard.at/rss/wirtschaft" },
         { "name": "tagesschau Wirtschaft", "url": "https://www.tagesschau.de/wirtschaft/index~rss2.xml" },
+        { "name": "tagesschau Marktberichte", "url": "https://www.tagesschau.de/wirtschaft/finanzen/index~rss2.xml" },
+        { "name": "n-tv Wirtschaft", "url": "https://www.n-tv.de/wirtschaft/rss" },
         { "name": "BBC Business", "url": "https://feeds.bbci.co.uk/news/business/rss.xml" }
       ],
       "seiten": [],
