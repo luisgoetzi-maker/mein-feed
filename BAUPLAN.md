@@ -10,7 +10,8 @@ Nov 6, 2026 · @Luis
 - **Geplante Aufgaben:** vier Claude-Läufe in der Cloud (täglich, wöchentlich, monatlich, jährlich), Modell Sonnet 5.5.
 - **Repo `mein-feed`, Branch `main`:** App, Konfiguration (`config/`) und die Ablaufbeschreibungen der Läufe (`routinen/`). Hier ändern nur du und Claude Code etwas.
 - **Repo `mein-feed`, Branch `claude/feed-daten`:** nur die Daten (`data/`). Hier schreiben nur die geplanten Aufgaben.
-- **Lokal am Handy:** Merkliste, Feedback, Vorlese-Position, Stimme und Tempo.
+- **Lokal am Handy:** Merkliste, Feedback, Vorlese-Position, Stimme und Tempo, der Azure-Schlüssel.
+- **Azure-Stimme (ab Sitzung 6):** Vorgelesen wird mit einer natürlichen Stimme von Microsoft Azure. Der Ton entsteht erst beim Tippen auf „Vorlesen“ direkt am Handy und wird nirgends als Datei gespeichert. Ohne Schlüssel oder ohne Netz liest die Stimme des Handys.
 
 &#91;embedded content: Aufbau · 4 Bausteine, 2 Branches\]
 
@@ -215,17 +216,31 @@ Die App zeigt immer die neueste Ausgabe zuerst, gegliedert nach Überthemen, und
 
 **Vorlesen**
 
-- Knopf „Vorlesen“ für die ganze Ausgabe und pro Überthema. Web Speech API mit deutscher Stimme; Stimme und Tempo wählbar und gespeichert.
+- Knopf „Vorlesen“ für die ganze Ausgabe und pro Überthema. Der Ton kommt von der Azure-Stimme (siehe unten), solange ein Schlüssel eingetragen ist und Netz da ist, sonst von der Stimme des Handys (Web Speech API, deutsche Stimme). Stimme und Tempo wählbar und gespeichert.
 - Gelesen wird Satz für Satz: Themenname, dann pro Meldung Titel, Text und „Warum wichtig“. Verweise werden nicht gelesen, jede Meldung also nur einmal. Bei einem Video nur der Satz „Dazu gibt es eine Video-Empfehlung“. Am Ende die Ruhig-Zeile.
 - Vorlese-Ansicht: dunkler Hintergrund, aktueller Satz groß, Knöpfe Pause/Weiter, Satz zurück/vor, nächstes Thema, Fortschrittsbalken.
-- **Bildschirm wach halten:** Beim Start fordert die App einen Screen Wake Lock an, bei Pause oder Ende gibt sie ihn frei; kommt die App nach einem Wechsel zurück, fordert sie ihn neu an. Grund: Der Test am 6.11.2026 hat gezeigt, dass das Vorlesen bei gesperrtem Bildschirm in keiner Variante weiterläuft.
-- **Weiterlesen:** Die Position (Ausgabe und Satz) wird laufend lokal gespeichert. Nach einer Unterbrechung bietet die App „Weiter ab Satz …“ an.
+- **Bildschirm wach halten** (nur mit der Stimme des Handys): Beim Start fordert die App einen Screen Wake Lock an, bei Pause oder Ende gibt sie ihn frei; kommt die App nach einem Wechsel zurück, fordert sie ihn neu an. Grund: Der Test am 6.11.2026 hat gezeigt, dass das Vorlesen bei gesperrtem Bildschirm in keiner Variante weiterläuft.
+- **Weiterlesen:** Die Position (Ausgabe und Satz) wird laufend lokal gespeichert. Nach einer Unterbrechung bietet die App „Weiter ab Satz …“ an. Die Position gilt für beide Stimmen gleich.
+
+**Azure-Stimme (Sitzung 6)**
+
+Die Stimme des Handys klingt schlecht und stoppt bei gesperrtem Bildschirm. Azure liefert natürliche Stimmen, auch österreichische, und ein Audio-Element spielt bei gesperrtem Bildschirm weiter.
+
+- **Live statt Dateien:** Der Ton entsteht beim Tippen auf „Vorlesen“ direkt am Handy, mit einer Anfrage an Azure. Keine Audiodateien im Repo, die geplanten Läufe ändern sich nicht, nichts im Download- oder Musikordner. Der Ton liegt nur im Arbeitsspeicher der App und wird beim Schließen der Vorlese-Ansicht verworfen; der Service Worker speichert nichts von Azure.
+- **Schlüssel:** Azure-Schlüssel und Region trägt man einmal unter „Stimme und Tempo“ ein, mit „Testen“ und „Löschen“. Beides liegt nur im lokalen Speicher des Handys, nie im Repo, im Export der Merkliste, im Feedback-Text oder in Fehlermeldungen.
+- **Technik:** das offizielle Speech SDK von Microsoft für JavaScript, erst geladen, wenn die Azure-Stimme gebraucht wird, in fester Version vom CDN mit Integritätsprüfung (SRI). Kein Build-Schritt, keine Datei im Repo. Ausgabe als MP3, mono, niedrige Bitrate.
+- **Gleiche Sätze:** Gelesen wird dieselbe Satzliste wie mit der Stimme des Handys. Jeder Satz bekommt in SSML eine Marke; die Zeitpunkte im Ton kommen aus den Marken-Ereignissen des SDK. Satz zurück/vor, „Nächstes Thema“, Fortschrittsbalken, Kapitel und „Weiter ab Satz …“ funktionieren wie bisher.
+- **Laden:** in Stücken je Überthema, weil die Gratis-Stufe die Anfragen pro Minute begrenzt. Das Vorlesen beginnt, sobald das erste Stück da ist; die übrigen kommen im Hintergrund nach und schließen nahtlos an. Sind alle geladen, läuft die Ausgabe auch im Funkloch zu Ende.
+- **Wiedergabe:** Audio-Element mit Media Session: Titel der Ausgabe und Thema auf dem Sperrbildschirm, Pause/Weiter und Satz zurück/vor auch über Sperrbildschirm und Kopfhörer. Läuft bei gesperrtem Bildschirm und nach einem App-Wechsel weiter; kein Wake Lock.
+- **Stimme und Tempo:** Auswahl aus den deutschen Azure-Stimmen, die österreichischen (Ingrid, Jonas) zuerst. Das Tempo ändert nur die Abspielgeschwindigkeit, ohne neu zu laden; ein Stimmwechsel lädt ab dem aktuellen Satz neu.
+- **Rückfall:** Kein Schlüssel, offline, Schlüssel ungültig, Kontingent aufgebraucht oder Azure nicht erreichbar: Die App liest mit der Stimme des Handys weiter und sagt kurz, warum. Sie scheitert nie still.
+- **Kosten:** Azure-Gratis-Stufe F0 mit 500.000 Zeichen im Monat. In F0 wird über der Grenze nur gebremst, nie abgerechnet. Eine Tagesausgabe hat rund 4.000 Zeichen. Das Claude-Kontingent wird nicht belastet.
 
 **Feedback und Technik**
 
 - „Unnötig“ an jeder Meldung und „Hat gefehlt“ (Freitext) am Ende jeder Ausgabe werden lokal gesammelt. „Feedback kopieren“ erzeugt einen Text, den du Claude Code gibst, um `config/regeln.md` nachzuschärfen.
 - Reines HTML, CSS und JavaScript ohne Framework und ohne Build-Schritt; hell und dunkel; für Handybreite gebaut.
-- PWA: `manifest.webmanifest` (Name „Mein Feed“, `display: standalone`, Icons) und ein Service Worker, der die App und die zuletzt geladenen Ausgaben für den Offline-Fall zwischenspeichert. Daten werden immer zuerst frisch geladen.
+- PWA: `manifest.webmanifest` (Name „Mein Feed“, `display: standalone`, Icons) und ein Service Worker, der die App und die zuletzt geladenen Ausgaben für den Offline-Fall zwischenspeichert. Daten werden immer zuerst frisch geladen. Fremde Seiten (YouTube, Azure, CDN) speichert er nicht.
 
 ## Die vier geplanten Aufgaben
 
@@ -302,7 +317,8 @@ Jeder Fall hat eine feste Lösung, damit die Läufe ohne Rückfrage durchlaufen.
 | Start mitten im Jahr | Erster Jahresrückblick heißt „Kurzrückblick 2026“ (nur November und Dezember) |
 | Überthemen ändern sich | Neue Liste mit neuem `gueltig_ab`; alte Ausgaben behalten ihre Themen, Rückblicke über den Wechsel führen beide zusammen |
 | GitHub-Verbindung läuft ab | Die Aufgaben setzen laut Doku bis zu 72 Stunden aus und schalten sich danach ab: neu verbinden und wieder einschalten |
-| Bildschirm geht während des Vorlesens aus oder App wird gewechselt | Wake Lock neu anfordern, „Weiter ab Satz …“ anbieten |
+| Bildschirm geht während des Vorlesens aus oder App wird gewechselt | Stimme des Handys: Wake Lock neu anfordern, „Weiter ab Satz …“ anbieten. Azure-Stimme: läuft weiter, Steuerung über Sperrbildschirm und Kopfhörer |
+| Azure nicht erreichbar, Schlüssel ungültig oder Gratis-Kontingent aufgebraucht | Weiter mit der Stimme des Handys, kurzer Hinweis in der Vorlese-Ansicht |
 | Video wird später gelöscht oder privat | Die Karte zeigt „Video nicht mehr verfügbar“; in der Merkliste bleiben Titel und Begründung stehen |
 | Feed startet mitten in einer Woche oder einem Monat | Tage vor der ersten Tagesausgabe (`start` in `index.json`) zählen nicht als Lücke; der Rückblick sagt im Titel, ab wann er gilt |
 | Der Monatserste ist ein Sonntag | Der Monatsrückblick wartet auch auf den Wochenrückblick |
@@ -360,11 +376,21 @@ Für jede Aufgabe gilt: Prompt aus dem Abschnitt oben einfügen und die erste Ze
 1. Die Pages-Adresse in Chrome öffnen → Menü ⋮ → **App installieren** bzw. **Zum Startbildschirm hinzufügen**.
 2. In der App einmal Stimme und Tempo wählen.
 
+**G. Azure-Stimme (nach Sitzung 6)**
+
+Die Bezeichnungen im Azure-Portal können leicht abweichen.
+
+1. portal.azure.com öffnen und ein kostenloses Azure-Konto anlegen bzw. sich anmelden. Microsoft verlangt meist eine Kreditkarte zur Prüfung; in der Gratis-Stufe wird nichts abgebucht.
+2. **Ressource erstellen** → nach **Speech** suchen → den Speech-Dienst (Azure AI Speech) wählen → **Erstellen**.
+3. **Ressourcengruppe** neu: `mein-feed`, **Region**: West Europe, **Name** z. B. `mein-feed-stimme`, **Tarif**: **Free F0** → **Überprüfen + erstellen** → **Erstellen**.
+4. **Zur Ressource** → **Schlüssel und Endpunkt**: **Schlüssel 1** und **Standort/Region** (z. B. `westeurope`) kopieren.
+5. In der App: **Vorlesen** → **Stimme und Tempo** → Schlüssel und Region eintragen → **Testen** → Stimme wählen.
+
 Quelle für die Einstellungen der geplanten Aufgaben: [Claude-Code-Doku: Scheduled tasks](https://code.claude.com/docs/en/routines).
 
 ## Bau-Reihenfolge und Abnahme
 
-Gebaut wird in fünf kleinen Claude-Code-Sitzungen, erst mit Beispieldaten, dann mit den echten Läufen.
+Gebaut wird in fünf kleinen Claude-Code-Sitzungen, erst mit Beispieldaten, dann mit den echten Läufen. Sitzung 6 ist eine Erweiterung nach dem Start.
 
 1. Diesen Bauplan als Markdown exportieren und auf github.com ins Repo laden (**Add file** → **Upload files**) als `BAUPLAN.md`. Dazu eine `CLAUDE.md` mit dem Satz „Lies vor jeder Arbeit BAUPLAN.md.“
 2. In Claude Code (claude.ai/code, Repo `mein-feed`) je eine Sitzung:
@@ -373,6 +399,7 @@ Gebaut wird in fünf kleinen Claude-Code-Sitzungen, erst mit Beispieldaten, dann
    3. App: Ansichten, Gruppierung, Verweise, Filter, Status, Merkliste, Feedback.
    4. Vorlesen: Vorlese-Ansicht, Wake Lock, Weiterlesen.
    5. PWA: Manifest, Service Worker, Icons.
+   6. Azure-Stimme: Vorlesen mit Azure, live am Handy (Erweiterung nach dem Start; danach Einrichtung G).
 3. Claude Code arbeitet auf eigenen `claude/`-Branches. Die App-Änderungen übernimmst du nach jeder Sitzung per Pull Request nach `main`. Ändert eine Sitzung `routinen/feed.py` oder die Konfiguration, müssen vorher die Tests laufen: `python3 -m unittest discover -s routinen`.
 4. Pages einschalten (B) und am Handy installieren (F).
 5. Beispieldaten löschen, am einfachsten den ganzen Branch `claude/feed-daten` (der erste tägliche Lauf legt ihn neu an, mit dem richtigen Startdatum). Dann die Aufgaben anlegen (C, D) und testen (E).
@@ -396,3 +423,6 @@ Lies BAUPLAN.md. Erstelle config/themen.json, config/regeln.md und routinen/taeg
 - [ ] Export und Import der Merkliste funktionieren.
 - [ ] Ein Video spielt eingebettet, ohne YouTube-Startseite.
 - [ ] Eine Tagesausgabe verschwindet frühestens 7 Tage nach ihrem Wochenrückblick.
+- [ ] Mit Azure-Schlüssel liest die App mit der Azure-Stimme, ohne Schlüssel oder offline mit der Stimme des Handys.
+- [ ] Mit der Azure-Stimme läuft das Vorlesen bei gesperrtem Bildschirm weiter und lässt sich über den Sperrbildschirm steuern.
+- [ ] Weder im Repo noch am Handy liegen Audiodateien.
