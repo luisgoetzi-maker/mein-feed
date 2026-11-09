@@ -8,7 +8,9 @@
  * Überthemen und ihre Reihenfolge kommen aus config/themen.json (Branch main).
  *
  * Lokal gespeichert: Merkliste (IndexedDB), Feedback, Vorlese-Position, Stimme und
- * Tempo (localStorage). Vorgelesen wird mit der Web Speech API, Satz für Satz; ein
+ * Tempo, Azure-Schlüssel und Region (localStorage). Vorgelesen wird mit der Azure-Stimme
+ * (Speech SDK von Microsoft, erst bei Bedarf vom CDN geladen), solange ein Schlüssel
+ * eingetragen ist und Netz da ist; sonst mit der Web Speech API, Satz für Satz, und ein
  * Screen Wake Lock hält dabei den Bildschirm an.
  *
  * Als PWA hält der Service Worker (sw.js) die App und die zuletzt geladenen Ausgaben für den
@@ -1614,7 +1616,9 @@
     ort: null, // Knopfgruppe, von der aus gestartet wurde (Fokus beim Schließen)
     ansicht: null,
     farben: null,
-    einstellungen: { stimme: null, tempo: 1 },
+    einstellungen: { stimme: null, tempo: 1, azureStimme: null },
+    quelle: 'handy', // 'azure' oder 'handy' (Web Speech API)
+    rueckfall: '', // warum gerade die Stimme des Handys liest
   };
   const vorleseOrte = new WeakMap(); // .vorlese-knoepfe -> { ausgabe, meta, namen, plan, thema }
 
@@ -1622,10 +1626,14 @@
     try {
       const e = JSON.parse(localStorage.getItem(VORLESE_SCHLUESSEL));
       if (istObjekt(e)) {
-        return { stimme: typeof e.stimme === 'string' ? e.stimme : null, tempo: TEMPI.includes(e.tempo) ? e.tempo : 1 };
+        return {
+          stimme: typeof e.stimme === 'string' ? e.stimme : null,
+          tempo: TEMPI.includes(e.tempo) ? e.tempo : 1,
+          azureStimme: typeof e.azureStimme === 'string' ? e.azureStimme : null,
+        };
       }
     } catch { /* Standard */ }
-    return { stimme: null, tempo: 1 };
+    return { stimme: null, tempo: 1, azureStimme: null };
   }
 
   function speichereEinstellungen() {
@@ -1693,6 +1701,13 @@
   function zeichneStimmen() {
     const a = vorlesen.ansicht;
     if (!a) return;
+    if (vorlesen.quelle === 'azure') {
+      a.stimme.replaceChildren(...AZURE_STIMMEN.map(([id, name]) => el('option', { value: id }, name)));
+      a.stimme.value = azureStimme();
+      a.stimme.disabled = false;
+      a.stimmeHinweis.hidden = true;
+      return;
+    }
     const deutsche = deutscheStimmen();
     if (deutsche.length) {
       a.stimme.replaceChildren(...deutsche.map((s) => el('option', { value: stimmenId(s) }, stimmenName(s))));
@@ -1716,6 +1731,7 @@
     try {
       window.speechSynthesis.cancel();
     } catch { /* egal */ }
+    azureHalt();
   }
 
   // Spricht den aktuellen Satz von vorn. Pause ist cancel() und später ein Neustart hier,
@@ -1727,6 +1743,10 @@
     merkePosition();
     pruefeSperre();
     zeichneVorlesen();
+    if (v.quelle === 'azure') {
+      azureSpiele();
+      return;
+    }
 
     const synth = window.speechSynthesis;
     const u = new window.SpeechSynthesisUtterance(satz.text);
@@ -1842,9 +1862,10 @@
 
   // ------------------------------------------------------------ Vorlesen: Bildschirm wach halten
 
+  // Nur für die Stimme des Handys; die Azure-Stimme spielt auch bei gesperrtem Bildschirm weiter.
   function sollWachBleiben() {
     const s = vorlesen.status;
-    return (s === 'liest' || s === 'unterbrochen') && document.visibilityState === 'visible';
+    return vorlesen.quelle !== 'azure' && (s === 'liest' || s === 'unterbrochen') && document.visibilityState === 'visible';
   }
 
   // Beim Lesen anfordern, bei Pause und Ende freigeben. Beim Verstecken gibt der Browser die
@@ -1946,7 +1967,9 @@
     a.stimme = el('select', {
       id: 'vl-stimme',
       onchange: () => {
-        vorlesen.einstellungen.stimme = a.stimme.value || null;
+        // Azure: Ein Stimmwechsel lädt ab dem aktuellen Satz neu (sprich() erkennt die neue Stimme).
+        if (vorlesen.quelle === 'azure') vorlesen.einstellungen.azureStimme = a.stimme.value;
+        else vorlesen.einstellungen.stimme = a.stimme.value || null;
         speichereEinstellungen();
         if (vorlesen.status === 'liest') sprich();
       },
@@ -1959,9 +1982,25 @@
         if (!TEMPI.includes(t)) return;
         vorlesen.einstellungen.tempo = t;
         speichereEinstellungen();
-        if (vorlesen.status === 'liest') sprich();
+        // Azure: nur die Abspielgeschwindigkeit, ohne neu zu laden.
+        if (vorlesen.quelle === 'azure') azureTempo();
+        else if (vorlesen.status === 'liest') sprich();
       },
     }, TEMPI.map((t) => el('option', { value: String(t) }, tempoText(t))));
+    a.quelle = el('p', { class: 'vl-quelle' });
+    const eingabe = (attrs) => el('input', {
+      class: 'vl-eingabe', autocomplete: 'off', autocapitalize: 'none', spellcheck: 'false', enterkeyhint: 'done', ...attrs,
+    });
+    a.azureSchluessel = eingabe({ type: 'password', id: 'vl-azure-schluessel' }); // verdeckt
+    a.azureRegion = eingabe({ type: 'text', id: 'vl-azure-region', placeholder: 'z. B. westeurope' });
+    for (const feld of [a.azureSchluessel, a.azureRegion]) {
+      feld.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') azureTesten();
+      });
+    }
+    a.azureTesten = el('button', { type: 'button', class: 'vl-knopf vl-knopf--primaer', onclick: () => azureTesten() }, 'Testen');
+    a.azureLoeschen = el('button', { type: 'button', class: 'vl-knopf', onclick: () => azureLoeschen() }, 'Löschen');
+    a.azureStatus = el('p', { class: 'vl-azure-status', role: 'status', hidden: true });
     a.wurzel = el('div', { id: 'vorlesen', class: 'vorlesen', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'vl-titel', hidden: true },
       el('div', { class: 'vl-innen' },
         el('header', { class: 'vl-kopf' },
@@ -1969,6 +2008,7 @@
           el('button', { type: 'button', class: 'vl-rund vl-schliessen', 'aria-label': 'Vorlesen schließen', title: 'Schließen', onclick: () => schliesseVorlesen() }, symbol(SYMBOL.schliessen))),
         el('div', { class: 'vl-satz-box' }, a.satz),
         el('div', { class: 'vl-fortschritt' }, a.balken, a.zaehler),
+        a.quelle,
         a.hinweis,
         el('div', { class: 'vl-steuerung' }, a.zurueck, a.haupt, a.vor),
         a.naechstes,
@@ -1976,7 +2016,14 @@
           el('summary', null, 'Stimme und Tempo'),
           el('label', { class: 'vl-feld' }, el('span', { text: 'Stimme' }), a.stimme),
           a.stimmeHinweis,
-          el('label', { class: 'vl-feld' }, el('span', { text: 'Tempo' }), a.tempo))));
+          el('label', { class: 'vl-feld' }, el('span', { text: 'Tempo' }), a.tempo),
+          el('div', { class: 'vl-azure' },
+            el('p', { class: 'vl-azure-titel', text: 'Azure-Stimme' }),
+            el('p', { class: 'vl-azure-info', text: 'Natürliche Stimme von Microsoft, liest auch bei gesperrtem Bildschirm weiter. Schlüssel und Region bleiben nur auf diesem Gerät.' }),
+            el('label', { class: 'vl-feld' }, el('span', { text: 'Schlüssel' }), a.azureSchluessel),
+            el('label', { class: 'vl-feld' }, el('span', { text: 'Region' }), a.azureRegion),
+            el('div', { class: 'vl-knopfreihe' }, a.azureTesten, a.azureLoeschen),
+            a.azureStatus))));
     a.wurzel.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') schliesseVorlesen();
     });
@@ -2026,9 +2073,17 @@
 
     const hinweis = v.hinweis
       || (v.status === 'unterbrochen' ? 'Das Vorlesen wurde unterbrochen.' : '')
-      || (v.sperreFehler && v.status === 'liest' ? 'Der Bildschirm kann nicht wach gehalten werden. Lass ihn selbst an, sonst stoppt das Vorlesen.' : '');
+      || (v.quelle !== 'azure' && v.sperreFehler && v.status === 'liest' ? 'Der Bildschirm kann nicht wach gehalten werden. Lass ihn selbst an, sonst stoppt das Vorlesen.' : '');
     a.hinweis.textContent = hinweis;
     a.hinweis.hidden = !hinweis;
+
+    // Welche Stimme liest, und bei der Stimme des Handys kurz, warum.
+    const azureLaedt = v.quelle === 'azure' && azure.wartet && v.status === 'liest';
+    a.quelle.textContent = v.quelle === 'azure'
+      ? `Azure-Stimme${azureLaedt ? ' – lädt …' : ''}`
+      : `Stimme des Handys${v.rueckfall ? ` – ${v.rueckfall}` : ''}`;
+    a.quelle.classList.toggle('vl-quelle--rueckfall', v.quelle !== 'azure' && Boolean(v.rueckfall));
+    azureMedien();
   }
 
   function hintergrund() {
@@ -2039,6 +2094,7 @@
     const a = vorlesen.ansicht || (vorlesen.ansicht = baueVorleseAnsicht());
     zeichneStimmen();
     a.tempo.value = String(vorlesen.einstellungen.tempo);
+    azureFelder();
     if (!a.wurzel.hidden) return;
     a.wurzel.hidden = false;
     document.body.classList.add('vorlesen-offen');
@@ -2076,6 +2132,7 @@
       i: Math.max(bereich.start, Math.min(Number.isInteger(ab) ? ab : bereich.start, bereich.ende - 1)),
       ort: info.box || null,
     });
+    azureWaehleQuelle();
     oeffneVorleseAnsicht();
     lies();
   }
@@ -2088,6 +2145,8 @@
     if (v.status !== 'fertig') merkePosition();
     v.status = 'aus';
     pruefeSperre();
+    azureFreigeben(); // Ton aus dem Arbeitsspeicher
+    azureMedien();
     const a = v.ansicht;
     a.wurzel.hidden = true;
     document.body.classList.remove('vorlesen-offen');
@@ -2097,6 +2156,723 @@
     aktualisiereVorleseKnoepfe();
     const knopf = v.ort && v.ort.isConnected ? v.ort.querySelector('button') : null;
     if (knopf) knopf.focus({ preventScroll: true });
+  }
+
+  // ------------------------------------------------------------ Vorlesen: Azure-Stimme
+
+  /*
+   * Natürliche Stimme von Microsoft Azure über das offizielle Speech SDK für JavaScript. Der Ton
+   * entsteht beim Vorlesen live, Stück für Stück, und liegt nur als Blob im Arbeitsspeicher; beim
+   * Schließen der Vorlese-Ansicht wird er freigegeben. Gelesen wird dieselbe Satzliste wie mit der
+   * Stimme des Handys: Jeder Satz bekommt in SSML eine Marke (bookmark), das SDK meldet ihren
+   * Zeitpunkt im Ton. Ein <audio>-Element spielt die Stücke nacheinander, auch bei gesperrtem
+   * Bildschirm; gesteuert wird über die Vorlese-Ansicht und die Media Session (Sperrbildschirm,
+   * Kopfhörer). Geht etwas schief, liest die Stimme des Handys weiter und die Ansicht sagt, warum.
+   *
+   * Schlüssel: nur im lokalen Speicher. Die App tauscht ihn bei Azure gegen ein Token, das 10 Minuten
+   * gilt (Kopfzeile einer POST-Anfrage an <region>.api.cognitive.microsoft.com/sts/v1.0/issueToken),
+   * und gibt dem SDK nur das Token. Mit dem Schlüssel selbst schriebe das SDK ihn im Browser in die
+   * Adresse der WebSocket-Verbindung, und die steht in Fehlermeldungen des Browsers.
+   *
+   * Grenzen der Gratis-Stufe F0 (Microsoft Learn, „Speech service quotas and limits“, Stand
+   * 9.11.2026): 20 Anfragen pro 60 Sekunden, höchstens 10 Minuten Ton pro Anfrage, SSML bis 64 KB.
+   * Deshalb ein Stück je Überthema; lange Themen (etwa im Jahresrückblick) werden nach höchstens
+   * AZURE_STUECK Zeichen (rund 2 Minuten Ton) geteilt, und das Stück ab dem Startsatz ist kürzer,
+   * damit der Ton schnell da ist. Die App stellt höchstens 15 Anfragen pro 60 Sekunden, auch über
+   * ein Neuladen hinweg; der Rest bleibt für „Testen“ und Wiederholungen.
+   *
+   * SDK: Version 1.53.0 (npm, 21.10.2026), das Browser-Paket von jsDelivr, geprüft per SRI. Den Wert
+   * für integrity liefert: openssl dgst -sha384 -binary <Datei> | base64
+   */
+  const AZURE_SDK_URL = 'https://cdn.jsdelivr.net/npm/microsoft-cognitiveservices-speech-sdk@1.53.0/distrib/browser/microsoft.cognitiveservices.speech.sdk.bundle-min.js';
+  const AZURE_SDK_SRI = 'sha384-YG0CfpDhvvBF6YvDNHgeAPtRBdnkEnbLtXyPhAfT+dB7uCoCZgcIruOnhmQhJQqv';
+  const AZURE_ZUGANG_SCHLUESSEL = 'mein-feed.azure.v1'; // { schluessel, region }
+  const AZURE_TAKT_SCHLUESSEL = 'mein-feed.azure-takt.v1'; // Zeitpunkte der letzten Anfragen
+  const AZURE_TAKT_MAX = 15; // Anfragen …
+  const AZURE_TAKT_MS = 60 * 1000; // … pro 60 Sekunden (F0 erlaubt 20)
+  const AZURE_STUECK = 1500; // Zeichen pro Stück, höchstens
+  const AZURE_ERSTES_STUECK = 500; // Zeichen im ersten Stück ab dem Startsatz
+  const AZURE_TOKEN_MS = 8 * 60 * 1000; // ein Token gilt 10 Minuten
+  const AZURE_FRIST_MS = 30 * 1000; // so lange darf ein Stück dauern
+  const AZURE_FORMAT = 'Audio24Khz48KBitRateMonoMp3'; // MP3, mono, 48 kbit/s
+  // Österreichische Stimmen zuerst, dann deutsche.
+  const AZURE_STIMMEN = [
+    ['de-AT-IngridNeural', 'Ingrid (Österreich)'],
+    ['de-AT-JonasNeural', 'Jonas (Österreich)'],
+    ['de-DE-KatjaNeural', 'Katja (Deutschland)'],
+    ['de-DE-ConradNeural', 'Conrad (Deutschland)'],
+    ['de-DE-AmalaNeural', 'Amala (Deutschland)'],
+    ['de-DE-KillianNeural', 'Killian (Deutschland)'],
+    ['de-DE-SeraphinaMultilingualNeural', 'Seraphina (Deutschland)'],
+    ['de-DE-FlorianMultilingualNeural', 'Florian (Deutschland)'],
+  ];
+  // Warum die Stimme des Handys liest (in der Vorlese-Ansicht nach „Stimme des Handys – “).
+  const AZURE_GRUND = {
+    schluessel: 'kein Azure-Schlüssel eingetragen (unter „Stimme und Tempo“).',
+    offline: 'offline, Azure ist nicht erreichbar.',
+    ungueltig: 'Azure lehnt den Schlüssel ab (ungültig oder falsche Region).',
+    kontingent: 'das Azure-Kontingent ist aufgebraucht (oder zu viele Anfragen).',
+    sdk: 'das Sprachpaket von Microsoft ließ sich nicht laden.',
+    netz: 'Azure ist gerade nicht erreichbar.',
+    ton: 'der Ton von Azure ließ sich nicht abspielen.',
+  };
+  const AZURE_TEST_GRUND = {
+    offline: 'Keine Verbindung zum Internet. Teste es später noch einmal.',
+    ungueltig: 'Azure lehnt den Schlüssel ab. Prüfe „Schlüssel 1“ und die Region.',
+    kontingent: 'Azure meldet: Kontingent aufgebraucht oder zu viele Anfragen. Versuch es später noch einmal.',
+    sdk: 'Das Sprachpaket von Microsoft ließ sich nicht laden. Versuch es später noch einmal.',
+    netz: 'Azure ist nicht erreichbar. Stimmt die Region?',
+    ton: 'Azure hat geantwortet, aber der Ton ließ sich nicht abspielen.',
+  };
+  const MEDIEN_AKTIONEN = ['play', 'pause', 'previoustrack', 'nexttrack'];
+
+  const azure = {
+    sdk: null, // Promise des geladenen SDK
+    token: null, // { wert, fuer, bis }, nur im Arbeitsspeicher
+    sitzung: null, // Stücke der laufenden Vorlese-Sitzung
+    audio: null, // <audio> in der Vorlese-Ansicht
+    soll: false, // die App will gerade abspielen; so erkennt sie Pausen von außen
+    wartet: false, // der aktuelle Satz ist noch nicht geladen
+    medien: false, // Media Session belegt
+    medienKopf: null,
+    probe: null, // Testton { ton, url }
+    testNr: 0,
+    zeiten: [], // Ersatz für AZURE_TAKT_SCHLUESSEL, wenn localStorage fehlt
+  };
+
+  // Fehler tragen nur einen Grund aus AZURE_GRUND, nie Texte von Azure oder dem SDK.
+  const azureFehler = (grund) => Object.assign(new Error(grund), { azure: grund });
+  const azureGrundVon = (fehler) => (fehler && AZURE_GRUND[fehler.azure] ? fehler.azure : 'netz');
+
+  function gueltigeRegion(r) {
+    return typeof r === 'string' && /^[a-z0-9]{2,40}$/.test(r);
+  }
+
+  function gueltigerSchluessel(s) {
+    return typeof s === 'string' && /^[A-Za-z0-9]{16,200}$/.test(s);
+  }
+
+  function azureZugang() {
+    try {
+      const z = JSON.parse(localStorage.getItem(AZURE_ZUGANG_SCHLUESSEL));
+      if (istObjekt(z) && gueltigerSchluessel(z.schluessel) && gueltigeRegion(z.region)) return { schluessel: z.schluessel, region: z.region };
+    } catch { /* keiner */ }
+    return null;
+  }
+
+  function azureStimme() {
+    const s = vorlesen.einstellungen.azureStimme;
+    return AZURE_STIMMEN.some(([id]) => id === s) ? s : AZURE_STIMMEN[0][0];
+  }
+
+  // Beim Start: Azure, wenn ein Schlüssel eingetragen ist und Netz da ist.
+  function azureWaehleQuelle() {
+    let grund = '';
+    if (!azureZugang()) grund = 'schluessel';
+    else if (navigator.onLine === false) grund = 'offline';
+    vorlesen.quelle = grund ? 'handy' : 'azure';
+    vorlesen.rueckfall = grund ? AZURE_GRUND[grund] : '';
+  }
+
+  // Liest ab hier mit der Stimme des Handys weiter; bei gesperrtem Bildschirm ginge die nicht.
+  function azureRueckfall(grund) {
+    const v = vorlesen;
+    if (v.quelle !== 'azure') return;
+    v.quelle = 'handy';
+    v.rueckfall = AZURE_GRUND[grund] || AZURE_GRUND.netz;
+    azureFreigeben();
+    zeichneStimmen();
+    if (v.status !== 'liest') zeichneVorlesen();
+    else if (document.visibilityState === 'visible') sprich();
+    else pausiere('unterbrochen');
+  }
+
+  // ---- SDK, Token, Anfragen
+
+  function ladeAzureSdk() {
+    if (window.SpeechSDK && window.SpeechSDK.SpeechSynthesizer) return Promise.resolve(window.SpeechSDK);
+    if (!azure.sdk) {
+      azure.sdk = new Promise((fertig, scheitert) => {
+        const skript = el('script', {
+          src: AZURE_SDK_URL, integrity: AZURE_SDK_SRI, crossorigin: 'anonymous', referrerpolicy: 'no-referrer', async: true,
+        });
+        let uhr = 0;
+        const fehlt = () => {
+          clearTimeout(uhr);
+          skript.remove();
+          scheitert(azureFehler(navigator.onLine === false ? 'offline' : 'sdk'));
+        };
+        uhr = setTimeout(fehlt, 20000);
+        skript.onload = () => {
+          clearTimeout(uhr);
+          if (window.SpeechSDK && window.SpeechSDK.SpeechSynthesizer) fertig(window.SpeechSDK);
+          else fehlt();
+        };
+        skript.onerror = fehlt; // auch, wenn die Integritätsprüfung scheitert
+        document.head.append(skript);
+      }).catch((fehler) => {
+        azure.sdk = null;
+        throw fehler;
+      });
+    }
+    return azure.sdk;
+  }
+
+  async function azureToken(zugang) {
+    const fuer = `${zugang.region} ${zugang.schluessel}`;
+    const t = azure.token;
+    if (t && t.fuer === fuer && Date.now() < t.bis) return t.wert;
+    const abbruch = new AbortController();
+    const uhr = setTimeout(() => abbruch.abort(), 15000);
+    let antwort;
+    let wert = '';
+    try {
+      antwort = await fetch(`https://${zugang.region}.api.cognitive.microsoft.com/sts/v1.0/issueToken`, {
+        method: 'POST',
+        headers: { 'Ocp-Apim-Subscription-Key': zugang.schluessel },
+        cache: 'no-store',
+        credentials: 'omit',
+        referrerPolicy: 'no-referrer',
+        signal: abbruch.signal,
+      });
+      if (antwort.ok) wert = (await antwort.text()).trim();
+    } catch {
+      throw azureFehler(navigator.onLine === false ? 'offline' : 'netz');
+    } finally {
+      clearTimeout(uhr);
+    }
+    if (antwort.status === 401 || antwort.status === 403) throw azureFehler('ungueltig');
+    if (antwort.status === 429) throw azureFehler('kontingent');
+    if (!antwort.ok || !wert) throw azureFehler('netz');
+    azure.token = { wert, fuer, bis: Date.now() + AZURE_TOKEN_MS };
+    return wert;
+  }
+
+  function azureZeitenLesen() {
+    try {
+      const z = JSON.parse(localStorage.getItem(AZURE_TAKT_SCHLUESSEL));
+      return Array.isArray(z) ? z.filter(Number.isFinite) : [];
+    } catch {
+      return azure.zeiten;
+    }
+  }
+
+  // Höchstens AZURE_TAKT_MAX Anfragen in 60 Sekunden; sonst warten, bis die älteste herausfällt.
+  async function azureTakt(gilt) {
+    for (;;) {
+      if (!gilt()) return; // nichts verbrauchen
+      const jetzt = Date.now();
+      const zeiten = azureZeitenLesen().filter((t) => t <= jetzt && jetzt - t < AZURE_TAKT_MS);
+      if (zeiten.length < AZURE_TAKT_MAX) {
+        azure.zeiten = [...zeiten, jetzt];
+        try {
+          localStorage.setItem(AZURE_TAKT_SCHLUESSEL, JSON.stringify(azure.zeiten));
+        } catch { /* dann nur im Arbeitsspeicher */ }
+        return;
+      }
+      await new Promise((weiter) => setTimeout(weiter, AZURE_TAKT_MS - (jetzt - Math.min(...zeiten)) + 50));
+    }
+  }
+
+  // Warum Azure abgebrochen hat. Die Fehlertexte des SDK werden nur durchsucht, nie angezeigt oder
+  // protokolliert, weil darin Adressen mit Zugangsdaten stehen können.
+  function azureAbbruchGrund(sdk, ergebnis) {
+    let code = null;
+    let text = typeof ergebnis === 'string' ? ergebnis : '';
+    if (istObjekt(ergebnis)) {
+      try {
+        const d = sdk.CancellationDetails.fromResult(ergebnis);
+        code = d.ErrorCode;
+        text = str(d.errorDetails);
+      } catch {
+        text = str(ergebnis.errorDetails);
+      }
+    }
+    text = text.replace(/\b(?:wss?|https?):\/\/\S+/gi, ' ');
+    const c = sdk.CancellationErrorCode || {};
+    if ((code != null && code === c.AuthenticationFailure) || /\b4?40[13]\b|unauthori[sz]ed|forbidden/i.test(text)) return 'ungueltig';
+    if ((code != null && code === c.TooManyRequests) || /\b4?429\b|too many requests|quota|throttl/i.test(text)) return 'kontingent';
+    return navigator.onLine === false ? 'offline' : 'netz';
+  }
+
+  // SSML eines Stücks zu MP3; marken: Name der Marke -> Zeitpunkt im Ton (ms). Ist die Anfrage
+  // nach dem Warten auf den Takt nicht mehr nötig (gilt() falsch), unterbleibt sie.
+  async function azureSynthese(ssml, zugang, gilt = () => true) {
+    const sdk = await ladeAzureSdk();
+    const token = await azureToken(zugang);
+    await azureTakt(gilt);
+    if (!gilt()) throw azureFehler('netz');
+    return new Promise((fertig, scheitert) => {
+      let synth = null;
+      let vorbei = false;
+      let uhr = 0;
+      const ende = (fehler, ergebnis) => {
+        if (vorbei) return;
+        vorbei = true;
+        clearTimeout(uhr);
+        try {
+          if (synth) synth.close();
+        } catch { /* schon geschlossen */ }
+        if (fehler) scheitert(fehler);
+        else fertig(ergebnis);
+      };
+      uhr = setTimeout(() => ende(azureFehler(navigator.onLine === false ? 'offline' : 'netz')), AZURE_FRIST_MS);
+      try {
+        const config = sdk.SpeechConfig.fromAuthorizationToken(token, zugang.region);
+        config.speechSynthesisOutputFormat = sdk.SpeechSynthesisOutputFormat[AZURE_FORMAT];
+        synth = new sdk.SpeechSynthesizer(config, null); // null: nicht selbst abspielen, nur die Daten
+        const marken = new Map();
+        synth.bookmarkReached = (_, e) => {
+          marken.set(str(e && e.text), Number(e && e.audioOffset) / 10000); // 100 ns -> ms
+        };
+        synth.speakSsmlAsync(ssml, (r) => {
+          if (r && r.reason === sdk.ResultReason.SynthesizingAudioCompleted && r.audioData && r.audioData.byteLength) {
+            ende(null, { daten: r.audioData, marken });
+          } else {
+            ende(azureFehler(azureAbbruchGrund(sdk, r)));
+          }
+        }, (e) => ende(azureFehler(azureAbbruchGrund(sdk, str(e)))));
+      } catch {
+        ende(azureFehler('sdk'));
+      }
+    });
+  }
+
+  // ---- Stücke
+
+  // Stücke für die Sätze [von, bis): neues Stück an jedem Themenanfang und nach höchstens
+  // AZURE_STUECK Zeichen; das erste höchstens erstesMax Zeichen (0 = wie die anderen).
+  function planeStuecke(plan, von, bis, erstesMax) {
+    const anfaenge = new Set(plan.themen.map((t) => t.start));
+    const stuecke = [];
+    let st = null;
+    for (let i = von; i < bis; i += 1) {
+      const n = plan.saetze[i].text.length + 1;
+      const max = st === stuecke[0] && erstesMax ? erstesMax : AZURE_STUECK;
+      if (st && (anfaenge.has(i) || st.zeichen + n > max)) st = null;
+      if (!st) {
+        st = { von: i, bis: i, zeichen: 0, zustand: 'neu', url: '', marken: [], versuche: 0, grund: '' };
+        stuecke.push(st);
+      }
+      st.bis = i + 1;
+      st.zeichen += n;
+    }
+    return stuecke;
+  }
+
+  function xmlText(t) {
+    return str(t)
+      .replace(/[^\t\n\r -퟿-�\u{10000}-\u{10FFFF}]/gu, '')
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&apos;');
+  }
+
+  function azureSsml(s, st) {
+    let inhalt = '';
+    for (let i = st.von; i < st.bis; i += 1) {
+      const satz = s.plan.saetze[i];
+      inhalt += `<bookmark mark="s${i}"/>${xmlText(satz.text)}`;
+      // Themennamen und Titel enden ohne Satzzeichen: kurze Pause wie zwischen zwei Sätzen.
+      if (satz.art === 'thema') inhalt += '<break time="700ms"/>';
+      else if (!/[.!?…:;]["'“”»«’)\]]*$/u.test(satz.text)) inhalt += '<break time="400ms"/>';
+      inhalt += '\n';
+    }
+    return `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="${s.stimme.slice(0, 5)}">`
+      + `<voice name="${s.stimme}">\n${inhalt}</voice></speak>`;
+  }
+
+  function azureNeueSitzung(stimme) {
+    azureFreigeben();
+    const v = vorlesen;
+    azure.sitzung = {
+      plan: v.plan,
+      start: v.start,
+      ende: v.ende,
+      stimme,
+      // Vor dem Startsatz nur bei Bedarf geladen (Satz zurück, „Von vorn“), ab ihm der Reihe nach.
+      stuecke: planeStuecke(v.plan, v.start, v.i, 0).concat(planeStuecke(v.plan, v.i, v.ende, AZURE_ERSTES_STUECK)),
+      spielNr: 0,
+      laedt: false,
+      abbruch: '', // Grund, wenn weiteres Laden sinnlos ist (Schlüssel ungültig, Kontingent …)
+      ziel: null, // Stück mit dem Satz, der gerade dran ist
+      spielt: null, // Stück im <audio>
+    };
+    return azure.sitzung;
+  }
+
+  // Lädt der Reihe nach: das Stück mit dem aktuellen Satz, dann die folgenden bis zum Ende.
+  async function azureLade(s) {
+    if (s.laedt || s.abbruch || s !== azure.sitzung) return;
+    const v = vorlesen;
+    const jetzt = s.stuecke.find((x) => x.von <= v.i && v.i < x.bis);
+    const st = jetzt && jetzt.zustand === 'neu' ? jetzt
+      : s.stuecke.find((x) => x.zustand === 'neu' && x.von >= (jetzt ? jetzt.bis : v.i));
+    if (!st) return;
+    const zugang = azureZugang();
+    if (!zugang) {
+      s.abbruch = 'schluessel';
+      if (azure.wartet) azureRueckfall('schluessel');
+      return;
+    }
+    s.laedt = true;
+    st.zustand = 'laedt';
+    try {
+      const { daten, marken } = await azureSynthese(azureSsml(s, st), zugang, () => s === azure.sitzung);
+      if (s !== azure.sitzung) return;
+      let zuletzt = 0;
+      st.marken = [];
+      for (let i = st.von; i < st.bis; i += 1) {
+        const m = marken.get(`s${i}`);
+        if (Number.isFinite(m)) zuletzt = Math.max(zuletzt, m);
+        st.marken.push(zuletzt);
+      }
+      st.url = URL.createObjectURL(new Blob([daten], { type: 'audio/mpeg' }));
+      st.zustand = 'fertig';
+    } catch (fehler) {
+      if (s !== azure.sitzung) return;
+      if (!(fehler && fehler.azure)) console.warn('Azure-Stimme: unerwarteter Fehler', str(fehler && fehler.name));
+      const grund = azureGrundVon(fehler);
+      const gebraucht = azure.wartet && s.ziel === st;
+      // Netzfehler (im Hintergrund auch offline) werden wiederholt, alles andere nicht.
+      const kurz = grund === 'netz' || (grund === 'offline' && !gebraucht);
+      const pausen = gebraucht ? [1500, 4000] : [3000, 10000, 30000];
+      if (kurz && st.versuche < pausen.length) {
+        st.zustand = 'pause';
+        setTimeout(() => {
+          if (st.zustand !== 'pause') return;
+          st.zustand = 'neu';
+          azureLade(s);
+        }, pausen[st.versuche]);
+        st.versuche += 1;
+      } else {
+        st.zustand = 'fehler';
+        st.grund = grund;
+        if (!kurz) s.abbruch = grund;
+        if (gebraucht) azureRueckfall(grund);
+      }
+    } finally {
+      s.laedt = false;
+    }
+    if (s !== azure.sitzung) return;
+    if (st.zustand === 'fertig' && azure.wartet && s.ziel === st && v.status === 'liest' && v.quelle === 'azure') {
+      azureSpieleAb(s, st, st.marken[Math.max(0, v.i - st.von)]);
+    }
+    azureLade(s);
+  }
+
+  // ---- Wiedergabe
+
+  function azureAudio() {
+    if (!azure.audio) {
+      const audio = el('audio', { preload: 'auto' });
+      audio.addEventListener('timeupdate', azureZeit);
+      audio.addEventListener('ended', azureStueckEnde);
+      audio.addEventListener('pause', azurePauseVonAussen);
+      audio.addEventListener('error', azureTonFehler);
+      vorlesen.ansicht.wurzel.append(audio);
+      azure.audio = audio;
+    }
+    return azure.audio;
+  }
+
+  // Aus sprich(): spielt ab dem Anfang des aktuellen Satzes. Ist eine andere Stimme gewählt,
+  // beginnt eine neue Sitzung ab diesem Satz.
+  function azureSpiele() {
+    const v = vorlesen;
+    let s = azure.sitzung;
+    const stimme = azureStimme();
+    if (!s || s.plan !== v.plan || s.start !== v.start || s.ende !== v.ende || s.stimme !== stimme) s = azureNeueSitzung(stimme);
+    const st = s.stuecke.find((x) => x.von <= v.i && v.i < x.bis);
+    if (!st) {
+      beendeVorlesen();
+      return;
+    }
+    s.ziel = st;
+    if (st.zustand === 'fertig') {
+      azureSpieleAb(s, st, st.marken[v.i - st.von]);
+    } else if (st.zustand === 'fehler' || s.abbruch) {
+      azureRueckfall(st.grund || s.abbruch);
+      return;
+    } else {
+      azure.soll = false;
+      azure.wartet = true;
+      if (azure.audio && !azure.audio.paused) azure.audio.pause();
+      zeichneVorlesen();
+    }
+    azureLade(s);
+  }
+
+  function azureSpieleAb(s, st, ms) {
+    const audio = azureAudio();
+    const nr = ++s.spielNr;
+    azureProbeStopp();
+    azure.wartet = false;
+    s.spielt = st;
+    if (audio.src !== st.url) audio.src = st.url;
+    audio.currentTime = (ms || 0) / 1000;
+    azureTempo();
+    azure.soll = true;
+    zeichneVorlesen();
+    const p = audio.play();
+    if (p && typeof p.catch === 'function') {
+      p.catch((fehler) => {
+        if (nr !== s.spielNr || s !== azure.sitzung || !azure.soll) return;
+        const name = fehler && fehler.name;
+        if (name === 'AbortError') return; // gleich danach ein anderes Stück
+        if (name === 'NotAllowedError') {
+          vorlesen.hinweis = 'Tippe auf „Weiter“, um das Vorlesen zu starten.';
+          pausiere('pausiert');
+          return;
+        }
+        azureRueckfall('ton');
+      });
+    }
+  }
+
+  // Aus stoppeSprache(): anhalten, die geladenen Stücke bleiben.
+  function azureHalt() {
+    azure.soll = false;
+    azure.wartet = false;
+    if (azure.sitzung) azure.sitzung.spielNr += 1;
+    if (azure.audio && !azure.audio.paused) azure.audio.pause();
+  }
+
+  // Ton aus dem Arbeitsspeicher entfernen.
+  function azureFreigeben() {
+    const s = azure.sitzung;
+    azure.sitzung = null;
+    azure.soll = false;
+    azure.wartet = false;
+    if (s) {
+      for (const st of s.stuecke) {
+        if (st.url) URL.revokeObjectURL(st.url);
+        st.url = '';
+        st.zustand = 'weg';
+      }
+    }
+    const audio = azure.audio;
+    if (audio && audio.hasAttribute('src')) {
+      audio.pause();
+      audio.removeAttribute('src');
+      audio.load();
+    }
+    azureProbeStopp();
+  }
+
+  function azureTempo() {
+    const audio = azure.audio;
+    if (!audio) return;
+    audio.defaultPlaybackRate = vorlesen.einstellungen.tempo; // gilt auch für das nächste Stück
+    audio.playbackRate = vorlesen.einstellungen.tempo;
+  }
+
+  function azureAktiv() {
+    const s = azure.sitzung;
+    return Boolean(s && s.spielt && azure.soll && vorlesen.quelle === 'azure' && vorlesen.status === 'liest'
+      && azure.audio.src === s.spielt.url);
+  }
+
+  // Satzgrenzen aus den Marken: der letzte Satz, dessen Marke schon erreicht ist.
+  function azureZeit() {
+    if (!azureAktiv() || azure.audio.seeking) return;
+    const v = vorlesen;
+    const st = azure.sitzung.spielt;
+    const ms = azure.audio.currentTime * 1000 + 40;
+    let j = st.von;
+    for (let k = st.von + 1; k < st.bis; k += 1) if (st.marken[k - st.von] <= ms) j = k;
+    if (j === v.i) return;
+    v.i = j;
+    merkePosition();
+    zeichneVorlesen();
+  }
+
+  function azureStueckEnde() {
+    if (!azureAktiv()) return;
+    const v = vorlesen;
+    const bis = azure.sitzung.spielt.bis;
+    if (bis >= v.ende) {
+      beendeVorlesen();
+      return;
+    }
+    v.i = bis;
+    sprich(); // nächstes Stück, oder warten, bis es da ist
+  }
+
+  // Anruf, andere App, Kopfhörer abgezogen: Stelle merken, „Weiter ab Satz …“ anbieten.
+  function azurePauseVonAussen() {
+    const audio = azure.audio;
+    if (audio.ended || !audio.paused || !azureAktiv()) return;
+    pausiere('unterbrochen');
+  }
+
+  function azureTonFehler() {
+    if (azureAktiv()) azureRueckfall('ton');
+  }
+
+  // Sperrbildschirm und Kopfhörer: Titel der Ausgabe, Thema, Pause/Weiter, Satz zurück/vor.
+  function azureMedien() {
+    const ms = navigator.mediaSession;
+    if (!ms) return;
+    const v = vorlesen;
+    try {
+      if (v.quelle !== 'azure' || v.status === 'aus' || !v.plan) {
+        if (!azure.medien) return;
+        azure.medien = false;
+        azure.medienKopf = null;
+        ms.metadata = null;
+        ms.playbackState = 'none';
+        for (const aktion of MEDIEN_AKTIONEN) setzeMedienAktion(aktion, null);
+        return;
+      }
+      if (!azure.medien) {
+        azure.medien = true;
+        setzeMedienAktion('play', () => {
+          if (vorlesen.status !== 'liest') hauptAktion();
+        });
+        setzeMedienAktion('pause', () => {
+          if (vorlesen.status === 'liest') pausiere('pausiert');
+        });
+        setzeMedienAktion('previoustrack', () => springe(vorlesen.i - 1));
+        setzeMedienAktion('nexttrack', () => springe(vorlesen.i + 1));
+      }
+      const satz = v.plan.saetze[Math.min(v.i, v.ende - 1)];
+      const thema = satz && satz.thema ? themaName(satz.thema, v.namen) : 'Mein Feed';
+      const kopf = `${v.titel}\n${thema}`;
+      if (azure.medienKopf !== kopf && typeof window.MediaMetadata === 'function') {
+        azure.medienKopf = kopf;
+        ms.metadata = new window.MediaMetadata({
+          title: v.titel,
+          artist: thema,
+          album: 'Mein Feed',
+          artwork: [192, 512].map((n) => ({ src: new URL(`icons/icon-${n}.png`, location.href).href, sizes: `${n}x${n}`, type: 'image/png' })),
+        });
+      }
+      ms.playbackState = v.status === 'liest' ? 'playing' : 'paused';
+    } catch { /* Media Session fehlt teilweise */ }
+  }
+
+  function setzeMedienAktion(aktion, los) {
+    try {
+      navigator.mediaSession.setActionHandler(aktion, los);
+    } catch { /* Aktion nicht unterstützt */ }
+  }
+
+  // ---- Einstellungen: Schlüssel, Region, Testen, Löschen
+
+  // Das Feld zeigt den gespeicherten Schlüssel nie, nur dass einer gespeichert ist.
+  function azureFelder() {
+    const a = vorlesen.ansicht;
+    const z = azureZugang();
+    a.azureSchluessel.value = '';
+    a.azureSchluessel.placeholder = z ? 'gespeichert – zum Ändern neu eintragen' : '„Schlüssel 1“ aus dem Azure-Portal';
+    a.azureRegion.value = z ? z.region : a.azureRegion.value;
+    azureMeldung('');
+  }
+
+  function azureMeldung(text, fehler = false) {
+    const p = vorlesen.ansicht.azureStatus;
+    p.textContent = text;
+    p.hidden = !text;
+    p.classList.toggle('vl-azure-status--fehler', fehler);
+  }
+
+  async function azureTesten() {
+    const a = vorlesen.ansicht;
+    if (a.azureTesten.disabled) return;
+    const gespeichert = azureZugang();
+    const schluessel = a.azureSchluessel.value.replace(/\s+/g, '') || (gespeichert ? gespeichert.schluessel : '');
+    const region = a.azureRegion.value.replace(/\s+/g, '').toLowerCase();
+    if (!schluessel) {
+      azureMeldung('Trag zuerst den Schlüssel ein („Schlüssel 1“ aus dem Azure-Portal).', true);
+      return;
+    }
+    if (!gueltigerSchluessel(schluessel)) {
+      azureMeldung('Das sieht nicht wie ein Azure-Schlüssel aus. Kopiere „Schlüssel 1“ aus dem Azure-Portal.', true);
+      return;
+    }
+    if (!gueltigeRegion(region)) {
+      azureMeldung('Trag die Region so ein, wie sie im Azure-Portal steht, z. B. westeurope.', true);
+      return;
+    }
+    if (navigator.onLine === false) {
+      azureMeldung(AZURE_TEST_GRUND.offline, true);
+      return;
+    }
+    if (vorlesen.status === 'liest') pausiere('pausiert');
+    const nr = ++azure.testNr;
+    a.azureTesten.disabled = true;
+    azureMeldung('Teste die Verbindung zu Azure …');
+    try {
+      const stimme = azureStimme();
+      const ssml = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="${stimme.slice(0, 5)}">`
+        + `<voice name="${stimme}">Hallo! So klingt die Azure-Stimme in Mein Feed.</voice></speak>`;
+      const { daten } = await azureSynthese(ssml, { schluessel, region });
+      if (nr !== azure.testNr) return;
+      try {
+        localStorage.setItem(AZURE_ZUGANG_SCHLUESSEL, JSON.stringify({ schluessel, region }));
+      } catch {
+        azureMeldung('Azure funktioniert, aber der Schlüssel ließ sich auf diesem Gerät nicht speichern.', true);
+        return;
+      }
+      azureFelder();
+      azureMeldung('Die Azure-Stimme funktioniert. Schlüssel und Region sind auf diesem Gerät gespeichert.');
+      azureProbe(daten);
+      if (vorlesen.status !== 'aus' && vorlesen.quelle !== 'azure') {
+        vorlesen.quelle = 'azure';
+        vorlesen.rueckfall = '';
+        zeichneStimmen();
+        zeichneVorlesen();
+      }
+    } catch (fehler) {
+      if (nr === azure.testNr) azureMeldung(AZURE_TEST_GRUND[azureGrundVon(fehler)], true);
+    } finally {
+      if (nr === azure.testNr) a.azureTesten.disabled = false;
+    }
+  }
+
+  function azureLoeschen() {
+    const a = vorlesen.ansicht;
+    try {
+      localStorage.removeItem(AZURE_ZUGANG_SCHLUESSEL);
+    } catch { /* egal */ }
+    azure.token = null;
+    azure.testNr += 1; // ein laufender Test speichert danach nichts mehr
+    a.azureTesten.disabled = false;
+    a.azureRegion.value = '';
+    azureFelder();
+    azureMeldung('Schlüssel und Region gelöscht. Es liest die Stimme des Handys.');
+    if (vorlesen.quelle === 'azure') azureRueckfall('schluessel');
+    else if (vorlesen.status !== 'aus') {
+      vorlesen.rueckfall = AZURE_GRUND.schluessel;
+      zeichneVorlesen();
+    }
+  }
+
+  // Testton nach erfolgreichem „Testen“; liegt nur im Arbeitsspeicher.
+  function azureProbe(daten) {
+    azureProbeStopp();
+    if (vorlesen.status === 'aus') return;
+    const url = URL.createObjectURL(new Blob([daten], { type: 'audio/mpeg' }));
+    const ton = new Audio(url);
+    azure.probe = { ton, url };
+    const weg = () => {
+      if (azure.probe && azure.probe.ton === ton) azureProbeStopp();
+    };
+    ton.addEventListener('ended', weg);
+    ton.addEventListener('error', weg);
+    ton.playbackRate = vorlesen.einstellungen.tempo;
+    const p = ton.play();
+    if (p && typeof p.catch === 'function') p.catch(weg);
+  }
+
+  function azureProbeStopp() {
+    const p = azure.probe;
+    azure.probe = null;
+    if (!p) return;
+    p.ton.pause();
+    p.ton.removeAttribute('src');
+    p.ton.load();
+    URL.revokeObjectURL(p.url);
   }
 
   // ------------------------------------------------------------ Vorlesen: Knöpfe im Feed
@@ -2144,10 +2920,10 @@
       if (vorlesen.status !== 'aus') schliesseVorlesen({ ausVerlauf: true });
     });
     // Bildschirm aus oder App gewechselt: anhalten und die Stelle merken. Bei der Rückkehr
-    // den Bildschirm wieder wach halten und „Weiter ab Satz …“ anbieten.
+    // den Bildschirm wieder wach halten und „Weiter ab Satz …“ anbieten. Die Azure-Stimme liest weiter.
     document.addEventListener('visibilitychange', () => {
       if (vorlesen.status === 'aus') return;
-      if (document.visibilityState !== 'visible' && vorlesen.status === 'liest') pausiere('unterbrochen');
+      if (document.visibilityState !== 'visible' && vorlesen.status === 'liest' && vorlesen.quelle !== 'azure') pausiere('unterbrochen');
       else pruefeSperre();
       zeichneVorlesen();
     });

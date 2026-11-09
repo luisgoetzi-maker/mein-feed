@@ -1410,6 +1410,84 @@ body.vorlesen-offen {
   color: var(--vl-leise);
 }
 
+/* Welche Stimme liest; bei der Stimme des Handys mit Grund */
+.vl-quelle {
+  margin-top: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--vl-leise);
+}
+
+.vl-quelle--rueckfall {
+  color: #f5c46b;
+}
+
+/* Azure-Stimme: Schlüssel, Region, Testen, Löschen */
+.vl-azure {
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--vl-linie);
+}
+
+.vl-azure-titel {
+  font-weight: 650;
+  color: var(--vl-text);
+}
+
+.vl-azure-info {
+  margin-top: 0.2rem;
+  font-size: 0.85rem;
+  color: var(--vl-leise);
+}
+
+.vl-eingabe {
+  width: 100%;
+  min-height: 2.75rem;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--vl-linie);
+  border-radius: 10px;
+  background: var(--vl-flaeche);
+  color: var(--vl-text);
+  font-size: 1rem;
+}
+
+.vl-eingabe::placeholder {
+  color: var(--vl-leise);
+  opacity: 0.8;
+}
+
+.vl-knopfreihe {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.vl-knopf {
+  min-height: 2.75rem;
+  padding: 0.4rem 1.1rem;
+  border: 1px solid var(--vl-linie);
+  border-radius: 999px;
+  background: var(--vl-flaeche);
+  color: var(--vl-text);
+  font-weight: 650;
+}
+
+.vl-knopf--primaer {
+  border-color: var(--vl-akzent);
+  background: var(--vl-akzent);
+  color: var(--vl-akzent-text);
+}
+
+.vl-azure-status {
+  margin-top: 0.6rem;
+  font-size: 0.85rem;
+  color: var(--vl-leise);
+}
+
+.vl-azure-status--fehler {
+  color: #f5c46b;
+}
+
 /* ------------------------------------------------------------ Bewegung */
 
 @media (prefers-reduced-motion: reduce) {
