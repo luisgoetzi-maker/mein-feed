@@ -1,0 +1,314 @@
+{
+  "format": "taeglich",
+  "titel": "Montag, 9. November 2026",
+  "zeitraum": {
+    "von": "2026-11-09",
+    "bis": "2026-11-09"
+  },
+  "erschienen": "2026-11-10T03:08:26+01:00",
+  "status": "ok",
+  "fehler": null,
+  "ruhig": [],
+  "luecken": [],
+  "ausnahmen": [],
+  "meldungen": [
+    {
+      "id": "2026-11-09-weltpolitik-1",
+      "datum": "2026-11-09",
+      "datum_bis": null,
+      "titel": "Trump erklärt den Iran-Krieg militärisch für „effektiv vorüber“",
+      "text": "Zuletzt war mit neuen Angriffen der USA und Israels gegen den Iran gerechnet worden. Nach einem Treffen mit dem katarischen Regierungschef sagte Präsident Trump am Montag, man halte den Status quo aufrecht, auf Drängen der Nachbarstaaten am Golf. Die Seeblockade gegen den Iran bleibt bestehen, neue Angriffe sind laut Trump nicht geplant. Er hoffe auf ein baldiges Friedensabkommen, die USA seien aber bei Bedarf voll einsatzbereit.",
+      "warum_wichtig": "Damit rückt Trump vorerst von möglichen neuen Großangriffen nach den Midterm-Wahlen ab, was sich schon an sinkenden Ölpreisen zeigt.",
+      "themen": [
+        "weltpolitik",
+        "wirtschaft"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "Handelsblatt (dpa)",
+          "url": "https://www.handelsblatt.com/politik/international/nach-den-midterms-trump-iran-krieg-ist-militaerisch-effektiv-vorueber/100268567.html"
+        },
+        {
+          "name": "FAZ",
+          "url": "https://www.faz.net/aktuell/politik/ausland/liveblog-nahost-trump-erklaert-irankrieg-militaerisch-fuer-effektiv-vorueber-faz-200583539.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-09-weltpolitik-2",
+      "datum": "2026-11-09",
+      "datum_bis": null,
+      "titel": "Republikaner Massie bringt Amtsenthebungsverfahren gegen Pentagonchef Hegseth auf den Weg",
+      "text": "Nach der Wahlniederlage der Republikaner bei den Midterms hat der Trump-kritische republikanische Abgeordnete Thomas Massie ein Amtsenthebungsverfahren gegen Verteidigungsminister Pete Hegseth beantragt. Hintergrund ist der Iran-Krieg. Laut DER STANDARD könnte das Repräsentantenhaus bereits am Mittwoch abstimmen.",
+      "warum_wichtig": "Der Antrag zeigt, dass Trump nach der Wahlniederlage auch in den eigenen Reihen unter Druck gerät.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3447735/"
+        },
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/amerika/usa-amtsenthebungsverfahren-hegseth-100.html"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000348337/wamtsenthebungsverfahren-gegen-pentagonchef-hegseth-eingeleitet?ref=rss"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-09-weltpolitik-3",
+      "datum": "2026-11-09",
+      "datum_bis": null,
+      "titel": "Neue Ukraine-Gespräche in Abu Dhabi beginnen am Dienstag, Europäer sind dabei",
+      "text": "In Abu Dhabi treffen sich am Dienstag und Mittwoch Vertreter Russlands, der Ukraine und der USA zu einer weiteren Verhandlungsrunde über ein mögliches Ende des Krieges. Die EU hat ihre Teilnahme angekündigt, Moskau würde laut tagesschau lieber nur mit den USA sprechen. Außenminister Wadephul zweifelt an Russlands Verhandlungswillen und fordert ein Mitspracherecht der Europäer.",
+      "warum_wichtig": "Es geht darum, ob Europa bei Verhandlungen über die Zukunft der Ukraine mit am Tisch sitzt.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/europa/ukraine-verhandlungen-abu-dhabi-100.html"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000348050/friedensverhandlungen-in-abu-dhabi-naechste-runde-altes-spiel?ref=rss"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-09-politik-1",
+      "datum": "2026-11-09",
+      "datum_bis": null,
+      "titel": "CDU nominiert Ilse Aigner offiziell als Kandidatin für das Amt der Bundespräsidentin",
+      "text": "Kanzler Merz und die CSU-Politikerin Ilse Aigner haben am Montag offiziell vorgestellt, dass die Union Aigner als Bundespräsidentin vorschlägt. Bis zu Merz' Festlegung waren nach Angaben der tagesschau 199 Tage vergangen. Gewählt ist Aigner noch nicht, das entscheidet die Bundesversammlung. Aigner will eine „Kandidatin der starken Mitte“ sein.",
+      "warum_wichtig": "Die Union legt sich damit fest, wer Nachfolger von Frank-Walter Steinmeier werden soll; laut tagesschau wäre Aigner in mehrfacher Hinsicht eine Premiere.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/inland/innenpolitik/aigner-merz-bundespraesidentin-100.html"
+        },
+        {
+          "name": "FAZ",
+          "url": "https://www.faz.net/aktuell/politik/inland/steinmeier-nachfolge-merz-praesentiert-aigner-als-kandidatin-der-union-201665638.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-09-politik-2",
+      "datum": "2026-11-09",
+      "datum_bis": null,
+      "titel": "Frankreich macht Irans Revolutionsgarde für Cyberangriff auf Supermarkt-Kühlanlagen verantwortlich",
+      "text": "Der französische Außenminister Barrot sagte am Montag, hinter den Angriffen auf die Kühlsysteme französischer Supermarktketten vor rund einem Monat stehe der Iran, konkret die Revolutionsgarde. Laut Trending Topics wurden Kühlanlagen von etwa 700 Supermärkten auf bis zu 50 Grad hochgeregelt. Frankreich hat den iranischen Botschafter einbestellt.",
+      "warum_wichtig": "Bisher galt laut tagesschau Russland als möglicher Urheber der Angriffe auf Kühlanlagen in Europa.",
+      "themen": [
+        "politik",
+        "weltpolitik"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3447720/"
+        },
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/europa/kuehlanlagen-cyberangriffe-100.html"
+        },
+        {
+          "name": "POLITICO Europe",
+          "url": "https://www.politico.eu/article/france-blames-iran-for-cyberattacks-targeting-supermarket-fridges/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-09-ki-1",
+      "datum": "2026-11-09",
+      "datum_bis": null,
+      "titel": "Anthropic stellt Claude Fable 5.2 und Mythos 5.2 vor",
+      "text": "Anthropic hat am Montag Claude Fable 5.2 und Claude Mythos 5.2 veröffentlicht, nach eigenen Angaben seine bisher stärksten Modelle für anspruchsvolle technische Aufgaben. Fable 5.2 ist für alle Nutzer verfügbar und kostet 8 Dollar je Million Eingabe-Tokens und 40 Dollar je Million Ausgabe-Tokens, bisher waren es 10 und 50 Dollar. Mythos 5.2 mit weniger Sicherheitssperren steht nur geprüften Organisationen offen. Claude Code unterstützt Fable 5.2 bereits seit Version 2.1.321.",
+      "warum_wichtig": "Wer Claude Code oder die API nutzt, bekommt ein stärkeres und günstigeres Spitzenmodell, während Opus 5.5 weiter für den Alltag empfohlen wird.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Anthropic",
+          "url": "https://www.anthropic.com/news"
+        },
+        {
+          "name": "THE DECODER",
+          "url": "https://the-decoder.de/zurueck-an-die-ki-spitze-anthropic-stellt-claude-fable-5-2-und-mythos-5-2-vor/"
+        },
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/09/anthropic-releases-new-mythos-and-fable-models-amid-rsi-concerns/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-09-ki-2",
+      "datum": "2026-11-09",
+      "datum_bis": null,
+      "titel": "Meta stellt kleines Agentenmodell Muse Ember vor",
+      "text": "Meta hat mit Muse Ember sein kleinstes und effizientestes KI-Modell vorgestellt, optimiert für wiederkehrende Agenten-Aufgaben wie Tool-Aufrufe, Routing und Datenextraktion. Es kostet laut TechCrunch 10 Cent je Million Eingabe-Tokens. Meta behauptet, Ember liefere mehr Leistung pro Dollar als Claude Haiku 5.5.",
+      "warum_wichtig": "Ein sehr günstiges Modell für einfache Agenten-Schritte erhöht den Preisdruck auf kleine Modelle wie Haiku.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "THE DECODER",
+          "url": "https://the-decoder.de/meta-stellt-muse-ember-vor-kleinstes-modell-soll-ki-agenten-guenstiger-und-effizienter-machen/"
+        },
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/09/meta-releases-muse-ember-a-new-lightweight-model-for-agent-execution/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-09-wirtschaft-1",
+      "datum": "2026-11-09",
+      "datum_bis": null,
+      "titel": "Nvidia-Aktie fällt wegen Affäre um Konzernchef Huang, laut Trump ermittelt das FBI",
+      "text": "Der Verwaltungsrat von Nvidia untersucht Jensen Huangs Beziehung zu einer mutmaßlichen chinesischen Spionin, Huang hat eine außereheliche Beziehung eingeräumt. Die Aktie fiel laut TechCrunch um mehr als 4 Prozent. US-Präsident Trump bestätigte, dass das FBI den Fall prüft, und sagte, Huang habe versichert, nichts von einer Spionin gewusst zu haben. Zuvor hatte das Unternehmen die Berichte als normal bezeichnet.",
+      "warum_wichtig": "Nvidia ist der wichtigste Chiplieferant der KI-Branche, ein Führungsstreit und mögliche schärfere Exportkontrollen könnten Märkte und KI-Pläne treffen.",
+      "themen": [
+        "wirtschaft",
+        "ki"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": true,
+      "quellen": [
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/politik/international/nvidia-fbi-ermittelt-laut-trump-wegen-affaere-von-nvidia-chef-huang/100268570.html"
+        },
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/wirtschaft/finanzen/marktbericht-nvidia-ki-huang-100.html"
+        },
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/09/the-race-is-on-to-sue-nvidia/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-09-wirtschaft-2",
+      "datum": "2026-11-09",
+      "datum_bis": null,
+      "titel": "Ölpreise sinken deutlich, DAX und US-Aktien erholen sich",
+      "text": "Anleger rechnen mit einem Ende des US-Iran-Krieges, obwohl noch kein Abkommen unterzeichnet ist, und die Ölpreise sind deutlich gesunken. Auch die Spritpreise in Deutschland gaben nach, E10 kostet laut n-tv unter zwei Euro. Der DAX erholte sich kräftig; US-Aktien legten laut n-tv ebenfalls zu, nur Nvidia nicht.",
+      "warum_wichtig": "Billigere Energie entlastet Verbraucher und Unternehmen und stützt die Börsen.",
+      "themen": [
+        "wirtschaft"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/wirtschaft/weltwirtschaft/oelpreise-gesunken-100.html"
+        },
+        {
+          "name": "tagesschau Marktbericht",
+          "url": "https://www.tagesschau.de/wirtschaft/finanzen/marktberichte/marktbericht-dax-dow-geldanlage-170.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-09-tirol-1",
+      "datum": "2026-11-09",
+      "datum_bis": null,
+      "titel": "Brenner-Basistunnel-Gesellschaft bestätigt Lösegeldforderung nach Cyberangriff",
+      "text": "Die BBT SE, Bauherrin des Brenner-Basistunnels, wurde am 17. Oktober Ziel eines gezielten Cyberangriffs. Die Angreifer griffen auf einen Server zu, über den Daten mit italienischen Auftragnehmern ausgetauscht werden, und erbeuteten 812 Gigabyte. Nun bestätigte die Gesellschaft erstmals eine Lösegeldforderung; der Baubetrieb ist laut BBT SE nicht betroffen. In Italien laufen Ermittlungen.",
+      "warum_wichtig": "Es ist ein Angriff auf eine der wichtigsten Infrastrukturbaustellen der Region, bei dem Daten von Auftragnehmern betroffen sein können.",
+      "themen": [
+        "tirol"
+      ],
+      "hauptthema": "tirol",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3378789/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000348239/brenner-basistunnel-loesegeldforderung-fuer-812-gb-gestohlene-daten?ref=rss"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-09-tirol-2",
+      "datum": "2026-11-09",
+      "datum_bis": null,
+      "titel": "Benko-Urteil: Verteidiger und Staatsanwaltschaft legen Rechtsmittel ein",
+      "text": "Nach der Verurteilung von Signa-Gründer René Benko wegen schweren Betrugs am Landesgericht Innsbruck zu einer Zusatzstrafe von zwei Jahren unbedingter Haft hat sein Anwalt Norbert Wess Nichtigkeitsbeschwerde und Berufung eingelegt. Auch die Wirtschafts- und Korruptionsstaatsanwaltschaft legt Berufung ein.",
+      "warum_wichtig": "Das Urteil ist damit nicht rechtskräftig, die höhere Instanz muss neu entscheiden.",
+      "themen": [
+        "tirol",
+        "wirtschaft"
+      ],
+      "hauptthema": "tirol",
+      "update": true,
+      "quellen": [
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3378770/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000348228/benko-anwalt-legt-gegen-betrugsurteil-rechtsmittel-ein?ref=rss"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-09-startups-1",
+      "datum": "2026-11-09",
+      "datum_bis": null,
+      "titel": "Onodrim holt 300 Millionen Dollar für Zukäufe in Europas Rüstungsindustrie",
+      "text": "Das Amsterdamer Unternehmen Onodrim Industries, gegründet von früheren Palantir-Mitarbeitern, hat eine Series-A-Runde über 300 Millionen Dollar abgeschlossen, rund 270 Millionen Euro. Die Bewertung liegt bei 1,3 Milliarden Dollar. Mit dem Geld will Onodrim europäische Rüstungszulieferer kaufen und Engpässe im Verteidigungssektor beheben.",
+      "warum_wichtig": "Europa bekommt ein neues Rüstungs-Einhorn, das auf Zukäufe statt auf eigene Produkte setzt.",
+      "themen": [
+        "startups"
+      ],
+      "hauptthema": "startups",
+      "update": false,
+      "quellen": [
+        {
+          "name": "brutkasten",
+          "url": "https://brutkasten.com/artikel/13-milliarden-us-dollar-bewertung-onodrim-holt-300-millionen-us-dollar-fuer-europaeische-ruestungsplattform"
+        },
+        {
+          "name": "Trending Topics",
+          "url": "https://www.trendingtopics.eu/onodrim-300-millionen-dollar-series-a/"
+        }
+      ]
+    }
+  ],
+  "videos": [],
+  "abschnitte": []
+}
