@@ -1,0 +1,318 @@
+{
+  "format": "taeglich",
+  "titel": "Dienstag, 10. November 2026",
+  "zeitraum": {
+    "von": "2026-11-10",
+    "bis": "2026-11-10"
+  },
+  "erschienen": "2026-11-11T03:08:14+01:00",
+  "status": "ok",
+  "fehler": null,
+  "ruhig": [
+    "startups"
+  ],
+  "luecken": [],
+  "ausnahmen": [],
+  "meldungen": [
+    {
+      "id": "2026-11-10-weltpolitik-1",
+      "datum": "2026-11-10",
+      "datum_bis": null,
+      "titel": "Ukraine und Russland verhandeln in Abu Dhabi erstmals seit Monaten direkt",
+      "text": "Wie angekündigt saßen bei den von den USA vermittelten Gesprächen in Abu Dhabi Vertreter Russlands und der Ukraine zum ersten Mal seit acht Monaten direkt am Tisch; die Runde dauerte laut Kiew rund viereinhalb Stunden. Offizielle Ergebnisse gibt es nicht, ukrainische Medien berichten aber von einem vereinbarten großen Austausch von Kriegsgefangenen, und Präsident Selenskyj nannte Sicherheitsgarantien als weiteres Thema. Die Positionen liegen weit auseinander, eine Waffenruhe ist nicht in Sicht. Die Gespräche sollen am Mittwoch fortgesetzt werden, die Europäer sitzen nicht mit am Tisch.",
+      "warum_wichtig": "Es ist der erste direkte Kontakt seit Februar, und ein Gefangenenaustausch wäre ein erstes greifbares Ergebnis.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/asien/ukraine-russland-krieg-gespraeche-abu-dhabi-100.html"
+        },
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3447784/"
+        },
+        {
+          "name": "POLITICO Europe",
+          "url": "https://www.politico.eu/article/ukraine-russia-discuss-prisoner-swap-deal-constructive-talks/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-10-weltpolitik-2",
+      "datum": "2026-11-10",
+      "datum_bis": null,
+      "titel": "Republikaner im US-Repräsentantenhaus wählen Jim Jordan zum Minderheitsführer",
+      "text": "Nach der Wahlniederlage bei den Midterms haben die Republikaner in der Kammer einen Führungswechsel eingeleitet und Jim Jordan zu ihrem Minderheitsführer gewählt. Der bisherige Sprecher Mike Johnson war nicht erneut angetreten. Jordan, Vorsitzender des Justizausschusses und Abgeordneter aus Ohio seit 2007, gilt als eng mit Präsident Trump verbunden. Im Senat bleibt John Thune republikanischer Fraktionsvorsitzender.",
+      "warum_wichtig": "Jordan führt künftig die Republikaner in einem Repräsentantenhaus, in dem sie nicht mehr die Mehrheit stellen.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3447848/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000348618/republikaner-jordan-wird-minderheitsf252hrer-im-us-repr228sentantenhaus?ref=rss"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-10-weltpolitik-3",
+      "datum": "2026-11-10",
+      "datum_bis": null,
+      "titel": "Kalifornien lehnt einmalige Steuer auf Vermögen von Milliardären ab",
+      "text": "Beim Volksentscheid stimmten nur 47,2 Prozent für die „Proposition 40“, laut der Nachrichtenagentur AP auf Basis der Stimmauszählung. Sie hätte Einwohner mit einem Vermögen ab etwa einer Milliarde Dollar einmalig mit fünf Prozent ihres Vermögens belastet, vor allem für das Gesundheitswesen. Die Betroffenen hatten Millionen Dollar in Werbung gegen die Abgabe gesteckt. Das Ergebnis stand erst fast eine Woche nach der Wahl fest.",
+      "warum_wichtig": "Damit scheitert ein viel beachteter Versuch, Superreiche per Volksentscheid zur Kasse zu bitten und das Gesundheitswesen im Bundesstaat zu finanzieren.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/amerika/kalifornien-milliardaerssteuer-abgelehnt-100.html"
+        },
+        {
+          "name": "BBC News",
+          "url": "https://www.bbc.co.uk/news/articles/cq398em3032wo"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-10-politik-1",
+      "datum": "2026-11-10",
+      "datum_bis": null,
+      "titel": "Merz knüpft den EU-Haushalt an eine gerechtere Verteilung der Ukraine-Hilfe",
+      "text": "Bundeskanzler Merz hat in einem Brief an EU-Ratspräsident Costa die Verhandlungen über den EU-Finanzrahmen 2028 bis 2034 mit einer fairen Lastenteilung bei der Ukraine-Hilfe verbunden, wie die FAZ berichtet. Der slowakische Regierungschef Fico nannte das laut dem slowakischen Rundfunk „typische Erpressung“ und verwies auf sein Vetorecht. Auch Tschechien kritisiert den Vorstoß, und Ungarns Ministerpräsident Magyar hält ihn bei einem Besuch in Berlin „nicht unbedingt für die richtige Richtung“.",
+      "warum_wichtig": "Der Streit entscheidet mit, wer künftig wie viel für die Ukraine zahlt und wie schnell der nächste EU-Haushalt zustande kommt.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "FAZ",
+          "url": "https://www.faz.net/aktuell/politik/ukraine/warum-merz-den-eu-haushalt-mit-der-ukraine-verknuepft-201669107.html"
+        },
+        {
+          "name": "Berliner Zeitung",
+          "url": "https://berliner-zeitung.de/article/ukraine-hilfen-fico-wirft-merz-erpressung-vor-10583460"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-10-politik-2",
+      "datum": "2026-11-10",
+      "datum_bis": null,
+      "titel": "EU-Rechnungshof kritisiert ungleiche Umsetzung der Russland-Sanktionen",
+      "text": "Der Rechnungshof der EU wirft den Mitgliedstaaten in einem am Dienstag veröffentlichten Bericht eine ungleiche Umsetzung der Sanktionen gegen Russland vor, was deren Wirkung schwäche. Auch die EU-Kommission prüfe Umsetzung und Ergebnisse nicht ausreichend. Der Warenhandel zwischen der EU und Russland sank nach Angaben des Rechnungshofs von 253 Milliarden Euro im Jahr 2021 auf 58 Milliarden im Jahr 2025, die EU blieb 2025 aber Russlands drittgrößter Handelspartner. Laut FAZ kontrolliert Bulgarien dabei deutlich lockerer als Lettland.",
+      "warum_wichtig": "Lücken bei der Umsetzung erleichtern es, Sanktionen zu umgehen, und mindern den Druck auf Moskau.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3447825/"
+        },
+        {
+          "name": "FAZ",
+          "url": "https://www.faz.net/aktuell/politik/ukraine/eu-staaten-umgehen-eigene-russland-sanktionen-201669118.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-10-ki-1",
+      "datum": "2026-11-10",
+      "datum_bis": null,
+      "titel": "Anthropic bringt Claude Meetings, Sheets und Whiteboards für Teams",
+      "text": "Anthropic hat neue Funktionen für die Zusammenarbeit in der Claude-App vorgestellt. Mit Claude Meetings nimmt Claude als sichtbarer Teilnehmer an Videocalls teil, entwirft Pläne, skizziert Zeitpläne auf einem Whiteboard und beantwortet Fragen im Meeting-Chat; nach dem Call liegen Notizen und Aufgaben in claude.ai. Meetings startet laut TechCrunch als Beta für Team- und Enterprise-Tarife, zunächst mit Google Meet. Dazu kommen Claude Sheets für gemeinsame Tabellen, Claude Whiteboards und Interactive Connectors, über die Partner wie Adobe und Atlassian ihre Apps direkt in Claude einbetten.",
+      "warum_wichtig": "Claude rückt damit vom Chat in den Arbeitsalltag von Teams vor und tritt direkt gegen die Office-Angebote von Microsoft und Google an.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/10/anthropic-launches-claude-meetings-to-turn-workplace-discussions-into-plans-and-tasks/"
+        },
+        {
+          "name": "THE DECODER",
+          "url": "https://the-decoder.de/claude-app-bekommt-tabellen-whiteboards-und-eingebettete-partner-apps/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-10-ki-2",
+      "datum": "2026-11-10",
+      "datum_bis": null,
+      "titel": "Anthropic legt die Preisspanne für den Börsengang auf 70 bis 78 Dollar je Aktie fest",
+      "text": "Laut aktualisiertem Börsenprospekt bietet Anthropic 825 Millionen Aktien an und will damit 57,75 bis 64,35 Milliarden Dollar einnehmen. Zusätzlich verkauft das Unternehmen Aktien ohne Stimmrecht im Wert von 26 Milliarden Dollar an Partner wie Google, Nvidia, AMD, Broadcom, Micron, Microsoft und TSMC. Die Bewertung liegt je nach Berechnung zwischen 1,0 und 1,4 Billionen Dollar. Der Handel an der Nasdaq soll laut CNBC rund um den 19. November unter dem Kürzel ANT beginnen.",
+      "warum_wichtig": "Der Börsengang macht das Unternehmen hinter Claude für Anleger handelbar; bis zu 20 Prozent der Aktien sind für Privatanleger vorgesehen.",
+      "themen": [
+        "ki",
+        "wirtschaft"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/10/anthropic-sets-ipo-price-range-of-70-to-78-per-share-to-reach-an-implied-valuation-of-1-404-trillion/"
+        },
+        {
+          "name": "THE DECODER",
+          "url": "https://the-decoder.de/anthropic-startet-boersengang-aktie-kostet-zwischen-70-und-78-us-dollar-bei-einer-billionen-bewertung/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-10-ki-3",
+      "datum": "2026-11-10",
+      "datum_bis": null,
+      "titel": "Google macht Gemini 4 Carbon allgemein verfügbar",
+      "text": "Google hat sein Modell Gemini 4 Carbon nach einer zweiwöchigen Testphase für zahlende Entwickler und Unternehmenskunden freigegeben. Es ergänzt Gemini 4 Argon, ist für anspruchsvolle Aufgaben wie mehrstufiges Programmieren und Fehlersuche gedacht und kostet pro Token gleich viel, verbraucht aber mehr Tokens. Im Vergleich mit Anthropics neuem Fable 5.2 fallen die Ergebnisse laut The Decoder gemischt aus. Außerdem zeigte Google mit „/swarm“ eine Vorschau auf ein Feature, das einen Prompt auf ein Team aus mehreren Agenten verteilt.",
+      "warum_wichtig": "Mit Carbon und Fable 5.2 konkurrieren zwei neue Spitzenmodelle um anspruchsvolle Programmier- und Forschungsaufgaben.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "THE DECODER",
+          "url": "https://the-decoder.de/google-startet-gemini-4-carbon-mit-neuer-agenten-schwarm-funktion/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-10-wirtschaft-1",
+      "datum": "2026-11-10",
+      "datum_bis": null,
+      "titel": "Nvidia verliert binnen einer Woche rund eine Billion Dollar an Börsenwert",
+      "text": "Die Nvidia-Aktie fiel am Dienstag um 5,5 Prozent, nach minus 4,3 Prozent am Montag, und liegt auf Wochensicht rund 18 Prozent im Minus. Der Börsenwert sank damit von knapp 5,0 auf rund 4,0 Billionen Dollar, der Kurs ist so niedrig wie seit Ende März nicht mehr. Auslöser ist die Affäre von Konzernchef Jensen Huang mit einer mutmaßlichen chinesischen Spionin; der Konzern hat für die unabhängige Untersuchung die Kanzlei Wachtell Lipton beauftragt, und Aktionäre haben laut n-tv Sammelklage eingereicht.",
+      "warum_wichtig": "Die Affäre belastet den wichtigsten KI-Chiphersteller und weckt Sorgen, China könnte Zugang zu streng exportbeschränkten Chips erhalten haben.",
+      "themen": [
+        "wirtschaft",
+        "ki"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": true,
+      "quellen": [
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/finanzen/maerkte/nvidia-aktie-chipkonzern-verliert-in-einer-woche-knapp-eine-billion-dollar-boersenwert/100268874.html"
+        },
+        {
+          "name": "POLITICO Europe",
+          "url": "https://www.politico.eu/article/nvidia-hires-wachtell-lipton-for-jensen-huang-investigation/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-10-wirtschaft-2",
+      "datum": "2026-11-10",
+      "datum_bis": null,
+      "titel": "Hohe Inflation lässt Fed und EZB auf Zinserhöhungen im Dezember zusteuern",
+      "text": "In den USA stiegen die Verbraucherpreise im Oktober um 0,4 Prozent zum Vormonat, erwartet waren 0,3 Prozent; die Rendite zweijähriger Staatsanleihen kletterte auf bis zu 4,76 Prozent, den höchsten Stand seit mehr als zwei Jahren. Fed-Gouverneur Christopher Waller sagte, im Dezember müsse eine Anhebung um 0,5 Prozentpunkte erwogen werden. EZB-Chefvolkswirt Philip Lane hält eine dritte Zinserhöhung in diesem Jahr für „klug“, wenn sich die Datenlage bis zur Sitzung im Dezember nicht ändert; im Euroraum lag die Inflation im Oktober bei 4,0 Prozent.",
+      "warum_wichtig": "Höhere Leitzinsen verteuern Kredite und belasten Aktien- und Anleihemärkte.",
+      "themen": [
+        "wirtschaft"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/finanzen/geldpolitik/usa-hohe-inflation-treibt-wichtige-anleiherendite-ueber-zwei-jahres-hoch/100268295.html"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000348416/ezb-chefvolkswirt-stimmt-finanzm228rkte-auf-weitere-zinserh246hung-ein?ref=rss"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-10-wirtschaft-3",
+      "datum": "2026-11-10",
+      "datum_bis": null,
+      "titel": "CoreWeave übertrifft die Erwartungen und hebt die Jahresprognose an",
+      "text": "Der Cloudanbieter CoreWeave steigerte seinen Umsatz im dritten Quartal von 1,37 auf 3,66 Milliarden Dollar, Analysten hatten mit 3,55 Milliarden gerechnet. Die Jahresprognose hebt das Unternehmen auf 13,0 bis 13,3 Milliarden Dollar an. Die Aktie stieg nachbörslich um mehr als sieben Prozent, nachdem sie im Oktober wegen der hohen Schulden und der Sorge vor einer KI-Blase mehr als 40 Prozent verloren hatte.",
+      "warum_wichtig": "Die Zahlen dämpfen Zweifel, ob die Nachfrage nach KI-Rechenleistung nachlässt.",
+      "themen": [
+        "wirtschaft",
+        "ki"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/technik/ki/ki-us-cloud-anbieter-coreweave-uebertrifft-erwartungen-aktie-steigt/100268896.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-10-tirol-1",
+      "datum": "2026-11-10",
+      "datum_bis": null,
+      "titel": "Liechtensteiner Gericht sichert 50 Millionen Euro aus der Benko-Stiftung",
+      "text": "Der Oberste Gerichtshof in Liechtenstein hat dem Rechtsmittel des Insolvenzverwalters stattgegeben und 50 Millionen Euro der Ingbe-Stiftung der Familie Benko für das weitere Verfahren gesichert, wie der Verwalter mitteilte. Das Geld darf vorerst nicht an Begünstigte aus der Familie ausgeschüttet werden. Das Obergericht hatte zuvor keine Berechtigung des Verwalters gesehen, Ansprüche gegen die Stiftung geltend zu machen. Nach dem Urteil gegen den Innsbrucker Unternehmer René Benko, gegen das beide Seiten Rechtsmittel einlegten, ist das ein Erfolg für die Gläubiger im Insolvenzverfahren.",
+      "warum_wichtig": "Für die Gläubiger bleibt ein erheblicher Betrag greifbar, der sonst an die Familie hätte fließen können.",
+      "themen": [
+        "tirol"
+      ],
+      "hauptthema": "tirol",
+      "update": true,
+      "quellen": [
+        {
+          "name": "DER STANDARD (APA)",
+          "url": "https://www.derstandard.at/story/3000000348613/benko-masseverwalter-sichert-50-mio-euro-f252r-insolvenzverfahren?ref=rss"
+        },
+        {
+          "name": "Tiroler Tageszeitung",
+          "url": "https://www.tt.com/artikel/30946616/liechtensteiner-gericht-laesst-50-millionen-euro-aus-benko-stiftung-sichern"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-10-tirol-2",
+      "datum": "2026-11-10",
+      "datum_bis": null,
+      "titel": "In Weerberg entsteht erstmals in Österreich ein mehrgeschossiges Haus aus dem 3D-Drucker",
+      "text": "In Weerberg im Bezirk Schwaz bauen eine IT- und Marketingfirma, die Strabag und der Baudienstleister Nelcon ein Haus, dessen Betonwände gedruckt werden. Aus rund 179 Kubikmetern Beton entstehen 682 Quadratmeter Wandfläche. Im Idealfall druckt die Anlage an zwei Tagen ein Stockwerk. Laut den Beteiligten gab es diese Größenordnung bisher nicht in Österreich.",
+      "warum_wichtig": "Das Projekt zeigt, ob der Betondruck im Wohnbau über Pilotprojekte hinauskommt.",
+      "themen": [
+        "tirol"
+      ],
+      "hauptthema": "tirol",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3378989/"
+        },
+        {
+          "name": "Tiroler Tageszeitung",
+          "url": "https://www.tt.com/artikel/30946591/erstmals-in-oesterreich-mehrgeschossiges-haus-aus-dem-3d-drucker-entsteht-in-tirol"
+        }
+      ]
+    }
+  ],
+  "videos": [],
+  "abschnitte": []
+}
