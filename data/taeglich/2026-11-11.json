@@ -1,0 +1,408 @@
+{
+  "format": "taeglich",
+  "titel": "Mittwoch, 11. November 2026",
+  "zeitraum": {
+    "von": "2026-11-11",
+    "bis": "2026-11-11"
+  },
+  "erschienen": "2026-11-12T03:11:46+01:00",
+  "status": "ok",
+  "fehler": null,
+  "ruhig": [],
+  "luecken": [],
+  "ausnahmen": [],
+  "meldungen": [
+    {
+      "id": "2026-11-11-weltpolitik-1",
+      "datum": "2026-11-11",
+      "datum_bis": null,
+      "titel": "Ukraine und Russland beenden Gespräche in Abu Dhabi ohne Durchbruch, aber mit Gefangenenaustausch",
+      "text": "Die zweitägigen Gespräche zwischen Russland und der Ukraine unter Vermittlung der USA sind zu Ende gegangen. Es gab keinen Durchbruch, beide Seiten bestätigten aber einen Gefangenenaustausch. Selenskyj sprach von 1.000 bis 1.500 Gefangenen, der russische Generalstab von mehr als 1.000 Gefangenen pro Seite in den kommenden zwei bis drei Wochen. Die US-Gesandten Kushner und Witkoff reisen am Donnerstag zu Putin und wollen erreichen, dass die Europäer künftig mit am Tisch sitzen.",
+      "warum_wichtig": "Es ist die erste direkte Gesprächsrunde seit Februar, und von ihr hängt ab, ob Europa bei einer Friedenslösung mitreden darf.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/asien/ukraine-russland-verhandlungen-abu-dhabi-104.html"
+        },
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/ck792we7zrz4o"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-11-weltpolitik-2",
+      "datum": "2026-11-11",
+      "datum_bis": null,
+      "titel": "USA klagen drei Iran-nahe Männer an, Teheran droht Stützpunkten in Europa",
+      "text": "Das US-Justizministerium wirft drei vom Iran unterstützten Männern vor, an fast 20 Anschlägen und Anschlagsversuchen in Europa und den USA beteiligt gewesen zu sein, darunter an dem vereitelten Plan gegen den britischen Stützpunkt RAF Fairford. Laut US-Medien wurde Finanzminister Bessent nach Drohungen mit Iran-Bezug auf einen Militärstützpunkt gebracht. Der iranische Sicherheitsrat-Sekretär Rezaei drohte, bei neuen US-Angriffen auch Stützpunkte in Europa anzugreifen.",
+      "warum_wichtig": "Der Konflikt mit dem Iran trifft damit zunehmend Ziele in Europa und gegen US-Amtsträger, obwohl Präsident Trump den Krieg militärisch für beendet erklärt hat.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/amerika/usa-anklage-unterstuetzung-terroranschlaege-100.html"
+        },
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/c3rryrryk59zo"
+        },
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/cqr7gr0010r2o"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000348822/iran-teheran-droht-mit-angriffen-auf-us-st252tzpunkte-auch-in-europa?ref=rss"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-11-weltpolitik-3",
+      "datum": "2026-11-11",
+      "datum_bis": null,
+      "titel": "Erster Generalstreik in Spanien seit 14 Jahren legt Teile des Landes lahm",
+      "text": "Gegen die Wohnungskrise und zu niedrige Löhne haben in Spanien die Gewerkschaften CCOO und UGT zum Generalstreik aufgerufen. Straßen wurden blockiert, Busse und U-Bahnen in Barcelona standen zeitweise still, laut dem Sender RTVE gab es Dutzende Festnahmen. Die Gewerkschaften sprechen von großer Beteiligung, der Arbeitgeberverband CEOE von nur einstelliger Beteiligung. Die Parlamentswahl findet am 29. November statt.",
+      "warum_wichtig": "Der Streik zeigt, wie stark Mieten und Preise Spanien wenige Wochen vor der Neuwahl bewegen.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3447888/"
+        },
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/europa/spanien-generalstreik-wohnungskrise-100.html"
+        },
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/cwvg25nypmrvo"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-11-politik-1",
+      "datum": "2026-11-11",
+      "datum_bis": null,
+      "titel": "Österreichs Regierung einigt sich auf schärferes Spionagegesetz",
+      "text": "Spionage soll künftig auch dann strafbar sein, wenn sie sich gegen die EU, internationale Organisationen oder andere Staaten richtet, bisher galt das nur bei Spionage gegen Österreich. Auch die Anwerbung von Personen für fremde Geheimdienste und Sabotage werden schärfer bestraft. Der Entwurf geht laut ORF jetzt in Begutachtung. Die Staatsanwältevereinigung warnt vor einem massiven Mehraufwand ohne zusätzliches Personal.",
+      "warum_wichtig": "Österreich will nicht länger als Drehscheibe für fremde Geheimdienste gelten, die Justiz fürchtet aber Überlastung.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3447934/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000348649/regierung-einigt-sich-auf-schaerferes-spionagegesetz?ref=rss"
+        },
+        {
+          "name": "Die Presse",
+          "url": "https://www.diepresse.com/41443041/kein-personal-staatsanwaelte-warnen-vor-spionage-reform"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-11-politik-2",
+      "datum": "2026-11-11",
+      "datum_bis": null,
+      "titel": "EU einigt sich auf Haushalt 2027 mit rund 200 Milliarden Euro",
+      "text": "Unterhändler der Mitgliedstaaten und des EU-Parlaments haben sich auf einen Haushalt von 199,7 Milliarden Euro für 2027 geeinigt, nach 190 Milliarden Euro im Jahr 2026. Schwerpunkte sind Wettbewerbsfähigkeit, Sicherheit und Verteidigung sowie Unterstützung für die Ukraine. Beide Seiten müssen noch formell zustimmen, das gilt als Formsache. Die Verhandlungen über den mehrjährigen Finanzrahmen ab 2028 laufen weiter.",
+      "warum_wichtig": "Damit ist die Finanzierung der EU für das kommende Jahr gesichert, bevor der Streit um den Sieben-Jahres-Haushalt ab 2028 weitergeht.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000348650/einigung-auf-eu-budget-f252r-2027?ref=rss"
+        },
+        {
+          "name": "Tiroler Tageszeitung",
+          "url": "https://www.tt.com/artikel/30946681/einigung-auf-budget-eu-kann-2027-knapp-200-milliarden-euro-ausgeben"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-11-politik-3",
+      "datum": "2026-11-11",
+      "datum_bis": null,
+      "titel": "Deutsche Koalition verschiebt Zuckersteuer auf 2028 und senkt die Stromsteuer vorerst nicht",
+      "text": "Vor den Schlussberatungen zum Bundeshaushalt 2027 hat sich die Koalition aus Union und SPD teilweise geeinigt. Die Zuckersteuer auf stark gesüßte Getränke kommt erst Anfang 2028, die Plastiksteuer ist vorerst vom Tisch, geplante Kürzungen bei Sozialleistungen werden zurückgenommen. Die von Kanzler Merz geforderte Senkung der Stromsteuer für Haushalte scheitert vorerst an der Gegenfinanzierung von rund fünf Milliarden Euro. Der Haushaltsausschuss entscheidet in der Nacht auf Freitag endgültig.",
+      "warum_wichtig": "Für Haushalte heißt das vorerst keine niedrigere Stromsteuer, während der Etat 2027 in die letzte Runde geht.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/politik/deutschland/haushalt-stromsteuer-wird-vorerst-nicht-gesenkt-zuckersteuer-verschoben/100267083.html"
+        },
+        {
+          "name": "FAZ",
+          "url": "https://www.faz.net/aktuell/politik/inland/liveticker-bundespolitik-koalition-verschiebt-einfuehrung-von-zuckersteuer-faz-110093143.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-11-ki-1",
+      "datum": "2026-11-11",
+      "datum_bis": null,
+      "titel": "Anthropic-Börsengang: Banken peilen laut Bericht 1,5 Billionen Dollar Bewertung an",
+      "text": "Laut Financial Times wollen die Banken Anthropic beim Börsengang mit rund 1,5 Billionen Dollar bewerten, der Prospekt nennt voll verwässert 1,4 Billionen Dollar. Am ersten Tag der Roadshow sollen institutionelle Anleger das gesamte Angebot von 825 Millionen Aktien überzeichnet haben. Die sieben Gründer verkaufen zusammen Aktien im Wert von rund 1,75 Milliarden Dollar. Der endgültige Preis wird in der Woche ab dem 16. November festgelegt, gehandelt wird an der Nasdaq unter dem Kürzel ANT.",
+      "warum_wichtig": "Es wäre einer der größten Börsengänge überhaupt und ein Gradmesser dafür, wie viel Anleger für KI-Unternehmen zu zahlen bereit sind.",
+      "themen": [
+        "ki",
+        "wirtschaft"
+      ],
+      "hauptthema": "ki",
+      "update": true,
+      "quellen": [
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/finanzen/maerkte/marktberichte/dow-jones-sp-500-nasdaq-ki-euphorie-ist-zurueck-tech-aktien-schliessen-deutlich-im-plus/100269138.html"
+        },
+        {
+          "name": "Trending Topics",
+          "url": "https://www.trendingtopics.eu/anthropic-i-p-o-each-co-founder-to-cash-out-250-million/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-11-ki-2",
+      "datum": "2026-11-11",
+      "datum_bis": null,
+      "titel": "OpenAI steigert Quartalsumsatz auf 10 Milliarden Dollar, Anthropic liegt bei 17 Milliarden",
+      "text": "OpenAI hat im dritten Quartal laut Wall Street Journal und The Information rund 10 Milliarden Dollar umgesetzt, etwa 50 Prozent mehr als im Vorquartal. Der bereinigte operative Verlust stieg auf 10,9 Milliarden Dollar. Anthropic erzielte im selben Zeitraum 17 Milliarden Dollar Umsatz bei einem operativen Verlust von 567 Millionen Dollar. ChatGPT hat inzwischen 100 Millionen zahlende Abonnenten.",
+      "warum_wichtig": "Die Zahlen zeigen, dass Anthropic vor seinem Börsengang deutlich effizienter wirtschaftet als sein größter Konkurrent.",
+      "themen": [
+        "ki",
+        "wirtschaft"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "THE DECODER",
+          "url": "https://the-decoder.de/openai-steigert-quartalsumsatz-auf-10-milliarden-us-dollar-bei-weiterhin-gigantischen-verlusten/"
+        },
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/11/openais-quarterly-revenue-reportedly-crosses-10b-for-the-first-time/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-11-ki-3",
+      "datum": "2026-11-11",
+      "datum_bis": null,
+      "titel": "Google bringt mit Gemini Decisions ein Modell für schnelle Ja-Nein-Entscheidungen",
+      "text": "Google Deepmind stellt die Gemini Decisions API vor, die Fragen mit Antworten wie Ja oder Nein, Auswahl oder Skala beantwortet, statt Text zu erzeugen. Das Modell Gemini Decision 1 bearbeitet bis zu 1.000 unabhängige Fragen in einem Durchlauf, auch zu Bildern, Audio, Video und PDFs, und braucht laut Google 150 bis 250 Millisekunden. Eine Million Eingabe-Tokens kosten 0,10 Dollar. Die Schnittstelle ist ab sofort in Google AI Studio verfügbar.",
+      "warum_wichtig": "Solche spezialisierten Modelle machen automatische Entscheidungen in Apps deutlich billiger und schneller als allgemeine Sprachmodelle.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "THE DECODER",
+          "url": "https://the-decoder.de/gemini-decisions-google-bringt-spezialisiertes-ki-modell-fuer-schnelle-entscheidungen-statt-textgenerierung/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-11-wirtschaft-1",
+      "datum": "2026-11-11",
+      "datum_bis": null,
+      "titel": "KI-Aktien erholen sich an der Wall Street kräftig, CoreWeave springt um 25 Prozent",
+      "text": "Nach robusten Quartalszahlen des Rechenzentrumsbetreibers CoreWeave legten die US-Börsen deutlich zu. Der Nasdaq Composite stieg um 1,6 Prozent auf 25.466 Punkte, der S&P 500 um 1,3 Prozent auf 7.619 Punkte, der Dow Jones um 0,5 Prozent auf 52.486 Punkte. CoreWeave gewann 25 Prozent, Nvidia drei Prozent, Micron 13 Prozent. Der Dollar-Index erreichte zugleich den höchsten Stand seit über einem Jahr, weil Anleger im Dezember mit einer Zinserhöhung der Fed rechnen.",
+      "warum_wichtig": "Die Erholung nimmt vorerst Sorgen, dass KI-Investitionen mit Schulden nicht schnell genug Gewinne bringen.",
+      "themen": [
+        "wirtschaft"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "n-tv",
+          "url": "https://www.n-tv.de/wirtschaft/KI-Aktien-feiern-fulminantes-Comeback-an-der-Wall-Street-id31523701.html"
+        },
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/finanzen/maerkte/marktberichte/dow-jones-sp-500-nasdaq-ki-euphorie-ist-zurueck-tech-aktien-schliessen-deutlich-im-plus/100269138.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-11-wirtschaft-2",
+      "datum": "2026-11-11",
+      "datum_bis": null,
+      "titel": "Nvidia: Kongress will Konzernchef Huang vorladen, Verwaltungsrat soll über Entlassung beraten",
+      "text": "Republikanische Abgeordnete im US-Kongress bereiten laut Bloomberg eine Vorladung für Nvidia-Chef Jensen Huang wegen seiner Beziehung zu einer mutmaßlichen chinesischen Spionin vor. Das Wall Street Journal berichtet, der Verwaltungsrat bereite sich wegen zwei außerehelicher Affären auf eine Entlassung Huangs vor. Die Nvidia-Aktie fiel nachbörslich um rund neun Prozent, zuvor hatte der Konzern binnen einer Woche rund eine Billion Dollar an Börsenwert verloren. Bestätigt hat Nvidia die Berichte nicht.",
+      "warum_wichtig": "Der führende KI-Chipkonzern könnte seinen Chef verlieren, während er die Grundlage der KI-Infrastruktur liefert.",
+      "themen": [
+        "wirtschaft"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": true,
+      "quellen": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/11/congress-to-call-jensen-huang-in-to-answer-for-alleged-chinese-spy-affair/"
+        },
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3447951/"
+        },
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/technik/ki/nvidia-nvidia-verwaltungsrat-bereitet-offenbar-rauswurf-von-jensen-huang-vor/100269242.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-11-wirtschaft-3",
+      "datum": "2026-11-11",
+      "datum_bis": null,
+      "titel": "Wirtschaftsweise heben Prognose für Deutschland auf 1,3 Prozent Wachstum und warnen vor Haushaltslöchern",
+      "text": "Der Sachverständigenrat erwartet für 2026 ein Wirtschaftswachstum von 1,3 Prozent, das sind 0,8 Prozentpunkte mehr als im Frühjahr, und für 2027 ein Plus von 1,0 Prozent. Treiber sind überraschend starke Exporte und Staatsausgaben. Die Inflation soll 2026 bei 2,8 Prozent und 2027 bei 3,3 Prozent liegen. Zugleich sprechen die Experten von einem Handlungsbedarf von historischem Ausmaß bei Bundeshaushalt und Sozialversicherungen und fordern eine Begrenzung des Ausgabenanstiegs.",
+      "warum_wichtig": "Die Konjunktur zieht an, aber die Gutachter sehen schon mittelfristig riesige Finanzlücken im Staatshaushalt.",
+      "themen": [
+        "wirtschaft"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/wirtschaft/konjunktur/wirtschaftsweise-jahresgutachten-2026-100.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-11-tirol-1",
+      "datum": "2026-11-11",
+      "datum_bis": null,
+      "titel": "Neues Luftgütegesetz sorgt für Streit, Tirol will damit die Lkw-Fahrverbote absichern",
+      "text": "Österreich muss bis 11. Dezember die strengere EU-Luftgüterichtlinie umsetzen, der Stickstoffdioxid-Grenzwert halbiert sich auf 20 Mikrogramm. Tirol will die Grenzwerte vorziehen, um Nachtfahrverbot und sektorales Fahrverbot für Lkw rechtlich zu stützen. NEOS und Teile der ÖVP, vor allem aus der Wirtschaft, lehnen die Novelle ab. Das Urteil des Europäischen Gerichtshofs zur Klage Italiens wird bis Jahresende erwartet.",
+      "warum_wichtig": "Scheitert das Gesetz und verliert Tirol vor dem Gerichtshof, könnten Transitbeschränkungen am Brenner ersatzlos fallen.",
+      "themen": [
+        "tirol"
+      ],
+      "hauptthema": "tirol",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3379110/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-11-tirol-2",
+      "datum": "2026-11-11",
+      "datum_bis": null,
+      "titel": "Hochwasserschutz im Unteren Unterinntal: Detailprojekt liegt vor",
+      "text": "Der Wasserverband hat das Einreichprojekt für den Hochwasserschutz fertiggestellt. Es soll mehr als 1.000 Gebäude und rund 260 Hektar Bauland vor einem hundertjährlichen Hochwasser schützen, mit Rückhalteräumen für etwa 8 Millionen Kubikmeter Wasser. In den kommenden Wochen gibt es Sprechstunden für betroffene Grundeigentümer. Danach folgen die Genehmigungsverfahren.",
+      "warum_wichtig": "Damit startet die nächste Stufe für ein Projekt, das viele Grundeigentümer unmittelbar betrifft.",
+      "themen": [
+        "tirol"
+      ],
+      "hauptthema": "tirol",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3379045/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-11-tirol-3",
+      "datum": "2026-11-11",
+      "datum_bis": null,
+      "titel": "Studie: Mehrheit befürwortet Seilbahn zwischen Innsbruck und Patscherkofel",
+      "text": "In einer vom Land Tirol beauftragten Befragung von rund 3.700 Menschen halten 72 Prozent im östlichen Mittelgebirge und 67 Prozent in Innsbruck eine Seilbahn zur Patscherkofel-Talstation für sinnvoll. Über ein Drittel würde sie regelmäßig nutzen. Eine Entscheidung über den Bau ist damit nicht verbunden, eine Kostenschätzung fehlt. Nun liegt es an den Gemeinden, ob sie weitermachen.",
+      "warum_wichtig": "Die Zahlen sind die Grundlage für die Frage, ob die Stadtseilbahn überhaupt weiterverfolgt wird.",
+      "themen": [
+        "tirol"
+      ],
+      "hauptthema": "tirol",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3379082/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-11-startups-1",
+      "datum": "2026-11-11",
+      "datum_bis": null,
+      "titel": "Britischer KI-Chip-Entwickler Fractile sammelt 720 Millionen Dollar ein",
+      "text": "Das britische Startup Fractile hat eine Series C über 720 Millionen Dollar abgeschlossen, laut Sifted rund 540 Millionen Pfund. Angeführt wird die Runde von Thrive Capital, Founders Fund, Lightspeed und Redpoint, dazu kommt der britische Sovereign AI Fund. Laut der britischen Regierung liegt die Bewertung über 5 Milliarden Pfund. Die ersten Chips und Systeme sollen im kommenden Jahr ausgeliefert werden.",
+      "warum_wichtig": "Es ist eine der größten Runden für europäische KI-Chip-Startups und soll die Abhängigkeit von Nvidia verringern.",
+      "themen": [
+        "startups",
+        "ki"
+      ],
+      "hauptthema": "startups",
+      "update": false,
+      "quellen": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/11/with-720m-round-britains-fractile-gets-a-leg-up-in-the-race-for-ai-chips/"
+        },
+        {
+          "name": "Sifted",
+          "url": "https://sifted.eu/articles/fractile-confirms-540m-raise-first-revealed-by-sifted/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-11-startups-2",
+      "datum": "2026-11-11",
+      "datum_bis": null,
+      "titel": "Logistik-Startup sennder sichert sich 228 Millionen Euro",
+      "text": "Das deutsche Logistik-Startup sennder erhält 228 Millionen Euro. 155 Millionen Euro kommen als Finanzierungslinien von Coface, der Europäischen Investitionsbank, cflox und der Deutschen Bank, 73 Millionen Euro von bestehenden Investoren unter Führung von Scania und Poste Italiane. Mit dem Geld wurde die Übernahme des europäischen Landtransportgeschäfts von C.H. Robinson unterstützt. sennder erwartet für 2026 einen Umsatz von einer Milliarde Euro und positives Ergebnis.",
+      "warum_wichtig": "Ein großes europäisches Logistik-Startup ist nach zehn Jahren profitabel und wächst durch Zukäufe.",
+      "themen": [
+        "startups"
+      ],
+      "hauptthema": "startups",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Trending Topics",
+          "url": "https://www.trendingtopics.eu/sennder-deutsches-logistik-startup-erhaelt-228-mio-euro/"
+        }
+      ]
+    }
+  ],
+  "videos": [],
+  "abschnitte": []
+}
