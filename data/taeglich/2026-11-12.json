@@ -1,0 +1,375 @@
+{
+  "format": "taeglich",
+  "titel": "Donnerstag, 12. November 2026",
+  "zeitraum": {
+    "von": "2026-11-12",
+    "bis": "2026-11-12"
+  },
+  "erschienen": "2026-11-13T03:08:26+01:00",
+  "status": "ok",
+  "fehler": null,
+  "ruhig": [],
+  "luecken": [],
+  "ausnahmen": [],
+  "meldungen": [
+    {
+      "id": "2026-11-12-weltpolitik-1",
+      "datum": "2026-11-12",
+      "datum_bis": null,
+      "titel": "Putin beharrt im Kreml auf seinen Gebietsforderungen",
+      "text": "Russlands Präsident Wladimir Putin hat in Moskau die US-Vermittler Steve Witkoff und Jared Kushner empfangen. Nach den Gesprächen in Abu Dhabi bekräftigte er, dass Russland nur die eigene Außengrenze samt annektierter ukrainischer Gebiete als Grenzlinie sieht, und verlangte den Abzug ukrainischer Truppen aus Donezk und Luhansk. Westliche Truppen in der Ukraine nannte er ein legitimes Ziel. Kushner erklärte laut Standard, ohne die Europäer am Tisch sei kein Abkommen möglich; Russland fordert von der EU einen Chefverhandler, Ratspräsident Costa sprach in Dublin von einem Team ohne einzelnen Spitzenvertreter.",
+      "warum_wichtig": "Ein Durchbruch bei den Ukraine-Gesprächen rückt damit nicht näher, und die Rolle Europas am Verhandlungstisch bleibt offen.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3447982/"
+        },
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/europa/ukraine-russland-putin-witkoff-kushner-100.html"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000348883/trump-will-dass-europa-putins-plaene-abnickt-um-den-krieg-in-der-ukraine-zu-beenden?ref=rss"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-12-weltpolitik-2",
+      "datum": "2026-11-12",
+      "datum_bis": null,
+      "titel": "39 europäische Staaten beschließen in Dublin Sicherheitscharta",
+      "text": "Beim Treffen der Europäischen Politischen Gemeinschaft in Dublin haben 39 europäische Länder auf Initiative Frankreichs eine Charta mit Schlüsselprinzipien für die Sicherheit Europas beschlossen. Sie bekräftigt die bisherigen Grundlagen der europäischen Sicherheit und nennt zusätzlich hybride Bedrohungen. Die europäischen Staaten sollen größere Verantwortung übernehmen.",
+      "warum_wichtig": "Europa legt damit einen gemeinsamen Rahmen vor, während die USA und Russland über die Zukunft der Ukraine verhandeln.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349050/39-europ228ische-l228nder-legen-schl252sselprinzipien-f252r-sicherheit-fest?ref=rss"
+        },
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448032/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-12-weltpolitik-3",
+      "datum": "2026-11-12",
+      "datum_bis": null,
+      "titel": "Demokrat Colom gewinnt Senatssitz in Mississippi",
+      "text": "Der Demokrat Scott Colom hat die Senatswahl in Mississippi gegen die republikanische Amtsinhaberin Cindy Hyde-Smith gewonnen. Er ist laut tagesschau der erste schwarze Senator des Bundesstaats seit 145 Jahren und der erste Demokrat dort seit mehr als vier Jahrzehnten. Die Demokraten weiten ihre Mehrheit im Senat ab Januar laut tagesschau auf 55 der 100 Sitze aus.",
+      "warum_wichtig": "Der überraschende Sieg stärkt die Demokraten im Senat nach den Zwischenwahlen deutlich.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/amerika/demokrat-mississippi-sieg-100.html"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000348904/scott-colom-schafft-in-mississippi-die-senats-sensation?ref=rss"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-12-politik-1",
+      "datum": "2026-11-12",
+      "datum_bis": null,
+      "titel": "Österreichs Wehrdienstreform: Begutachtung endet, Kritik am aufgeschobenen Zivildienst",
+      "text": "Am Donnerstag ist die Begutachtungsfrist für das Wehrdienstreformgesetz zu Ende gegangen. Der Wehrdienst soll auf insgesamt neun Monate inklusive Milizübungen verlängert werden, der Zivildienst auf elf Monate, allerdings nicht sofort. Die Stellungnahmen kritisieren vor allem den aufgeschobenen und schlechter gestellten Zivildienst; Kanzler Christian Stocker zeigt dabei laut Standard Bewegungsspielraum.",
+      "warum_wichtig": "Die Reform entscheidet, wie lange junge Männer in Österreich künftig dienen müssen.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000348964/wehrpflicht-begutachtung-der-reform-geht-am-donnerstag-zu-ende?ref=rss"
+        },
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3447980/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-12-politik-2",
+      "datum": "2026-11-12",
+      "datum_bis": null,
+      "titel": "Sozialhilfe-Reform: Kritik von Volksanwaltschaft und Ländern, Tirol droht mit Konsultationsmechanismus",
+      "text": "Die Volksanwaltschaft zweifelt laut Presse an der rechtlichen Zulässigkeit der neuen Sozialhilfe, auch der Verfassungsdienst ist skeptisch. Am Freitag endet die Begutachtungsfrist für das Sozialhilfe-Grundsatzgesetz des Bundes. Das Land Tirol könnte laut Tiroler Tageszeitung den Konsultationsmechanismus auslösen, den ORF zufolge kommt Kritik aus mehreren Bundesländern.",
+      "warum_wichtig": "Der Konsultationsmechanismus würde den Bund zu Verhandlungen mit den Ländern zwingen und die Reform verzögern.",
+      "themen": [
+        "politik",
+        "tirol"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Die Presse",
+          "url": "https://www.diepresse.com/41441004/volksanwaltschaft-kritisiert-sozialhilfe-reform-sollte-das-nochmals-pruefen"
+        },
+        {
+          "name": "Tiroler Tageszeitung",
+          "url": "https://www.tt.com/artikel/30946793/sozialhilfe-neu-deshalb-droht-tirol-dem-bund-nun-mit-einer-art-veto"
+        },
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448025/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-12-politik-3",
+      "datum": "2026-11-12",
+      "datum_bis": null,
+      "titel": "EU-Parlament lehnt Schutzregeln für Kleinanleger vorerst ab",
+      "text": "Das Europäische Parlament hat überraschend gegen neue Schutz- und Transparenzregeln für Kleinanleger gestimmt, obwohl Rat und Parlament sich darauf schon im Dezember 2025 geeinigt hatten. Kritiker bemängeln zusätzliche Bürokratie für Finanz- und Versicherungsberater ohne besseren Anlegerschutz. Nun werden Änderungen vorgeschlagen.",
+      "warum_wichtig": "Das Paket zum Anlegerschutz verzögert sich, die Regeln für Privatanleger in der EU bleiben vorerst unverändert.",
+      "themen": [
+        "politik",
+        "wirtschaft"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349040/eu-parlament-stimmte-vorerst-gegen-neue-schutzregeln-f252r-kleinanleger?ref=rss"
+        },
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/politik/deutschland/kapitalmaerkte-eu-parlament-stimmt-gegen-neue-schutzregeln-fuer-kleinanleger/100269489.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-12-ki-1",
+      "datum": "2026-11-12",
+      "datum_bis": null,
+      "titel": "Anthropic-Börsengang: Handel ab 19. November, Preis am 18. November",
+      "text": "Laut heise sollen Anthropic-Aktien am 19. November in den Handel gehen, vorausgesetzt die Zulassung kommt rechtzeitig. Der endgültige Preis wird am 18. November festgelegt, die erwartete Spanne liegt bei 70 bis 78 Dollar je Aktie. Der Erlös soll bei bis zu rund 64 Milliarden Dollar liegen. Im europäischen Prospekt steht ein Preis von 120 Dollar, der laut Anthropic nur Käufern in der EU und der Schweiz den Kauf ermöglichen soll, falls der Endpreis über der Spanne liegt.",
+      "warum_wichtig": "Damit steht der Termin für den bisher größten KI-Börsengang fest.",
+      "themen": [
+        "ki",
+        "wirtschaft"
+      ],
+      "hauptthema": "ki",
+      "update": true,
+      "quellen": [
+        {
+          "name": "heise online",
+          "url": "https://www.heise.de/news/Datum-offiziell-Anthropic-Aktien-ab-19-November-im-Handel-11522895.html"
+        },
+        {
+          "name": "Trending Topics",
+          "url": "https://www.trendingtopics.eu/anthropic-ipo-trade-republic-revolut-scalable-zeichnen/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-12-ki-2",
+      "datum": "2026-11-12",
+      "datum_bis": null,
+      "titel": "Google stellt Gemini 4 Hydrogen vor, ein schnelles und günstiges Modell",
+      "text": "Google bringt mit Gemini 4 Hydrogen ein Modell für Alltag, Programmieren und Agenten-Aufgaben, das Gemini 3.8 Flash ablöst. Eine Million Eingabe-Tokens kosten 1,50 Dollar, eine Million Ausgabe-Tokens 7,50 Dollar. Auf dem Index von Artificial Analysis erreicht es bis zu 54 Punkte und liegt damit vor dem teureren Argon mit 50. Bei Agenten-Aufgaben im Terminal liegt es laut Artificial Analysis mit 54 Prozent hinter Claude Sonnet 5.5 mit 64 Prozent.",
+      "warum_wichtig": "Ein günstiges Modell auf diesem Niveau erhöht den Preisdruck auf andere Anbieter, auch auf Anthropic.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "THE DECODER",
+          "url": "https://the-decoder.de/google-stellt-gemini-4-hydrogen-vor-schnelles-ki-modell-fuer-den-alltag-fuer-weniger-geld/"
+        },
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/12/googles-latest-search-upgrade-promises-better-answers-to-your-most-complicated-questions/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-12-wirtschaft-1",
+      "datum": "2026-11-12",
+      "datum_bis": null,
+      "titel": "Nvidia-Chef Huang tritt zurück, die Aktie bricht ein",
+      "text": "Jensen Huang ist mit sofortiger Wirkung als Chef von Nvidia zurückgetreten, nachdem er eine Affäre mit einer mutmaßlichen chinesischen Spionin eingeräumt hatte; das FBI ermittelt. Finanzchefin Colette Kress führt den Konzern vorübergehend, Harvey Jones wird erster unabhängiger Verwaltungsratsvorsitzender. Die Aktie fiel laut ORF zeitweise um mehr als 14 Prozent auf 148,80 Dollar, an der Wall Street schloss sie laut Standard rund 4 Prozent im Minus. Seit Wochen hat Nvidia laut ORF rund zwei Billionen Dollar an Börsenwert verloren.",
+      "warum_wichtig": "Der wichtigste Konzern des KI-Booms hat nun eine Übergangsführung, und der Kurs spiegelt die Unsicherheit über Strategie und China-Geschäft wider.",
+      "themen": [
+        "wirtschaft",
+        "ki"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": true,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448018/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349047/us-b246rsen-schlie223en-tiefer-nvidia-aktie-gibt-vier-prozent-ab?ref=rss"
+        },
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/wirtschaft/unternehmen/nvidia-huang-ruecktritt-100.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-12-wirtschaft-2",
+      "datum": "2026-11-12",
+      "datum_bis": null,
+      "titel": "Mercedes stoppt Investitionen in Deutschland und prüft Werksschließungen",
+      "text": "Mercedes-Benz stoppt laut tagesschau alle weiteren Investitionen in die deutschen Standorte und prüft nun konkret die Schließung von Werken in Deutschland. Der Konzern begründet das mit einem Gewinneinbruch im Pkw-Geschäft und hohen Kosten. Er will, dass die Beschäftigten länger ohne Lohnausgleich arbeiten, und verhandelt mit dem Betriebsrat über niedrigere Personalkosten. Personalchefin Britta Seeger sagte, man brauche eine Entscheidung aus diesen Gesprächen.",
+      "warum_wichtig": "Für die Beschäftigten an den deutschen Standorten steht damit die Zukunft der Werke auf dem Spiel.",
+      "themen": [
+        "wirtschaft"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/wirtschaft/unternehmen/mercedes-stopp-investitionen-100.html"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349022/mercedes-benz-pr252ft-werksschlie223ungen-in-deutschland-arbeit-zu-teuer?ref=rss"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-12-wirtschaft-3",
+      "datum": "2026-11-12",
+      "datum_bis": null,
+      "titel": "IG Metall beschließt erstmals seit acht Jahren ganztägige Warnstreiks",
+      "text": "Die IG Metall verschärft den Tarifkampf in der deutschen Metallindustrie und beschließt erstmals seit acht Jahren Warnstreiks über 24 Stunden. Das meldet unter anderem die tagesschau.",
+      "warum_wichtig": "Ganztägige Streiks können Produktion und Lieferketten spürbar treffen, wenn sich die Tarifparteien nicht einigen.",
+      "themen": [
+        "wirtschaft"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/wirtschaft/unternehmen/ig-metall-streiks-100.html"
+        },
+        {
+          "name": "n-tv",
+          "url": "https://www.n-tv.de/wirtschaft/IG-Metall-verschaerft-Tarifkampf-mit-24-Stunden-Warnstreiks-id31524684.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-12-tirol-1",
+      "datum": "2026-11-12",
+      "datum_bis": null,
+      "titel": "Wendlinger Brücke in Kufstein ab Freitag wieder in beide Richtungen offen",
+      "text": "Nach acht Monaten Sanierung wird die Wendlinger Brücke über den Inn in Kufstein am Freitag wieder in beiden Fahrtrichtungen für den Verkehr freigegeben. Die 70 Jahre alte Brücke bekommt zusätzlich einen neuen Geh- und Radweg.",
+      "warum_wichtig": "Das Ende der Großbaustelle entlastet den Verkehr in Kufstein.",
+      "themen": [
+        "tirol"
+      ],
+      "hauptthema": "tirol",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3379066/"
+        },
+        {
+          "name": "Tiroler Tageszeitung",
+          "url": "https://www.tt.com/artikel/30946789/wendlinger-bruecke-in-kufstein-nach-general-sanierung-ab-freitag-wieder-geoeffnet"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-12-startups-1",
+      "datum": "2026-11-12",
+      "datum_bis": null,
+      "titel": "Agile Robots aus München holt 500 Millionen Dollar von SoftBank und Nvidia",
+      "text": "Das Münchner Robotik-Unternehmen Agile Robots sammelt 500 Millionen Dollar ein, angeführt von SoftBank; neu dabei sind Nvidia, Hitachi und T.Capital der Deutschen Telekom. Die Bewertung liegt laut Trending Topics bei 8,5 Milliarden Dollar. Das Geld soll in den US-Markt, neue Industrieanwendungen und die Fertigung in Bayern fließen, darunter ein Werk für bis zu 10.000 humanoide Roboter pro Jahr.",
+      "warum_wichtig": "Es ist eine der größten Finanzierungen eines europäischen Robotik-Startups und zeigt, wie stark Investoren auf humanoide Roboter setzen.",
+      "themen": [
+        "startups"
+      ],
+      "hauptthema": "startups",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Trending Topics",
+          "url": "https://www.trendingtopics.eu/agile-robots-500-million-softbank-nvidia/"
+        },
+        {
+          "name": "Sifted",
+          "url": "https://sifted.eu/articles/softbank-leads-500m-round-for-agile-robots/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-12-startups-2",
+      "datum": "2026-11-12",
+      "datum_bis": null,
+      "titel": "Drohnen-Startup Uforce sammelt 700 Millionen Dollar ein",
+      "text": "Das Drohnen-Startup Uforce erhält laut Sifted 700 Millionen Dollar. Beteiligt sind unter anderem Valor Equity Partners und der britische National Wealth Fund.",
+      "warum_wichtig": "Die Runde zeigt, dass Kapital in Europa stark in Verteidigungs- und Drohnentechnik fließt.",
+      "themen": [
+        "startups"
+      ],
+      "hauptthema": "startups",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Sifted",
+          "url": "https://sifted.eu/articles/drone-startup-uforce-fundraise-uk-national-wealth-fund-scoop/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-12-startups-3",
+      "datum": "2026-11-12",
+      "datum_bis": null,
+      "titel": "Münchner Drohnen-Software SE3 erhält 30 Millionen Dollar von Accel",
+      "text": "Das Münchner Spin-off der TU München, SE3, sammelt in einer Serie-A-Runde 30 Millionen Dollar ein, angeführt von Accel. Das Unternehmen entwickelt Software, mit der Drohnen und Bodenfahrzeuge verschiedener Hersteller ohne GPS navigieren. Mit dem Geld soll das Team wachsen, ein Büro in Großbritannien eröffnen und ab 2027 sollen zivile Anwendungen dazukommen.",
+      "warum_wichtig": "Navigation ohne GPS gilt als Schlüsselfähigkeit für Drohnen in Einsatzgebieten mit Störsendern.",
+      "themen": [
+        "startups"
+      ],
+      "hauptthema": "startups",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Trending Topics",
+          "url": "https://www.trendingtopics.eu/se3-30-million-series-a-accel/"
+        },
+        {
+          "name": "Sifted",
+          "url": "https://sifted.eu/articles/accel-30m-spatial-ai-defence-startup-se3/"
+        }
+      ]
+    }
+  ],
+  "videos": [],
+  "abschnitte": []
+}
