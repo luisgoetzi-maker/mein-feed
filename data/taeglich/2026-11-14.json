@@ -1,0 +1,268 @@
+{
+  "format": "taeglich",
+  "titel": "Samstag, 14. November 2026",
+  "zeitraum": {
+    "von": "2026-11-14",
+    "bis": "2026-11-14"
+  },
+  "erschienen": "2026-11-15T03:08:10+01:00",
+  "status": "ok",
+  "fehler": null,
+  "ruhig": [
+    "startups"
+  ],
+  "luecken": [],
+  "ausnahmen": [],
+  "meldungen": [
+    {
+      "id": "2026-11-14-weltpolitik-1",
+      "datum": "2026-11-14",
+      "datum_bis": null,
+      "titel": "USA haben der Ukraine laut Selenskyj NATO-Beitritt gegen Rückzug aus dem Donbas ins Spiel gebracht",
+      "text": "Zuvor verhandelten Europäer und Russland ohne Durchbruch über die Ukraine. Nach den Worten von Präsident Wolodymyr Selenskyj haben US-Unterhändler nun erstmals gefragt, ob sich die Ukraine im Gegenzug für eine NATO-Mitgliedschaft aus dem Donbas zurückziehen würde. Selenskyj bekräftigte, dass Kiew zu Gebietsabtretungen nicht bereit ist. Eine Bestätigung aus Washington liegt bisher nicht vor.",
+      "warum_wichtig": "Erstmals wird eine NATO-Mitgliedschaft der Ukraine direkt mit Gebietsverzicht verknüpft, was die Verhandlungen über ein Kriegsende neu ausrichten könnte.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448165/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/jetzt/livebericht/3000000349196/starlink-in-der-ukraine-weiter-eingeschraenkt-us-senatoren-fordern-unterlagen-von-musk?ref=rss"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-14-weltpolitik-2",
+      "datum": "2026-11-14",
+      "datum_bis": null,
+      "titel": "Weißes Haus kündigt Dreiertreffen von Trump, Putin und Xi in China an",
+      "text": "Laut Weißem Haus soll das erste Treffen der drei Staatschefs am Rand des Apec-Gipfels in China stattfinden, nach Angaben des STANDARD kommenden Donnerstag. Hauptthema sei der weltweite Abbau von Atomwaffen. Über die Ukraine will Trump offenbar nicht sprechen. Reaktionen aus Moskau und Peking sind bisher nicht bekannt.",
+      "warum_wichtig": "Zum ersten Mal würden die Staatschefs der drei Atommächte gemeinsam am Tisch sitzen, und das Thema Abrüstung steht auf der Agenda.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349218/wei223es-haus-k252ndigt-dreiertreffen-von-trump-mit-xi-und-putin-an?ref=rss"
+        },
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/amerika/treffen-trump-putin-xi-100.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-14-weltpolitik-3",
+      "datum": "2026-11-14",
+      "datum_bis": null,
+      "titel": "Drei Öltanker geraten in der Straße von Hormus laut Iran nach Minenkontakt in Brand",
+      "text": "Laut iranischen Angaben, die sich auf die Marine der Revolutionsgarden berufen, traf am Samstag zuerst ein Tanker im Ostteil der Meerenge auf eine Seemine, zwei weitere folgten im Tagesverlauf. Die beiden späteren Schiffe hätten laut Revolutionsgarden eine verbotene Route genutzt und ihre Ortungssysteme abgeschaltet. Die Angaben lassen sich bisher nicht unabhängig prüfen, auch Besatzung und Eigner sind nicht bekannt.",
+      "warum_wichtig": "Die Meerenge ist für den Öltransport entscheidend, und Minen erhöhen das Risiko für die Schifffahrt auch nach dem erklärten militärischen Ende des Iran-Kriegs.",
+      "themen": [
+        "weltpolitik",
+        "wirtschaft"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448208/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349211/nahost-iran-zwei-214ltanker-in-stra223e-von-hormuz-in-brand-geraten?ref=rss"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-14-politik-1",
+      "datum": "2026-11-14",
+      "datum_bis": null,
+      "titel": "Rot-rot-grüne Koalition in Mecklenburg-Vorpommern steht",
+      "text": "Nach der Linken stimmten am Samstag auch die Grünen und die SPD dem Koalitionsvertrag zu, bei der SPD einstimmig. Die erste rot-rot-grüne Landesregierung stützt sich auf 39 von 71 Sitzen, die AfD ist mit 32 Sitzen die einzige Opposition. Laut ORF will sich Manuela Schwesig am Montag im Landtag zur Ministerpräsidentin wiederwählen lassen, eine Zusammenarbeit mit der AfD schließt sie aus.",
+      "warum_wichtig": "Acht Wochen nach der Landtagswahl ist die Regierungsbildung im Land abgeschlossen, in dem die AfD stärkste Opposition ist.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448177/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349238/rot-rot-gruene-landesregierung-in-mecklenburg-vorpommern-fixiert?ref=rss"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-14-politik-2",
+      "datum": "2026-11-14",
+      "datum_bis": null,
+      "titel": "Hubertus Heil kandidiert für den SPD-Vorsitz",
+      "text": "Der frühere Arbeitsminister schrieb laut Berichten von ARD, Bild und dpa einen Brief an Landesverbände und Parteivorstand, dass er beim Parteitag Mitte Jänner in Bremen antreten will. Amtsinhaber Lars Klingbeil, der auch Vizekanzler und Finanzminister ist, gilt als langjähriger Rivale. Fraktionschef Matthias Miersch und Verteidigungsminister Boris Pistorius haben sich bereits für Klingbeils Wiederwahl ausgesprochen.",
+      "warum_wichtig": "Die SPD wählt im Jänner ihre gesamte Führung neu, und die Frage, ob Klingbeil bleibt, ist nun offen.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349250/zeitung-ex-arbeitsminister-hubertus-heil-kandidiert-f252r-spd-vorsitz?ref=rss"
+        },
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/politik/deutschland/bundespolitik-hubertus-heil-will-fuer-spd-vorsitz-kandidieren/100269928.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-14-politik-3",
+      "datum": "2026-11-14",
+      "datum_bis": null,
+      "titel": "AfD nominiert Ex-Fußballweltmeister Thomas Berthold als Bundespräsidentschaftskandidaten",
+      "text": "Die AfD-Vorsitzenden Alice Weidel und Tino Chrupalla gaben die Nominierung des 62-Jährigen am Samstag bekannt. Berthold wurde 1990 Weltmeister und trat 2020 bei einer Kundgebung gegen die Corona-Maßnahmen auf. Die Bundesversammlung wählt laut Handelsblatt am 30. Jänner den Nachfolger von Frank-Walter Steinmeier, als Favoritin gilt die von der Union nominierte Ilse Aigner.",
+      "warum_wichtig": "Die AfD hat in der Bundesversammlung keine Mehrheit, die Kandidatur zeigt aber, wie sie sich im Rennen um das Amt positioniert.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349239/afd-nominiert-ex-profi-fussballer-thomas-berthold-als-bundespraesident?ref=rss"
+        },
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/politik/deutschland/bundespraesidenten-wahl-afd-schickt-ex-fussballer-berthold-ins-rennen-um-bellevue/100269893.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-14-ki-1",
+      "datum": "2026-11-14",
+      "datum_bis": null,
+      "titel": "Claude Opus 5.5 wird Standardmodell auf allen bezahlten Plänen, Anthropic rät zu neuen Prompting-Gewohnheiten",
+      "text": "Laut The Decoder ist Opus 5.5 nun bei Pro, Max, Ultra und Team das Standardmodell. Anthropic empfiehlt, mit mittlerem Aufwand zu starten, da Opus 5.5 dort in internen Tests so gut war wie Opus 5 mit hohem Aufwand. Formulierungen wie „think hard“ sollen entfallen, stattdessen soll man Ziel, Ausgabeformat und Rückfragen in einer Nachricht beschreiben.",
+      "warum_wichtig": "Wer Claude nutzt, bekommt ohne Umstellung das neuere Modell und kann mit einfacheren Eingaben bessere Ergebnisse erzielen.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "THE DECODER",
+          "url": "https://the-decoder.de/anthropic-erklaert-welche-prompting-gewohnheiten-nutzer-bei-claude-opus-5-5-ablegen-sollten/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-14-ki-2",
+      "datum": "2026-11-14",
+      "datum_bis": null,
+      "titel": "Runway gibt Robotik-Modell Praxis-1 mit offenen Gewichten frei",
+      "text": "Das Modell steht samt Quellcode unter der Apache-Lizenz 2.0, die auch kommerzielle Nutzung erlaubt. Auf Nvidias Rangliste RoboLab 120 erreicht es laut Runway 46,2 Prozent Erfolgsquote, das ähnliche Modell FLUX 3 Action kommt auf 42,9 Prozent. Die Angaben stammen von Runway und sind nicht unabhängig bestätigt, die Standardversion braucht eine Grafikkarte mit 80 Gigabyte Speicher.",
+      "warum_wichtig": "Entwickler können ein leistungsfähiges Robotikmodell erstmals frei einsetzen und weiterentwickeln.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "THE DECODER",
+          "url": "https://the-decoder.de/robotermodell-als-open-source-runway-gibt-robotik-modell-praxis-1-mit-gewichten-frei/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-14-wirtschaft-1",
+      "datum": "2026-11-14",
+      "datum_bis": null,
+      "titel": "Petition für Huangs Rückkehr zu Nvidia hat mehr als 115.000 Unterschriften",
+      "text": "Nach dem Rücktritt von Konzernchef Jensen Huang am Donnerstag fordern laut TechCrunch unter anderem Elon Musk und mehr als 5.900 aktuelle Nvidia-Beschäftigte, dass der Verwaltungsrat ihn bis zu einer unabhängigen Untersuchung zurückholt. Unter den Unterzeichnern sind auch rund 63.000 Aktionäre. Interimschefin ist Finanzchefin Colette Kress, laut heise hat die Aktie binnen eines Monats fast 30 Prozent verloren.",
+      "warum_wichtig": "Der Streit um den Verwaltungsrat und die Führung belastet weiter den wichtigsten Chipkonzern der KI-Branche.",
+      "themen": [
+        "wirtschaft",
+        "ki"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": true,
+      "quellen": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/14/elon-musk-other-tech-execs-sign-petition-calling-on-nvidia-to-reinstate-jensen-huang/"
+        },
+        {
+          "name": "heise online",
+          "url": "https://www.heise.de/news/Nvidia-Angestellte-wollen-Jensen-Huang-zurueck-11525279.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-14-wirtschaft-2",
+      "datum": "2026-11-14",
+      "datum_bis": null,
+      "titel": "Bund und Niedersachsen stehen laut Bericht vor Ausstieg aus der Meyer Werft, MSC soll einsteigen",
+      "text": "Laut Spiegel, über den das Handelsblatt berichtet, wollen Bund, Land Niedersachsen und die Reederei MSC am Dienstag eine Vereinbarung unterzeichnen. MSC erhielte das Recht, rund 80 Prozent der Werft in Papenburg zu kaufen, die Familie Meyer hält etwa 20 Prozent. Ein Preis wird nicht genannt, ob Niedersachsen mitzeichnet, ist offen.",
+      "warum_wichtig": "Der Staat beendet damit früher als geplant seine Rolle bei der letzten großen deutschen Kreuzfahrtwerft.",
+      "themen": [
+        "wirtschaft"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/unternehmen/industrie/schiffbau-staat-steht-offenbar-vor-ausstieg-aus-meyer-werft/100269911.html"
+        },
+        {
+          "name": "n-tv",
+          "url": "https://www.n-tv.de/wirtschaft/Weltgroesste-Reederei-MSC-will-offenbar-Meyer-Werft-kaufen-id31534236.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-14-tirol-1",
+      "datum": "2026-11-14",
+      "datum_bis": null,
+      "titel": "Anzeige gegen Innsbrucker Bürgermeister Anzengruber wegen Verdachts auf Amtsmissbrauch",
+      "text": "Nach einem Mitarbeiterfest mit rund 800 Beschäftigten des Magistrats am 9. Oktober in der IVB-Remise wurde Johannes Anzengruber angezeigt. Er soll laut Tiroler Tageszeitung Mitarbeitende der Mobilen Überwachungsgruppe am Einschreiten bei Lärmbeschwerden gehindert haben. Die Staatsanwaltschaft Innsbruck prüft, ob ein Anfangsverdacht besteht, das Büro des Bürgermeisters kannte die Anzeige laut ORF noch nicht.",
+      "warum_wichtig": "Ob Ermittlungen gegen den Bürgermeister der Landeshauptstadt eingeleitet werden, entscheidet nun die Staatsanwaltschaft.",
+      "themen": [
+        "tirol",
+        "politik"
+      ],
+      "hauptthema": "tirol",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3379540/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349229/anzeige-gegen-innsbrucker-b252rgermeister-nach-mitarbeiterfest?ref=rss"
+        }
+      ]
+    }
+  ],
+  "videos": [],
+  "abschnitte": []
+}
