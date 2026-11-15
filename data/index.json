@@ -1,5 +1,5 @@
 {
-  "aktualisiert": "2026-11-15T03:13:09+01:00",
+  "aktualisiert": "2026-11-15T03:41:56+01:00",
   "start": "2026-11-08",
   "ausgaben": [
     {
@@ -78,6 +78,17 @@
       "datei": "data/taeglich/2026-11-08.json",
       "status": "ok",
       "erschienen": "2026-11-09T03:08:58+01:00"
+    },
+    {
+      "format": "woechentlich",
+      "titel": "Woche vom 8. bis 14. November 2026",
+      "zeitraum": {
+        "von": "2026-11-08",
+        "bis": "2026-11-14"
+      },
+      "datei": "data/woechentlich/2026-11-08_2026-11-14.json",
+      "status": "ok",
+      "erschienen": "2026-11-15T03:41:56+01:00"
     }
   ]
 }
