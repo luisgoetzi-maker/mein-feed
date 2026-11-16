@@ -1,0 +1,148 @@
+{
+  "format": "taeglich",
+  "titel": "Sonntag, 15. November 2026",
+  "zeitraum": { "von": "2026-11-15", "bis": "2026-11-15" },
+  "erschienen": "2026-11-16T03:08:10+01:00",
+  "status": "ok",
+  "fehler": null,
+  "ruhig": ["startups"],
+  "luecken": [],
+  "ausnahmen": [],
+  "meldungen": [
+    {
+      "id": "2026-11-15-weltpolitik-1",
+      "datum": "2026-11-15",
+      "datum_bis": null,
+      "titel": "Iran greift erneut US-Radaranlage in Bahrain an, Bahrain meldet Abwehr",
+      "text": "Die iranische Revolutionsgarde hat nach eigenen Angaben sechs Drohnen auf eine US-Luftabwehrradaranlage auf dem Stützpunkt Al-Rifaa in Bahrain abgefeuert. Bahrains Militär teilte mit, die Geschosse seien abgefangen worden, bevor sie ihre Ziele erreichten. Es war der zweite iranische Angriff auf Bahrain innerhalb von drei Tagen. Zuvor hatten die USA nach Angaben von US-Beamten begrenzte Schläge auf die iranische Insel Qeschm in der Straße von Hormus geführt; ein Verhandlungsdurchbruch zur Beendigung des Krieges steht weiter aus.",
+      "warum_wichtig": "Die Angriffe erschweren die Gespräche über ein Kriegsende und gefährden weiter den Schiffsverkehr in der Straße von Hormus, durch die üblicherweise etwa ein Fünftel des weltweit gehandelten Öls und Gases fließt.",
+      "themen": ["weltpolitik"],
+      "hauptthema": "weltpolitik",
+      "update": true,
+      "quellen": [
+        { "name": "tagesschau", "url": "https://www.tagesschau.de/ausland/asien/iran-revolutionsgarde-angriff-bahrain-100.html" },
+        { "name": "BBC", "url": "https://www.bbc.co.uk/news/articles/cqn4e2py48kwo" }
+      ]
+    },
+    {
+      "id": "2026-11-15-weltpolitik-2",
+      "datum": "2026-11-15",
+      "datum_bis": null,
+      "titel": "Estland schließt nach Sabotageversuch ab 1. Dezember alle Grenzübergänge zu Russland",
+      "text": "Estlands Regierung hat beschlossen, die drei Grenzübergänge zu Russland in Narva, Luhamaa und Koidula ab 1. Dezember zu schließen. Auslöser ist ein versuchter Brandanschlag auf den Drohnenhersteller Threod Systems in Viimsi bei Tallinn in der Nacht auf Samstag. Laut Estlands Generalstaatsanwältin und dem Inlandsgeheimdienst Kapo ordnete der russische Militärgeheimdienst GRU die Tat an; acht Verdächtige wurden festgenommen. Moskau reagierte verärgert und sprach von „Russophobie“.",
+      "warum_wichtig": "Estland zieht aus einem mutmaßlich vom russischen Geheimdienst angeordneten Sabotageversuch die Konsequenz, den Fußgänger- und Güterverkehr an der EU-Außengrenze zu Russland einzustellen.",
+      "themen": ["weltpolitik"],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        { "name": "tagesschau", "url": "https://www.tagesschau.de/ausland/europa/estland-russland-grenze-geschlossen-100.html" },
+        { "name": "POLITICO Europe", "url": "https://www.politico.eu/article/estonia-accuses-russia-of-attempted-arson-attack-on-drone-maker/" }
+      ]
+    },
+    {
+      "id": "2026-11-15-weltpolitik-3",
+      "datum": "2026-11-15",
+      "datum_bis": null,
+      "titel": "Israel tötet Hamas-Kommandeur in Gaza, vier Staaten fordern ungehinderte Hilfe",
+      "text": "Die israelische Armee hat im Gazastreifen den Hamas-Brigadekommandeur von Rafah, Samir Abu Junis, getötet. Er soll an der Planung des Angriffs vom 7. Oktober 2023 beteiligt gewesen sein; die Hamas bestätigte seinen Tod. Getrennt davon forderten die Außenminister von Großbritannien, Italien, Kanada und Australien Israel auf, humanitäre Hilfe unverzüglich und ungehindert in den gesamten Gazastreifen zu lassen. Nach ihren Angaben werden an der Grenze 150.000 Zelte und andere lebenswichtige Hilfsgüter zurückgehalten.",
+      "warum_wichtig": "Die Erklärung zeigt wachsenden Druck enger westlicher Partner auf Israel, während die Angriffe im Gazastreifen weitergehen.",
+      "themen": ["weltpolitik"],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        { "name": "tagesschau", "url": "https://www.tagesschau.de/ausland/asien/hamas-kommandeur-gazastreifen-getoetet-100.html" },
+        { "name": "DER STANDARD", "url": "https://www.derstandard.at/story/3000000349276/nahost-hamas-kommandant-bei-israelischem-angriff-in-gaza-get246tet?ref=rss" },
+        { "name": "POLITICO Europe", "url": "https://www.politico.eu/article/israel-kills-hamas-commander-in-gaza-strike/" }
+      ]
+    },
+    {
+      "id": "2026-11-15-politik-1",
+      "datum": "2026-11-15",
+      "datum_bis": null,
+      "titel": "Hunderttausende demonstrieren in Prag gegen Babiš' Reform der öffentlichen Medien",
+      "text": "In Prag sind laut Veranstaltern 350.000 bis 450.000 Menschen gegen die Pläne der Regierung von Andrej Babiš für Tschechiens öffentlich-rechtlichen Rundfunk auf die Straße gegangen; die Polizei nannte zunächst keine Zahl. Der Gesetzentwurf will die Rundfunkgebühren abschaffen und Fernsehen und Radio aus dem Staatshaushalt finanzieren. Er sieht laut Reuters zudem eine Kürzung der Mittel um 15 Prozent vor und wurde im Oktober in erster Lesung angenommen. Babiš weist zurück, dass die Regierung die Sender kontrollieren wolle.",
+      "warum_wichtig": "Kritiker befürchten, dass die Finanzierung über den Staatshaushalt die Sender vom politischen Willen der Regierung abhängig macht, in einem EU-Mitgliedstaat.",
+      "themen": ["politik"],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        { "name": "tagesschau", "url": "https://www.tagesschau.de/ausland/europa/demo-tschechien-rundfunk-100.html" },
+        { "name": "BBC", "url": "https://www.bbc.co.uk/news/articles/cm8e0knr7604o" }
+      ]
+    },
+    {
+      "id": "2026-11-15-ki-1",
+      "datum": "2026-11-15",
+      "datum_bis": null,
+      "titel": "Meituan gibt Gewichte des Agentenmodells LongCat-2.5 frei, trainiert auf chinesischer Hardware",
+      "text": "Der chinesische Lieferdienst Meituan hat die Gewichte seines Modells LongCat-2.5 veröffentlicht, eine Woche nach der offiziellen Vorstellung. Es hat 1,6 Billionen Parameter, von denen pro Token etwa 48 Milliarden aktiv sind, versteht Text, Bilder und Videos und ist für Agenten gebaut, die lange Aufgaben wie das Programmieren selbstständig erledigen. Laut Meituan wurde es vollständig auf chinesischer Hardware trainiert. Bei Coding-Benchmarks liegt es laut The Decoder auf dem Niveau, das Claude Opus 5 vor einigen Monaten erreichte.",
+      "warum_wichtig": "Frei verfügbare Gewichte auf diesem Niveau, trainiert ohne US-Chips, erlauben es jedem, eigene Coding-Agenten damit zu betreiben.",
+      "themen": ["ki"],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        { "name": "THE DECODER", "url": "https://the-decoder.de/longcat-2-5-meituan-gibt-gewichte-seines-16-billionen-parameter-modells-fuer-ki-agenten-frei/" }
+      ]
+    },
+    {
+      "id": "2026-11-15-ki-2",
+      "datum": "2026-11-15",
+      "datum_bis": null,
+      "titel": "Verbraucherschützer verklagen Anthropic, Google, Meta, OpenAI und SpaceXSI auf Entwicklungsstopp",
+      "text": "Ein Bündnis aus Verbraucherschutz- und Sicherheitsorganisationen, darunter Public Citizen, hat vor dem Superior Court in San Francisco Klage gegen fünf KI-Unternehmen eingereicht. Verlangt wird, die Entwicklung und Bereitstellung von Modellen einzufrieren, die leistungsfähiger sind als die heutigen. Beklagt sind Anthropic, Google, Meta, OpenAI und SpaceXSI, die KI-Sparte von Elon Musk bei SpaceX. Die Kläger stützen sich auf kalifornisches Recht gegen unlauteren Wettbewerb und nennen katastrophale Risiken.",
+      "warum_wichtig": "Die Klage zielt auf einen Entwicklungsstopp bei allen großen US-KI-Anbietern, darunter Anthropic, ist aber zunächst nur eingereicht und ihr Ausgang offen.",
+      "themen": ["ki"],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        { "name": "heise online", "url": "https://www.heise.de/news/Kalifornien-Klage-fordert-Stopp-der-KI-Entwicklung-wegen-katastrophaler-Risiken-11525487.html" }
+      ]
+    },
+    {
+      "id": "2026-11-15-wirtschaft-1",
+      "datum": "2026-11-15",
+      "datum_bis": null,
+      "titel": "US-Finanzminister Bessent fordert externen Nvidia-Chef und Antworten binnen zehn Tagen",
+      "text": "Nach dem Rücktritt von Konzernchef Jensen Huang am Donnerstag verlangt US-Finanzminister Scott Bessent laut Fox News, dass Nvidia einen neuen Chef von außerhalb des Konzerns sucht. Verwaltungsrat und externe Anwälte sollen binnen zehn Tagen klären, ob Nvidia Warnsignale bei Scheinfirmen ignorierte, über die Chips entgegen den US-Exportregeln nach China gelangt sein sollen. Laut Financial Times arbeiten Verbündete Huangs an seiner Rückkehr; das Handelsblatt hält Rückhalt aus dem Weißen Haus dafür für unwahrscheinlich.",
+      "warum_wichtig": "Die Regierung setzt Nvidia, den wichtigsten Chiplieferanten der KI-Branche, unter Fristdruck, und die Führungsfrage bleibt für Anleger offen.",
+      "themen": ["wirtschaft", "ki"],
+      "hauptthema": "wirtschaft",
+      "update": true,
+      "quellen": [
+        { "name": "Handelsblatt", "url": "https://www.handelsblatt.com/technik/it-internet/wirtschaftspolitik-us-finanzminister-fordert-neuen-nvidia-chef-von-ausserhalb/100270039.html" },
+        { "name": "ORF", "url": "https://orf.at/stories/3448277/" }
+      ]
+    },
+    {
+      "id": "2026-11-15-wirtschaft-2",
+      "datum": "2026-11-15",
+      "datum_bis": null,
+      "titel": "Bund lädt Brookfield, Equinor und Centrica zu verbindlichen Angeboten für Uniper ein",
+      "text": "Die Bundesregierung hat das Bieterfeld für den Gasversorger Uniper eingeengt. Ein Konsortium aus Brookfield und CPP, der norwegische Konzern Equinor und der britische Versorger Centrica erhielten am Freitag die Einladung zu verbindlichen Angeboten, wie das Handelsblatt von einem Insider bestätigt bekam. RWE mit KKR und die EP-Gruppe des Milliardärs Daniel Kretinsky sind ausgeschieden. Der Bund würde bei einem Verkauf des 75-Prozent-Anteils mit 25 Prozent beteiligt bleiben und ein Vetorecht behalten.",
+      "warum_wichtig": "Es entscheidet sich, wer künftig Deutschlands wichtigsten Gasversorger mehrheitlich kontrolliert, und alle verbliebenen Bieter kommen aus dem Ausland.",
+      "themen": ["wirtschaft"],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        { "name": "Handelsblatt", "url": "https://www.handelsblatt.com/unternehmen/industrie/energie-kanadier-norweger-und-briten-in-auswahl-fuer-uniper-uebernahme/100269874.html" }
+      ]
+    },
+    {
+      "id": "2026-11-15-tirol-1",
+      "datum": "2026-11-15",
+      "datum_bis": null,
+      "titel": "Innsbrucker Olympiabrücke ab Montag zwei Wochen lang nur einspurig befahrbar",
+      "text": "Die Olympiabrücke in Innsbruck ist ab Montag voraussichtlich zwei Wochen lang in beiden Richtungen nur einspurig befahrbar. In der ersten Woche werden die beiden äußeren Fahrspuren gesperrt, in der zweiten Woche wechselt die Verkehrsführung. Grund ist eine Sonderprüfung der Spannglieder der Spannbetonbrücke im Auftrag des Landes Tirol. Die Brücke ist Teil des Südrings und wird täglich von etwa 50.000 Fahrzeugen befahren; es drohen Verzögerungen vor allem zu Stoßzeiten.",
+      "warum_wichtig": "Pendler zwischen Wilten und Pradl müssen auf einer der meistbefahrenen Innsbrucker Verbindungen zwei Wochen lang mit Staus rechnen.",
+      "themen": ["tirol"],
+      "hauptthema": "tirol",
+      "update": false,
+      "quellen": [
+        { "name": "tirol.ORF.at", "url": "https://tirol.orf.at/stories/3379443/" },
+        { "name": "Tiroler Tageszeitung", "url": "https://www.tt.com/artikel/30946973/teilweise-sperre-ab-montag-innsbrucker-olympiabruecke-wird-zum-nadeloehr" }
+      ]
+    }
+  ],
+  "videos": [],
+  "abschnitte": []
+}
