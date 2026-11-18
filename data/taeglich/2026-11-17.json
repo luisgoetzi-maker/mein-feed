@@ -1,0 +1,382 @@
+{
+  "format": "taeglich",
+  "titel": "Dienstag, 17. November 2026",
+  "zeitraum": {
+    "von": "2026-11-17",
+    "bis": "2026-11-17"
+  },
+  "erschienen": "2026-11-18T03:08:39+01:00",
+  "status": "ok",
+  "fehler": null,
+  "ruhig": [],
+  "luecken": [],
+  "ausnahmen": [],
+  "meldungen": [
+    {
+      "id": "2026-11-17-weltpolitik-1",
+      "datum": "2026-11-17",
+      "datum_bis": null,
+      "titel": "Ukraine zerstört mit Marschflugkörpern einen Bogen der Krim-Brücke",
+      "text": "Bei einem großangelegten Luftangriff in der Nacht auf Dienstag hat die Ukraine die Krim-Brücke schwer beschädigt. Laut tagesschau ist der Hauptbogen der Straßenbrücke samt Teil der Fahrbahn eingestürzt, Präsident Selenskyj bestätigte das mit einem Video; laut inoffiziellen ukrainischen Angaben trafen Marschflugkörper vom Typ Flamingo des Herstellers Fire Point das Bauwerk. Russland stellte den Autoverkehr ein und leitete ein Verfahren wegen Terrorismus ein. US-Verteidigungsstaatssekretär Elbridge Colby kritisierte bei einem Treffen im NATO-Hauptquartier Angriffe weit hinter der Front, Verteidigungsminister Pistorius nannte diese Kritik „ziemlich dumm“.",
+      "warum_wichtig": "Die Brücke ist eine wichtige Nachschubroute für die russischen Truppen im Süden der Ukraine, und der Streit mit den USA über solche Angriffe belastet die Abstimmung unter den Verbündeten.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/europa/selenskyj-teilzerstoerung-krim-bruecke-100.html"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349659/wie-der-ukraine-der-grosse-schlag-gegen-putins-krimbruecke-gelang?ref=rss"
+        },
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448498/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-17-weltpolitik-2",
+      "datum": "2026-11-17",
+      "datum_bis": null,
+      "titel": "USA prüfen laut CNN mögliche iranische Anschlagspläne auf Washington",
+      "text": "Laut einem CNN-Bericht unter Berufung auf sieben US-Beamte haben US-Geheimdienste Hinweise, dass Iran den Einsatz einer schmutzigen Bombe oder einer chemischen Waffe in Washington erwägt, gerichtet gegen ranghohe Regierungsmitglieder. Präsident Trump sagte in Manila, die USA nähmen das sehr ernst, und drohte Iran mit einem beispiellosen Preis; das Weiße Haus sieht aktuell keine glaubwürdige Bedrohung, Teheran nennt die Vorwürfe haltlos. Parallel wehrte Kuwait erneut Drohnen aus Iran ab, nachdem das US-Militär als Vergeltung für einen Angriff auf eine US-Radaranlage in Bahrain eine Raketenstellung der Revolutionsgarden auf der Insel Gheschm angegriffen hatte.",
+      "warum_wichtig": "Die Spannungen im ungelösten Iran-Konflikt steigen weiter, während Verhandlungen seit Monaten in einer Sackgasse stecken.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/amerika/trump-schmutzige-bombe-iran-100.html"
+        },
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448513/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-17-weltpolitik-3",
+      "datum": "2026-11-17",
+      "datum_bis": null,
+      "titel": "Israels Opposition wählt mit 66 Stimmen den Parlamentspräsidenten der Knesset",
+      "text": "Das israelische Parlament hat den Politiker Matan Kahana von Gadi Eisenkots Mitte-Partei Jaschar mit 66 von 120 Stimmen zum neuen Parlamentspräsidenten gewählt. Er löst Amir Ohana vom Likud ab; der Likud-Kandidat Ofir Katz erhielt nicht genug Stimmen. Die Wahl vom 27. Oktober hatte keinem Lager eine Mehrheit gebracht, Eisenkot hat bis zum 6. Dezember Zeit, eine Regierung zu bilden.",
+      "warum_wichtig": "Die Opposition steuert nun die Abläufe im Parlament und will damit Teile des Justizumbaus rückgängig machen, obwohl noch keine Regierung steht.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448508/"
+        },
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/politik/international/israel-neuer-knesset-sprecher-netanjahu-verliert-das-parlament/100270558.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-17-politik-1",
+      "datum": "2026-11-17",
+      "datum_bis": null,
+      "titel": "Koalition legt neuen Entwurf zur Bundesstaatsanwaltschaft vor",
+      "text": "ÖVP, SPÖ und NEOS haben sich auf einen überarbeiteten Entwurf geeinigt, der dem Nationalrat zugewiesen wird. Die dreiköpfige unabhängige Weisungsspitze soll neun statt sechs Jahre im Amt bleiben, das Abstimmungsverhalten wird dem Parlament nicht offengelegt. Für die nötige Zweidrittelmehrheit braucht die Regierung die Grünen; diese begrüßen die Änderungen, die Frage der Bestellung bleibt aber offen.",
+      "warum_wichtig": "Das Vorhaben soll die Weisungsspitze der Staatsanwaltschaften unabhängiger machen und scheitert ohne die Grünen.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349621/koalition-einigt-sich-auf-bundesstaatsanwaltschaft?ref=rss"
+        },
+        {
+          "name": "Die Presse",
+          "url": "https://www.diepresse.com/41462609/regierung-einigt-sich-auf-neuen-entwurf-zur-bundesstaatsanwaltschaft"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-17-politik-2",
+      "datum": "2026-11-17",
+      "datum_bis": null,
+      "titel": "Doskozil verlangt Bablers Abgang auch aus allen Regierungsämtern",
+      "text": "Burgenlands Landeshauptmann Hans Peter Doskozil fordert, dass SPÖ-Chef Andreas Babler zusätzlich zum Parteivorsitz auch alle Regierungsämter abgibt. Fix ist bisher nur, dass Babler mit Jahresbeginn Vizekanzler und Parteivorsitz abgeben soll; Finanzminister Markus Marterbauer, der ihm als Vizekanzler folgen soll, ließ offen, ob Babler Minister bleibt. Doskozil sagte, dass er bei Einhaltung des Zeitplans wie zugesagt in die Bundesparteigremien zurückkehre.",
+      "warum_wichtig": "Die Forderung entscheidet mit darüber, wie die SPÖ und die Regierung ab Jänner personell aufgestellt sind.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448510/"
+        },
+        {
+          "name": "Die Presse",
+          "url": "https://www.diepresse.com/41464648/doskozil-fordert-den-rueckzug-bablers-auch-als-minister"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-17-politik-3",
+      "datum": "2026-11-17",
+      "datum_bis": null,
+      "titel": "Neues Immissionsschutzgesetz Luft scheitert im Nationalrat, Tirol erwägt Alleingang",
+      "text": "Das neue Immissionsschutzgesetz Luft kommt am Mittwoch nicht ins Parlament, nachdem die Koalition bis drei Uhr früh verhandelt hat. Laut ORF Tirol werfen ÖVP und SPÖ den NEOS vor, sich querzulegen; die NEOS weisen das zurück, verweisen auf Einwände von vier Ministerien und baten um 14 Tage Zeit. Laut Tiroler Tageszeitung prüft die Tiroler Landesregierung nun einen Alleingang.",
+      "warum_wichtig": "Tirol wollte mit dem Gesetz die Lkw-Transitbeschränkungen absichern, falls der EuGH sie nach der Klage Italiens aufhebt; ein Beschluss noch in diesem Jahr ist unrealistisch geworden.",
+      "themen": [
+        "politik",
+        "tirol"
+      ],
+      "hauptthema": "politik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "ORF Tirol",
+          "url": "https://tirol.orf.at/stories/3380005/"
+        },
+        {
+          "name": "Tiroler Tageszeitung",
+          "url": "https://www.tt.com/artikel/30947133/bauchfleck-beim-ig-luft-vp-sp-werfen-neos-erpressung-vor-tirol-prueft-jetzt-solo"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-17-ki-1",
+      "datum": "2026-11-17",
+      "datum_bis": null,
+      "titel": "Anthropic peilt beim Börsengang das obere Ende der Preisspanne an",
+      "text": "Anthropic hat Investoren signalisiert, dass es mit einem Ausgabepreis am oberen Ende der Spanne von 70 bis 78 Dollar je Aktie oder darüber rechnet, was einer Bewertung von rund 1,4 Billionen Dollar entspräche. Laut Handelsblatt gingen mehrere Aufträge über jeweils zehn Milliarden Dollar oder mehr ein; mit der Privatplatzierung wären es insgesamt bis zu 90,4 Milliarden Dollar. In der Roadshow-Präsentation zeigt Anthropic laut Trending Topics, dass sein internes Modell Claude Mythos Preview ein Claude-Modell in rund drei Tagen fast ohne menschliches Eingreifen auf AMD-Chips zum Laufen brachte. Der Handel soll am Donnerstag beginnen.",
+      "warum_wichtig": "Es ist ein möglicherweise sehr großer Börsengang, und die AMD-Zahl zeigt, wie sehr KI die Abhängigkeit von Nvidia-Software verringern könnte.",
+      "themen": [
+        "ki",
+        "wirtschaft"
+      ],
+      "hauptthema": "ki",
+      "update": true,
+      "quellen": [
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/technik/ki/kuenstliche-intelligenz-anthropic-peilt-bei-ipo-obere-preisspanne-an/100270722.html"
+        },
+        {
+          "name": "Trending Topics",
+          "url": "https://www.trendingtopics.eu/anthropic-mythos-amd-chips-cuda/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-17-ki-2",
+      "datum": "2026-11-17",
+      "datum_bis": null,
+      "titel": "OpenAI bringt GPT-6.2 Astra und Sol, Astra liegt hinter Claude Fable 5.2 auf Platz 2",
+      "text": "OpenAI hat zwei neue Modelle veröffentlicht: GPT-6.2 Astra für anspruchsvolle Facharbeit und GPT-6.2 Sol für den Alltag, verfügbar in ChatGPT Work, Codex und der API. Astra kostet laut OpenAI 8 Dollar je Million Eingabe-Tokens, 20 Prozent weniger als der Vorgänger. Im unabhängigen Artificial-Analysis-Ranking liegt Astra laut Trending Topics auf Platz 2 hinter Claude Fable 5.2, Entwickler kritisieren dort aber Endlosschleifen und überflüssige Rückfragen.",
+      "warum_wichtig": "Die Modelle sind günstiger und liegen in Rankings dicht an den besten Konkurrenten, was den Preisdruck unter den KI-Anbietern erhöht.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "THE DECODER",
+          "url": "https://the-decoder.de/openai-bringt-gpt-6-2-astra-und-sol-mehr-leistung-bei-sinkenden-preisen/"
+        },
+        {
+          "name": "Trending Topics",
+          "url": "https://www.trendingtopics.eu/gpt-6-2-astra-openai-takes-second-place-behind-anthropics-fable-5-2/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-17-wirtschaft-1",
+      "datum": "2026-11-17",
+      "datum_bis": null,
+      "titel": "Nvidia verdoppelt Umsatz und Gewinn, will Huang aber nicht zurückholen",
+      "text": "Nvidia hat im ersten Quartal ohne Gründer Jensen Huang den Umsatz auf 115,8 Milliarden Dollar verdoppelt, erwartet worden waren 109 Milliarden. Der Gewinn stieg auf 65,3 Milliarden Dollar, für das laufende Quartal stellt der Konzern 130 Milliarden Dollar Umsatz in Aussicht. Verwaltungsratschef Harvey Jones sagte, das Gremium habe Huangs Rücktritt einstimmig angenommen und wolle ihn nicht wieder als Chef einsetzen, obwohl Huang sich dazu bereit erklärt hatte.",
+      "warum_wichtig": "Das Geschäft läuft trotz der Führungskrise auf Rekordniveau, die Frage der Nachfolge und der Kongressaussage Huangs im Dezember bleibt offen.",
+      "themen": [
+        "wirtschaft",
+        "ki"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": true,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448509/"
+        },
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/technik/it-internet/chip-konzern-nvidia-verdoppelt-erneut-umsatz-und-gewinn-keine-plaene-fuer-rueckkehr-huangs/100268998.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-17-wirtschaft-2",
+      "datum": "2026-11-17",
+      "datum_bis": null,
+      "titel": "Datenleck mit 15 Millionen Dokumenten belastet die Deutsche Bank",
+      "text": "Rund 50 Medien, darunter Spiegel, ZDF frontal, New York Times, Financial Times und DER STANDARD, haben mehr als 15 Millionen interne Dokumente der Deutschen Bank ausgewertet, die von Whistleblowern stammen. Sie zeigen laut den Berichten, dass interne Warnungen vor Geldwäsche und Sanktionsverstößen übergangen wurden, etwa bei der Werbung um russische Oligarchen bis kurz vor dem Ukraine-Krieg. Die Aktie verlor zeitweise mehr als sechs Prozent, die Bank spricht von Altlasten.",
+      "warum_wichtig": "Die Vorwürfe können Aufsicht und Politik auf den Plan rufen und belasten das Ansehen der größten deutschen Bank.",
+      "themen": [
+        "wirtschaft"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/wirtschaft/unternehmen/deutsche-bank-datenleak-100.html"
+        },
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448439/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-17-wirtschaft-3",
+      "datum": "2026-11-17",
+      "datum_bis": null,
+      "titel": "Deutschland nominiert Markus Brunnermeier als EZB-Chefvolkswirt",
+      "text": "Finanzminister Lars Klingbeil hat den Princeton-Ökonomen Markus Brunnermeier für den Posten des Chefvolkswirts im EZB-Direktorium vorgeschlagen, das Kabinett berät am Mittwoch. Anlass ist der angekündigte vorzeitige Rücktritt von EZB-Chefin Christine Lagarde am 7. Februar; die Euro-Staaten wollen bis Jahresende ihren Nachfolger bestimmen. Ökonomen wie Monika Schnitzer lobten die Wahl.",
+      "warum_wichtig": "Der Chefvolkswirt bereitet die Zins- und Strategieentscheidungen des EZB-Rats vor und prägt damit die Geldpolitik im Euroraum.",
+      "themen": [
+        "wirtschaft"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "n-tv",
+          "url": "https://www.n-tv.de/wirtschaft/Klingbeil-will-Markus-Brunnermeier-als-neuen-EZB-Chefoekonomen-id31544351.html"
+        },
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/finanzen/geldpolitik/ezb-lob-fuer-nominierung-von-markus-brunnermeier-zum-chefvolkswirt/100270602.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-17-tirol-1",
+      "datum": "2026-11-17",
+      "datum_bis": null,
+      "titel": "Kein Ermittlungsverfahren gegen Innsbrucks Bürgermeister Anzengruber",
+      "text": "Die Staatsanwaltschaft leitet kein Ermittlungsverfahren gegen Bürgermeister Johannes Anzengruber wegen des Verdachts auf Amtsmissbrauch ein. Die Anzeige der Polizei war nach einem Fest mit rund 800 städtischen Mitarbeitenden am 9. Oktober gekommen. Laut Staatsanwaltschaft war die Feier privat, ein Veranstaltungsbescheid daher nicht nötig.",
+      "warum_wichtig": "Damit ist der Vorwurf gegen den Bürgermeister vom Tisch.",
+      "themen": [
+        "tirol"
+      ],
+      "hauptthema": "tirol",
+      "update": true,
+      "quellen": [
+        {
+          "name": "ORF Tirol",
+          "url": "https://tirol.orf.at/stories/3379937/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349721/kein-ermittlungsverfahren-gegen-innsbrucks-b252rgermeister-anzengruber?ref=rss"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-17-tirol-2",
+      "datum": "2026-11-17",
+      "datum_bis": null,
+      "titel": "Arlbergbahn zwischen Ötztal und Bludenz ab Mittwoch bis Sonntag gesperrt",
+      "text": "Die ÖBB sperren die Bahnstrecke zwischen Ötztal und Bludenz von Mittwoch, 9.20 Uhr, bis Sonntag, 22. November, wegen Bauarbeiten. Es fahren Ersatzbusse, Nachtzüge werden über Deutschland umgeleitet. Die ÖBB arbeiten an Gleisen und Oberleitungen und nehmen in Schönwies ein neues elektronisches Stellwerk in Betrieb.",
+      "warum_wichtig": "Reisende auf der wichtigen West-Ost-Verbindung müssen fünf Tage lang auf Busse umsteigen.",
+      "themen": [
+        "tirol"
+      ],
+      "hauptthema": "tirol",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF Tirol",
+          "url": "https://tirol.orf.at/stories/3377915/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-17-tirol-3",
+      "datum": "2026-11-17",
+      "datum_bis": null,
+      "titel": "Arbeiter kritisieren Sicherheit auf der Baustelle des Brenner-Basistunnels",
+      "text": "Nach dem letzten tödlichen Arbeitsunfall vor zwei Wochen schildern Arbeiter dem ORF Tirol anonym Zeitdruck, schlechte Belüftung und zu wenig Schutz vor Staub, Lärm und Hitze. Sie berichten auch von beschädigten Fahrzeugen und mangelhaft geprüftem Hebezeug. Seit Baubeginn sind sechs Menschen auf der Baustelle gestorben; die Arbeiter fordern mehr Sicherheit und bessere Kontrollen.",
+      "warum_wichtig": "Die Vorwürfe erhöhen den Druck auf die Betreiber der Großbaustelle, die Sicherheit zu verbessern.",
+      "themen": [
+        "tirol"
+      ],
+      "hauptthema": "tirol",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF Tirol",
+          "url": "https://tirol.orf.at/stories/3379913/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-17-startups-1",
+      "datum": "2026-11-17",
+      "datum_bis": null,
+      "titel": "Isomorphic Labs sammelt fünf Milliarden Dollar für KI-Medikamentenentwicklung ein",
+      "text": "Die Alphabet-Tochter Isomorphic Labs hat fünf Milliarden Dollar eingesammelt, angeführt von Greenoaks und Sequoia Capital, zusammen mit Andreessen Horowitz und Alphabet. Es ist die zweite Milliardenrunde binnen sechs Monaten, im Mai waren es 2,1 Milliarden Dollar. Das Geld soll die Wirkstoffplattform und die Pipeline in Richtung klinischer Studien voranbringen; ein zugelassenes Medikament gibt es bisher nicht.",
+      "warum_wichtig": "Es ist eine der größten Finanzierungsrunden eines KI-Startups und zeigt, wie viel Kapital in KI-gestützte Medikamentenentwicklung fließt.",
+      "themen": [
+        "startups",
+        "ki"
+      ],
+      "hauptthema": "startups",
+      "update": false,
+      "quellen": [
+        {
+          "name": "THE DECODER",
+          "url": "https://the-decoder.de/alphabet-tochter-isomorphic-labs-sammelt-5-milliarden-dollar-fuer-ki-medikamentenentwicklung-ein/"
+        },
+        {
+          "name": "Sifted",
+          "url": "https://sifted.eu/articles/isomorphic-labs-raises-5bn-backed-by-sequoia-and-a16z/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-17-startups-2",
+      "datum": "2026-11-17",
+      "datum_bis": null,
+      "titel": "Robotik-Startup Genesis AI sammelt laut Sifted 500 Millionen Dollar ein",
+      "text": "Das Robotik-Startup Genesis AI hat laut Sifted 500 Millionen Dollar eingesammelt, unter den Geldgebern ist Nvidia. Genesis AI entwickelt Software-Gehirne für Roboter. Weitere Einzelheiten zur Runde konnten nicht geprüft werden, da der Artikel nicht abrufbar war.",
+      "warum_wichtig": "Die Runde zeigt, dass Investoren weiter große Summen in Robotik und die dazugehörigen KI-Modelle stecken.",
+      "themen": [
+        "startups"
+      ],
+      "hauptthema": "startups",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Sifted",
+          "url": "https://sifted.eu/articles/genesis-ai-raises-500m/"
+        }
+      ]
+    }
+  ],
+  "videos": [],
+  "abschnitte": []
+}
