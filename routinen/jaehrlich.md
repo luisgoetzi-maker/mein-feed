@@ -11,7 +11,7 @@ Der Jahresrückblick fasst das **Vorjahr** zusammen und erscheint am 1. Jänner 
 
 ## 0. Nur am 1. Jänner
 
-Die Aufgabe startet an jedem Monatsersten um 4:37, weil sich in den geplanten Aufgaben kein jährlicher Zeitplan einstellen lässt. Prüfe deshalb zuerst das Datum in Wien:
+Die Aufgabe startet an jedem Monatsersten um 4:37 (mit Wiederholungen um 7:37 und 10:37), weil sich in den geplanten Aufgaben kein jährlicher Zeitplan einstellen lässt. Prüfe deshalb zuerst das Datum in Wien:
 
 ```bash
 TZ=Europe/Vienna date +%m-%d

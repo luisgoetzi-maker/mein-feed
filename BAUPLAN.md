@@ -34,7 +34,7 @@ Vier Formate, jedes fasst einen abgeschlossenen Zeitraum zusammen und erscheint 
 - Ausnahme: Gibt es wirklich mehr wichtige Meldungen, darf ein Thema die Obergrenze um höchstens 2 überschreiten (täglich also 5, wöchentlich 7, monatlich 10, jährlich 12). Jede zusätzliche Meldung muss so wichtig sein, dass sie eine der regulären verdrängen könnte; die Begründung steht in `ausnahmen`, und die App zeigt sie beim Thema an.
 - Die Woche zählt von Sonntag bis Samstag, damit der Sonntagsrückblick eine abgeschlossene Woche zusammenfasst. Beispiel: Der Rückblick vom 8.11.2026 umfasst den 1. bis 7.11.2026.
 - Die Startzeiten liegen ein paar Minuten nach der vollen Stunde, weil Läufe genau zur vollen Stunde laut Doku oft verspätet starten.
-- Läufe pro Tag: normal 1, sonntags 2, am Monatsersten 3 (an einem Sonntag 4), am 1.1. bis zu 4. Der jährliche Lauf startet an jedem Monatsersten, endet aber außer am 1.1. sofort (siehe Teil D). Jeder Lauf zählt gegen dein normales Abo-Kontingent. Laut aktueller Doku gibt es daneben nur noch ein Stundenlimit von 100 geplanten Läufen, die früher genannte Tagesgrenze von 5 gilt nicht mehr.
+- Läufe pro Tag (ohne Wiederholungen): normal 1, sonntags 2, am Monatsersten 3 (an einem Sonntag 4), am 1.1. bis zu 4. Jede Aufgabe startet 3 und 6 Stunden später noch einmal, falls ein Lauf am Nutzungslimit scheitert (siehe Teil D). Der jährliche Lauf startet an jedem Monatsersten, endet aber außer am 1.1. sofort (siehe Teil D). Jeder Lauf zählt gegen dein normales Abo-Kontingent. Laut aktueller Doku gibt es daneben nur noch ein Stundenlimit von 100 geplanten Läufen, die früher genannte Tagesgrenze von 5 gilt nicht mehr.
 - Der erste Jahresrückblick am 1.1.2027 deckt nur November und Dezember 2026 ab und heißt deshalb „Kurzrückblick 2026“.
 
 ## Überthemen und Inhaltsregeln
@@ -311,6 +311,7 @@ Jeder Fall hat eine feste Lösung, damit die Läufe ohne Rückfrage durchlaufen.
 | Mehrere Formate am selben Tag (am 1.1. bis zu 4) | Feste Reihenfolge, je 30 Minuten versetzt; jeder Lauf wartet auf seine Vorstufe (alle 10 Minuten neu holen, höchstens 3 Mal) |
 | Ein Lauf fällt aus oder schreibt `fehler` | Der nächste Rückblick recherchiert die fehlenden Tage selbst nach und trägt sie in `luecken` ein |
 | Ein Lauf startet doppelt | Existiert die Ausgabe schon mit `ok` oder `ruhig`, endet der Lauf ohne Änderung |
+| Ein Lauf wird wegen des Nutzungslimits abgelehnt | Die Aufgabe startet 3 und 6 Stunden später erneut (Teil D); bei erreichtem Wochenlimit von Hand mit **Run now** nachholen, sobald es zurückgesetzt ist |
 | Ruhiger Tag und abgestürzter Lauf dürfen nicht gleich aussehen | `status` `ruhig` gegenüber `fehler`; die App zeigt `fehler` deutlich an, und fehlt die Tagesausgabe nach 6:00 ganz, zeigt sie „Heute noch keine Ausgabe“ |
 | Ausgabe würde am Tag ihres Erscheinens gelöscht | 7-Tage-Schonfrist |
 | Der Branch `claude/feed-daten` fehlt beim ersten Lauf | Der tägliche Lauf legt ihn mit leerer `index.json` an |
@@ -355,13 +356,14 @@ Für jede Aufgabe gilt: Prompt aus dem Abschnitt oben einfügen und die erste Ze
 
 | Name | Erste Prompt-Zeile | Trigger | Zeit |
 | --- | --- | --- | --- |
-| Mein Feed · täglich | `Format: taeglich` | **Schedule** → Daily | 3:07 |
-| Mein Feed · wöchentlich | `Format: woechentlich` | **Schedule** → Weekly, Sonntag | 3:37 |
-| Mein Feed · monatlich | `Format: monatlich` | **Custom**: `CRON_TZ=Europe/Vienna 7 4 1 * *` | am 1., 4:07 |
-| Mein Feed · jährlich | `Format: jaehrlich` | **Custom**: `CRON_TZ=Europe/Vienna 37 4 1 * *` | am 1., 4:37; arbeitet nur am 1.1. |
+| Mein Feed · täglich | `Format: taeglich` | **Custom**: `CRON_TZ=Europe/Vienna 7 3,6,9 * * *` | 3:07, Wiederholung 6:07 und 9:07 |
+| Mein Feed · wöchentlich | `Format: woechentlich` | **Custom**: `CRON_TZ=Europe/Vienna 37 3,6,9 * * 0` | Sonntag 3:37, Wiederholung 6:37 und 9:37 |
+| Mein Feed · monatlich | `Format: monatlich` | **Custom**: `CRON_TZ=Europe/Vienna 7 4,7,10 1 * *` | am 1., 4:07, Wiederholung 7:07 und 10:07 |
+| Mein Feed · jährlich | `Format: jaehrlich` | **Custom**: `CRON_TZ=Europe/Vienna 37 4,7,10 1 * *` | am 1., 4:37, Wiederholung 7:37 und 10:37; arbeitet nur am 1.1. |
 
-- Bei den Voreinstellungen (Daily, Weekly) gibst du die Uhrzeit in deiner Ortszeit ein.
-- Einen jährlichen Zeitplan (`37 4 1 1 *`) nimmt die Oberfläche nicht an. Die jährliche Aufgabe startet deshalb an jedem Monatsersten um 4:37; `routinen/jaehrlich.md` beendet den Lauf sofort, wenn nicht 1. Jänner ist. Das kostet elf kurze Läufe im Jahr.
+- **Wiederholung:** Ist das Nutzungslimit deines Abos erreicht, lehnt Claude einen geplanten Lauf nach wenigen Sekunden ab und holt ihn nicht nach (am 19.11.2026 so geschehen). Deshalb startet jede Aufgabe 3 und 6 Stunden später noch einmal; ein 5-Stunden-Fenster, das beim ersten Start voll war, ist dann wieder frei. Ist die Ausgabe schon mit `ok` oder `ruhig` erschienen, endet der Lauf als Doppellauf, nachdem er die Anleitung gelesen hat; eine Ausgabe mit `fehler` wird dabei neu erstellt. An normalen Tagen kostet das zwei kurze Läufe, abgelehnte Läufe kosten nichts. Gegen ein erreichtes Wochenlimit hilft die Wiederholung nicht.
+- Die Abstände von 3 Stunden halten die Reihenfolge der Formate auch bei den Wiederholungen ein: Der Wochenrückblick startet immer 30 Minuten nach der Tagesausgabe, der Monatsrückblick 30 Minuten nach dem Wochenrückblick.
+- Einen jährlichen Zeitplan (`37 4 1 1 *`) nimmt die Oberfläche nicht an. Die jährliche Aufgabe startet deshalb an jedem Monatsersten (4:37, mit Wiederholungen); `routinen/jaehrlich.md` beendet den Lauf sofort, wenn nicht 1. Jänner ist. Das kostet elf kurze Läufe im Jahr.
 - **Custom** gibt es erst nach dem Anlegen: Aufgabe mit einer beliebigen Voreinstellung erstellen, dann im Menü neben dem Namen **Edit** → im **Trigger**-Feld **Custom** wählen, den Ausdruck einfügen, **Save changes**. Der Teil `CRON_TZ=Europe/Vienna` sorgt dafür, dass die Stunden Wiener Zeit sind, auch nach der Zeitumstellung.
 
 **E. Testen**
