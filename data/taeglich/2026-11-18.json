@@ -1,0 +1,303 @@
+{
+  "format": "taeglich",
+  "titel": "Mittwoch, 18. November 2026",
+  "zeitraum": {
+    "von": "2026-11-18",
+    "bis": "2026-11-18"
+  },
+  "erschienen": "2026-11-19T14:46:28+01:00",
+  "status": "ok",
+  "fehler": null,
+  "ruhig": [],
+  "luecken": [],
+  "ausnahmen": [],
+  "meldungen": [
+    {
+      "id": "2026-11-18-weltpolitik-1",
+      "datum": "2026-11-18",
+      "datum_bis": null,
+      "titel": "Israelische Panzer rücken im Zentrum des Gazastreifens vor, die Hamas spricht von Eskalation",
+      "text": "Nach der Waffenruhe von 2025 hat die israelische Armee erstmals wieder eine Bodenoffensive mit Panzern im Zentrum des Gazastreifens begonnen. Die Truppen gehen laut Militär gegen Infrastruktur der Hamas außerhalb der von Israel kontrollierten Gebiete vor, die etwa zwei Drittel des Küstenstreifens umfassen. Nach Angaben palästinensischer Sanitäter wurde bei einem Luftangriff ein Mensch getötet, mehrere Familien flohen. Die Hamas wirft Israel eine gefährliche Eskalation und einen Bruch der Waffenruhe vor.",
+      "warum_wichtig": "Die Offensive stellt die Waffenruhe infrage, die seit 2025 gilt.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/asien/israel-gaza-bodenoffensive-104.html"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349917/israelische-panzer-r252cken-im-gazastreifen-vor-hamas-spricht-von-eskalation?ref=rss"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-18-weltpolitik-2",
+      "datum": "2026-11-18",
+      "datum_bis": null,
+      "titel": "Iran meldet Explosionen auf drei weiteren Tankern bei Hormus und greift Kuwait und Bahrain an",
+      "text": "Laut den iranischen Revolutionsgarden sind bei der Straße von Hormus drei weitere Tanker auf Minen gelaufen und in Brand geraten; die Schiffe seien manövrierunfähig, über Opfer ist nichts bekannt. Die Besatzungen hätten Warnungen ignoriert, sagt Iran. Kuwait meldet zudem, den ersten iranischen Angriff seit zwei Monaten abgewehrt zu haben, auch Bahrain wurde laut BBC angegriffen, nachdem die USA am Dienstag die iranische Insel Qeshm bombardiert hatten.",
+      "warum_wichtig": "Der Konflikt am Golf weitet sich auf weitere Staaten aus und gefährdet eine der wichtigsten Öl-Handelsrouten.",
+      "themen": [
+        "weltpolitik",
+        "wirtschaft"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/cw4gn9jeqjq7o?at_medium=RSS&at_campaign=rss"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349932/iran-meldet-explosionen-an-drei-schiffen-bei-stra223e-von-hormuz?ref=rss"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-18-weltpolitik-3",
+      "datum": "2026-11-18",
+      "datum_bis": null,
+      "titel": "Demokraten gewinnen Senatssitz in Alaska und halten 56 von 100 Sitzen im US-Senat",
+      "text": "Die Demokratin Mary Peltola hat den Senatssitz in Alaska gegen den Republikaner Dan Sullivan gewonnen, wie Hochrechnungen der Nachrichtenagentur AP zeigen. Damit sind alle Senatsrennen der Zwischenwahlen entschieden. Die Demokraten kommen laut DER STANDARD auf 56 der 100 Sitze und haben nach tagesschau neun Sitze dazugewonnen, so viel wie seit Jahrzehnten nicht. Zuvor hatte die Partei schon einen Sitz in Mississippi geholt.",
+      "warum_wichtig": "Die Demokraten können Untersuchungen gegen die Regierung von Präsident Trump deutlich leichter vorantreiben.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349753/peltola-gewinnt-in-alaska-klare-mehrheit-f252r-demokraten-im-us-senat?ref=rss"
+        },
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/amerika/midterms-usa-alaska-100.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-18-politik-1",
+      "datum": "2026-11-18",
+      "datum_bis": null,
+      "titel": "Koalition in Deutschland einigt sich auf Senkung der Stromsteuer für ein Jahr und einen Spritpreisdeckel",
+      "text": "Die Spitzen von CDU, CSU und SPD haben sich im Koalitionsausschuss nach acht Stunden auf eine Senkung der Stromsteuer für alle auf das europäische Mindestniveau geeinigt. Sie soll ab Jänner gelten, die Finanzierung steht aber nur für 2027. Dazu kommt ein zeitlich begrenzter Spritpreisdeckel. Noch am 13. November hatte der Haushalt 2027 keine Senkung vorgesehen.",
+      "warum_wichtig": "Haushalte und Betriebe in Deutschland zahlen ab Jänner weniger für Strom, zunächst aber nur für ein Jahr.",
+      "themen": [
+        "politik",
+        "wirtschaft"
+      ],
+      "hauptthema": "politik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/inland/innenpolitik/koalitionsausschuss-einigung-stromsteuer-spritpreisdeckel-100.html"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349805/merz-setzt-senkung-der-stromsteuer-doch-noch-durch-und-wendet-koalitionskrise-ab?ref=rss"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-18-politik-2",
+      "datum": "2026-11-18",
+      "datum_bis": null,
+      "titel": "Bundesverfassungsgericht weist BSW-Beschwerde gegen die Bundestagswahl 2025 ab",
+      "text": "Das Bundesverfassungsgericht in Karlsruhe hat die Wahlprüfungsbeschwerde des BSW zurückgewiesen. Die Partei war bei der Bundestagswahl 2025 mit weniger als 10.000 Stimmen am Einzug gescheitert und wollte eine Neuauszählung. Laut Gericht lagen zu wenige Stimmen und Belege für einen relevanten Wahlfehler vor. Das BSW kritisierte die Entscheidung scharf, die Union erwägt eine Reform der Wahlprüfung.",
+      "warum_wichtig": "Das Ergebnis der Bundestagswahl und damit die Mehrheit der Regierungskoalition bleiben unverändert.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/inland/innenpolitik/bsw-wahlpruefung-100.html"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349797/schlappe-fuer-bsw-bundesverfassungsgericht-lehnt-neuauszaehlung-der-stimmen-von-bundestagswahl-ab?ref=rss"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-18-politik-3",
+      "datum": "2026-11-18",
+      "datum_bis": null,
+      "titel": "Österreichs Regierung erweitert beim Zukunftsdepot den Kreis der Einzahler",
+      "text": "Beim geplanten Zukunftsdepot für Kinder dürfen künftig neben den Eltern auch Großeltern und Taufpaten einzahlen, insgesamt fünf von den Obsorgeberechtigten genannte Personen. Der Staat gibt laut Die Presse 500 Euro Startgeld für Kinder, die ab 2027 geboren werden. Zur Auswahl stehen neben Fonds und Bundesschätzen auch fondsgebundene Lebensversicherungen. Beschlossen werden soll das Modell im Dezember.",
+      "warum_wichtig": "Familien in Österreich können ab 2027 steuerbegünstigt für Kinder vorsorgen, und mehr Angehörige dürfen mitzahlen.",
+      "themen": [
+        "politik",
+        "wirtschaft"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349770/zukunftsdepot-auch-gro223eltern-und-paten-k246nnen-einzahlen?ref=rss"
+        },
+        {
+          "name": "Die Presse",
+          "url": "https://www.diepresse.com/41464699/auch-taufpaten-duerfen-einzahlen-regierung-ueberarbeitet-ihr-zukunftsdepot"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-18-ki-1",
+      "datum": "2026-11-18",
+      "datum_bis": null,
+      "titel": "Anthropic legt den Ausgabepreis für den Börsengang auf 83 Dollar fest, über der Preisspanne",
+      "text": "Anthropic hat den Ausgabepreis seiner Aktien auf 83 Dollar gesetzt, ursprünglich waren 70 bis 78 Dollar vorgesehen. Laut TechCrunch werden 980 Millionen Aktien verkauft, statt der geplanten 825 Millionen, der Erlös liegt bei rund 81 Milliarden Dollar und wäre der größte Börsengang der Geschichte. Die Bewertung beträgt etwa 1,5 Billionen Dollar. Der Handel an der Nasdaq unter dem Kürzel ANT beginnt am Donnerstag.",
+      "warum_wichtig": "Die Anleger zahlen mehr als erwartet für Anthropic, dem Hersteller von Claude, und der Börsenstart ist ein Gradmesser für die gesamte KI-Branche.",
+      "themen": [
+        "ki",
+        "wirtschaft",
+        "startups"
+      ],
+      "hauptthema": "ki",
+      "update": true,
+      "quellen": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/18/anthropic-reportedly-prices-ipo-at-83-a-share-above-projected-range/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349930/anthropic-setzt-ausgabepreis-laut-insidern-auf-83-us-dollar-je-aktie-hoch?ref=rss"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-18-ki-2",
+      "datum": "2026-11-18",
+      "datum_bis": null,
+      "titel": "Google veröffentlicht Gemini 4 Neon als neues Spitzenmodell für komplexe Aufgaben",
+      "text": "Google hat mit Gemini 4 Neon ein Modell für Softwareentwicklung, Wissensarbeit und Wissenschaft veröffentlicht, das über die Schnittstelle schon verfügbar ist. Es verarbeitet Text, Bilder, Video, Audio und PDF bei einem Kontextfenster von etwa einer Million Tokens. Eine Million Eingabe-Tokens kosten 3 Dollar, eine Million Ausgabe-Tokens 15 Dollar. Benchmarks hat Google noch nicht veröffentlicht, es ist das vierte neue Gemini-4-Modell binnen eines Monats.",
+      "warum_wichtig": "Google setzt Anthropic und OpenAI im Spitzensegment neu unter Druck, die Leistung ist aber noch nicht belegt.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "THE DECODER",
+          "url": "https://the-decoder.de/google-veroeffentlicht-gemini-4-neon-als-neues-frontier-modell-fuer-komplexe-aufgaben/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-18-wirtschaft-1",
+      "datum": "2026-11-18",
+      "datum_bis": null,
+      "titel": "Nvidia reicht den Quartalsbericht nicht sofort ein, die Börsenaufsicht soll ermitteln",
+      "text": "Nvidia-Interimschefin Colette Kress hat angekündigt, den Quartalsbericht 10-Q erst in den kommenden Wochen bei der Börsenaufsicht SEC einzureichen. Auf Nachfrage eines Analysten hieß es, das hänge mit den Ermittlungen gegen den zurückgetretenen Konzernchef Jensen Huang zusammen. Laut Wall Street Journal prüft die SEC, ob Nvidia Anleger mit seinen Angaben getäuscht hat. UBS senkte das Kursziel von 240 auf 220 Dollar, die Aktie steht bei etwa 150 Dollar.",
+      "warum_wichtig": "Nvidia ist im MSCI World stark gewichtet, die Unsicherheit trifft deshalb auch viele ETF-Sparer.",
+      "themen": [
+        "wirtschaft",
+        "ki"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": true,
+      "quellen": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/18/nvidia-created-a-weird-bit-of-intrigue-by-not-filing-a-routine-sec-report/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-18-wirtschaft-2",
+      "datum": "2026-11-18",
+      "datum_bis": null,
+      "titel": "Inflation in der Eurozone liegt im Oktober bei 4,0 Prozent, so hoch wie seit drei Jahren nicht",
+      "text": "Die Verbraucherpreise im Euroraum sind im Oktober um 4,0 Prozent gegenüber dem Vorjahr gestiegen, bestätigt die EU-Statistikbehörde Eurostat. Das ist der höchste Wert seit September 2023, im September waren es 3,8 Prozent. Hauptgrund sind hohe Energiepreise.",
+      "warum_wichtig": "Die steigende Teuerung erhöht den Druck auf die Europäische Zentralbank, ihre Zinspolitik zu verschärfen.",
+      "themen": [
+        "wirtschaft"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": true,
+      "quellen": [
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349837/hoechster-stand-seit-drei-jahren-inflationsrate-in-der-eurozone-steigt-auf-4-prozent?ref=rss"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-18-tirol-1",
+      "datum": "2026-11-18",
+      "datum_bis": null,
+      "titel": "Eiskanal in Igls erhält internationale Zulassung bis 2031, die Rodel-WM im Februar ist gesichert",
+      "text": "Der Internationale Rodelverband hat den für 30 Millionen Euro umgebauten Eiskanal in Igls bei Innsbruck zugelassen. Die Freigabe gilt bis zum Saisonende 2030/31 und ergänzt die Zulassung des Bob- und Skeletonverbands von Ende Oktober. Im November 2025 war die Bahn im zweiten Anlauf an der Zulassung gescheitert, der Rodel-Weltcup musste abgesagt werden. Die Weltmeisterschaft im Februar 2027 ist laut ORF damit endgültig frei.",
+      "warum_wichtig": "Innsbruck kann die Rodel-WM austragen, und die teure Sanierung der Bahn hat sich bewährt.",
+      "themen": [
+        "tirol"
+      ],
+      "hauptthema": "tirol",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3380153/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-18-tirol-2",
+      "datum": "2026-11-18",
+      "datum_bis": null,
+      "titel": "Gurgl richtet am Wochenende zum vierten Mal in Folge einen Skiweltcup aus",
+      "text": "Am Samstag, dem 21. November, steht in Gurgl im Ötztal der Frauen-Slalom auf dem Programm, am Sonntag der Männer-Slalom. Die Veranstalter erwarten rund 8.000 und 10.000 Fans. Mikaela Shiffrin, Siegerin von 2024 und 2025, fehlt. Die Zukunft des Weltcups in Gurgl ist offen, weil der Weltverband kurzfristig plant und Sölden zusätzliche Super-G-Rennen erwägt.",
+      "warum_wichtig": "Wer hinfahren will, sollte mit großem Andrang im Ötztal rechnen.",
+      "themen": [
+        "tirol"
+      ],
+      "hauptthema": "tirol",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3380036/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-18-startups-1",
+      "datum": "2026-11-18",
+      "datum_bis": null,
+      "titel": "Payhawk sammelt 280 Millionen Dollar ein und wird mit zwei Milliarden Dollar bewertet",
+      "text": "Der britische Anbieter für Ausgabenverwaltung Payhawk hat in einer Series-C-Runde 280 Millionen Dollar erhalten. Angeführt wurde sie vom Wachstumskapital-Arm von Goldman Sachs, dazu kommen Greenoaks, Lightspeed und QED. Die Bewertung liegt bei zwei Milliarden Dollar, das Unternehmen ist in 33 Ländern aktiv und will mit dem Geld global wachsen.",
+      "warum_wichtig": "Die Runde zeigt, dass Investoren trotz schwachem Fintech-Markt in Europa noch große Beträge in KI-gestützte Finanzsoftware stecken.",
+      "themen": [
+        "startups"
+      ],
+      "hauptthema": "startups",
+      "update": false,
+      "quellen": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/18/spend-management-platform-payhawk-announces-280m-raise-2b-valuation/"
+        },
+        {
+          "name": "Sifted",
+          "url": "https://sifted.eu/articles/payhawk-series-c/"
+        }
+      ]
+    }
+  ],
+  "videos": [],
+  "abschnitte": []
+}
