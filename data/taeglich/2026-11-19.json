@@ -1,0 +1,393 @@
+{
+  "format": "taeglich",
+  "titel": "Donnerstag, 19. November 2026",
+  "zeitraum": {
+    "von": "2026-11-19",
+    "bis": "2026-11-19"
+  },
+  "erschienen": "2026-11-20T03:08:40+01:00",
+  "status": "ok",
+  "fehler": null,
+  "ruhig": [],
+  "luecken": [],
+  "ausnahmen": [
+    {
+      "thema": "weltpolitik",
+      "grund": "Gipfel in Shenzhen, Berliner Ukraine-Gipfel, Irankrieg-Votum im US-Senat und das Völkermord-Urteil zu Myanmar fielen alle auf denselben Tag und sind gleich wichtig."
+    }
+  ],
+  "meldungen": [
+    {
+      "id": "2026-11-19-weltpolitik-1",
+      "datum": "2026-11-19",
+      "datum_bis": null,
+      "titel": "Trump, Xi und Putin treffen sich in Shenzhen und veröffentlichen eine Friedenserklärung",
+      "text": "Der Gipfel war schon am 14. November angekündigt worden. Am Rande des APEC-Gipfels trafen sich Trump, Xi und Putin erstmals zu dritt, das Gespräch dauerte rund eineinhalb Stunden. Die gemeinsame Erklärung nennt einen Dialog über atomare Risiken, eine Reform der UNO, mehr Förderung und Lieferung von Erdölprodukten und eine Warnung an den Internationalen Strafgerichtshof vor Machtmissbrauch. Der Ukraine-Krieg kommt darin nicht vor, und laut ORF gibt es keine verbindlichen Zusagen.",
+      "warum_wichtig": "Zum ersten Mal sitzen die Staatschefs der drei Atommächte gemeinsam am Tisch, konkrete Ergebnisse fehlen aber, und ein Nachfolger des ausgelaufenen Abrüstungsvertrags New START ist nicht in Sicht.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/c623j4ln97x7o"
+        },
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448675/"
+        },
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/asien/dreiergipfel-xi-trump-putin-100.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-19-weltpolitik-2",
+      "datum": "2026-11-19",
+      "datum_bis": null,
+      "titel": "Koalition der Willigen sagt der Ukraine in Berlin Hilfe zu, Putin droht nach Angriffen auf die Krim-Brücke",
+      "text": "Bundeskanzler Merz empfing in Berlin rund 26 Staats- und Regierungschefs sowie den ukrainischen Präsidenten Selenskyj, dazu die US-Unterhändler Witkoff und Kushner. Sie sagten der Ukraine Hilfe „so lange wie nötig“ zu, die EU-Kommission schlägt 45 Milliarden Euro für 2027 vor. Merz forderte Gespräche mit Russland auf neutralem Boden, ein Frieden sei nur mit Europa am Tisch möglich. Putin kündigte nach den ukrainischen Angriffen auf die Krim-Brücke eine „weit schmerzhaftere“ Antwort an; bei einem russischen Angriff in Kiew wurden auch die österreichische und die niederländische Botschaft beschädigt.",
+      "warum_wichtig": "Europa und die Ukraine zeigen mit dem Treffen am selben Tag wie der Dreiergipfel, dass sie bei einem Kriegsende mitreden wollen, während Russland weiter eskaliert.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448674/"
+        },
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/inland/innenpolitik/gipfel-koalition-willige-ukraine-100.html"
+        },
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/cm879dqn3e1jo"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-19-weltpolitik-3",
+      "datum": "2026-11-19",
+      "datum_bis": null,
+      "titel": "US-Senat lehnt Resolution gegen Trumps Irankrieg mit 51 zu 48 Stimmen ab",
+      "text": "Die Resolution hätte Präsident Trump verpflichtet, den Krieg gegen den Iran zu beenden oder die Zustimmung des Kongresses einzuholen. Die Republikaner stimmten geschlossen dagegen, obwohl das Repräsentantenhaus die Resolution zuvor angenommen hatte. Der Krieg hat die USA laut ORF und DER STANDARD bisher mehr als 48 Milliarden Dollar gekostet. Ab Jänner haben die Demokraten in beiden Kammern die Mehrheit.",
+      "warum_wichtig": "Trump kann den Krieg vorerst ohne Zustimmung des Kongresses fortsetzen, ab Jänner dürfte der Druck mit der neuen demokratischen Mehrheit steigen.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448720/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000350157/us-senat-keine-mehrheit-fuer-resolution-gegen-trumps-iran-kurs"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000350155/irankrieg-hat-die-usa-bereits-mehr-als-48-milliarden-dollar-gekostet"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-19-weltpolitik-4",
+      "datum": "2026-11-19",
+      "datum_bis": null,
+      "titel": "Internationaler Gerichtshof stuft Myanmars Vorgehen gegen die Rohingya als Völkermord ein",
+      "text": "Das höchste UN-Gericht in Den Haag urteilte, Myanmars Sicherheitskräfte hätten 2017 einen wesentlichen Teil der Rohingya vernichten wollen. Die Klage hatte Gambia Ende 2019 eingereicht. Myanmar bestreitet den Vorwurf und spricht von rechtmäßiger Terrorismusbekämpfung. Die Offensive trieb rund 750.000 Menschen nach Bangladesch.",
+      "warum_wichtig": "Die juristische Einstufung als Völkermord kann die Rechtsprechung in künftigen Verfahren prägen und erhöht den Druck auf Myanmar.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/asien/urteil-voelkermord-rohingya-myanmar-100.html"
+        },
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/c804wzp20ddvo"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000350028/uno-weltgericht-stellt-genozid-an-rohingya-durch-myanmar-fest"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-19-politik-1",
+      "datum": "2026-11-19",
+      "datum_bis": null,
+      "titel": "Wehrdienstreform: Für die Zweidrittelmehrheit sind nur noch die Grünen im Rennen",
+      "text": "Die Koalition braucht für den Zivildienst-Teil der Reform eine Zweidrittelmehrheit. Die FPÖ verlangt die gleichzeitige Verlängerung von Grund- und Zivildienst und geht von einem Abbruch der Gespräche aus. ÖVP-Klubchef Gödl hält eine Einigung mit den Grünen für möglich und kündigte einen Mittelweg an, kolportiert werden 800 statt 1.000 Euro für Zivildiener. Der Grundwehrdienst soll von sechs auf neun Monate steigen.",
+      "warum_wichtig": "Ohne Einigung mit den Grünen scheitert der Zivildienst-Teil der Wehrdienstreform.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448721/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000350159/wehrpflicht-f252r-zweidrittelmehrheit-nur-noch-die-gr252nen-im-rennen"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-19-politik-2",
+      "datum": "2026-11-19",
+      "datum_bis": null,
+      "titel": "EU-Kommission bestätigt Cyberangriff mit KI, Personalsysteme fielen rund zehn Tage aus",
+      "text": "Der Angriff wurde am 22. Oktober entdeckt, mehrere Anwendungen wie Gehaltsabrechnung und Zeiterfassung wurden abgeschaltet und sind größtenteils wieder in Betrieb. Laut Kommission gibt es keine Hinweise auf einen Datenverlust, der alle Mitarbeiter betrifft. Politico berichtet dagegen von möglicherweise großen Mengen kompromittierter personenbezogener Daten. Nach heise besteht der Verdacht, dass das KI-Werkzeug Artex missbraucht wurde.",
+      "warum_wichtig": "Ein KI-gestützter Angriff auf eine zentrale EU-Institution zeigt, wie real die Bedrohung durch KI-Cyberangriffe geworden ist.",
+      "themen": [
+        "politik",
+        "ki"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448677/"
+        },
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/europa/cyberangriff-eu-kommission-100.html"
+        },
+        {
+          "name": "heise online",
+          "url": "https://www.heise.de/news/Cyberangriff-auf-EU-Kommission-Verdacht-auf-KI-Tool-Artex-tagelange-Ausfaelle-11531596.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-19-politik-3",
+      "datum": "2026-11-19",
+      "datum_bis": null,
+      "titel": "EU leitet Verfahren gegen Österreich und sieben weitere Staaten wegen Pensionsfonds-Steuern ein",
+      "text": "Die Kommission sieht den freien Kapitalverkehr verletzt, weil inländische Pensionsfonds und Lebensversicherer von der Steuer auf Anlageerträge befreit sind, ausländische aus der EU und dem EWR aber nicht. Außerdem dürfen nur inländische Anbieter steuerlich abzugsfähige Rückstellungen bilden. Betroffen sind auch Deutschland, Spanien, Italien, Polen, Portugal, Rumänien und Belgien. Österreich hat zwei Monate Zeit zur Antwort.",
+      "warum_wichtig": "Österreich muss seine Steuerregeln für Pensionsfonds ändern, sonst droht der nächste Schritt des Verfahrens.",
+      "themen": [
+        "politik",
+        "wirtschaft"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448690/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000350126/eu-startet-verfahren-gegen-214sterreich-wegen-pensionsfonds"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-19-ki-1",
+      "datum": "2026-11-19",
+      "datum_bis": null,
+      "titel": "Anthropic geht an die Börse: Ausgabepreis 83 Dollar, Schlusskurs rund 97 Dollar",
+      "text": "Anthropic hat den größten Börsengang der Geschichte hinter sich. Die Aktie wurde zu 83 Dollar ausgegeben, eröffnete bei 111,50 Dollar und schloss laut ORF und Handelsblatt bei rund 97 Dollar, 17 Prozent über dem Ausgabepreis. Der Marktwert lag zwischenzeitlich über 2 Billionen Dollar, zum Schluss bei etwa 1,75 Billionen. Der Erlös wird mit 107,3 Milliarden Dollar (ORF, Handelsblatt) oder gut 81 Milliarden Dollar (BBC, TechCrunch) angegeben. Anthropic macht weiterhin Verlust: 1,26 Milliarden Dollar operativ in den ersten drei Quartalen 2026.",
+      "warum_wichtig": "Mit Anthropic ist erstmals ein reines KI-Labor an der Börse, und der Kursrückgang im Handelsverlauf zeigt, wie unsicher Anleger die Branche trotz Rekordnachfrage bewerten.",
+      "themen": [
+        "ki",
+        "wirtschaft"
+      ],
+      "hauptthema": "ki",
+      "update": true,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448697/"
+        },
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/finanzen/maerkte/aktien/boersengang-anthropic-schliesst-17-prozent-im-plus-kursrueckgang-im-handelsverlauf/100270027.html"
+        },
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/19/anthropic-hits-nasdaq-exchanges-at-110-27-above-ipo-price/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-19-ki-2",
+      "datum": "2026-11-19",
+      "datum_bis": null,
+      "titel": "Google gibt Gemini einen Agenten, der den Mac für Nutzer bedient",
+      "text": "Das neue Gemini-Update bringt einen KI-Agenten auf den Mac. Er kann Dateien ordnen, Formulare ausfüllen und mehrstufige Arbeitsabläufe erledigen.",
+      "warum_wichtig": "Gemini erledigt damit Aufgaben direkt auf dem Computer der Nutzer, statt nur Fragen zu beantworten.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/19/google-gives-gemini-the-ability-to-use-your-mac-for-you/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-19-wirtschaft-1",
+      "datum": "2026-11-19",
+      "datum_bis": null,
+      "titel": "Bund und UniCredit einigen sich auf die Übernahme der Commerzbank",
+      "text": "Nach der EU-Genehmigung vom 16. November haben Finanzminister Klingbeil und UniCredit-Chef Orcel eine gemeinsame Basis gefunden. UniCredit sichert den Standort Deutschland und die Rechte der Beschäftigten zu, die Commerzbank soll börsennotiert in Frankfurt bleiben. Der Bund verzichtet auf zwei Aufsichtsratssitze, UniCredit schlägt stattdessen zwei unabhängige Mitglieder vor. Ob der Bund seinen Anteil von 13,3 Prozent verkauft, ließ Klingbeil offen.",
+      "warum_wichtig": "Der politische Widerstand gegen die Übernahme von Deutschlands zweitgrößter Privatbank ist damit ausgeräumt.",
+      "themen": [
+        "wirtschaft"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": true,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/wirtschaft/unternehmen/unicredit-bundesregierung-100.html"
+        },
+        {
+          "name": "n-tv",
+          "url": "https://www.n-tv.de/wirtschaft/Berlin-macht-Weg-fuer-Commerzbank-Uebernahme-durch-Unicredit-frei-id31550967.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-19-wirtschaft-2",
+      "datum": "2026-11-19",
+      "datum_bis": null,
+      "titel": "BASF gibt die Übernahme von Evonik auf",
+      "text": "Evonik hatte zuvor zwei unverbindliche Barangebote abgelehnt, das zweite lag bei 24 Euro je Aktie. BASF-Chef Kamieth sprach von einem disziplinierten Umgang mit Kapital. Auch aus der Politik, darunter von NRW-Ministerpräsident Wüst, gab es Widerstand gegen die Pläne. Evonik-Aktien legten um bis zu 2,4 Prozent zu.",
+      "warum_wichtig": "Evonik bleibt eigenständig, und rund 11.000 Beschäftigte in Nordrhein-Westfalen müssen keine Übernahme mehr fürchten.",
+      "themen": [
+        "wirtschaft"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/wirtschaft/unternehmen/basf-evonik-uebernahme-absage-100.html"
+        },
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/politik/deutschland/chemiebranche-basf-beendet-uebernahmepoker-um-evonik-zuvor-zwei-angebote/100271327.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-19-wirtschaft-3",
+      "datum": "2026-11-19",
+      "datum_bis": null,
+      "titel": "IEA warnt: Rechenzentren bringen Stromnetze in einigen Märkten ans Limit",
+      "text": "Der Stromverbrauch von Rechenzentren soll sich laut Internationaler Energieagentur bis 2030 von etwa 485 auf rund 950 Terawattstunden verdoppeln. Das Problem ist weniger die Gesamtmenge als die Konzentration: In einigen Wachstumsmärkten würden die geplanten Rechenzentren mehr Strom brauchen, als die Netze heute zur Spitzenzeit liefern. Netzanschlüsse dauern vielerorts fünf bis zehn Jahre, deshalb bauen manche Betreiber eigene Kraftwerke.",
+      "warum_wichtig": "Die Stromversorgung wird für den KI-Ausbau zum Engpass, was Investitionen und Standortwahl der Branche beeinflusst.",
+      "themen": [
+        "wirtschaft",
+        "ki"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Trending Topics",
+          "url": "https://www.trendingtopics.eu/iea-ki-rechenzentren-stromnetze-limit/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349915/energieagentur-report-atomkraft-comeback-und-weltweit-steigender-kuehlbedarf"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-19-tirol-1",
+      "datum": "2026-11-19",
+      "datum_bis": null,
+      "titel": "Brenner-Basistunnel: Betreiber verteidigen Sicherheitskonzept nach sechstem tödlichem Arbeitsunfall",
+      "text": "Auf der österreichischen Seite der Baustelle starb im November ein 48-jähriger Arbeiter bei Steinach, als Betonfertigteile umstürzten. Arbeiter kritisieren anonym nicht bearbeitete Sicherheitsprobleme und hohen Zeitdruck. BBT und die Arbeitsgemeinschaft verweisen auf ein Safety Support Team, eine neue Ombudsstelle und ein anonymes Hinweisgebersystem. Die Südtiroler Gewerkschaft Fillea/GBH fordert unabhängige Kontrollen, die KPÖ meldete Mängel dem Arbeitsinspektorat.",
+      "warum_wichtig": "Auf der größten Baustelle Tirols steht die Arbeitssicherheit nach sechs Todesfällen in der öffentlichen Kritik.",
+      "themen": [
+        "tirol"
+      ],
+      "hauptthema": "tirol",
+      "update": true,
+      "quellen": [
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3380298/"
+        },
+        {
+          "name": "Tiroler Tageszeitung",
+          "url": "https://www.tt.com/artikel/30947301/zwischen-zeitdruck-und-sicherheit-bbt-wehrt-sich-gegen-kritik"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-19-tirol-2",
+      "datum": "2026-11-19",
+      "datum_bis": null,
+      "titel": "Fernpasstunnel: Landesverwaltungsgericht verhandelt am 10. Dezember über die Naturschutz-Bewilligung",
+      "text": "Gegen den positiven naturschutzrechtlichen Bescheid für den geplanten Fernpasstunnel liegt eine Beschwerde vor. Das Landesverwaltungsgericht Tirol verhandelt sie am 10. Dezember. Laut Tiroler Tageszeitung wollen die Beschwerdeführer das Großprojekt ausbremsen, in Nassereith gab es zuvor mehrere Demonstrationen.",
+      "warum_wichtig": "Das Urteil entscheidet mit, ob der Bau des Tunnels an der wichtigen Nord-Süd-Verbindung weitergehen kann.",
+      "themen": [
+        "tirol"
+      ],
+      "hauptthema": "tirol",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Tiroler Tageszeitung",
+          "url": "https://www.tt.com/artikel/30947315/fernpasstunnel-vor-gericht-klaeger-wollen-grossprojekt-ausbremsen"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-19-startups-1",
+      "datum": "2026-11-19",
+      "datum_bis": null,
+      "titel": "Deutsche Telekom investiert 100 Millionen Euro in Mistral AI",
+      "text": "Der Investmentfonds T.Capital der Deutschen Telekom beteiligt sich mit 100 Millionen Euro an der Series-D-Runde des Pariser KI-Startups Mistral. Es ist der erste Schritt zu einer Partnerschaft, die Unternehmen und Behörden in Deutschland vertrauenswürdige KI aus Europa bringen soll, vor allem in der Industrie und in regulierten Branchen. Mistral hatte im September in der bisher größten europäischen Finanzierungsrunde drei Milliarden Euro eingesammelt.",
+      "warum_wichtig": "Der größte deutsche Telekommunikationskonzern bindet sich an Europas wichtigsten KI-Herausforderer der US-Anbieter.",
+      "themen": [
+        "startups",
+        "ki"
+      ],
+      "hauptthema": "startups",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Trending Topics",
+          "url": "https://www.trendingtopics.eu/telekom-tcapital-mistral-100-millionen/"
+        },
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/wirtschaft/finanzen/mistral-telekom-ki-anthropic-marktbericht-100.html"
+        },
+        {
+          "name": "n-tv",
+          "url": "https://www.n-tv.de/wirtschaft/Telekom-steigt-bei-europaeischer-KI-Hoffnung-Mistral-ein-id31551993.html"
+        }
+      ]
+    }
+  ],
+  "videos": [],
+  "abschnitte": []
+}
