@@ -1,7 +1,18 @@
 {
-  "aktualisiert": "2026-11-20T03:12:57+01:00",
+  "aktualisiert": "2026-11-21T03:12:26+01:00",
   "start": "2026-11-08",
   "ausgaben": [
+    {
+      "format": "taeglich",
+      "titel": "Freitag, 20. November 2026",
+      "zeitraum": {
+        "von": "2026-11-20",
+        "bis": "2026-11-20"
+      },
+      "datei": "data/taeglich/2026-11-20.json",
+      "status": "ok",
+      "erschienen": "2026-11-21T03:07:48+01:00"
+    },
     {
       "format": "taeglich",
       "titel": "Donnerstag, 19. November 2026",

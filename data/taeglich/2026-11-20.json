@@ -1,0 +1,319 @@
+{
+  "format": "taeglich",
+  "titel": "Freitag, 20. November 2026",
+  "zeitraum": {
+    "von": "2026-11-20",
+    "bis": "2026-11-20"
+  },
+  "erschienen": "2026-11-21T03:07:48+01:00",
+  "status": "ok",
+  "fehler": null,
+  "ruhig": [],
+  "luecken": [],
+  "ausnahmen": [],
+  "meldungen": [
+    {
+      "id": "2026-11-20-weltpolitik-1",
+      "datum": "2026-11-20",
+      "datum_bis": null,
+      "titel": "Russischer Marschflugkörper stürzt in Südostpolen ab, Warschau spricht von Provokation",
+      "text": "Bei einem der größten russischen Luftangriffe auf die Ukraine sind am Freitagfrüh laut der polnischen Regierung drei russische Flugobjekte in den polnischen Luftraum eingedrungen und abgestürzt, darunter ein Marschflugkörper vom Typ Ch-101 nahe Nowy Lipowiec. Verletzte oder Schäden gibt es nicht. Ministerpräsident Tusk hält den Vorfall für nicht zufällig, weil in der Region gerade die Übung Koalicja 2026 von elf Staaten der Koalition der Willigen läuft. Nato-Generalsekretär Rutte sprach von schweren Verletzungen des polnischen Luftraums, Polen bat die Nato um zusätzliche Unterstützung.",
+      "warum_wichtig": "Es ist ein weiterer Vorfall russischer Waffen auf Nato-Gebiet, der die Frage nach der Abwehr an der Ostflanke verschärft.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/cqx2x9dklxnro"
+        },
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448767/"
+        },
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/europa/absturz-russische-flugobjekte-polen-100.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-20-weltpolitik-2",
+      "datum": "2026-11-20",
+      "datum_bis": null,
+      "titel": "Russland beschießt Kiews Brücken, Selenskyj nennt es einen der massivsten Angriffe des Krieges",
+      "text": "Nach dem ukrainischen Angriff auf die Krim-Brücke hat Russland in der Nacht auf Freitag landesweit angegriffen. Laut Selenskyj kamen mehr als 110 Raketen und über 400 Drohnen zum Einsatz, mindestens neun Menschen starben. In Kiew wurden drei Brücken über den Dnipro getroffen und für den Verkehr gesperrt; Bürgermeister Klitschko nannte sieben Tote und 17 Verletzte in der Hauptstadt. Der Kreml lehnt zugleich die Aussicht auf Sicherheitsgarantien für die Ukraine ab.",
+      "warum_wichtig": "Russland vergilt den Schlag gegen die Krim-Brücke und trifft die Verkehrsadern der Hauptstadt, während über ein Kriegsende verhandelt wird.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/c6x29gn4pdn9o"
+        },
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/ukraine-russland-angriffe-bruecken-100.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-20-weltpolitik-3",
+      "datum": "2026-11-20",
+      "datum_bis": null,
+      "titel": "Dänemark weist russischen Verteidigungsattaché nach vereiteltem Anschlagsplan aus",
+      "text": "Dänemark wirft dem russischen Geheimdienst vor, den Mordanschlag auf den ukrainisch-amerikanischen Rapper Kyivstoner bei einem Konzert im September geplant und angestoßen zu haben. Zwei Dänen sind wegen versuchten Mordes angeklagt und streiten die Vorwürfe ab. Außenminister Rasmussen kündigte die Ausweisung des Verteidigungsattachés an und bestellte den russischen Botschafter ein. Die russische Botschaft nennt die Vorwürfe unbelegt, Moskau will mit Gegenmaßnahmen antworten.",
+      "warum_wichtig": "Der Fall ist ein weiteres Beispiel für mutmaßlich staatlich gesteuerte russische Anschlagspläne in Europa.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/europa/daenemark-attentatsversuch-100.html"
+        },
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/cmde1lj4yjxno"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-20-politik-1",
+      "datum": "2026-11-20",
+      "datum_bis": null,
+      "titel": "EU und Großbritannien vereinbaren Jugendprogramm und weniger Lebensmittelkontrollen",
+      "text": "Beim Gipfel in Brüssel haben die EU und Premier Andy Burnham eine Annäherung beschlossen. Spätestens ab 2030 sollen je 100.000 junge Menschen für bis zu drei Jahre in der anderen Region leben und arbeiten dürfen, Großbritannien nimmt ab 2027 wieder an Erasmus plus teil. Ab 2028 entfallen viele Kontrollen im Lebensmittelhandel, dafür übernimmt London einen Teil der EU-Regeln, außerdem werden die Emissionshandelssysteme verknüpft. Offen bleibt die Frage der Studiengebühren, dazu soll es binnen sechs Monaten eine Einigung geben. Laut britischem Finanzministerium bringt das Paket bis zu 17 Milliarden Pfund im Jahr.",
+      "warum_wichtig": "Es ist der bisher weitreichendste Schritt der Wiederannäherung seit dem Brexit und verändert Handel und Reisen zwischen London und Brüssel.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448754/"
+        },
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/c6jreyqgw4e9o"
+        },
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/eu-uk-gipfel-102.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-20-politik-2",
+      "datum": "2026-11-20",
+      "datum_bis": null,
+      "titel": "Bundesrat stoppt Startchancengesetz für Kita-Tests und ruft den Vermittlungsausschuss an",
+      "text": "Der Bundesrat hat das Gesetz mit verbindlichen Sprach- und Entwicklungstests für Vierjährige vorerst ausgebremst. Die Länder tragen die Inhalte mit, werfen dem Bund aber vor, Kosten auf sie und die Kommunen abzuwälzen, weil er seine Unterstützung bis 2035 schrittweise zurückfährt. Grünes Licht gab es dagegen für die Frühstartrente: Der Staat zahlt rückwirkend ab Jänner 2026 monatlich zehn Euro in ein Depot für Sechs- bis 18-Jährige.",
+      "warum_wichtig": "Das wichtigste Bildungsprojekt von Ministerin Prien hängt nun an einem Kompromiss zwischen Bund und Ländern über die Finanzierung.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/inland/innenpolitik/bundesrat-startchancengesetz-fruehstartrente-notfallreform-100.html"
+        },
+        {
+          "name": "FAZ",
+          "url": "https://www.faz.net/aktuell/politik/inland/bundesrat-stoppt-startchancen-und-qualitaetsentwicklungsgesetz-accg-201701241.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-20-ki-1",
+      "datum": "2026-11-20",
+      "datum_bis": null,
+      "titel": "Claude hilft bei mutmaßlichem Beweis der Riemannschen Vermutung, Prüfprogramm Lean bestätigt ihn",
+      "text": "Der bei Anthropic angestellte Mathematiker Levent Alpöge hat nach eigenen Angaben mit Claude eine Lösung der Riemannschen Vermutung gefunden, einem der berühmtesten ungelösten Probleme der Mathematik. Der Beweis liegt in der Beweissprache Lean vor, die Rechner prüfen können. Mehrere Fachleute, darunter Andrew Sutherland vom MIT, bestätigen laut TechCrunch, dass er sich fehlerfrei übersetzen lässt. Eine für Menschen verständliche Erklärung fehlt noch. Parallel stellte ein Stanford-Postdoc einen Beweis ohne KI ins Netz, der ungeprüft ist.",
+      "warum_wichtig": "Bestätigt sich der Beweis, wäre ein Jahrhundertproblem der Mathematik mit maßgeblicher Hilfe einer KI gelöst.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/20/ai-claimed-a-solution-to-the-167-year-old-riemann-hypothesis-and-a-human-did-too/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-20-ki-2",
+      "datum": "2026-11-20",
+      "datum_bis": null,
+      "titel": "Claude Code 2.1.330 zeichnet Diagramme auf Wunsch und ermöglicht Anmeldung in verwalteten Organisationen",
+      "text": "Die neue Version von Claude Code bringt easel mit, eine eingebaute Erweiterung, die auf Nachfrage Diagramme zeichnet. Sie steht auf Pro und Max sowie je nach Angebot auf Team und Enterprise unter macOS und Linux bereit, automatische Diagramme lassen sich in den Einstellungen abschalten. Außerdem können sich Nutzer bei Organisationen anmelden, die in der Enterprise-Verwaltung von Anthropic geführt werden; Claude Code übernimmt dann deren Einstellungen.",
+      "warum_wichtig": "Auswertungen lassen sich direkt im Terminal grafisch darstellen, und Firmen können Claude Code zentral verwalten.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Claude Code Änderungsprotokoll",
+          "url": "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-20-ki-3",
+      "datum": "2026-11-20",
+      "datum_bis": null,
+      "titel": "Trump will US-Firmen den Bau von KI-Rechenzentren im Ausland verbieten oder hoch besteuern",
+      "text": "Bei einer Pressekonferenz im Weißen Haus kündigte Präsident Trump an, amerikanischen Unternehmen den Bau von Rechenzentren im Ausland nicht zu erlauben, sonst drohten eine enorme Steuer und Strafen. Eine rechtliche Grundlage nannte er nicht, die Pläne seien auch seinem Kabinett neu. Tech-Konzerne wie Meta und Google haben bereits Rechenzentren im Ausland vereinbart. Am Montag hatten die USA schon eine Lizenzpflicht für den Kauf moderner KI-Chips eingeführt.",
+      "warum_wichtig": "Setzt Trump das um, müssten große Anbieter ihre Ausbaupläne in Europa und Asien überdenken.",
+      "themen": [
+        "ki",
+        "wirtschaft"
+      ],
+      "hauptthema": "ki",
+      "update": true,
+      "quellen": [
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/cmde1lw9y54ko"
+        },
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/politik/international/ki-industrie-trump-warnt-us-konzerne-vor-bau-von-ki-rechenzentren-im-ausland/100271667.html"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000350319/trump-will-bau-von-us-rechenzentren-im-ausland-verbieten"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-20-wirtschaft-1",
+      "datum": "2026-11-20",
+      "datum_bis": null,
+      "titel": "KI-Ausverkauf: S&P 500 und Dow in der Korrektur, Anthropic-Aktie fällt weiter",
+      "text": "An der Wall Street fiel der S&P 500 um 3,7 Prozent auf 6910 Punkte, der Nasdaq um 5,3 Prozent, der Dow um 1,9 Prozent. S&P 500 und Dow liegen damit mehr als zehn Prozent unter ihren Rekordständen, für den S&P 500 war es der siebte Verlusttag in Folge. Auslöser war die Enttäuschung über Anthropics Börsendebüt: Die Aktie gab um rund neun Prozent nach und liegt nahe dem Ausgabepreis von 83 Dollar, Nvidia verlor knapp 14 Prozent. Der Dax schloss 2,6 Prozent tiefer bei 24.803 Punkten, auf Wochensicht minus 7,3 Prozent.",
+      "warum_wichtig": "Die Anleger zweifeln zunehmend, ob die riesigen Investitionen in KI sich rechnen, und das belastet auch europäische Aktien.",
+      "themen": [
+        "wirtschaft",
+        "ki"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "n-tv",
+          "url": "https://www.n-tv.de/wirtschaft/Wall-Street-geht-tiefrot-ins-Wochenende-id31560776.html"
+        },
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/c6808ym10vzgo"
+        },
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/wirtschaft/finanzen/marktberichte/marktbericht-dax-dow-anthropic-102.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-20-wirtschaft-2",
+      "datum": "2026-11-20",
+      "datum_bis": null,
+      "titel": "Börsenaufsicht SEC prüft laut Bericht die Bilanzierung von Nvidia, Aktie fällt um 14 Prozent",
+      "text": "Laut einem Bericht der Nachrichtenagentur Reuters untersucht die US-Börsenaufsicht SEC die Bilanzierungspraktiken von Nvidia. Die Aktie sank um 14 Prozent auf 128 Dollar, den tiefsten Stand seit Mai 2025, und hat binnen eines Monats mehr als 42 Prozent verloren. Zuvor hatte Kaliforniens Generalstaatsanwalt Bonta per Vorladung Auskunft verlangt, ob Nvidia Anleger über Chiplieferungen nach China getäuscht hat. Die SEC äußerte sich nicht.",
+      "warum_wichtig": "Aus dem Führungsskandal um Konzernchef Huang wird ein Behördenverfahren, das den wichtigsten KI-Chiphersteller länger belasten kann.",
+      "themen": [
+        "wirtschaft"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": true,
+      "quellen": [
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/technik/ki/chip-konzern-aufsicht-sec-ueberprueft-laut-bericht-nvidia-bilanzierung-aktie-faellt-weiter/100271678.html"
+        },
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/cqn70vxp5p4no"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-20-wirtschaft-3",
+      "datum": "2026-11-20",
+      "datum_bis": null,
+      "titel": "Gericht genehmigt Bayers Glyphosat-Vergleich über 7,25 Milliarden Dollar endgültig",
+      "text": "Richter Timothy Boyer im US-Bundesstaat Missouri hat den Sammelvergleich von Bayer mit Zehntausenden Klägern als fair, vernünftig und angemessen gebilligt. Die Zahlungen laufen bis zu 21 Jahre und sollen laufende wie künftige Klagen wegen Krebserkrankungen im Zusammenhang mit dem Unkrautvernichter Roundup beilegen. Bayer bestreitet weiterhin ein Krebsrisiko. Die Aktie legte nachbörslich um drei Prozent zu.",
+      "warum_wichtig": "Bayer kommt der Beilegung seines größten Rechtsstreits einen großen Schritt näher, sofern der Vergleich eine erwartete Berufung übersteht.",
+      "themen": [
+        "wirtschaft"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/unternehmen/industrie/pharma-bayers-glyphosat-sammelvergleich-von-richter-genehmigt/100271682.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-20-tirol-1",
+      "datum": "2026-11-20",
+      "datum_bis": null,
+      "titel": "Reschenstraße: Tagessperren bei der Kanzelgalerie entfallen, nur am 27. November gilt eine Vollsperre",
+      "text": "Die Bauarbeiten an der Kanzelgalerie auf der Reschenstraße zwischen Pfunds und Nauders sind fast abgeschlossen. Die für 23. bis 26. November angekündigten Tagessperren sind nicht mehr nötig, der Verkehr läuft einspurig mit Ampel. Am Freitag, dem 27. November, wird die Straße von 8 bis 14 Uhr voll gesperrt, die Umleitung führt über die Schweiz. Danach ist die Straße zweispurig befahrbar, die letzte Bauphase 2027 braucht keine Tagessperren mehr.",
+      "warum_wichtig": "Pendler und Reisende im Oberland haben nach über zwei Jahren Bauzeit bald wieder freie Fahrt.",
+      "themen": [
+        "tirol"
+      ],
+      "hauptthema": "tirol",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3380357/"
+        },
+        {
+          "name": "Tiroler Tageszeitung",
+          "url": "https://www.tt.com/artikel/30947364/schneller-als-gedacht-autofahrer-auf-der-reschenstrasse-koennen-aufatmen"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-20-startups-1",
+      "datum": "2026-11-20",
+      "datum_bis": null,
+      "titel": "Niederösterreichisches Startup Shopstory beantragt Konkurs",
+      "text": "Das Startup Shopstory mit Sitz in Wolkersdorf in Niederösterreich hat laut brutkasten einen Konkursantrag eingebracht. Das Unternehmen hatte in der Vergangenheit mehrere teils prominente Investoren gewonnen. Mitgründer und Geschäftsführer ist Sebastian Schwelle.",
+      "warum_wichtig": "Auch ein Startup mit bekannten Geldgebern ist in Österreich nicht vor dem Scheitern geschützt.",
+      "themen": [
+        "startups"
+      ],
+      "hauptthema": "startups",
+      "update": false,
+      "quellen": [
+        {
+          "name": "brutkasten",
+          "url": "https://brutkasten.com/artikel/shopstory-noe-startup-mit-zahlreichen-bekannten-investoren-muss-konkursantrag-einbringen"
+        }
+      ]
+    }
+  ],
+  "videos": [],
+  "abschnitte": []
+}
