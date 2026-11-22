@@ -1,0 +1,272 @@
+{
+  "format": "taeglich",
+  "titel": "Samstag, 21. November 2026",
+  "zeitraum": {
+    "von": "2026-11-21",
+    "bis": "2026-11-21"
+  },
+  "erschienen": "2026-11-22T03:08:16+01:00",
+  "status": "ok",
+  "fehler": null,
+  "ruhig": [],
+  "luecken": [],
+  "ausnahmen": [],
+  "meldungen": [
+    {
+      "id": "2026-11-21-weltpolitik-1",
+      "datum": "2026-11-21",
+      "datum_bis": null,
+      "titel": "Russischer Frachter „Sparta 2“ im Finnischen Meerbusen nach Drohnenangriff in Brand",
+      "text": "Laut finnischem Verteidigungsministerium wurde das russische Frachtschiff „Sparta 2“ am Samstagfrüh in internationalen Gewässern westlich der Insel Gogland von Drohnen getroffen und geriet in Brand. Die Besatzung hat das Schiff verlassen. Laut Handelsblatt vermutet Finnland die Ukraine hinter dem Angriff, Estland schickte ein Marineschiff zur Unterstützung bei den Löscharbeiten. Ministerpräsident Petteri Orpo sagte, der Krieg greife auf Gebiete in der Nachbarschaft Finnlands über.",
+      "warum_wichtig": "Erstmals brennt ein Handelsschiff vor Finnlands Küste nach einem Drohnenangriff, was die Ostsee als Schauplatz des Ukrainekriegs weiter ins Bewusstsein rückt.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448881/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/jetzt/livebericht/3000000350315/macron-wirft-russland-aggressives-vorgehen-auf-europaeischem-boden-vor"
+        },
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/politik/international/ostsee-russisches-frachtschiff-nach-drohnenangriff-vor-finnland-in-brand/100271784.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-21-weltpolitik-2",
+      "datum": "2026-11-21",
+      "datum_bis": null,
+      "titel": "UN-Konferenz in Genf einigt sich bei Killerrobotern nur auf ein abgeschwächtes Mandat",
+      "text": "Die Überprüfungskonferenz zur UN-Waffenkonvention in Genf endete in der Nacht auf Samstag mit einem Minimalkonsens. Laut ORF und heise unterstützten fast hundert der 128 Mitgliedstaaten Verhandlungen über ein verbindliches Verbot vollautonomer Waffen. Russland blockierte die Tagesordnung, die USA lehnten ein konkretes Verhandlungsmandat ab, Israel, Belarus und Großbritannien äußerten Vorbehalte. Nun soll binnen zwei Jahren ein internationales Instrument zu tödlichen autonomen Waffensystemen entwickelt werden, Österreichs Außenministerin Beate Meinl-Reisinger zeigte sich enttäuscht.",
+      "warum_wichtig": "Waffen, die selbst Ziele auswählen, bleiben vorerst ohne verbindliche internationale Regeln, obwohl eine große Mehrheit der Staaten sie wollte.",
+      "themen": [
+        "weltpolitik",
+        "ki"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448861/"
+        },
+        {
+          "name": "heise online",
+          "url": "https://www.heise.de/news/Killer-Roboter-UN-Konferenz-endet-ohne-Mandat-fuer-verbindliches-Verbot-11533596.html"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000350351/regeln-f252r-killerroboter-gespr228che-enden-mit-minimalkonsens"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-21-weltpolitik-3",
+      "datum": "2026-11-21",
+      "datum_bis": null,
+      "titel": "Klimagipfel COP31 in Antalya überzieht, neues Verhandlungspaket soll am Sonntag entschieden werden",
+      "text": "Die UN-Klimakonferenz in Antalya sollte am Freitag enden und steckte am Samstag noch fest, weil ein überarbeiteter Beschlusstext fehlte. Streitpunkte sind ein Bekenntnis zum Ausstieg aus fossilen Energien, das im Entwurf fehlt und von der EU gefordert wird, sowie Hilfen zur Klimaanpassung. Laut Handelsblatt legten Australien und die Türkei am Abend ein neues Paket vor, über das das Plenum am Sonntagmorgen entscheiden soll. Konferenzpräsident Murat Kurum zeigte sich zuversichtlich, die BBC beschreibt die Lage dagegen als Stillstand.",
+      "warum_wichtig": "Ob der Gipfel einen Ausstieg aus Kohle, Öl und Gas wieder in den Beschluss aufnimmt, entscheidet über die Klimapolitik der nächsten Jahre.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448884/"
+        },
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/politik/deutschland/cop31-klimagipfel-in-antalya-cop31-praesident-sieht-einigung-in-reichweite/100270720.html"
+        },
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/c6ly5w40eg07o"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-21-politik-1",
+      "datum": "2026-11-21",
+      "datum_bis": null,
+      "titel": "Costa legt gekürzten EU-Haushalt für 2028 bis 2034 mit Digitalsteuer vor",
+      "text": "EU-Ratspräsident António Costa schlägt für 2028 bis 2034 ein Budget von rund 1,78 Billionen Euro vor, etwa 204 Milliarden weniger als der erste Entwurf der Kommission. Erstmals wird auch die Regionalförderung um etwa 8 Milliarden Euro gekürzt, die Agrarhilfen bleiben gleich. Neu ist eine Digitalabgabe von 3 Prozent auf Werbe- und Plattformumsätze großer Konzerne. Kanzler Merz nannte das einen ersten Schritt, Österreichs Europaministerin Claudia Bauer (ÖVP) fordert deutlich tiefere Einschnitte. Der Vorschlag geht nächste Woche an einen EU-Gipfel, bis Jahresende soll eine Einigung stehen.",
+      "warum_wichtig": "Österreich und die anderen Nettozahler wollen weniger einzahlen, während Empfängerländer wie Polen, Italien und Spanien Kürzungen bei der Regionalförderung fürchten.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448878/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000350372/streit-um-eu-budget-costa-k252rzt-und-schl228gt-digitalsteuer-vor"
+        },
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/politik/international/eu-haushalt-costa-will-204-milliarden-sparen-merz-reicht-das-nicht/100271749.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-21-politik-2",
+      "datum": "2026-11-21",
+      "datum_bis": null,
+      "titel": "Schließung kleiner Bezirksgerichte liegt vorerst auf Eis",
+      "text": "Die Pläne zur Schließung kleiner Bezirksgerichte sind vorerst gestoppt, weil sich die Koalition nicht einigen konnte. Das bestätigte das Justizministerium der APA. Ursprünglich standen 16 Standorte in mehreren Bundesländern zur Diskussion, in Tirol Telfs, Landeck, Silz und Rattenberg. Das Ministerium hält das Zusammenlegen kleiner Gerichte weiter für ein Ziel, ein Zeitplan fehlt.",
+      "warum_wichtig": "Die Gerichte in den betroffenen Bezirken bleiben vorläufig offen, die Frage kann aber jederzeit wiederkehren.",
+      "themen": [
+        "politik",
+        "tirol"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000350358/bezirksgerichte-schlie223ungspl228ne-liegen-vorerst-auf-eis"
+        },
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3380502/"
+        },
+        {
+          "name": "Die Presse",
+          "url": "https://www.diepresse.com/41475842/bezirksgerichte-schliessungsplaene-liegen-vorerst-auf-eis"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-21-ki-1",
+      "datum": "2026-11-21",
+      "datum_bis": null,
+      "titel": "Thinking Machines veröffentlicht Inkling 2 Mini als offenes Modell für den Laptop",
+      "text": "Thinking Machines hat das Modell Inkling 2 Mini unter der Apache-Lizenz freigegeben, die Gewichte liegen auf Hugging Face. Es hat 26,4 Milliarden Parameter, von denen pro Token 5,4 Milliarden aktiv sind, verarbeitet Text und Bilder und hat ein Kontextfenster von einer Million Tokens. Zwölf der 24 Schichten werden dreimal durchlaufen, sodass das Modell intern länger rechnet, ohne mehr Text auszugeben. Laut Thinking Machines führt es alle offenen Modelle unter 100 Milliarden Parametern beim Programmieren mit Agenten an; es läuft lokal auf Macs mit mindestens 32 Gigabyte Arbeitsspeicher.",
+      "warum_wichtig": "Ein frei nutzbares Modell dieser Leistung auf dem eigenen Rechner senkt die Kosten und die Abhängigkeit von Anbietern in der Cloud.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "THE DECODER",
+          "url": "https://the-decoder.de/inkling-2-mini-neues-ki-modell-denkt-in-schleifen-und-laeuft-trotzdem-auf-dem-laptop/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-21-wirtschaft-1",
+      "datum": "2026-11-21",
+      "datum_bis": null,
+      "titel": "Nasdaq 100 rutscht in den Bärenmarkt, größter Wochenverlust seit der Coronakrise",
+      "text": "Der Nasdaq 100 verlor am Freitag 5,6 Prozent und in der Woche 10,4 Prozent, laut Financial Times liegt er nun rund 20 Prozent unter dem Oktoberhoch. Der Halbleiterindex fiel um 10,7 Prozent, Nvidia verlor weitere 14 Prozent auf 128 Dollar, nachdem laut Reuters die Börsenaufsicht SEC die Bilanzierung des Konzerns prüft. Genannt werden Zweifel an den KI-Investitionen, hohe Bewertungen und die wegen des Irankriegs hartnäckige Inflation; die Anthropic-Aktie verlor am Tag nach dem Börsengang 9,1 Prozent. Zuvor waren schon S&P 500 und Dow in die Korrektur gerutscht.",
+      "warum_wichtig": "Der Kurssturz trifft Anleger in Tech- und Halbleiter-ETFs besonders stark und zeigt, wie sehr der Markt von den KI-Erwartungen abhängt.",
+      "themen": [
+        "wirtschaft",
+        "ki"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": true,
+      "quellen": [
+        {
+          "name": "THE DECODER",
+          "url": "https://the-decoder.de/us-techmarkt-im-freien-fall-perfekter-sturm-aus-ki-zweifeln-skandalen-und-inflationsangst/"
+        },
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/technik/ki/chip-konzern-aufsicht-sec-ueberprueft-laut-bericht-nvidia-bilanzierung/100271678.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-21-wirtschaft-2",
+      "datum": "2026-11-21",
+      "datum_bis": null,
+      "titel": "EU und Indonesien unterzeichnen Freihandelsabkommen nach fast zehn Jahren Verhandlung",
+      "text": "Die EU und Indonesien haben ein Freihandelsabkommen und ein Investitionsschutzabkommen unterzeichnet. Die Zölle sollen nach vollständiger Umsetzung auf bis zu 98,5 Prozent der Warenkategorien entfallen, indonesische Zölle auf europäische Autos von bis zu 50 Prozent binnen fünf Jahren. Das Abkommen verbietet außerdem Exportmonopole für Rohstoffe wie Nickel und Kobalt. Zustimmen muss noch das Europäische Parlament, die EU-Kommission hofft auf eine vorläufige Anwendung Anfang 2027.",
+      "warum_wichtig": "Europas Industrie bekommt besseren Zugang zu einem Markt mit 290 Millionen Menschen und zu wichtigen Rohstoffen für Batterien.",
+      "themen": [
+        "wirtschaft"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/politik/deutschland/welthandel-eu-und-indonesien-unterzeichnen-weitreichenden-handelsdeal/100271760.html"
+        },
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/wirtschaft/weltwirtschaft/eu-indonesien-handelsabkommen-102.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-21-tirol-1",
+      "datum": "2026-11-21",
+      "datum_bis": null,
+      "titel": "Tiroler SPÖ wählt Philip Wohlgemuth mit 95,74 Prozent zum Spitzenkandidaten für 2027",
+      "text": "Beim außerordentlichen Parteitag in Seefeld wurde SPÖ-Tirol-Chef Philip Wohlgemuth mit 95,74 Prozent der Stimmen zum Spitzenkandidaten für die Landtagswahl 2027 gewählt. Er will eine Regierungsbeteiligung der FPÖ verhindern und die SPÖ als Juniorpartner der ÖVP in der Landesregierung halten. Ziel ist ein Plus gegenüber den 17,48 Prozent der letzten Wahl.",
+      "warum_wichtig": "Rund ein Jahr vor der Landtagswahl steht fest, mit welchem Gesicht die SPÖ antritt und dass sie eine Koalition mit der FPÖ ausschließt.",
+      "themen": [
+        "tirol",
+        "politik"
+      ],
+      "hauptthema": "tirol",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3380473/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000350380/spoe-tirol-waehlt-philip-wohlgemuth-zum-spitzenkandidaten"
+        },
+        {
+          "name": "Die Presse",
+          "url": "https://www.diepresse.com/41477096/wohlgemuth-in-tirol-zum-spoe-spitzenkandidaten-gewaehlt"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-21-startups-1",
+      "datum": "2026-11-21",
+      "datum_bis": null,
+      "titel": "Österreichs Regierung einigt sich auf Startup-Dachfonds mit 500 Millionen Euro Zielvolumen",
+      "text": "Der Dachfonds heißt jetzt „Austrian Venture and Growth Fund of Funds“ und soll 500 Millionen Euro mobilisieren, der Bund steuert bis zu 100 Millionen Euro bei. Wirtschaftsministerium und Finanzministerium haben sich auf die Ausgestaltung geeinigt. Die Förderbank aws startet in der kommenden Woche die Ausschreibung für das Fondsmanagement, die Auswahl ist für Anfang 2027 geplant. Der Fonds investiert in Beteiligungsfonds, mit Schwerpunkt auf Schlüsseltechnologien.",
+      "warum_wichtig": "Österreichische Startups und Scaleups bekommen damit eine Aussicht auf mehr Wachstumskapital im Inland.",
+      "themen": [
+        "startups"
+      ],
+      "hauptthema": "startups",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Trending Topics",
+          "url": "https://www.trendingtopics.eu/startup-dachfonds-fondsmanagement-gesucht/"
+        },
+        {
+          "name": "brutkasten",
+          "url": "https://brutkasten.com/artikel/austrian-venture-growth-fund-of-funds-regierung-einigt-sich-auf-konkrete-dachfonds-umsetzung"
+        }
+      ]
+    }
+  ],
+  "videos": [],
+  "abschnitte": []
+}
