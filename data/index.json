@@ -1,5 +1,5 @@
 {
-  "aktualisiert": "2026-11-22T03:12:33+01:00",
+  "aktualisiert": "2026-11-22T03:43:25+01:00",
   "start": "2026-11-08",
   "ausgaben": [
     {
@@ -155,6 +155,17 @@
       "datei": "data/taeglich/2026-11-08.json",
       "status": "ok",
       "erschienen": "2026-11-09T03:08:58+01:00"
+    },
+    {
+      "format": "woechentlich",
+      "titel": "Woche vom 15. bis 21. November 2026",
+      "zeitraum": {
+        "von": "2026-11-15",
+        "bis": "2026-11-21"
+      },
+      "datei": "data/woechentlich/2026-11-15_2026-11-21.json",
+      "status": "ok",
+      "erschienen": "2026-11-22T03:43:22+01:00"
     },
     {
       "format": "woechentlich",

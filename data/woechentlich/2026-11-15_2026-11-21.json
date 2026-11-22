@@ -1,0 +1,917 @@
+{
+  "format": "woechentlich",
+  "titel": "Woche vom 15. bis 21. November 2026",
+  "zeitraum": {
+    "von": "2026-11-15",
+    "bis": "2026-11-21"
+  },
+  "erschienen": "2026-11-22T03:43:22+01:00",
+  "status": "ok",
+  "fehler": null,
+  "ruhig": [],
+  "luecken": [],
+  "ausnahmen": [
+    {
+      "thema": "weltpolitik",
+      "grund": "Mit Iran-Krieg, Ukraine, dem Dreiergipfel von Trump, Xi und Putin, Gaza-Offensive, russischen Vorfällen in Europa und dem Rohingya-Urteil des Internationalen Gerichtshofs gab es sechs Entwicklungen, die jeweils eine reguläre Meldung verdrängen könnten."
+    }
+  ],
+  "meldungen": [
+    {
+      "id": "2026-11-15_2026-11-21-weltpolitik-1",
+      "datum": "2026-11-15",
+      "datum_bis": "2026-11-19",
+      "titel": "Iran-Krieg: Angriffe auf Tanker und Golfstaaten, US-Senat lehnt Kriegsresolution ab",
+      "text": "Die Lage in der Straße von Hormus hat sich in der Woche weiter zugespitzt. Laut ORF wurde allein am 16. November der vierte Tanker binnen 24 Stunden beschädigt, am 18. November meldete Iran Explosionen auf drei weiteren Tankern und griff nach eigenen Angaben Kuwait und Bahrain an. Die USA verlegten einen dritten Flugzeugträger in die Region und bombardierten die iranische Insel Qeschm. Am 19. November lehnte der US-Senat mit 51 zu 48 Stimmen eine Resolution ab, die Präsident Trump zur Beendigung des Krieges oder zur Zustimmung des Kongresses verpflichtet hätte; der Krieg kostete die USA laut ORF und DER STANDARD bisher mehr als 48 Milliarden Dollar.",
+      "warum_wichtig": "Trump kann den Krieg vorerst ohne den Kongress fortsetzen, während die wichtigste Öl-Route der Welt weiter bedroht ist.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448401/"
+        },
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/cw4gn9jeqjq7o"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000350157/us-senat-keine-mehrheit-fuer-resolution-gegen-trumps-iran-kurs"
+        },
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/asien/iran-revolutionsgarde-angriff-bahrain-100.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-weltpolitik-2",
+      "datum": "2026-11-16",
+      "datum_bis": "2026-11-20",
+      "titel": "Ukraine: Europa verhandelt mit, Krim-Brücke getroffen, Russland greift Kiew massiv an",
+      "text": "Europäische Unterhändler berieten am 16. November erstmals gemeinsam mit Kiew und den USA über ein Kriegsende, der Kreml widersprach einer europäischen Teilnahme. Am 17. November zerstörte die Ukraine laut tagesschau einen Hauptbogen der Krim-Brücke. Beim Treffen der Koalition der Willigen in Berlin am 19. November wurde der Ukraine Hilfe zugesagt, die EU-Kommission schlägt 45 Milliarden Euro für 2027 vor. Russland antwortete in der Nacht auf den 20. November laut Selenskyj mit mehr als 110 Raketen und über 400 Drohnen, in Kiew wurden drei Brücken getroffen und laut Bürgermeister Klitschko sieben Menschen getötet.",
+      "warum_wichtig": "Die Gespräche über ein Kriegsende laufen, während beide Seiten ihre Angriffe auf Verkehrsadern verschärfen.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448395/"
+        },
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/europa/selenskyj-teilzerstoerung-krim-bruecke-100.html"
+        },
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/c6x29gn4pdn9o"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349438/eu-partner-wollen-gespraeche-mit-russland-zur-ukraine-nach-europa-holen"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-weltpolitik-3",
+      "datum": "2026-11-19",
+      "datum_bis": null,
+      "titel": "Trump, Xi und Putin treffen sich erstmals zu dritt und veröffentlichen eine Erklärung",
+      "text": "Am Rande des APEC-Gipfels in Shenzhen sprachen die drei Staatschefs rund eineinhalb Stunden miteinander. Die gemeinsame Erklärung nennt einen Dialog über atomare Risiken, eine Reform der UNO und mehr Förderung und Lieferung von Erdölprodukten. Der Ukraine-Krieg kommt darin nicht vor, und laut ORF gibt es keine verbindlichen Zusagen.",
+      "warum_wichtig": "Erstmals sitzen die Staatschefs der drei Atommächte gemeinsam am Tisch, konkrete Ergebnisse fehlen aber, und ein Nachfolger des ausgelaufenen Abrüstungsvertrags New START ist nicht in Sicht.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/c623j4ln97x7o"
+        },
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448675/"
+        },
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/asien/dreiergipfel-xi-trump-putin-100.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-weltpolitik-4",
+      "datum": "2026-11-15",
+      "datum_bis": "2026-11-21",
+      "titel": "Russland und Europa: Sabotage, Luftraumverletzung und Drohnenangriff auf einen Frachter",
+      "text": "Estland schließt ab 1. Dezember seine drei Grenzübergänge zu Russland, nachdem laut Geheimdienst Kapo der russische Militärgeheimdienst GRU einen Brandanschlag auf einen Drohnenhersteller bei Tallinn angeordnet hatte. Am 20. November stürzten laut Polen drei russische Flugobjekte, darunter ein Marschflugkörper, im Südosten des Landes ab; Dänemark wies einen russischen Verteidigungsattaché wegen eines mutmaßlich vom Geheimdienst gesteuerten Anschlagsplans aus. Am 21. November geriet der russische Frachter „Sparta 2“ im Finnischen Meerbusen nach einem Drohnenangriff in Brand, Finnland vermutet laut Handelsblatt die Ukraine dahinter.",
+      "warum_wichtig": "Die Vorfälle zeigen, wie weit der Konflikt mit Russland inzwischen auf Gebiet und Gewässer der EU und der Nato ausgreift.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/europa/estland-russland-grenze-geschlossen-100.html"
+        },
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/cqx2x9dklxnro"
+        },
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/europa/daenemark-attentatsversuch-100.html"
+        },
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/politik/international/ostsee-russisches-frachtschiff-nach-drohnenangriff-vor-finnland-in-brand/100271784.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-weltpolitik-5",
+      "datum": "2026-11-15",
+      "datum_bis": "2026-11-18",
+      "titel": "Gaza: Israel startet eine Bodenoffensive im Zentrum des Gazastreifens",
+      "text": "Die israelische Armee hat nach der Waffenruhe von 2025 erstmals wieder mit Panzern im Zentrum des Gazastreifens angegriffen, laut Militär gegen Infrastruktur der Hamas. Die Hamas spricht von einer gefährlichen Eskalation und einem Bruch der Waffenruhe. Schon am 15. November hatte Israel einen Hamas-Kommandeur in Rafah getötet, und vier westliche Außenminister forderten ungehinderte Hilfe für den Gazastreifen.",
+      "warum_wichtig": "Die Offensive stellt die Waffenruhe infrage, die seit 2025 gilt.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/asien/israel-gaza-bodenoffensive-104.html"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349917/israelische-panzer-r252cken-im-gazastreifen-vor-hamas-spricht-von-eskalation"
+        },
+        {
+          "name": "POLITICO Europe",
+          "url": "https://www.politico.eu/article/israel-kills-hamas-commander-in-gaza-strike/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-weltpolitik-6",
+      "datum": "2026-11-19",
+      "datum_bis": null,
+      "titel": "Internationaler Gerichtshof stuft Myanmars Vorgehen gegen die Rohingya als Völkermord ein",
+      "text": "Das höchste UN-Gericht in Den Haag urteilte, Myanmars Sicherheitskräfte hätten 2017 einen wesentlichen Teil der Rohingya vernichten wollen. Die Klage hatte Gambia Ende 2019 eingereicht. Myanmar bestreitet den Vorwurf und spricht von rechtmäßiger Terrorismusbekämpfung. Die Offensive trieb rund 750.000 Menschen nach Bangladesch.",
+      "warum_wichtig": "Die juristische Einstufung als Völkermord kann künftige Verfahren prägen und erhöht den Druck auf Myanmar.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/asien/urteil-voelkermord-rohingya-myanmar-100.html"
+        },
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/c804wzp20ddvo"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000350028/uno-weltgericht-stellt-genozid-an-rohingya-durch-myanmar-fest"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-politik-1",
+      "datum": "2026-11-21",
+      "datum_bis": null,
+      "titel": "Costa legt gekürzten EU-Haushalt für 2028 bis 2034 mit Digitalabgabe vor",
+      "text": "EU-Ratspräsident António Costa schlägt für 2028 bis 2034 ein Budget von rund 1,78 Billionen Euro vor, etwa 204 Milliarden weniger als im ersten Entwurf der Kommission. Die Regionalförderung wird um etwa 8 Milliarden Euro gekürzt, neu ist eine Digitalabgabe von 3 Prozent auf Werbe- und Plattformumsätze großer Konzerne. Kanzler Merz nannte das einen ersten Schritt, Österreichs Europaministerin Claudia Bauer fordert deutlich tiefere Einschnitte. Der Vorschlag geht nächste Woche an einen EU-Gipfel.",
+      "warum_wichtig": "Nettozahler wie Österreich wollen weniger einzahlen, Empfängerländer fürchten Kürzungen bei der Regionalförderung.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448878/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000350372/streit-um-eu-budget-costa-k252rzt-und-schl228gt-digitalsteuer-vor"
+        },
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/politik/international/eu-haushalt-costa-will-204-milliarden-sparen-merz-reicht-das-nicht/100271749.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-politik-2",
+      "datum": "2026-11-18",
+      "datum_bis": null,
+      "titel": "Deutsche Koalition einigt sich auf Senkung der Stromsteuer und einen Spritpreisdeckel",
+      "text": "Nach acht Stunden Beratung haben sich CDU, CSU und SPD im Koalitionsausschuss auf eine Senkung der Stromsteuer für alle auf das europäische Mindestniveau geeinigt. Sie soll ab Jänner gelten, finanziert ist sie aber nur für 2027. Dazu kommt ein zeitlich begrenzter Spritpreisdeckel. Noch am 13. November hatte der Haushalt 2027 keine Senkung vorgesehen.",
+      "warum_wichtig": "Haushalte und Betriebe in Deutschland zahlen ab Jänner weniger für Strom, zunächst aber nur für ein Jahr.",
+      "themen": [
+        "politik",
+        "wirtschaft"
+      ],
+      "hauptthema": "politik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/inland/innenpolitik/koalitionsausschuss-einigung-stromsteuer-spritpreisdeckel-100.html"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349805/merz-setzt-senkung-der-stromsteuer-doch-noch-durch-und-wendet-koalitionskrise-ab"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-politik-3",
+      "datum": "2026-11-16",
+      "datum_bis": null,
+      "titel": "Fünf EU-Staaten wollen ab 2027 ein Abschiebezentrum in Ruanda betreiben",
+      "text": "Österreich, Deutschland, Dänemark, die Niederlande und Griechenland verhandeln mit Ruanda über ein Rückkehrzentrum für abgelehnte Asylwerber, das im Lauf des Jahres 2027 starten soll. Geplant ist laut ORF zunächst ein Pilotprojekt mit rund zwanzig Personen pro Land, ohne geschlossene Haft. Kanzler Stocker sprach von einem historischen Paradigmenwechsel, der Völkerrechtler Manfred Nowak hält das Vorhaben für rechtlich sehr zweifelhaft.",
+      "warum_wichtig": "Es wäre der erste gemeinsame Rückkehr-Hub von EU-Staaten außerhalb Europas, rechtlich und politisch aber stark umstritten.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448356/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349301/ruanda-als-partner-fuer-umstrittenen-return-hub-offiziell-bestaetigt-erste-ueberstellungen-2027-geplant"
+        },
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/europa/eu-staaten-abschiebungen-asylbewerber-ruanda-100.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-politik-4",
+      "datum": "2026-11-19",
+      "datum_bis": null,
+      "titel": "Wehrdienstreform: Für die Zweidrittelmehrheit sind nur noch die Grünen im Rennen",
+      "text": "Die Regierung braucht für den Zivildienst-Teil der Reform eine Zweidrittelmehrheit. Die FPÖ verlangt die gleichzeitige Verlängerung von Grund- und Zivildienst und geht von einem Abbruch der Gespräche aus. ÖVP-Klubchef Gödl hält eine Einigung mit den Grünen für möglich, kolportiert werden 800 statt 1.000 Euro für Zivildiener. Der Grundwehrdienst soll von sechs auf neun Monate steigen.",
+      "warum_wichtig": "Ohne Einigung mit den Grünen scheitert der Zivildienst-Teil der Wehrdienstreform.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448721/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000350159/wehrpflicht-f252r-zweidrittelmehrheit-nur-noch-die-gr252nen-im-rennen"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-politik-5",
+      "datum": "2026-11-17",
+      "datum_bis": null,
+      "titel": "Koalition legt neuen Entwurf zur Bundesstaatsanwaltschaft vor",
+      "text": "ÖVP, SPÖ und NEOS haben sich auf einen überarbeiteten Entwurf geeinigt, der dem Nationalrat zugewiesen wird. Die dreiköpfige unabhängige Weisungsspitze soll neun statt sechs Jahre im Amt bleiben. Für die nötige Zweidrittelmehrheit braucht die Regierung die Grünen; diese begrüßen die Änderungen, die Frage der Bestellung bleibt aber offen.",
+      "warum_wichtig": "Das Vorhaben soll die Weisungsspitze der Staatsanwaltschaften unabhängiger machen und scheitert ohne die Grünen.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349621/koalition-einigt-sich-auf-bundesstaatsanwaltschaft"
+        },
+        {
+          "name": "Die Presse",
+          "url": "https://www.diepresse.com/41462609/regierung-einigt-sich-auf-neuen-entwurf-zur-bundesstaatsanwaltschaft"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-ki-1",
+      "datum": "2026-11-17",
+      "datum_bis": "2026-11-21",
+      "titel": "Anthropic ist an der Börse: Ausgabepreis 83 Dollar, nach einem Tag Plus fällt die Aktie",
+      "text": "Anthropic legte den Ausgabepreis auf 83 Dollar fest, über der geplanten Spanne von 70 bis 78 Dollar. Am 19. November eröffnete die Aktie bei 111,50 Dollar und schloss bei rund 97 Dollar. Der Erlös wird je nach Quelle mit gut 81 Milliarden oder 107 Milliarden Dollar angegeben, es ist der größte Börsengang der Geschichte. Am 20. November verlor die Aktie laut n-tv rund neun Prozent und lag damit nahe dem Ausgabepreis.",
+      "warum_wichtig": "Mit Anthropic ist erstmals ein reines KI-Labor an der Börse, und der schnelle Kursrückgang zeigt, wie unsicher Anleger die Branche trotz Rekordnachfrage bewerten.",
+      "themen": [
+        "ki",
+        "wirtschaft"
+      ],
+      "hauptthema": "ki",
+      "update": true,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448697/"
+        },
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/finanzen/maerkte/aktien/boersengang-anthropic-schliesst-17-prozent-im-plus-kursrueckgang-im-handelsverlauf/100270027.html"
+        },
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/19/anthropic-hits-nasdaq-exchanges-at-110-27-above-ipo-price/"
+        },
+        {
+          "name": "n-tv",
+          "url": "https://www.n-tv.de/wirtschaft/Wall-Street-geht-tiefrot-ins-Wochenende-id31560776.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-ki-2",
+      "datum": "2026-11-20",
+      "datum_bis": null,
+      "titel": "Claude hilft bei mutmaßlichem Beweis der Riemannschen Vermutung, Prüfprogramm bestätigt ihn",
+      "text": "Der bei Anthropic angestellte Mathematiker Levent Alpöge hat nach eigenen Angaben mit Claude eine Lösung der Riemannschen Vermutung gefunden, eines der berühmtesten ungelösten Probleme der Mathematik. Der Beweis liegt in der Beweissprache Lean vor, die Rechner prüfen können. Mehrere Fachleute, darunter Andrew Sutherland vom MIT, bestätigen laut TechCrunch, dass er sich fehlerfrei übersetzen lässt. Eine für Menschen verständliche Erklärung fehlt noch.",
+      "warum_wichtig": "Bestätigt sich der Beweis, wäre ein Jahrhundertproblem der Mathematik mit maßgeblicher Hilfe einer KI gelöst.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/20/ai-claimed-a-solution-to-the-167-year-old-riemann-hypothesis-and-a-human-did-too/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-ki-3",
+      "datum": "2026-11-16",
+      "datum_bis": "2026-11-20",
+      "titel": "Neu bei Claude: Artifacts mit 3D-Effekten und Diagramme in Claude Code",
+      "text": "Claude kann in Artifacts jetzt Seitenelemente mit der Technik HTML-in-Canvas in aufwendige Grafiken und 3D-Effekte einbauen, die klickbar und für Screenreader lesbar bleiben; man muss im Prompt ausdrücklich darum bitten. Claude Code 2.1.330 bringt mit easel eine Erweiterung mit, die auf Nachfrage Diagramme zeichnet. Außerdem können sich Nutzer nun bei Organisationen anmelden, die in der Enterprise-Verwaltung von Anthropic geführt werden.",
+      "warum_wichtig": "Wer Artifacts und Claude Code nutzt, kann Seiten gestalteter bauen und Auswertungen direkt im Terminal grafisch darstellen.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "THE DECODER",
+          "url": "https://the-decoder.de/vibecoding-slop-ade-neue-funktion-bringt-bizarre-flash-aesthetik-in-claudes-artifacts/"
+        },
+        {
+          "name": "Claude Code Änderungsprotokoll",
+          "url": "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-ki-4",
+      "datum": "2026-11-16",
+      "datum_bis": "2026-11-21",
+      "titel": "Neue Modelle von OpenAI, Google, Alibaba und Thinking Machines",
+      "text": "OpenAI brachte am 17. November GPT-6.2 Astra und Sol, Astra liegt im Artificial-Analysis-Ranking laut Trending Topics hinter Claude Fable 5.2 auf Platz 2 und kostet 20 Prozent weniger als der Vorgänger. Google veröffentlichte Gemini 4 Neon, Benchmarks fehlen noch. Alibabas Qwen4-Max soll laut Alibaba die Kosten pro Testaufgabe um 62 Prozent senken. Thinking Machines gab Inkling 2 Mini unter der Apache-Lizenz frei, das Modell läuft lokal auf Macs mit mindestens 32 Gigabyte Arbeitsspeicher.",
+      "warum_wichtig": "Die Modelle werden billiger und rücken enger zusammen, was den Preisdruck unter den KI-Anbietern erhöht.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "THE DECODER",
+          "url": "https://the-decoder.de/openai-bringt-gpt-6-2-astra-und-sol-mehr-leistung-bei-sinkenden-preisen/"
+        },
+        {
+          "name": "Trending Topics",
+          "url": "https://www.trendingtopics.eu/gpt-6-2-astra-openai-takes-second-place-behind-anthropics-fable-5-2/"
+        },
+        {
+          "name": "THE DECODER",
+          "url": "https://the-decoder.de/google-veroeffentlicht-gemini-4-neon-als-neues-frontier-modell-fuer-komplexe-aufgaben/"
+        },
+        {
+          "name": "THE DECODER",
+          "url": "https://the-decoder.de/inkling-2-mini-neues-ki-modell-denkt-in-schleifen-und-laeuft-trotzdem-auf-dem-laptop/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-ki-5",
+      "datum": "2026-11-16",
+      "datum_bis": "2026-11-20",
+      "titel": "USA verschärfen Chip-Exportregeln, Trump droht mit Verbot von Rechenzentren im Ausland",
+      "text": "Das US-Handelsministerium verlangt seit 16. November Lizenzen für den Export von KI-Chips und Servern an Rechenzentren weltweit, die Rechenleistung an Firmen in China liefern könnten; auch Lieferungen nach Malaysia, Singapur, Indonesien, Thailand und Brasilien brauchen eine Lizenz. Am 20. November kündigte Präsident Trump an, US-Firmen den Bau von Rechenzentren im Ausland nicht zu erlauben, sonst drohten eine enorme Steuer und Strafen. Eine rechtliche Grundlage nannte er nicht.",
+      "warum_wichtig": "Setzt Trump das um, müssten große Anbieter ihre Ausbaupläne in Europa und Asien überdenken.",
+      "themen": [
+        "ki",
+        "wirtschaft"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/16/us-tightens-ai-chip-export-controls-to-deter-chinese-companies-from-accessing-compute-remotely/"
+        },
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/cmde1lw9y54ko"
+        },
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/politik/international/ki-industrie-trump-warnt-us-konzerne-vor-bau-von-ki-rechenzentren-im-ausland/100271667.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-wirtschaft-1",
+      "datum": "2026-11-16",
+      "datum_bis": "2026-11-21",
+      "titel": "KI-Ausverkauf: Nasdaq 100 im Bärenmarkt, S&P 500 und Dow in der Korrektur",
+      "text": "Der Nasdaq 100 verlor am 20. November 5,6 Prozent und in der Woche 10,4 Prozent, so viel wie seit der Coronakrise nicht; er liegt laut Financial Times rund 20 Prozent unter dem Oktoberhoch. S&P 500 und Dow rutschten in die Korrektur, der S&P 500 fiel um 3,7 Prozent auf 6910 Punkte, der Dax verlor auf Wochensicht 7,3 Prozent. Genannt werden Zweifel an den KI-Investitionen, hohe Bewertungen, die Nvidia-Krise und die wegen des Irankriegs hartnäckige Inflation.",
+      "warum_wichtig": "Der Kurssturz trifft auch Anleger in breiten, Tech- und Halbleiter-ETFs, weil der Markt stark von den KI-Erwartungen abhängt.",
+      "themen": [
+        "wirtschaft",
+        "ki"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": true,
+      "quellen": [
+        {
+          "name": "n-tv",
+          "url": "https://www.n-tv.de/wirtschaft/Wall-Street-geht-tiefrot-ins-Wochenende-id31560776.html"
+        },
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/wirtschaft/finanzen/marktberichte/marktbericht-dax-dow-anthropic-102.html"
+        },
+        {
+          "name": "THE DECODER",
+          "url": "https://the-decoder.de/us-techmarkt-im-freien-fall-perfekter-sturm-aus-ki-zweifeln-skandalen-und-inflationsangst/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-wirtschaft-2",
+      "datum": "2026-11-17",
+      "datum_bis": "2026-11-20",
+      "titel": "Nvidia: Rekordzahlen, aber Börsenaufsicht prüft die Bilanzierung, Aktie fällt um 14 Prozent",
+      "text": "Nvidia verdoppelte am 17. November Umsatz und Gewinn, der Umsatz lag bei 115,8 Milliarden Dollar; der Verwaltungsrat will den zurückgetretenen Gründer Jensen Huang nicht zurückholen. Der Konzern reichte seinen Quartalsbericht zunächst nicht bei der Börsenaufsicht SEC ein, laut Nvidia hängt das mit den Ermittlungen gegen Huang zusammen. Am 20. November berichtete Reuters, dass die SEC die Bilanzierung prüft; die Aktie fiel um 14 Prozent auf 128 Dollar, ein Minus von mehr als 42 Prozent in einem Monat.",
+      "warum_wichtig": "Nvidia ist im MSCI World stark gewichtet, die Unsicherheit trifft deshalb auch viele ETF-Sparer.",
+      "themen": [
+        "wirtschaft",
+        "ki"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": true,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448509/"
+        },
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/18/nvidia-created-a-weird-bit-of-intrigue-by-not-filing-a-routine-sec-report/"
+        },
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/cqn70vxp5p4no"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-wirtschaft-3",
+      "datum": "2026-11-16",
+      "datum_bis": "2026-11-19",
+      "titel": "UniCredit darf die Commerzbank übernehmen, auch der Bund stimmt zu",
+      "text": "Die EU-Kommission genehmigte die Übernahme der Commerzbank durch UniCredit am 16. November ohne Auflagen. Am 19. November einigten sich Finanzminister Klingbeil und UniCredit-Chef Orcel: UniCredit sichert den Standort Deutschland und die Rechte der Beschäftigten zu, die Commerzbank bleibt börsennotiert in Frankfurt. Der Bund verzichtet auf zwei Aufsichtsratssitze, ob er seinen Anteil von 13,3 Prozent verkauft, ließ Klingbeil offen.",
+      "warum_wichtig": "Der politische Widerstand gegen die Übernahme von Deutschlands zweitgrößter Privatbank ist damit ausgeräumt.",
+      "themen": [
+        "wirtschaft"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/wirtschaft/unternehmen/unicredit-bundesregierung-100.html"
+        },
+        {
+          "name": "n-tv",
+          "url": "https://www.n-tv.de/wirtschaft/EU-gibt-Unicredit-gruenes-Licht-fuer-Commerzbank-Uebernahme-id31538214.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-wirtschaft-4",
+      "datum": "2026-11-17",
+      "datum_bis": "2026-11-18",
+      "titel": "Inflation im Euroraum steigt auf 4,0 Prozent, Deutschland nominiert Brunnermeier für die EZB",
+      "text": "Die Verbraucherpreise im Euroraum lagen im Oktober laut Eurostat um 4,0 Prozent über dem Vorjahr, der höchste Wert seit September 2023, Hauptgrund sind hohe Energiepreise. Das erhöht den Druck auf die Europäische Zentralbank, ihre Zinspolitik zu verschärfen. Deutschland schlug zudem den Ökonomen Markus Brunnermeier als EZB-Chefvolkswirt vor, nachdem EZB-Chefin Christine Lagarde ihren vorzeitigen Rücktritt zum 7. Februar angekündigt hat.",
+      "warum_wichtig": "Steigende Preise und ein Führungswechsel an der EZB-Spitze bestimmen die Zinsentscheidungen der kommenden Monate.",
+      "themen": [
+        "wirtschaft"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": true,
+      "quellen": [
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349837/hoechster-stand-seit-drei-jahren-inflationsrate-in-der-eurozone-steigt-auf-4-prozent"
+        },
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/finanzen/geldpolitik/ezb-lob-fuer-nominierung-von-markus-brunnermeier-zum-chefvolkswirt/100270602.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-wirtschaft-5",
+      "datum": "2026-11-19",
+      "datum_bis": null,
+      "titel": "IEA warnt: Rechenzentren bringen Stromnetze in einigen Märkten ans Limit",
+      "text": "Der Stromverbrauch von Rechenzentren soll sich laut Internationaler Energieagentur bis 2030 von etwa 485 auf rund 950 Terawattstunden verdoppeln. Das Problem ist weniger die Gesamtmenge als die Konzentration: In einigen Wachstumsmärkten würden die geplanten Rechenzentren mehr Strom brauchen, als die Netze zur Spitzenzeit liefern. Netzanschlüsse dauern vielerorts fünf bis zehn Jahre, deshalb bauen manche Betreiber eigene Kraftwerke.",
+      "warum_wichtig": "Die Stromversorgung wird für den KI-Ausbau zum Engpass und beeinflusst Investitionen und Standortwahl der Branche.",
+      "themen": [
+        "wirtschaft",
+        "ki"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Trending Topics",
+          "url": "https://www.trendingtopics.eu/iea-ki-rechenzentren-stromnetze-limit/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349915/energieagentur-report-atomkraft-comeback-und-weltweit-steigender-kuehlbedarf"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-tirol-1",
+      "datum": "2026-11-17",
+      "datum_bis": "2026-11-19",
+      "titel": "Brenner-Basistunnel: Arbeiter kritisieren die Sicherheit, Betreiber verteidigen ihr Konzept",
+      "text": "Nach dem sechsten tödlichen Arbeitsunfall seit Baubeginn, bei dem ein 48-jähriger Arbeiter bei Steinach starb, schildern Arbeiter dem ORF Tirol anonym Zeitdruck, schlechte Belüftung und mangelhaft geprüftes Hebezeug. Die Betreiber verweisen auf ein Safety Support Team, eine neue Ombudsstelle und ein anonymes Hinweisgebersystem. Die Gewerkschaft Fillea/GBH fordert unabhängige Kontrollen, die KPÖ meldete Mängel dem Arbeitsinspektorat.",
+      "warum_wichtig": "Auf der größten Baustelle Tirols steht die Arbeitssicherheit nach sechs Todesfällen in der öffentlichen Kritik.",
+      "themen": [
+        "tirol"
+      ],
+      "hauptthema": "tirol",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3380298/"
+        },
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3379913/"
+        },
+        {
+          "name": "Tiroler Tageszeitung",
+          "url": "https://www.tt.com/artikel/30947301/zwischen-zeitdruck-und-sicherheit-bbt-wehrt-sich-gegen-kritik"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-tirol-2",
+      "datum": "2026-11-18",
+      "datum_bis": null,
+      "titel": "Eiskanal in Igls erhält internationale Zulassung bis 2031, die Rodel-WM ist gesichert",
+      "text": "Der Internationale Rodelverband hat den für 30 Millionen Euro umgebauten Eiskanal in Igls zugelassen. Die Freigabe gilt bis zum Saisonende 2030/31 und ergänzt die Zulassung des Bob- und Skeletonverbands von Ende Oktober. Im November 2025 war die Bahn im zweiten Anlauf an der Zulassung gescheitert. Die Weltmeisterschaft im Februar 2027 ist laut ORF damit endgültig frei.",
+      "warum_wichtig": "Innsbruck kann die Rodel-WM austragen, und die teure Sanierung der Bahn hat sich bewährt.",
+      "themen": [
+        "tirol"
+      ],
+      "hauptthema": "tirol",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3380153/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-tirol-3",
+      "datum": "2026-11-17",
+      "datum_bis": null,
+      "titel": "Kein Ermittlungsverfahren gegen Innsbrucks Bürgermeister Anzengruber",
+      "text": "Die Staatsanwaltschaft leitet kein Ermittlungsverfahren gegen Bürgermeister Johannes Anzengruber wegen des Verdachts auf Amtsmissbrauch ein. Die Anzeige der Polizei war nach einem Fest mit rund 800 städtischen Mitarbeitenden am 9. Oktober gekommen. Laut Staatsanwaltschaft war die Feier privat, ein Veranstaltungsbescheid daher nicht nötig.",
+      "warum_wichtig": "Damit ist der Vorwurf gegen den Bürgermeister vom Tisch.",
+      "themen": [
+        "tirol"
+      ],
+      "hauptthema": "tirol",
+      "update": true,
+      "quellen": [
+        {
+          "name": "ORF Tirol",
+          "url": "https://tirol.orf.at/stories/3379937/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000349721/kein-ermittlungsverfahren-gegen-innsbrucks-b252rgermeister-anzengruber"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-tirol-4",
+      "datum": "2026-11-21",
+      "datum_bis": null,
+      "titel": "Tiroler SPÖ wählt Philip Wohlgemuth mit 95,74 Prozent zum Spitzenkandidaten",
+      "text": "Beim außerordentlichen Parteitag in Seefeld wurde SPÖ-Tirol-Chef Philip Wohlgemuth mit 95,74 Prozent der Stimmen zum Spitzenkandidaten für die Landtagswahl 2027 gewählt. Er will eine Regierungsbeteiligung der FPÖ verhindern und die SPÖ als Juniorpartner der ÖVP in der Landesregierung halten. Ziel ist ein Plus gegenüber den 17,48 Prozent der letzten Wahl.",
+      "warum_wichtig": "Rund ein Jahr vor der Landtagswahl steht fest, mit wem die SPÖ antritt und dass sie eine Koalition mit der FPÖ ausschließt.",
+      "themen": [
+        "tirol",
+        "politik"
+      ],
+      "hauptthema": "tirol",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3380473/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000350380/spoe-tirol-waehlt-philip-wohlgemuth-zum-spitzenkandidaten"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-tirol-5",
+      "datum": "2026-11-15",
+      "datum_bis": "2026-11-20",
+      "titel": "Verkehr: Olympiabrücke einspurig, Arlbergbahn gesperrt, Reschenstraße am 27. November zu",
+      "text": "Die Innsbrucker Olympiabrücke ist seit Montag, 16. November, voraussichtlich zwei Wochen lang nur einspurig befahrbar, wegen einer Sonderprüfung der Spannglieder. Die Arlbergbahn zwischen Ötztal und Bludenz ist bis Sonntag, 22. November, gesperrt, es fahren Ersatzbusse. Auf der Reschenstraße bei der Kanzelgalerie entfallen die Tagessperren vom 23. bis 26. November, nur am Freitag, 27. November, gilt von 8 bis 14 Uhr eine Vollsperre mit Umleitung über die Schweiz.",
+      "warum_wichtig": "Pendler und Reisende müssen sich in den kommenden Tagen auf Staus, Ersatzbusse und eine Umleitung einstellen.",
+      "themen": [
+        "tirol"
+      ],
+      "hauptthema": "tirol",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3379443/"
+        },
+        {
+          "name": "ORF Tirol",
+          "url": "https://tirol.orf.at/stories/3377915/"
+        },
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3380357/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-startups-1",
+      "datum": "2026-11-17",
+      "datum_bis": null,
+      "titel": "Isomorphic Labs sammelt fünf Milliarden Dollar für KI-Medikamentenentwicklung ein",
+      "text": "Die Alphabet-Tochter Isomorphic Labs hat fünf Milliarden Dollar eingesammelt, angeführt von Greenoaks und Sequoia Capital, zusammen mit Andreessen Horowitz und Alphabet. Es ist die zweite Milliardenrunde binnen sechs Monaten, im Mai waren es 2,1 Milliarden Dollar. Ein zugelassenes Medikament gibt es bisher nicht.",
+      "warum_wichtig": "Es ist eine der größten Runden eines KI-Startups und zeigt, wie viel Kapital in KI-gestützte Medikamentenentwicklung fließt.",
+      "themen": [
+        "startups",
+        "ki"
+      ],
+      "hauptthema": "startups",
+      "update": false,
+      "quellen": [
+        {
+          "name": "THE DECODER",
+          "url": "https://the-decoder.de/alphabet-tochter-isomorphic-labs-sammelt-5-milliarden-dollar-fuer-ki-medikamentenentwicklung-ein/"
+        },
+        {
+          "name": "Sifted",
+          "url": "https://sifted.eu/articles/isomorphic-labs-raises-5bn-backed-by-sequoia-and-a16z/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-startups-2",
+      "datum": "2026-11-19",
+      "datum_bis": null,
+      "titel": "Deutsche Telekom investiert 100 Millionen Euro in Mistral AI",
+      "text": "Der Investmentfonds T.Capital der Deutschen Telekom beteiligt sich mit 100 Millionen Euro an der Series-D-Runde des Pariser KI-Startups Mistral. Es ist der erste Schritt zu einer Partnerschaft, die Unternehmen und Behörden in Deutschland vertrauenswürdige KI aus Europa bringen soll. Mistral hatte im September in der bisher größten europäischen Runde drei Milliarden Euro eingesammelt.",
+      "warum_wichtig": "Der größte deutsche Telekommunikationskonzern bindet sich an Europas wichtigsten KI-Herausforderer der US-Anbieter.",
+      "themen": [
+        "startups",
+        "ki"
+      ],
+      "hauptthema": "startups",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Trending Topics",
+          "url": "https://www.trendingtopics.eu/telekom-tcapital-mistral-100-millionen/"
+        },
+        {
+          "name": "n-tv",
+          "url": "https://www.n-tv.de/wirtschaft/Telekom-steigt-bei-europaeischer-KI-Hoffnung-Mistral-ein-id31551993.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-startups-3",
+      "datum": "2026-11-16",
+      "datum_bis": null,
+      "titel": "US-Konzern Church & Dwight steigt mit 225 Millionen Dollar bei Wiener Bali Care ein",
+      "text": "Der Hersteller von Arm & Hammer kauft 45 Prozent am Wiener Lockenpflege-Unternehmen Bali Care, das mit rund 500 Millionen Dollar bewertet wird. Zwei Jahre nach dem Abschluss, der für das erste Quartal 2027 geplant ist, kann der Konzern die restlichen 55 Prozent übernehmen. Bali Care erwartet heuer einen Nettoumsatz von rund 100 Millionen Euro.",
+      "warum_wichtig": "Ein Einstieg dieser Größe vier Jahre nach der Gründung zeigt, wie schnell das Wiener Unternehmen gewachsen ist.",
+      "themen": [
+        "startups"
+      ],
+      "hauptthema": "startups",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Trending Topics",
+          "url": "https://www.trendingtopics.eu/bali-curls-hank-ge-church-dwight/"
+        },
+        {
+          "name": "brutkasten",
+          "url": "https://brutkasten.com/artikel/us-konzern-steigt-fuer-225-mio-dollar-bei-hank-ges-bali-care-ein"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-startups-4",
+      "datum": "2026-11-21",
+      "datum_bis": null,
+      "titel": "Österreich einigt sich auf Startup-Dachfonds mit 500 Millionen Euro Zielvolumen",
+      "text": "Der Dachfonds heißt jetzt „Austrian Venture and Growth Fund of Funds“ und soll 500 Millionen Euro mobilisieren, der Bund steuert bis zu 100 Millionen Euro bei. Die Förderbank aws startet in der kommenden Woche die Ausschreibung für das Fondsmanagement, die Auswahl ist für Anfang 2027 geplant.",
+      "warum_wichtig": "Österreichische Startups und Scaleups bekommen damit Aussicht auf mehr Wachstumskapital im Inland.",
+      "themen": [
+        "startups"
+      ],
+      "hauptthema": "startups",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Trending Topics",
+          "url": "https://www.trendingtopics.eu/startup-dachfonds-fondsmanagement-gesucht/"
+        },
+        {
+          "name": "brutkasten",
+          "url": "https://brutkasten.com/artikel/austrian-venture-growth-fund-of-funds-regierung-einigt-sich-auf-konkrete-dachfonds-umsetzung"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-15_2026-11-21-startups-5",
+      "datum": "2026-11-20",
+      "datum_bis": null,
+      "titel": "Niederösterreichisches Startup Shopstory beantragt Konkurs",
+      "text": "Das Startup Shopstory mit Sitz in Wolkersdorf hat laut brutkasten einen Konkursantrag eingebracht. Das Unternehmen hatte in der Vergangenheit mehrere teils prominente Investoren gewonnen. Mitgründer und Geschäftsführer ist Sebastian Schwelle.",
+      "warum_wichtig": "Auch ein Startup mit bekannten Geldgebern ist in Österreich nicht vor dem Scheitern geschützt.",
+      "themen": [
+        "startups"
+      ],
+      "hauptthema": "startups",
+      "update": false,
+      "quellen": [
+        {
+          "name": "brutkasten",
+          "url": "https://brutkasten.com/artikel/shopstory-noe-startup-mit-zahlreichen-bekannten-investoren-muss-konkursantrag-einbringen"
+        }
+      ]
+    }
+  ],
+  "videos": [],
+  "abschnitte": [
+    {
+      "typ": "finanzierungsrunden",
+      "thema": "startups",
+      "titel": "Finanzierungsrunden der Woche",
+      "eintraege": [
+        {
+          "name": "Isomorphic Labs",
+          "betrag": "5 Milliarden Dollar",
+          "land": "Großbritannien",
+          "bereich": "KI-Medikamentenentwicklung",
+          "investoren": "Greenoaks, Sequoia Capital, Andreessen Horowitz, Alphabet",
+          "datum": "2026-11-17",
+          "quelle": {
+            "name": "Sifted",
+            "url": "https://sifted.eu/articles/isomorphic-labs-raises-5bn-backed-by-sequoia-and-a16z/"
+          }
+        },
+        {
+          "name": "Genesis AI",
+          "betrag": "500 Millionen Dollar",
+          "land": "nicht angegeben",
+          "bereich": "Robotik-Software",
+          "investoren": "Nvidia",
+          "datum": "2026-11-17",
+          "quelle": {
+            "name": "Sifted",
+            "url": "https://sifted.eu/articles/genesis-ai-raises-500m/"
+          }
+        },
+        {
+          "name": "Science Corporation",
+          "betrag": "400 Millionen Dollar",
+          "land": "USA",
+          "bereich": "Neurotechnologie, Behandlung von Blindheit",
+          "investoren": null,
+          "datum": "2026-11-17",
+          "quelle": {
+            "name": "TechCrunch",
+            "url": "https://techcrunch.com/2026/11/17/science-corporations-brain-tech-is-worth-3-5-billion-after-new-funding/"
+          }
+        },
+        {
+          "name": "Corma",
+          "betrag": "125 Millionen Dollar",
+          "land": "nicht angegeben",
+          "bereich": "KI-Cybersicherheit",
+          "investoren": "NEA",
+          "datum": "2026-11-16",
+          "quelle": {
+            "name": "TechCrunch",
+            "url": "https://techcrunch.com/2026/11/16/cybersecurity-ai-startup-corma-reaches-1b-valuation-in-about-3-months/"
+          }
+        },
+        {
+          "name": "Mistral AI",
+          "betrag": "100 Millionen Euro",
+          "land": "Frankreich",
+          "bereich": "KI-Modelle",
+          "investoren": "T.Capital (Deutsche Telekom)",
+          "datum": "2026-11-19",
+          "quelle": {
+            "name": "Trending Topics",
+            "url": "https://www.trendingtopics.eu/telekom-tcapital-mistral-100-millionen/"
+          }
+        },
+        {
+          "name": "Dreamteam",
+          "betrag": "53 Millionen Dollar",
+          "land": "nicht angegeben",
+          "bereich": "KI-gestützte Kundenverwaltung (CRM)",
+          "investoren": null,
+          "datum": "2026-11-16",
+          "quelle": {
+            "name": "TechCrunch",
+            "url": "https://techcrunch.com/2026/11/16/freshworks-alums-raise-53m-to-take-on-salesforce-hubspot-with-ai-native-crm/"
+          }
+        },
+        {
+          "name": "Humyn Labs",
+          "betrag": "47 Millionen Dollar",
+          "land": "Indien",
+          "bereich": "Trainingsdaten für Robotik",
+          "investoren": "Accel",
+          "datum": "2026-11-18",
+          "quelle": {
+            "name": "TechCrunch",
+            "url": "https://techcrunch.com/2026/11/18/accel-backs-indias-humyn-labs-to-supply-training-data-needed-by-u-s-robotics-ai-developers/"
+          }
+        },
+        {
+          "name": "Bharat Semi",
+          "betrag": "24 Millionen Dollar",
+          "land": "Indien",
+          "bereich": "KI-Sensorchips",
+          "investoren": null,
+          "datum": "2026-11-15",
+          "quelle": {
+            "name": "TechCrunch",
+            "url": "https://techcrunch.com/2026/11/15/indian-chip-startup-bharat-semi-lands-24m-seed-round-as-it-eyes-global-ai-sensor-market/"
+          }
+        }
+      ]
+    }
+  ]
+}
