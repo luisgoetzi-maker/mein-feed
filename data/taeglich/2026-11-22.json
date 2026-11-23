@@ -1,0 +1,200 @@
+{
+  "format": "taeglich",
+  "titel": "Sonntag, 22. November 2026",
+  "zeitraum": {
+    "von": "2026-11-22",
+    "bis": "2026-11-22"
+  },
+  "erschienen": "2026-11-23T03:08:14+01:00",
+  "status": "ok",
+  "fehler": null,
+  "ruhig": [
+    "startups"
+  ],
+  "luecken": [],
+  "ausnahmen": [],
+  "meldungen": [
+    {
+      "id": "2026-11-22-weltpolitik-1",
+      "datum": "2026-11-22",
+      "datum_bis": null,
+      "titel": "Klimagipfel COP31 endet ohne Beschluss, die EU lehnt den Entwurf ohne Ausstieg aus Fossilen ab",
+      "text": "Die UN-Klimakonferenz in Antalya ist am Sonntag ohne gemeinsamen Beschluss zu Ende gegangen, nachdem sie um mehr als 49 Stunden verlängert worden war, so lang wie keine zuvor. Die EU und weitere Staaten lehnten den vierten Entwurf ab, weil er kein Bekenntnis zum Ausstieg aus Kohle, Öl und Gas enthielt. Russland und andere Förderstaaten wollten keiner Formulierung zu fossilen Brennstoffen zustimmen. Konferenzpräsident Murat Kurum stellte fest, dass kein Konsens besteht, und erklärte die Beschlüsse für nicht angenommen. Am Vortag hatte es noch geheißen, ein neues Verhandlungspaket solle entschieden werden.",
+      "warum_wichtig": "Nach dem ersten größeren Scheitern einer UN-Klimakonferenz seit Kopenhagen 2009 gibt es kein gemeinsames Signal zum Ausstieg aus fossilen Energien.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448942/"
+        },
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/videos/cr1ewge81q4qo"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-22-weltpolitik-2",
+      "datum": "2026-11-22",
+      "datum_bis": null,
+      "titel": "Russische Angriffe bei Kiew töten mindestens zwölf Menschen, ein Wohnhaus in Dymer stürzt ein",
+      "text": "Bei russischen Angriffen auf Vororte von Kiew sind am Sonntag laut ukrainischen Behörden mindestens zwölf Menschen getötet worden. In Dymer traf eine Drohne ein fünfstöckiges Wohnhaus, das teilweise einstürzte; der Militärgouverneur nannte am Abend neun geborgene Leichen, die BBC hatte zuvor von sechs Toten berichtet. Präsident Selenskyj sprach von bis zu 14 Verschütteten, ein Bub wurde lebend geborgen. Dazu kamen zwei Tote in einem Supermarkt im Bezirk Butschansk und ein Toter in Bila Zerkwa.",
+      "warum_wichtig": "Die Opferzahl kann noch steigen, weil die Suche nach Vermissten in den Trümmern weiterging und Drohnenwarnungen die Rettung behinderten.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448972/"
+        },
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/videos/cre3dvd1k9y1o"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-22-weltpolitik-3",
+      "datum": "2026-11-22",
+      "datum_bis": null,
+      "titel": "Russische Korvette im libyschen Benghazi nach mutmaßlichem Drohnenangriff gesunken",
+      "text": "Im Hafen von Benghazi ist am Sonntagfrüh ein russisches Schiff explodiert; laut Satellitenbildern des Anbieters Vantor ist die Korvette „Merkury“ gekentert und gesunken, nur der Bug ragt aus dem Wasser. Die ostlibysche Regierung spricht von einem mutmaßlichen Drohnenangriff, Russland hat sich nicht geäußert, die Ukraine hat nichts bestätigt. Später wurde vor Benghazi ein zweites Schiff unter maltesischer Flagge getroffen, die Besatzung wurde gerettet. Der am Samstag in der Ostsee getroffene russische Frachter „Sparta II“ wird laut finnischem Grenzschutz in russische Gewässer geschleppt, Finnlands Streitkräfte halten die Ukraine für wahrscheinlich verantwortlich.",
+      "warum_wichtig": "Sollte die Ukraine dahinterstecken, reichen ihre Angriffe auf russische Schiffe nun von der Ostsee bis ins Mittelmeer und ziehen neue Länder wie Libyen hinein.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448980/"
+        },
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/cr894gjz0j0yo"
+        },
+        {
+          "name": "BBC (Sparta II)",
+          "url": "https://www.bbc.co.uk/news/articles/cj752ddve27ko"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-22-politik-1",
+      "datum": "2026-11-22",
+      "datum_bis": null,
+      "titel": "Hubig legt Gesetzentwurf vor: geschlechtsspezifische Tötungen sollen eindeutig Mord sein",
+      "text": "Bundesjustizministerin Stefanie Hubig (SPD) hat einen Gesetzentwurf fertig, der „geschlechtsspezifische oder sonstige menschenverachtende Beweggründe“ ausdrücklich als Mordmerkmal nennt. Wer eine Frau tötet, weil sie sich trennen will, soll so eindeutig als Mörder gelten. Einen eigenen Straftatbestand Femizid lehnt Hubig ab, weil er laut Ministerium zu Rechtsunsicherheit führen würde. Die Union reagierte zurückhaltend; ihr Justiziar Martin Plum will prüfen, ob das Schutzniveau ausreicht. Der Entwurf wird in den kommenden Wochen in der Regierung beraten und soll danach in den Bundestag.",
+      "warum_wichtig": "Gerichte werten Tötungen nach einer Trennung bisher uneinheitlich als Mord oder Totschlag, die Reform soll das ändern.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/inland/innenpolitik/femizide-mord-gesetzentwurf-100.html"
+        },
+        {
+          "name": "FAZ",
+          "url": "https://www.faz.net/aktuell/politik/inland/hubig-will-keinen-straftatbestand-fuer-femizid-schaffen-201706016.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-22-ki-1",
+      "datum": "2026-11-22",
+      "datum_bis": null,
+      "titel": "Lean-Community bestätigt offiziell den Beweis der Riemannschen Vermutung",
+      "text": "Die Lean- und Mathlib-Community hat den Beweis von Levent Alpöge zur Riemannschen Vermutung offiziell als korrekt bestätigt. Der 17 Millionen Zeilen lange Beweiscode, den Alpöge am 20. November veröffentlicht hatte, wurde laut THE DECODER von Dutzenden Personen auf eigenen Rechnern geprüft und von mehreren unabhängigen Prüfprogrammen kontrolliert. Alpöge arbeitet bei Anthropic und hatte den Beweis mit Hilfe von Claude gefunden. Prognoseplattformen hatten die Lösung erst für 2035 erwartet, der Mathematiker Terence Tao noch im Oktober für etwa 2050.",
+      "warum_wichtig": "Ein Jahrhundertproblem der Mathematik gilt damit als bewiesen, Jahrzehnte früher als erwartet und mit maßgeblicher Hilfe einer KI.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": true,
+      "quellen": [
+        {
+          "name": "THE DECODER",
+          "url": "https://the-decoder.de/lean-community-bestaetigt-offiziell-den-beweis-der-riemannschen-vermutung/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-22-wirtschaft-1",
+      "datum": "2026-11-22",
+      "datum_bis": null,
+      "titel": "Chinas Börsen lockern Regeln für kreditfinanzierte Aktienkäufe, um die Kurse zu stützen",
+      "text": "Die Börsen in Shanghai, Shenzhen und Peking senken ab dem 30. November die Mindestdeckung für Wertpapierkredite von 100 auf 80 Prozent, Anleger können sich mit denselben Sicherheiten also mehr Geld leihen. Shanghai und Shenzhen planen außerdem niedrigere Handelsgebühren. Laut Handelsblatt unter Berufung auf Reuters hat der Leitindex in Shanghai in der Vorwoche um fast drei Prozent auf ein 16-Monats-Tief nachgegeben, die Segmente STAR und ChiNext liegen seit Juni mehr als 40 Prozent im Minus. Auch Südkorea und Taiwan reagieren mit neuen Regeln auf die starken Kursschwankungen.",
+      "warum_wichtig": "Es ist ein Zeichen, dass Asiens Behörden den weltweiten Ausverkauf bei KI-Werten ernst nehmen und ihn mit lockereren Kreditregeln bremsen wollen.",
+      "themen": [
+        "wirtschaft"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/finanzen/maerkte/boerse-inside/china-boersen-anleger-koennen-sich-ab-30-november-mehr-geld-fuer-aktien-leihen/100271866.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-22-wirtschaft-2",
+      "datum": "2026-11-22",
+      "datum_bis": null,
+      "titel": "Spritpreisdeckel-Entwurf nimmt Autobahntankstellen aus, Kabinett soll am 2. Dezember folgen",
+      "text": "Das Wirtschaftsministerium von Katherina Reiche hat einen neuen Entwurf für den Spritpreisdeckel in die Abstimmung mit Kanzleramt und Finanzministerium gegeben. Autobahntankstellen sollen vom Höchstpreis ausgenommen werden, den Tankstellen soll eine Marge bleiben. Das Kabinett soll Gesetz und Verordnung am 2. Dezember beschließen, der Deckel soll am 1. Jänner den Tankrabatt ablösen. Laut Handelsblatt-Berechnungen würde er Benzin und Diesel im Schnitt um fünf bis 7,5 Cent pro Liter günstiger machen. Grüne und Linke kritisieren den Entwurf als wirkungslos.",
+      "warum_wichtig": "Für Autofahrer in Deutschland entscheidet sich damit, wie stark und wo der Deckel ab Jänner tatsächlich greift.",
+      "themen": [
+        "wirtschaft"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": true,
+      "quellen": [
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/politik/deutschland/teures-tanken-reiche-will-autobahntankstellen-von-preisdeckel-ausnehmen/100271845.html"
+        },
+        {
+          "name": "Handelsblatt (Berechnung)",
+          "url": "https://www.handelsblatt.com/politik/deutschland/kraftstoff-preisdeckel-koennte-sprit-bis-zu-75-cent-pro-liter-verguenstigen/100271834.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-22-tirol-1",
+      "datum": "2026-11-22",
+      "datum_bis": null,
+      "titel": "Innsbrucker Festwochen der Alten Musik gewinnen den International Opera Award",
+      "text": "Die Innsbrucker Festwochen der Alten Musik sind bei den International Opera Awards 2026 im Theater an der Wien in der Kategorie „Wiederentdecktes Werk“ ausgezeichnet worden. Prämiert wurde die Produktion der Barockoper „Il pomo d’oro“ von Pietro Antonio Cesti, inszeniert von Fabio Ceresa und musikalisch geleitet von Ottavio Dantone. Die Künstlerische Direktorin Eva-Maria Sens nannte den Preis die Krönung des Jubiläumssommers.",
+      "warum_wichtig": "Die Auszeichnung bringt dem Innsbrucker Festival internationale Aufmerksamkeit.",
+      "themen": [
+        "tirol"
+      ],
+      "hauptthema": "tirol",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3380592/"
+        },
+        {
+          "name": "Tiroler Tageszeitung",
+          "url": "https://www.tt.com/artikel/30947458/innsbrucker-festwochen-gewinnen-mit-mammutprojekt-opern-oscar"
+        }
+      ]
+    }
+  ],
+  "videos": [],
+  "abschnitte": []
+}
