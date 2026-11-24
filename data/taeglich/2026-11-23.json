@@ -1,0 +1,329 @@
+{
+  "format": "taeglich",
+  "titel": "Montag, 23. November 2026",
+  "zeitraum": {
+    "von": "2026-11-23",
+    "bis": "2026-11-23"
+  },
+  "erschienen": "2026-11-24T03:08:25+01:00",
+  "status": "ok",
+  "fehler": null,
+  "ruhig": [],
+  "luecken": [],
+  "ausnahmen": [],
+  "meldungen": [
+    {
+      "id": "2026-11-23-weltpolitik-1",
+      "datum": "2026-11-23",
+      "datum_bis": null,
+      "titel": "Ukraine bekennt sich zur Versenkung eines russischen Kriegsschiffs in Libyen",
+      "text": "Zuvor war die russische Korvette „Merkury“ im libyschen Hafen Bengasi gesunken. Nun hat sich die Ukraine dazu bekannt: Präsident Selenskyj erklärte, die Attacke sei mit Seedrohnen erfolgt. Laut DER STANDARD wurden zusätzlich zwei russische Frachter zerstört, und Russland kündigt weitere Angriffe als Antwort an. Der Kreml warnt laut BBC vor einer Eskalation der Spannungen in der Region.",
+      "warum_wichtig": "Erstmals trifft der Krieg einen Hafen im Mittelmeer, und Libyen fürchtet, in den Konflikt hineingezogen zu werden.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/afrika/russisches-kriegsschiff-zerstoert-100.html"
+        },
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/cr894gjz0j0yo"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/jetzt/livebericht/3000000350445/u"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-23-weltpolitik-2",
+      "datum": "2026-11-23",
+      "datum_bis": null,
+      "titel": "Berichte: Russland könnte noch heuer einen Satelliten mit Atomsprengkopf starten",
+      "text": "Laut WDR, NDR und Süddeutscher Zeitung warnen westliche Geheimdienste, Russland könne einen Satelliten mit Atomsprengkopf namens „Sputnik-S“ binnen 60 Tagen in die Umlaufbahn bringen. Die Bundeswehr hält einen Start im Dezember für möglich. Der Kreml spricht von Aussagen unbekannter Quellen, die kaum ernst zu nehmen seien. Kanzler Merz nannte die Berichte nach einem Treffen mit NATO-Generalsekretär Rutte schockierend, warnte aber vor übermäßiger Nervosität.",
+      "warum_wichtig": "Eine Atomwaffe im Orbit würde den Weltraumvertrag von 1967 brechen und Satelliten für Navigation und Kommunikation bedrohen.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3448989/"
+        },
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/politik/international/aufruestung-im-all-merz-berichte-ueber-moskaus-atom-plaene-im-all-schockierend/100272134.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-23-weltpolitik-3",
+      "datum": "2026-11-23",
+      "datum_bis": null,
+      "titel": "US-Demokraten erreichen im Repräsentantenhaus ihre größte Mehrheit seit 1992",
+      "text": "Nach den Zwischenwahlen stellen die Demokraten mindestens 258 der 435 Abgeordneten, die Republikaner mindestens 173. Zuletzt gewannen die Demokraten einen Sitz in North Carolina dazu. Die neue Mehrheit gilt ab Januar.",
+      "warum_wichtig": "Präsident Trump muss ab Januar mit einer deutlich stärkeren Opposition in der Kammer rechnen, die Gesetze und Untersuchungen steuert.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/amerika/demokraten-mehrheit-repraesentantenhaus-100.html"
+        },
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/c6vg29g7dlyno"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000350462/us-demokraten-erringen-im-repr228sentantenhaus-gr246223te-mehrheit-seit-jahrzehnten"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-23-politik-1",
+      "datum": "2026-11-23",
+      "datum_bis": null,
+      "titel": "Streit um den EU-Haushalt 2028 bis 2034: Stocker und Visegrád-Staaten lehnen Costa-Entwurf ab",
+      "text": "Ratspräsident Costa hatte zuletzt einen gekürzten Entwurf mit Digitalsteuer vorgelegt, der das Volumen um mehr als 200 Milliarden Euro senkt. Bundeskanzler Stocker und die Visegrád-Staaten nennen ihn nach einem Treffen in Bratislava nicht akzeptabel. Ungarn hält den Sondergipfel für unnötig, die Slowakei will keine Einigung bis Jahresende garantieren. Der Gipfel in Brüssel findet am Donnerstag und Freitag statt.",
+      "warum_wichtig": "Ohne Einigung bleibt offen, wie viel Geld Österreich ab 2028 einzahlt und welche Regionen und Bauern Förderungen erhalten.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3449074/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000350399/auch-costas-kompromissplan-zu-eu-rahmenbudget-stoesst-auf-breite-ablehnung"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-23-politik-2",
+      "datum": "2026-11-23",
+      "datum_bis": null,
+      "titel": "EU-Kommission schlägt neues Russland-Sanktionspaket vor: Sport, Banken und Ex-Soldaten",
+      "text": "Russische Sportler sollen bei Wettkämpfen in der EU nicht mehr unter russischer Flagge antreten dürfen, offizielle russische Symbole sollen verboten werden. Geldflüsse russischer Sponsoren an Sport- und Kulturvereinigungen in Europa sollen beschränkt werden. Laut Politico will Brüssel zudem Visa für ehemalige russische Soldaten einschränken und Banken sowie Krypto-Plattformen treffen. Die Mitgliedstaaten müssen dem Paket noch zustimmen.",
+      "warum_wichtig": "Das Paket erweitert die Sanktionen erstmals deutlich auf Sport und Visa und braucht die Zustimmung aller Mitgliedstaaten.",
+      "themen": [
+        "politik",
+        "weltpolitik"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3449052/"
+        },
+        {
+          "name": "POLITICO Europe",
+          "url": "https://www.politico.eu/article/eu-to-target-russian-ex-soldiers-banks-and-sports-in-new-sanctions-push/"
+        },
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/politik/international/neues-sanktionspaket-der-eu-russland-flagge-soll-bei-sportevents-in-eu-verboten-werden/100272158.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-23-politik-3",
+      "datum": "2026-11-23",
+      "datum_bis": null,
+      "titel": "Wien plant für 2027 ein Defizit von 1,46 Milliarden Euro und kürzt fast überall",
+      "text": "Finanzstadträtin Novak und NEOS stellten das Budget 2027 vor. Das Defizit liegt etwa eine halbe Milliarde Euro über den Vorgaben des Stabilitätspakts. Fast alle Ressorts müssen sparen, der Fonds Soziales Wien erhält rund 100 Millionen Euro weniger. Neue Abgaben sind nicht vorgesehen.",
+      "warum_wichtig": "Die größte Stadt des Landes verfehlt trotz Sparkurs die Stabilitätsvorgaben, und der Sozialbereich bekommt weniger Geld.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000350492/wien-setzt-sparkurs-fort-das-defizit-2027-betraegt-aber-146-milliarden-euro"
+        },
+        {
+          "name": "Die Presse",
+          "url": "https://www.diepresse.com/41473862/wiener-budget-2027-sieben-fragen-zum-milliardenloch-der-stadt"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-23-ki-1",
+      "datum": "2026-11-23",
+      "datum_bis": null,
+      "titel": "Anthropic startet Claude Ship: KI-Agenten prüfen, reparieren und genehmigen Code",
+      "text": "Claude Ship bündelt drei Funktionen für GitHub-Repositories. Code Review ist allgemein verfügbar. PR Steward kümmert sich in der Beta um fehlgeschlagene Tests, Merge-Konflikte und Review-Hinweise, Claude Approvals gibt in der Beta Änderungen nach einer Regel frei, die das Team als Datei im Repository ablegt. Verfügbar ist es für Claude Team und Enterprise; Anthropic empfiehlt, die Freigabe zunächst nur im Beobachtungsmodus zu testen.",
+      "warum_wichtig": "Erstmals kann Claude Änderungen selbst freigeben, nicht nur vorschlagen, und das beschleunigt Teams, die viel KI-Code schreiben.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes/"
+        },
+        {
+          "name": "Trending Topics",
+          "url": "https://www.trendingtopics.eu/claude-ship-anthropic-code-freigabe/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-23-ki-2",
+      "datum": "2026-11-23",
+      "datum_bis": null,
+      "titel": "Amazon übernimmt Technologie und Team von Decart für 7,5 Milliarden Dollar",
+      "text": "Amazon kauft laut Bloomberg für rund 7,5 Milliarden Dollar die Optimierungssoftware von Decart samt Gründerteam und Forschern. Die Software hilft KI-Modellen, effizienter auf Chips von Nvidia, Amazon und Google zu laufen. Amazon bereitet den Verkauf seiner Trainium-Chips an Kunden vor. Der Preis ist nicht von den Firmen bestätigt.",
+      "warum_wichtig": "Der Zukauf soll es Kunden erleichtern, KI-Lasten auf Amazons Chips statt auf Nvidia-Hardware zu fahren.",
+      "themen": [
+        "ki",
+        "wirtschaft"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/23/amazon-snaps-up-decarts-ai-optimization-tech-for-7-5b-as-it-prepares-to-sell-trainium-chips/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-23-wirtschaft-1",
+      "datum": "2026-11-23",
+      "datum_bis": null,
+      "titel": "Nvidia holt Jensen Huang als Chef zurück, die Nasdaq springt um über sechs Prozent",
+      "text": "Der Verwaltungsrat setzte Huang einstimmig wieder als Chef ein, nachdem er am 12. November wegen Affären zurückgetreten war. Zuvor hatte der Vorstand laut Handelsblatt noch erklärt, keine Rückkehr zu planen. Nach Gesprächen mit der US-Regierung sieht das Gremium kein Sicherheitsrisiko, die interne Untersuchung läuft weiter. Die Nvidia-Aktie stieg um mehr als 31 Prozent gegenüber Freitag, die Nasdaq schloss mit plus 6,5 Prozent, der S&P 500 mit plus 4,7 Prozent. Laut TechCrunch soll Huang kommende Woche im Senat aussagen.",
+      "warum_wichtig": "Die Rally zeigt, wie stark der KI-Handel an einer Person hängt, und die Untersuchungen zu den Vorwürfen und zu den Exportregeln laufen weiter.",
+      "themen": [
+        "wirtschaft",
+        "ki"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": true,
+      "quellen": [
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/finanzen/maerkte/marktberichte/dow-jones-sp-500-nasdaq-nasdaq-schliesst-nach-huang-rueckkehr-mehr-als-sechs-prozent-im-plus/100272031.html"
+        },
+        {
+          "name": "heise online",
+          "url": "https://www.heise.de/news/Nvidia-setzt-Jensen-Huang-wieder-als-CEO-ein-11534936.html"
+        },
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/23/jensen-huang-scheduled-to-testify-next-week-in-senate-following-reinstatement-as-nvidia-ceo/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-23-wirtschaft-2",
+      "datum": "2026-11-23",
+      "datum_bis": null,
+      "titel": "CrowdStrike übernimmt Zscaler für rund 44 Milliarden Dollar",
+      "text": "Der Kauf erfolgt komplett in Aktien: Zscaler-Aktionäre erhalten 1,135 CrowdStrike-Aktien je Anteil. Nach dem Abschluss, erwartet im zweiten Halbjahr des Geschäftsjahres 2028, halten die bisherigen CrowdStrike-Aktionäre etwa 84 Prozent. Zuvor hatte Google Wiz für 32 Milliarden Dollar übernommen.",
+      "warum_wichtig": "Der Deal ist der nächste Megazukauf in der Cybersicherheit und verschärft den Wettbewerb mit Palo Alto Networks und Microsoft.",
+      "themen": [
+        "wirtschaft"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "heise online",
+          "url": "https://www.heise.de/news/Mega-Deal-CrowdStrike-uebernimmt-Zscaler-11535354.html"
+        },
+        {
+          "name": "Trending Topics",
+          "url": "https://www.trendingtopics.eu/crowdstrike-kauft-zscaler-43-9-milliarden-dollar/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-23-tirol-1",
+      "datum": "2026-11-23",
+      "datum_bis": null,
+      "titel": "Land Tirol sichert die Regionalbahnen mit 82,5 Millionen Euro bis 2031",
+      "text": "Die Landesregierung hat einer Finanzierungsvereinbarung für 2027 bis 2031 zugestimmt. Von den Mitteln gehen rund 35,9 Millionen Euro an die Zillertalbahn, rund 15,1 Millionen an die Stubaitalbahn und 31,5 Millionen an die Regionalbahn Innsbruck–Völs. Den Rest der Kosten tragen vor allem der Bund mit meist der Hälfte sowie Gemeinden und Eigentümer. Die Regionalbahn Innsbruck–Völs soll 2032 fertig sein.",
+      "warum_wichtig": "Der Betrieb und Ausbau der drei Bahnen ist für fünf Jahre finanziell abgesichert.",
+      "themen": [
+        "tirol"
+      ],
+      "hauptthema": "tirol",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3380705/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-23-tirol-2",
+      "datum": "2026-11-23",
+      "datum_bis": null,
+      "titel": "Pitztalbrücke ab Mittwoch nach acht Monaten Bauzeit wieder befahrbar",
+      "text": "Die sanierte Brücke zwischen Arzl im Pitztal und Karrösten wird am Mittwoch, dem 25. November, in beide Richtungen freigegeben. Damit endet die Umleitung ins Pitztal. Die bisherige Ersatzstraße wird zu einem Radweg.",
+      "warum_wichtig": "Die Dauerbaustelle im Pitztal ist vorbei, und die Umleitung entfällt.",
+      "themen": [
+        "tirol"
+      ],
+      "hauptthema": "tirol",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3380588/"
+        },
+        {
+          "name": "Tiroler Tageszeitung",
+          "url": "https://www.tt.com/artikel/30947514/pitztalbruecke-ab-mittwoch-wieder-befahrbar-wer-von-der-ausgebauten-ersatzstrasse-profitiert"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-23-startups-1",
+      "datum": "2026-11-23",
+      "datum_bis": null,
+      "titel": "KI-Agenten-Startup Sierra sammelt 1,75 Milliarden Dollar bei 30 Milliarden Dollar Bewertung ein",
+      "text": "Die Serie-F-Runde führen Greenoaks und Lightspeed an, auch Benchmark, Sequoia, GV und Tiger Global sind dabei. Die Bewertung hat sich seit dem Frühjahr verdoppelt. Der laufende Jahresumsatz hat sich laut Sierra innerhalb von fünf Monaten auf 400 Millionen Dollar verdoppelt. Das Startup von Bret Taylor und Clay Bavor baut außerdem ein Team in München auf.",
+      "warum_wichtig": "Es ist eine der größten Finanzierungen des Jahres für KI-Agenten im Kundenservice und zeigt, dass Firmen dafür zahlen.",
+      "themen": [
+        "startups",
+        "ki"
+      ],
+      "hauptthema": "startups",
+      "update": false,
+      "quellen": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/23/sierra-doubles-valuation-to-30b-within-six-months-as-demand-for-ai-in-cx-takes-off/"
+        },
+        {
+          "name": "Trending Topics",
+          "url": "https://www.trendingtopics.eu/sierra-ki-agenten-finanzierung-30-milliarden/"
+        }
+      ]
+    }
+  ],
+  "videos": [],
+  "abschnitte": []
+}
