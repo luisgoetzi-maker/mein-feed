@@ -1,0 +1,314 @@
+{
+  "format": "taeglich",
+  "titel": "Dienstag, 24. November 2026",
+  "zeitraum": {
+    "von": "2026-11-24",
+    "bis": "2026-11-24"
+  },
+  "erschienen": "2026-11-25T03:08:04+01:00",
+  "status": "ok",
+  "fehler": null,
+  "ruhig": [
+    "startups"
+  ],
+  "luecken": [],
+  "ausnahmen": [],
+  "meldungen": [
+    {
+      "id": "2026-11-24-weltpolitik-1",
+      "datum": "2026-11-24",
+      "datum_bis": null,
+      "titel": "Datenhack beim russischen Statistikamt zeigt hohe Zahl gefallener Soldaten",
+      "text": "Hacker haben Sterberegister der russischen Statistikbehörde Rosstat veröffentlicht. Laut Auswertungen der Medien The Insider, iStories, Meduza und Mediazona sind seit Februar 2022 rund 470.000 bis 500.000 russische Soldaten gefallen. Meduza und Mediazona schätzen die tatsächliche Zahl auf etwa 700.000. Die Daten stammen von Hackergruppen aus dem Umfeld der belarussischen Opposition und der Ukraine; Russland und die Ukraine halten ihre Verluste sonst geheim.",
+      "warum_wichtig": "Erstmals gibt es eine breite Datenbasis für die russischen Verluste, die weit über offizielle Angaben hinausgeht.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3449103/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000350731/bis-zu-700000-russen-im-ukrainekrieg-gefallen-was-der-hack-bei-russlands-statistikamt-noch-offenbart?ref=rss"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-24-weltpolitik-2",
+      "datum": "2026-11-24",
+      "datum_bis": null,
+      "titel": "US-Geschworene sprechen Huawei in zehn von zwölf Anklagepunkten schuldig",
+      "text": "Eine Jury in Brooklyn hat den chinesischen Technologiekonzern Huawei unter anderem wegen Bankbetrugs, Verstößen gegen Iran-Sanktionen und Diebstahls von Geschäftsgeheimnissen schuldig gesprochen. Vom Vorwurf der Bildung einer kriminellen Organisation wurde Huawei freigesprochen. Das Strafmaß steht noch aus. Huawei weist die Vorwürfe zurück und kündigt rechtliche Schritte an.",
+      "warum_wichtig": "Das Urteil beendet ein Verfahren, das 2018 mit der Festnahme der Finanzchefin Meng Wanzhou begann, und belastet das Verhältnis zwischen den USA und China.",
+      "themen": [
+        "weltpolitik",
+        "wirtschaft"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3449192/"
+        },
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/technik/it-internet/jahrelanges-verfahren-us-geschworene-sprechen-huawei-der-geldwaesche-schuldig/100272536.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-24-weltpolitik-3",
+      "datum": "2026-11-24",
+      "datum_bis": null,
+      "titel": "Iranische Sängerin Parastoo Ahmadi wird ausgepeitscht, UNO verurteilt die Strafe",
+      "text": "In einem Gefängnis in Ghom wurde am Montag die Prügelstrafe an der Sängerin Parastoo Ahmadi vollzogen, weil sie ein Konzert ohne Kopftuch gegeben hatte. UNO-Menschenrechtskommissar Volker Türk nannte die Strafe laut DER STANDARD abscheulich und eine Form der Folter, die internationales Recht verletze.",
+      "warum_wichtig": "Der Fall zeigt, dass Iran Kleidervorschriften für Frauen weiter mit Körperstrafen durchsetzt.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3449189/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000350871/auspeitschung-von-iranischer-s228ngerin-international-verurteilt?ref=rss"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-24-politik-1",
+      "datum": "2026-11-24",
+      "datum_bis": null,
+      "titel": "Regierung stellt gesamtstaatliche Drohnenstrategie vor",
+      "text": "Bundeskanzler Stocker, Innenminister Karner und Verteidigungsministerin Tanner haben eine Strategie zum Schutz vor Drohnen präsentiert. Im Innenministerium entsteht ein Drohnenlagezentrum, ab 2027 bekommen die Sondereinheiten der Polizei zwei Abwehrsysteme, und für Drohnen ab 100 Gramm soll eine Registrierungspflicht kommen. Betreiber kritischer Infrastruktur sollen Drohnen künftig selbst abwehren dürfen, dafür ist eine Änderung des Telekommunikationsgesetzes im nächsten Jahr geplant. Eine Gesamtsumme für die Kosten nannte die Regierung nicht.",
+      "warum_wichtig": "Nach wiederholten Luftraumverletzungen in Europa legt Österreich erstmals einen Gesamtplan vor, bei der Finanzierung bleibt aber vieles offen.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3449119/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000350756/wie-oesterreich-kuenftig-drohnen-abwehren-will?ref=rss"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-24-politik-2",
+      "datum": "2026-11-24",
+      "datum_bis": null,
+      "titel": "Slowakei schafft die Briefwahl ab",
+      "text": "Das Parlament hat auf Initiative der Regierung von Robert Fico die Briefwahl abgeschafft. Slowaken im Ausland können nur noch in Botschaften und anderen vom Außenministerium bestimmten Wahllokalen wählen. Bei der Wahl 2023 nutzten knapp 59.000 Menschen die Briefwahl, fast drei Viertel der Stimmen gingen an Oppositionsparteien. Die Opposition will vor das Verfassungsgericht ziehen.",
+      "warum_wichtig": "Die Änderung trifft vor allem Auslandsslowaken, die überwiegend die Opposition wählen, und erschwert ihnen die Stimmabgabe.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3449161/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000350842/slowakei-schafft-auf-initiative-der-regierung-briefwahl-ab?ref=rss"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-24-politik-3",
+      "datum": "2026-11-24",
+      "datum_bis": null,
+      "titel": "EU-Kommission: Österreich hält Vorgaben im Defizitverfahren ein",
+      "text": "Laut dem Herbstpaket der EU-Kommission bleibt Österreichs Nettoausgabenwachstum mit 2,1 Prozent in den Jahren 2026 und 2027 unter der erlaubten Obergrenze von 2,2 Prozent. Das Verfahren bleibt offen, weitere Schritte sind vorerst nicht vorgesehen. Die Kommission erwartet ein Defizit von 4,0 Prozent der Wirtschaftsleistung 2026 und 3,6 Prozent 2027.",
+      "warum_wichtig": "Österreich muss vorerst keine zusätzlichen Sparmaßnahmen aus Brüssel befürchten, solange die Prognosen halten.",
+      "themen": [
+        "politik",
+        "wirtschaft"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3449163/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000350840/oesterreich-laut-eu-kommission-bei-defizit-planmaessig-unterwegs?ref=rss"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-24-ki-1",
+      "datum": "2026-11-24",
+      "datum_bis": null,
+      "titel": "Anthropic macht Claude Artifacts zu eigenständigen Desktop-Apps",
+      "text": "Anthropic hat in einer Betaversion Claude Artifacts als eigene Apps für macOS und Windows eingeführt. Nutzer erstellen ein Artifact im Chat und legen es im Dock ab. Die Apps können Betriebssystemfunktionen wie Menüleiste und Benachrichtigungen sowie Connectoren und Claude selbst nutzen. Laut THE DECODER genügt ein kostenloses Claude-Konto und die aktuelle Version der Claude-App.",
+      "warum_wichtig": "Selbst gebaute kleine Werkzeuge lassen sich so ohne Programmierkenntnisse als normale Programme auf dem Rechner nutzen.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "THE DECODER",
+          "url": "https://www.the-decoder.de/anthropic-macht-claude-artifacts-zu-eigenstaendigen-desktop-apps-fuer-macos-und-windows/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-24-ki-2",
+      "datum": "2026-11-24",
+      "datum_bis": null,
+      "titel": "Anthropic baut das Model Context Protocol aus: Server können Skills liefern",
+      "text": "Anthropic erweitert das Model Context Protocol, kurz MCP, um Skills und Hintergrundaufgaben, die KI-Agenten selbstständiger machen sollen. Dateiuploads sollen bald folgen. Im Änderungsprotokoll von Claude Code ist in Version 2.1.332 bereits eine Betafunktion aufgeführt, mit der MCP-Server Skills bereitstellen, die im Menü als Server und Skill auftauchen. Laut THE DECODER wird MCP monatlich über 700 Millionen Mal als Software-Paket heruntergeladen.",
+      "warum_wichtig": "Wer Claude Code mit eigenen Anbindungen nutzt, kann Fähigkeiten künftig direkt über MCP-Server bekommen.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "THE DECODER",
+          "url": "https://www.the-decoder.de/anthropic-baut-model-context-protocol-mcp-fuer-autonomere-ki-agenten-aus/"
+        },
+        {
+          "name": "Claude Code Änderungsprotokoll",
+          "url": "https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-24-wirtschaft-1",
+      "datum": "2026-11-24",
+      "datum_bis": null,
+      "titel": "Anthropic-Aktie fällt unter den Ausgabepreis von 83 Dollar",
+      "text": "Nach nur wenigen Handelstagen ist der Börsengewinn der Anthropic-Aktie aufgebraucht: Sie fiel unter den Ausgabepreis von 83 Dollar. Kurz nach dem Debüt lag sie laut n-tv noch 34 Prozent darüber, vom Rekordhoch hat sie laut Trending Topics fast 28 Prozent verloren. Auch TechCrunch spricht von einem beunruhigenden Zeichen für KI-Startups.",
+      "warum_wichtig": "Der Kursrückgang trifft den bisher größten Börsengang der KI-Branche und verstärkt die Sorge vor einer Überbewertung von KI-Werten.",
+      "themen": [
+        "wirtschaft",
+        "ki"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "n-tv",
+          "url": "https://www.n-tv.de/wirtschaft/Anthropic-Aktie-faellt-unter-den-Ausgabepreis-id31572716.html"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000350866/aktie-von-anthropic-rutscht-unter-den-ausgabepreis?ref=rss"
+        },
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/24/anthropic-shares-fall-below-ipo-price-a-worrying-sign-for-ai-startups/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-24-wirtschaft-2",
+      "datum": "2026-11-24",
+      "datum_bis": null,
+      "titel": "USA setzen Nvidia-Partner Megaspeed auf die Sperrliste",
+      "text": "Das US-Handelsministerium hat das in Singapur ansässige Cloud-Unternehmen Megaspeed auf eine Sperrliste gesetzt. Es braucht künftig eine Genehmigung, um US-Güter zu beziehen, die Handelsblatt zufolge voraussichtlich verweigert wird. Megaspeed geriet durch die Affäre um Nvidia-Chef Jensen Huang in den Fokus, bei der eine frühere Managerin der Firma der Spionage verdächtigt wird.",
+      "warum_wichtig": "Die Sperre schränkt den Zugang zu Chips und Technik aus den USA für einen Nvidia-Partner ein und erhöht den Druck rund um die Nvidia-Affäre.",
+      "themen": [
+        "wirtschaft"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/video/politik/megaspeed-us-handelsministerium-setzt-nvidia-partner-auf-sperrliste/100272416.html"
+        },
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/wirtschaft/unternehmen/megaspeed-us-regierung-sperrliste-100.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-24-wirtschaft-3",
+      "datum": "2026-11-24",
+      "datum_bis": null,
+      "titel": "New-York-Fed-Präsident Williams deutet Zinserhöhungen an",
+      "text": "John Williams, Präsident der Federal Reserve Bank of New York, sagte, die anhaltend hohe Inflation in den USA mache eine straffere Geldpolitik der Notenbank nötig. Eine Entscheidung ist damit nicht gefallen.",
+      "warum_wichtig": "Die Äußerung zeigt, dass an den Märkten statt Zinssenkungen auch Zinserhöhungen der Fed möglich sind.",
+      "themen": [
+        "wirtschaft"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000350689/fed-mitglied-deutet-zinserhoehungen-an-us-inflation-zu-hoch?ref=rss"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-24-tirol-1",
+      "datum": "2026-11-24",
+      "datum_bis": null,
+      "titel": "Brenner-Basistunnel: Vortrieb der beiden Haupttunnelröhren ist abgeschlossen",
+      "text": "Die Tunnelbohrmaschine Olga ist am Dienstag am Ziel durchgebrochen und hat damit den letzten maschinellen Vortrieb beim Brenner-Basistunnel beendet. Sie legte zuletzt 7,6 Kilometer zurück. Einige Querstollen und Schächte müssen noch im Sprengvortrieb ausgebrochen werden.",
+      "warum_wichtig": "Ein wichtiger Bauabschnitt des größten Verkehrsprojekts Tirols ist geschafft, obwohl das Projekt zuletzt wegen Arbeitsbedingungen und Verzögerungen in der Kritik stand.",
+      "themen": [
+        "tirol"
+      ],
+      "hauptthema": "tirol",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3380829/"
+        },
+        {
+          "name": "Tiroler Tageszeitung",
+          "url": "https://www.tt.com/artikel/30947649/durchschlag-im-bbt-bohrmaschine-olga-ist-an-ihrem-ziel"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-24-tirol-2",
+      "datum": "2026-11-24",
+      "datum_bis": null,
+      "titel": "Tirol bricht nach 35 Jahren den Nächtigungsrekord im Sommer",
+      "text": "Tirol hat in der Sommersaison 23,7 Millionen Nächtigungen verzeichnet, um 2,2 Prozent mehr als im Vorjahr. Damit wurde der bisherige Rekord von 23,6 Millionen aus dem Sommer 1991 übertroffen.",
+      "warum_wichtig": "Der Tourismus als wichtiger Wirtschaftszweig des Landes erreicht damit einen neuen Höchststand.",
+      "themen": [
+        "tirol"
+      ],
+      "hauptthema": "tirol",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3380887/"
+        }
+      ]
+    }
+  ],
+  "videos": [],
+  "abschnitte": []
+}
