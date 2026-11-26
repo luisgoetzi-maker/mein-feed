@@ -1,0 +1,343 @@
+{
+  "format": "taeglich",
+  "titel": "Mittwoch, 25. November 2026",
+  "zeitraum": {
+    "von": "2026-11-25",
+    "bis": "2026-11-25"
+  },
+  "erschienen": "2026-11-26T03:08:55+01:00",
+  "status": "ok",
+  "fehler": null,
+  "ruhig": [],
+  "luecken": [],
+  "ausnahmen": [],
+  "meldungen": [
+    {
+      "id": "2026-11-25-weltpolitik-1",
+      "datum": "2026-11-25",
+      "datum_bis": null,
+      "titel": "USA kündigen neue Zölle gegen die EU und 13 weitere Handelspartner an",
+      "text": "Das Büro des US-Handelsbeauftragten Jamieson Greer schlägt nach einer achtmonatigen Untersuchung neue Zölle wegen angeblicher Überkapazitäten vor. Für die EU sind 15 Prozent vorgesehen, für China 20 Prozent zusätzlich zu den bestehenden Abgaben. Die Zölle könnten frühestens im Jänner in Kraft treten, vorher gibt es Anhörungen. Die EU-Kommission weist die Begründung entschieden zurück.",
+      "warum_wichtig": "Die Zölle würden europäische Exporte in die USA verteuern und könnten den Handelsstreit nach dem Urteil des Obersten Gerichtshofs wieder anheizen.",
+      "themen": [
+        "weltpolitik",
+        "politik",
+        "wirtschaft"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3449253/"
+        },
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/amerika/usa-zoelle-124.html"
+        },
+        {
+          "name": "POLITICO Europe",
+          "url": "https://www.politico.eu/article/eu-rejects-donald-trump-case-for-new-tariffs/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-25-weltpolitik-2",
+      "datum": "2026-11-25",
+      "datum_bis": null,
+      "titel": "Polen richtet nach Raketeneinschlägen eine Flugverbotszone an der Grenze zur Ukraine ein",
+      "text": "Nach zwei russischen Luftraumverletzungen bereitet Polens Regierung eine Flugverbotszone an der Grenze zur Ukraine vor, sie soll Ende Dezember oder Anfang Jänner gelten. Die Armee soll dort eindringende russische Flugkörper schneller identifizieren und abschießen können. Am Freitag waren drei russische Marschflugkörper im Südosten Polens eingeschlagen. Warschau fordert von der NATO konkrete Konsequenzen, die Allianz stellt ein AWACS-Aufklärungsflugzeug bereit.",
+      "warum_wichtig": "Polen reagiert erstmals mit einer eigenen Sperrzone auf den russischen Beschuss nahe seiner Grenze und stellt damit die Verlässlichkeit der NATO auf die Probe.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3449265/"
+        },
+        {
+          "name": "FAZ",
+          "url": "https://www.faz.net/aktuell/politik/ausland/marschflugkoerper-in-polen-russland-leugnet-urheberschaft-accg-201715509.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-25-weltpolitik-3",
+      "datum": "2026-11-25",
+      "datum_bis": null,
+      "titel": "Israelische Richter empfehlen, den Bestechungsvorwurf gegen Netanjahu fallen zu lassen",
+      "text": "Im Korruptionsprozess gegen Israels Premier Benjamin Netanjahu haben die Richter die Generalstaatsanwältin vorgeladen. Sie sehen kaum Chancen auf eine Verurteilung im Fall 4000, in dem es um Vorteile für ein Telekomunternehmen im Gegenzug für wohlwollende Berichterstattung geht. Beim zweiten Fall zweifeln sie an der Strafbarkeit, beim dritten regen sie einen Vergleich an. Netanjahu fordert ein sofortiges Ende des Prozesses, die Generalstaatsanwältin will die Empfehlung prüfen.",
+      "warum_wichtig": "Fällt der Vorwurf, verbessert das Netanjahus Lage mitten in der schwierigen Regierungsbildung nach der Wahl.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/asien/israel-netanjahu-korruptionsvorwuerfe-100.html"
+        },
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/cxj05mv723r2o"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-25-politik-1",
+      "datum": "2026-11-25",
+      "datum_bis": null,
+      "titel": "Österreichs Regierung einigt sich auf Eckpunkte für ein verschärftes Sexualstrafrecht",
+      "text": "Der Ministerrat hat zum Auftakt der Aktionstage gegen Gewalt an Frauen einen Vortrag zur Reform des Sexualstrafrechts beschlossen. Im Zentrum steht das Prinzip „Nur Ja heißt Ja“, nach dem eine Handlung ohne Einverständnis strafbar sein soll. Eine Arbeitsgruppe soll bis Jahresende Vorschläge vorlegen, auch zu höheren Strafen und Gruppendelikten. Einen Gesetzesentwurf gibt es noch nicht, die ÖVP will zudem Konsequenzen für Intensivtäter unter 14 Jahren in ein Gesamtpaket aufnehmen.",
+      "warum_wichtig": "Die Einigung macht den Weg für ein Gesetz frei, das die Grenze der Strafbarkeit von „gegen den Willen“ auf „ohne Einverständnis“ verschieben würde.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000350956/regierung-bekennt-sich-zu-nur-ja-heisst-ja-details-bleiben-offen?ref=rss"
+        },
+        {
+          "name": "Die Presse",
+          "url": "https://www.diepresse.com/41489615/spoe-sieht-weg-fuer-die-verankerung-des-konsensprinzips-freigemacht-oevp-will-gesamtpaket"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-25-politik-2",
+      "datum": "2026-11-25",
+      "datum_bis": null,
+      "titel": "EU-Kommission legt Quantum Act vor und plant einen Technologiefonds mit bis zu 50 Milliarden Euro",
+      "text": "Die Kommission hat einen ersten Vorschlag für das Quantengesetz vorgestellt, das Europas Quantenindustrie stärken soll. Dazu gehört ein Sovereign Tech Equity Fund, der große Beteiligungen an Firmen für Quantentechnik und künstliche Intelligenz ermöglichen soll. Laut Financial Times soll er bis zu 50 Milliarden Euro schwer werden, offiziell bestätigt ist die Summe nicht. Weitere Details sollen im Februar folgen.",
+      "warum_wichtig": "Europa will damit die Kapitallücke bei Zukunftstechnologien schließen und sich von Anbietern aus den USA und China unabhängiger machen.",
+      "themen": [
+        "politik",
+        "ki",
+        "startups"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Sifted",
+          "url": "https://sifted.eu/articles/au-quantum-act-sovereign-tech-fund/"
+        },
+        {
+          "name": "Trending Topics",
+          "url": "https://www.trendingtopics.eu/sovereign-tech-equity-fund-eu-50-milliarden-euro/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-25-ki-1",
+      "datum": "2026-11-25",
+      "datum_bis": null,
+      "titel": "Anthropic-Bericht: Fast jede fünfte KI-Anwendung in Unternehmen bringt bisher keinen Nutzen",
+      "text": "Anthropics Economics-Team hat für den Bericht „Working with AI“ 66 Interviews in 58 US-Unternehmen ausgewertet und fast 300 KI-Anwendungen untersucht. Bei 55 Prozent der Anwendungen berichten die Befragten von mehr Output oder höherer Qualität, bei 19 Prozent gibt es bisher keinen geschäftlichen Nutzen. Größte Hürden sind die Menge der KI-Ergebnisse, die Menschen prüfen müssen, und Widerstand in der Belegschaft. Alle befragten Firmen sind Anthropic-Kunden, die Stichprobe ist deshalb nicht repräsentativ.",
+      "warum_wichtig": "Die Studie zeigt, dass der Engpass beim Einsatz von KI weniger in der Technik als im Prüfaufwand und in den Abläufen der Firmen liegt.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "THE DECODER",
+          "url": "https://the-decoder.de/neuer-anthropic-bericht-zeigt-den-ganzen-schmerz-der-ki-adoption-in-unternehmen/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-25-ki-2",
+      "datum": "2026-11-25",
+      "datum_bis": null,
+      "titel": "US-Behörde FCC erlaubt SpaceX bis zu eine Million Satelliten als Rechenzentren im All",
+      "text": "Die US-Kommunikationsbehörde FCC hat SpaceX das Projekt „Starmind“ genehmigt, ein Netz aus bis zu einer Million Satelliten für KI-Rechenleistung im Orbit. Laut Auflagen muss der Aufbau spätestens im November 2033 beginnen, 100.000 Satelliten sollen bis November 2035 im All sein. Elon Musk nennt als frühesten Start der ersten Rechner das dritte Quartal 2027.",
+      "warum_wichtig": "Rechenzentren im Weltraum wären ein neuer Weg, den Strom- und Platzbedarf der KI-Branche auf der Erde zu umgehen.",
+      "themen": [
+        "ki",
+        "wirtschaft"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "n-tv",
+          "url": "https://www.n-tv.de/wirtschaft/Musk-darf-mit-SpaceX-Rechenzentren-im-All-errichten-id31578034.html"
+        },
+        {
+          "name": "Trending Topics",
+          "url": "https://www.trendingtopics.eu/spacex-starmind-fcc-rechenzentren-orbit/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-25-ki-3",
+      "datum": "2026-11-25",
+      "datum_bis": null,
+      "titel": "OpenAI führt in ChatGPT eine gemeinsame Nutzungsgrenze für Chat und Work ein",
+      "text": "OpenAI verteilt die zusammengeführte Oberfläche aus Chat und Work zunächst an eine kleine Gruppe von Pro-Abonnenten. Beide Bereiche teilen künftig eine einzige Nutzungsgrenze, nur Gespräche mit dem Modell Instant bleiben unbegrenzt. Laut OpenAI können vor allem Vielnutzer ihre Grenze früher erreichen. Der breitere Start ist laut Hilfeseite für Dezember vorgesehen.",
+      "warum_wichtig": "Wer ChatGPT intensiv mit starken Denkmodellen nutzt, bekommt für denselben Preis womöglich weniger Spielraum.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-25-wirtschaft-1",
+      "datum": "2026-11-25",
+      "datum_bis": null,
+      "titel": "Ratingagentur S&P prüft eine Herabstufung von Nvidia wegen Führungsrisiken",
+      "text": "S&P Global Ratings erwägt, die Kreditwürdigkeit von Nvidia von AA auf AA minus zu senken, und begründet das mit schwacher Führungskontrolle und der Abhängigkeit von Konzernchef Jensen Huang. Die Prüfung soll binnen 90 Tagen abgeschlossen sein. Nvidia bliebe auch dann im Bereich guter Bonität, doch Kredite würden teurer, auch für die Firmen, für die Nvidia Garantien gibt. Die Aktie schloss laut BBC am Mittwoch 3,4 Prozent tiefer.",
+      "warum_wichtig": "Ein schlechteres Rating würde die Finanzierung vieler KI-Rechenzentren verteuern, die auf Nvidias Garantien bauen.",
+      "themen": [
+        "wirtschaft",
+        "ki"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": true,
+      "quellen": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/25/sp-considers-nvidia-credit-downgrade-over-governance-and-key-man-risks/"
+        },
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/finanzen/maerkte/aktien/ratingagentur-sp-droht-nvidia-nach-fuehrungswirren-mit-herabstufung/100272817.html"
+        },
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/cq0md8g14zryo"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-25-wirtschaft-2",
+      "datum": "2026-11-25",
+      "datum_bis": null,
+      "titel": "Deutsche Wirtschaft wächst im dritten Quartal nur um 0,1 Prozent",
+      "text": "Das Statistische Bundesamt hat seine erste Schätzung von 0,2 Prozent auf 0,1 Prozent Wachstum zum Vorquartal gesenkt. Die Exporte sanken um 1,0 Prozent, die Ausrüstungsinvestitionen um 3,5 Prozent. Im zweiten Quartal hatte das Plus noch 0,3 Prozent betragen.",
+      "warum_wichtig": "Die Zahlen zeigen, dass Exporte und Investitionen die deutsche Konjunktur bremsen, noch bevor die neuen US-Zölle greifen.",
+      "themen": [
+        "wirtschaft"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/wirtschaft/konjunktur/bip-deutschland-wirtschaftsleistung-100.html"
+        },
+        {
+          "name": "n-tv",
+          "url": "https://www.n-tv.de/wirtschaft/Statistiker-korrigieren-Wirtschaftswachstum-nach-unten-id31574489.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-25-tirol-1",
+      "datum": "2026-11-25",
+      "datum_bis": null,
+      "titel": "Regierung einigt sich auf Luftschutzgesetz, das Tirols Lkw-Fahrverbote absichern soll",
+      "text": "ÖVP, SPÖ und NEOS haben sich auf die Novelle des Immissionsschutzgesetzes-Luft geeinigt, die strengere Schadstoffgrenzwerte ab 2030 vorsieht. Der Verkehrsausschuss behandelt den Entwurf am Donnerstag, der Beschluss im Nationalrat soll im Dezember folgen. Die Frist zur Umsetzung der EU-Richtlinie endet am 11. Dezember. Tirol hofft, damit Nachtfahrverbot und sektorales Fahrverbot für Lkw im Streit mit Italien zu verteidigen.",
+      "warum_wichtig": "Das Gesetz liefert die rechtliche Grundlage für Tirols Anti-Transit-Maßnahmen, bevor der Europäische Gerichtshof über die italienische Klage entscheidet.",
+      "themen": [
+        "tirol",
+        "politik"
+      ],
+      "hauptthema": "tirol",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3381114/"
+        },
+        {
+          "name": "Tiroler Tageszeitung",
+          "url": "https://www.tt.com/artikel/30947721/einigung-auf-den-letzten-metern-regierung-zurrt-neues-ig-luft-im-bund-fest"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-25-tirol-2",
+      "datum": "2026-11-25",
+      "datum_bis": null,
+      "titel": "Stadt Innsbruck will 2027 rund 270 Millionen Euro investieren",
+      "text": "Die Stadt und ihre Tochterunternehmen planen für das kommende Jahr Investitionen von rund 270 Millionen Euro, unter anderem in Wohnen, Bildung, Hochwasserschutz in Hötting und den Umbau des Hallenbads. Das Gesamtbudget beträgt 637 Millionen Euro, der Schuldenstand soll um zehn Millionen auf 221 Millionen Euro steigen. In den nächsten zwei Jahren entstehen 1.000 kommunale Wohnungen. Der Gemeinderat beschließt das Budget am 11. Dezember.",
+      "warum_wichtig": "Das Budget legt fest, welche Projekte in Innsbruck im kommenden Jahr tatsächlich umgesetzt werden.",
+      "themen": [
+        "tirol"
+      ],
+      "hauptthema": "tirol",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3381057/"
+        },
+        {
+          "name": "Innsbruck informiert",
+          "url": "https://presse.innsbruck.gv.at/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-25-tirol-3",
+      "datum": "2026-11-25",
+      "datum_bis": null,
+      "titel": "Wintereinbruch am Donnerstag in Tirol, gleichzeitig startet der Euregio-Lawinenreport",
+      "text": "Ein Italien-Tief bringt Tirol am Donnerstag Schnee und mögliche Verkehrsbehinderungen, danach folgt ein kräftiges Hochdruckgebiet. Am selben Tag startet der tägliche Euregio-Lawinenreport für Tirol, Südtirol und das Trentino mit neuem Design, zusätzlichen Wetterdaten, einer Lawinenereignisdatenbank und überarbeiteter SnowSafe-App.",
+      "warum_wichtig": "Wer am Donnerstag unterwegs ist, muss mit Schnee rechnen, und Tourengeher bekommen ab sofort die tägliche Lawinenprognose.",
+      "themen": [
+        "tirol"
+      ],
+      "hauptthema": "tirol",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Tiroler Tageszeitung",
+          "url": "https://www.tt.com/artikel/30947714/wetter-achterbahn-in-tirol-es-kommt-zu-einem-kraeftigen-wintereinbruch"
+        },
+        {
+          "name": "Tiroler Tageszeitung",
+          "url": "https://www.tt.com/artikel/30947713/neues-design-und-mehr-daten-euregio-lawinenreport-startet-in-die-saison"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-25-startups-1",
+      "datum": "2026-11-25",
+      "datum_bis": null,
+      "titel": "42 Generalstaatsanwälte wollen den Verkauf der Chats des insolventen Character.AI stoppen",
+      "text": "Character.AI hatte im Oktober Gläubigerschutz nach Chapter 11 beantragt. Nun greift ein Bündnis aus 42 US-Generalstaatsanwälten in das Verfahren ein, um den Verkauf von Nutzerdaten zu verhindern. Betroffen wären Chatverläufe von mehr als 21 Millionen US-Konten, darunter 2,1 Millionen Minderjährige. Die Auktion ist für den 1. Dezember angesetzt, das Basisgebot kommt von einer erst am 13. November gegründeten Firma.",
+      "warum_wichtig": "Der Fall klärt, was mit privaten KI-Gesprächen geschieht, wenn ein Startup pleitegeht.",
+      "themen": [
+        "startups"
+      ],
+      "hauptthema": "startups",
+      "update": false,
+      "quellen": [
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/25/state-ags-fight-character-ais-plan-to-auction-off-users-private-chats/"
+        }
+      ]
+    }
+  ],
+  "videos": [],
+  "abschnitte": []
+}
