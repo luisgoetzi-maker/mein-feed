@@ -1,0 +1,298 @@
+{
+  "format": "taeglich",
+  "titel": "Donnerstag, 26. November 2026",
+  "zeitraum": {
+    "von": "2026-11-26",
+    "bis": "2026-11-26"
+  },
+  "erschienen": "2026-11-27T03:08:24+01:00",
+  "status": "ok",
+  "fehler": null,
+  "ruhig": [
+    "startups"
+  ],
+  "luecken": [],
+  "ausnahmen": [],
+  "meldungen": [
+    {
+      "id": "2026-11-26-weltpolitik-1",
+      "datum": "2026-11-26",
+      "datum_bis": null,
+      "titel": "Trump bittet Putin um ein Ende militärischer Aggression in Europa, Rutte warnt vor Ausweitung des Krieges",
+      "text": "Der Brüsseler Sondergipfel zum langfristigen EU-Haushalt 2028 bis 2034 wurde am Donnerstagabend vorzeitig und ohne Durchbruch beendet. Costas Entwurf mit 1,78 Billionen Euro ist Deutschland und den sparsamen Staaten, darunter Österreich, noch zu hoch, Frankreich und Italien kritisieren die Kürzungen. Weiterverhandelt wird beim EU-Gipfel am 17. Dezember, nicht schon am Freitag. Der irische Ratsvorsitz warnt, ohne Einigung bis Jahresende sinke die Chance im ersten Halbjahr 2027 deutlich.",
+      "warum_wichtig": "Es zeigt, dass Washington beide Seiten zur Zurückhaltung drängt, während über den Wortlaut der gemeinsamen Erklärung unterschiedliche Versionen kursieren.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3449387/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000351188/mark-rutte-und-donald-trump-warnen-russland-vor-ausweitung-des-krieges?ref=rss"
+        },
+        {
+          "name": "POLITICO Europe",
+          "url": "https://www.politico.eu/article/donald-trump-diverges-from-nato-statement-emphasizing-ukraine-mustnt-expand-war/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-26-weltpolitik-2",
+      "datum": "2026-11-26",
+      "datum_bis": null,
+      "titel": "Zwei italienische Rheinmetall-Techniker bei Drohnenangriff in Kuwait getötet, Iran weist Verantwortung zurück",
+      "text": "Bei einem Drohnenangriff auf eine kuwaitische Militäreinrichtung starben zwei italienische Techniker des deutschen Rüstungskonzerns Rheinmetall. Sie arbeiteten nach bisherigen Erkenntnissen an einer Radarstation der kuwaitischen Luftabwehr. Außenminister Antonio Tajani machte im italienischen Senat den Iran verantwortlich, Teheran dementiert den Angriff laut tagesschau.",
+      "warum_wichtig": "Der Fall belastet das Verhältnis Italiens zum Iran und zeigt, dass der Krieg auch Europäer in der Golfregion trifft.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000351276/zwei-italienische-techniker-bei-drohnenangriff-im-kuwait-get246tet?ref=rss"
+        },
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/asien/kuwait-tote-angriff-kuwait-100.html"
+        },
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3449373/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-26-weltpolitik-3",
+      "datum": "2026-11-26",
+      "datum_bis": null,
+      "titel": "USA verschieben Entscheidung über ihre Truppenpräsenz in Europa",
+      "text": "Die Überprüfung der amerikanischen Militärpräsenz in Europa dauert länger als geplant, ein neuer Termin wurde nicht genannt. Laut Politico, auf das sich DER STANDARD beruft, sagte der stellvertretende US-Vertreter bei der NATO, Scott Oudkirk, den Verbündeten, die Ergebnisse lägen nicht rechtzeitig zum Treffen der NATO-Außenminister in Brüssel am Mittwoch vor. Wie viele Soldaten betroffen sein könnten, ist nicht bekannt.",
+      "warum_wichtig": "Italien begrenzt damit künftig den Anteil von Kindern mit Sprachdefiziten pro Schulklasse.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000351308/medien-entscheidung-252ber-us-truppenabzug-verschiebt-sich?ref=rss"
+        },
+        {
+          "name": "POLITICO Europe",
+          "url": "https://www.politico.eu/article/us-to-delay-overhaul-of-military-presence-in-europe/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-26-politik-1",
+      "datum": "2026-11-26",
+      "datum_bis": null,
+      "titel": "EU-Sondergipfel zum Budget 2028 bis 2034 endet ohne Einigung, Gespräche gehen im Dezember weiter",
+      "text": "Der Brüsseler Sondergipfel zum langfristigen EU-Haushalt 2028 bis 2034 wurde am Donnerstagabend vorzeitig und ohne Durchbruch beendet. Costas Entwurf mit 1,78 Billionen Euro ist Deutschland und den sparsamen Staaten, darunter Österreich, noch zu hoch, Frankreich und Italien kritisieren die Kürzungen. Weiterverhandelt wird beim EU-Gipfel am 17. Dezember, nicht schon am Freitag. Der irische Ratsvorsitz warnt, ohne Einigung bis Jahresende sinke die Chance im ersten Halbjahr 2027 deutlich.",
+      "warum_wichtig": "Ohne Einigung fehlt vielen EU-Programmen ab 2028 die Grundlage, und auch die Ukraine-Finanzierung bleibt Streitpunkt.",
+      "themen": [
+        "politik",
+        "weltpolitik"
+      ],
+      "hauptthema": "politik",
+      "update": true,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3449395/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000351166/viel-streit-auf-dem-eu-gipfel-aber-der-ezb-topjob-ist-geklaert-hernandez-de-cos-loest-lagarde-ab?ref=rss"
+        },
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/europa/eu-haushalt-ukraine-100.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-26-politik-2",
+      "datum": "2026-11-26",
+      "datum_bis": null,
+      "titel": "EU-Staats- und Regierungschefs einigen sich auf Pablo Hernández de Cos als nächsten EZB-Präsidenten",
+      "text": "Die Staats- und Regierungschefs haben sich beim EU-Gipfel einstimmig auf den Spanier Pablo Hernández de Cos geeinigt. Der 55-Jährige leitet derzeit die Bank für Internationalen Zahlungsausgleich und war von 2018 bis 2024 Chef der spanischen Zentralbank. Christine Lagarde tritt vorzeitig am 7. Februar zurück, die formelle Ernennung ist für den Gipfel im Dezember vorgesehen. Der niederländische Kandidat Klaas Knot wurde fallen gelassen.",
+      "warum_wichtig": "Der neue EZB-Präsident bestimmt für acht Jahre die Zinspolitik im Euroraum.",
+      "themen": [
+        "politik",
+        "wirtschaft"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3449372/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000351104/spanier-hernandez-de-cos-soll-lagarde-als-chefin-der-eurozentralbank-abloesen?ref=rss"
+        },
+        {
+          "name": "POLITICO Europe",
+          "url": "https://www.politico.eu/article/eu-leaders-clear-path-for-spains-pablo-hernandez-de-cos-to-lead-ecb/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-26-politik-3",
+      "datum": "2026-11-26",
+      "datum_bis": null,
+      "titel": "Italiens Parlament beschließt Klassenobergrenze für Schüler mit ausländischen Wurzeln",
+      "text": "Die Abgeordnetenkammer in Rom hat am Donnerstag mit 142 zu 112 Stimmen bei 4 Enthaltungen ein Integrationsgesetz der rechten Regierung angenommen, der Senat hatte bereits zugestimmt. Pro Klasse dürfen höchstens 30 Prozent der Kinder sitzen, die ausländischer Herkunft sind und nicht ausreichend Italienisch sprechen. Laut FAZ verbietet das Paket außerdem die Gesichtsverschleierung an Schulen.",
+      "warum_wichtig": "Italien begrenzt damit künftig den Anteil von Kindern mit Sprachdefiziten pro Schulklasse.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3449377/"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000351281/italien-beschloss-klassen-obergrenze-f252r-ausl228ndische-sch252ler?ref=rss"
+        },
+        {
+          "name": "FAZ",
+          "url": "https://www.faz.net/aktuell/politik/ausland/italien-gesichtsverschleierung-an-schulen-kuenftig-verboten-201721357.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-26-ki-1",
+      "datum": "2026-11-26",
+      "datum_bis": null,
+      "titel": "Claude kürzt den KI-Beweis der Riemannschen Vermutung um mehr als 99 Prozent",
+      "text": "Vorher stand fest, dass das Prüfprogramm Lean den Beweis bestätigt hat, der aber riesig war. Der ursprüngliche Beweis, den Anthropic-Mathematiker Levent Alpöge veröffentlicht hatte, umfasste rund 17,4 Millionen Zeilen Lean-Code. Mitarbeiter Luke Sernau stellte am Mittwoch zwei kürzere Fassungen auf GitHub, die er mit Kollegen und Claude erarbeitet hat. Die kompakte Version hat rund 113.000 Zeilen, die lesbarere etwa 477.000. Die Mathematiker Andrew Sutherland und Michael Rubinstein haben sie unabhängig maschinell geprüft und bestätigen, dass sie dieselben Aussagen beweisen.",
+      "warum_wichtig": "Kürzere Fassungen erleichtern die Prüfung des Beweises, die menschliche Begutachtung steht aber noch aus.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": true,
+      "quellen": [
+        {
+          "name": "heise online",
+          "url": "https://www.heise.de/news/Riemannsche-Vermutung-Claude-kuerzt-KI-Beweis-um-mehr-als-99-Prozent-11539145.html"
+        },
+        {
+          "name": "THE DECODER",
+          "url": "https://the-decoder.de/nicht-der-riemann-beweis-ist-entscheidend-sondern-dass-ein-ki-system-existiert-das-ihn-liefern-kann/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-26-ki-2",
+      "datum": "2026-11-26",
+      "datum_bis": null,
+      "titel": "SAP erwägt laut Bericht den Abbau von mindestens 10.000 Stellen für den KI-Umbau",
+      "text": "Laut Bloomberg und Handelsblatt, jeweils unter Berufung auf anonyme Quellen, will SAP bis zu 10.000 Stellen streichen, vor allem in Programmierung, Produktsupport und Vertrieb. Das wäre rund ein Zehntel der 110.730 Beschäftigten. SAP spricht von kontinuierlichen Prüfungen der Organisation und hat nichts dementiert. Einen festen Zeitplan nennen die Berichte nicht.",
+      "warum_wichtig": "Der größte deutsche Softwarekonzern zeigt, wie stark KI die Beschäftigung in der Softwarebranche verändern kann.",
+      "themen": [
+        "ki",
+        "wirtschaft"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "heise online",
+          "url": "https://www.heise.de/news/SAP-AI-First-10-000-Mitarbeiter-weniger-11539781.html"
+        },
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/technik/ki/sap-dax-konzern-plant-massiven-stellenabbau/100273115.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-26-wirtschaft-1",
+      "datum": "2026-11-26",
+      "datum_bis": null,
+      "titel": "Nvidia stoppt Serverlieferungen nach Malaysia, Singapur, Thailand und Indonesien",
+      "text": "Nvidia hat Partner wie Dell und Super Micro angewiesen, vorerst keine Server mehr in die vier Länder zu liefern, laut Medienberichten. Hintergrund sind neue US-Exportkontrollen, die verhindern sollen, dass chinesische Firmen Nvidia-Chips über Rechenzentren im Ausland per Fernzugriff nutzen. Cloud-Anbieter in der Region müssen binnen 90 Tagen eine Lizenz beantragen. Das Institute for Progress schätzt, dass solche Rechenzentren rund 24 Prozent der chinesischen KI-Rechenleistung stellen.",
+      "warum_wichtig": "Der Lieferstopp trifft Chinas Zugang zu KI-Rechenleistung und Bauprojekte in Südostasien, ein Ende ist offen.",
+      "themen": [
+        "wirtschaft",
+        "ki"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "THE DECODER",
+          "url": "https://the-decoder.de/nvidia-stoppt-vorerst-lieferungen-nach-malaysia-singapur-thailand-und-indonesien/"
+        },
+        {
+          "name": "TechCrunch",
+          "url": "https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-26-wirtschaft-2",
+      "datum": "2026-11-26",
+      "datum_bis": null,
+      "titel": "SAP meldet verdächtige Aktivitäten in der internen Entwicklungsplattform",
+      "text": "SAP hat nach eigenen Angaben verdächtige Aktivitäten festgestellt und Schutzmaßnahmen für Kunden ergriffen. Laut einem internen Schreiben, das die dpa teilweise einsah, betrifft das die interne Entwicklungs- und Softwareplattform GitHub. Es gebe nach aktuellem Stand keine Hinweise auf unbefugten Zugriff auf Geschäftsdaten von Kunden. Der Spiegel spricht von einem Hackerangriff, das bestätigte SAP zunächst nicht.",
+      "warum_wichtig": "Weil SAP-Software in vielen Konzernen läuft, wäre ein Einbruch in die Entwicklung ein Risiko für zahllose Kunden.",
+      "themen": [
+        "wirtschaft",
+        "ki"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/politik/deutschland/softwarekonzern-sap-haben-verdaechtige-aktivitaeten-identifiziert/100273127.html"
+        },
+        {
+          "name": "n-tv",
+          "url": "https://www.n-tv.de/wirtschaft/Softwarekonzern-SAP-raeumt-IT-Sicherheitsvorfall-ein-id31582944.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-26-tirol-1",
+      "datum": "2026-11-26",
+      "datum_bis": null,
+      "titel": "Wintereinbruch: Unfälle, Staus und Lkw-Einreiseverbot am Brenner",
+      "text": "Wie am Vortag angekündigt, legte starker Schneefall am Donnerstag den Verkehr in Tirol über Stunden lahm. Auf der Brennerautobahn blieben Lkw hängen, der Westast bei Innsbruck war mehrere Stunden gesperrt, und mittags wurde ein Einreiseverbot für Lkw am Brenner verhängt. Am Flughafen Innsbruck fielen Verbindungen aus Wien und Amsterdam aus oder wurden umgeleitet, die Bahnstrecke Sillian–Innichen wurde gesperrt. Für Freitag warnen Experten vor teils erheblicher Lawinengefahr.",
+      "warum_wichtig": "Bei Neuschnee und Lawinengefahr bleibt die Lage auf Tirols Straßen und im Gelände angespannt.",
+      "themen": [
+        "tirol"
+      ],
+      "hauptthema": "tirol",
+      "update": true,
+      "quellen": [
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3381159/"
+        },
+        {
+          "name": "Tiroler Tageszeitung",
+          "url": "https://www.tt.com/artikel/30947771/unfaelle-staus-wartezeiten-wintereinbruch-sorgte-fuer-verkehrschaos-in-tirol"
+        }
+      ]
+    }
+  ],
+  "videos": [],
+  "abschnitte": []
+}
