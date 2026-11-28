@@ -1,0 +1,311 @@
+{
+  "format": "taeglich",
+  "titel": "Freitag, 27. November 2026",
+  "zeitraum": {
+    "von": "2026-11-27",
+    "bis": "2026-11-27"
+  },
+  "erschienen": "2026-11-28T03:07:59+01:00",
+  "status": "ok",
+  "fehler": null,
+  "ruhig": [
+    "startups"
+  ],
+  "luecken": [],
+  "ausnahmen": [],
+  "meldungen": [
+    {
+      "id": "2026-11-27-weltpolitik-1",
+      "datum": "2026-11-27",
+      "datum_bis": null,
+      "titel": "Neuseelands Regierungsbündnis verliert nach Endergebnis die Mehrheit",
+      "text": "Nach dem endgültigen Ergebnis der Wahl vom 7. November kommt das bisherige Bündnis von Premier Christopher Luxon auf 65 der 130 Sitze, einen Sitz zu wenig für die Mehrheit. Auch das Lager der Labour Party unter Chris Hipkins hat mit 58 Sitzen keine Mehrheit. Die neu ins Parlament eingezogene Partei Opportunity unter Qiulae Wong hat sieben Mandate und kann mit beiden Seiten verhandeln.",
+      "warum_wichtig": "Neuseeland steuert auf langwierige Koalitionsverhandlungen zu, bei denen eine neue Kleinpartei den Ausschlag gibt.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/ausland/ozeanien/neuseeland-parlamentswahl-106.html"
+        },
+        {
+          "name": "DER STANDARD",
+          "url": "https://www.derstandard.at/story/3000000351316/rechtsgerichtete-regierung-verliert-mehrheit-in-neuseeland"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-27-weltpolitik-2",
+      "datum": "2026-11-27",
+      "datum_bis": null,
+      "titel": "Ukraine schlägt Waffenruhe im Schwarzen Meer vor",
+      "text": "Die Regierung in Kiew hat ihren Verbündeten einen Vorschlag für eine Waffenruhe im Schwarzen Meer weitergeleitet, um den Export von Lebensmitteln zu sichern. Außenminister Andrij Sybiha sagte laut ORF, die Ukraine warte auf eine Antwort Russlands. Moskau wolle auch den Öltransport einbeziehen und verlange ein Ende der ukrainischen Angriffe auf den russischen Ölsektor; das komme für Kiew nur im Rahmen eines umfassenderen Abkommens zur Energie in Frage.",
+      "warum_wichtig": "Eine Einigung würde Getreide- und Ölexporte über das Schwarze Meer absichern, doch die Bedingungen beider Seiten liegen noch weit auseinander.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3449483/"
+        },
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/politik/international/ukraine-bietet-waffenruhe-im-schwarzen-meer-an/27982126.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-27-weltpolitik-3",
+      "datum": "2026-11-27",
+      "datum_bis": null,
+      "titel": "Selenskyj kritisiert Trumps Freundschaftsbekundung für Putin und nennt neue Gesprächsrunde im Dezember",
+      "text": "In einem BBC-Interview nannte der ukrainische Präsident Wolodymyr Selenskyj es seltsam, dass Donald Trump Wladimir Putin nach dem gemeinsamen Gipfel in Shenzhen seinen Freund genannt hat. Putin sei ein Aggressor und ein Mörder, sagte er und zog einen Vergleich mit Hitler. Er beklagte zudem, dass verspätete Lieferungen von Flugabwehrraketen Menschenleben kosteten. Die jüngste Verhandlungsrunde in Abu Dhabi brachte laut BBC keine erkennbaren Fortschritte, die Gespräche sollen im Dezember weitergehen.",
+      "warum_wichtig": "Der offene Streit zeigt, wie wenig die Ukraine der US-Vermittlung zutraut, während die Friedensgespräche stocken.",
+      "themen": [
+        "weltpolitik"
+      ],
+      "hauptthema": "weltpolitik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3449486/"
+        },
+        {
+          "name": "BBC",
+          "url": "https://www.bbc.co.uk/news/articles/c820q9wgrpyyo"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-27-politik-1",
+      "datum": "2026-11-27",
+      "datum_bis": null,
+      "titel": "Bundestag beschließt Haushalt 2027 samt Stromsteuersenkung und Zuckersteuer",
+      "text": "Der Bundestag hat den Haushalt für 2027 mit 317 gegen 260 Stimmen verabschiedet. Im Begleitgesetz stehen eine Senkung der Stromsteuer um rund 2,3 Cent pro Kilowattstunde für ein Jahr, eine Zuckersteuer auf Getränke ab 2028 und eine um 20 Prozent höhere Steuer auf hochprozentigen Alkohol. Der Bundeszuschuss zur Rentenversicherung wird um drei Milliarden Euro gekürzt. Laut Handelsblatt nimmt der Bund dafür 210 Milliarden Euro neue Schulden auf.",
+      "warum_wichtig": "Haushalte zahlen 2027 weniger für Strom, ab 2028 werden stark gezuckerte Getränke teurer.",
+      "themen": [
+        "politik",
+        "wirtschaft"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3449471/"
+        },
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/inland/innenpolitik/beschluss-zuckersteuer-stromsteuer-100.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-27-politik-2",
+      "datum": "2026-11-27",
+      "datum_bis": null,
+      "titel": "Arbeitsminister Schweitzer legt Entwurf für die Rentenreform vor, die Union widerspricht",
+      "text": "Das SPD-geführte Arbeitsministerium hat einen 287 Seiten langen Referentenentwurf vorgelegt. Die abschlagsfreie Rente nach 45 Beitragsjahren bleibt im Kern erhalten, doch Zeiten mit Arbeitslosen- oder Krankengeld sollen nicht mehr zählen. Die Frührente mit Abschlägen wird teurer: ab Juli 2028 gelten 0,4 statt 0,3 Prozent pro Monat und die Altersgrenze steigt auf 64 Jahre. Ab 2031 soll das Rentenalter an die Lebenserwartung gekoppelt werden. Laut Handelsblatt war der Entwurf nicht mit der Koalition abgestimmt, aus der Union kommt deutlicher Widerstand.",
+      "warum_wichtig": "Der Entwurf entscheidet mit, wer wie früh in Rente gehen kann, und belastet die Koalition.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/inland/innenpolitik/rentenreform-entwurf-arbeitsministerium-100.html"
+        },
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/politik/deutschland/reformplaene-schweitzer-kuendigt-eine-der-groessten-rentenreformen-an/100273140.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-27-politik-3",
+      "datum": "2026-11-27",
+      "datum_bis": null,
+      "titel": "Österreich: Bundeszuschuss zu den Pensionen steigt bis 2031 auf 27 Milliarden Euro",
+      "text": "Laut dem Mittelfristgutachten der Alterssicherungskommission wachsen die Bundesmittel für die gesetzliche Pensionsversicherung von 19,3 Milliarden Euro heuer auf 27,2 Milliarden Euro im Jahr 2031, ein Plus von 41 Prozent. Die Pensionen steigen schneller als die Beitragsgrundlagen. Sozialministerin Korinna Schumann von der SPÖ lehnt reflexartige Einsparungen oder ein höheres Antrittsalter ab und will den Nachhaltigkeitsmechanismus kritisch prüfen.",
+      "warum_wichtig": "Die Zahlen setzen die Regierung bei den Sparvorgaben unter Druck, die Neos drängen laut Standard auf rasche Einsparungen.",
+      "themen": [
+        "politik"
+      ],
+      "hauptthema": "politik",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3449469/"
+        },
+        {
+          "name": "Die Presse",
+          "url": "https://www.diepresse.com/41496452/27-milliarden-euro-zuschuss-ausgaben-fuer-pensionen-steigen-staerker-als-erwartet"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-27-ki-1",
+      "datum": "2026-11-27",
+      "datum_bis": null,
+      "titel": "Verbraucherzentrale mahnt Anthropic und OpenAI wegen Preisklauseln ab",
+      "text": "Die Verbraucherzentrale Niedersachsen hat beide Anbieter abgemahnt. Bei Anthropic kritisiert sie, dass die Claude-Abos ohne Steuern beworben werden und sich das Unternehmen einseitige Preis- und Tarifänderungen vorbehält. OpenAI wird vorgeworfen, die geplante Zusammenlegung der Nutzungskontingente von Chat und Work im Plus-Abo nicht verständlich zu erklären. Beide Firmen sollen außerdem ein schwer auffindbares Impressum haben; eine Stellungnahme lag laut heise nicht vor.",
+      "warum_wichtig": "Für Kunden in Deutschland kann das bedeuten, dass sie bei einseitigen Tarifänderungen ihr ursprüngliches Abo zurückverlangen können.",
+      "themen": [
+        "ki"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "heise online",
+          "url": "https://www.heise.de/news/Verbraucherzentrale-mahnt-OpenAI-und-Anthropic-ab-11540670.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-27-ki-2",
+      "datum": "2026-11-27",
+      "datum_bis": null,
+      "titel": "Bundesregierung will KI-Anbieter für erzeugte Inhalte zahlen lassen",
+      "text": "In einer Stellungnahme zur EU-Konsultation über das Urheberrecht schlägt die Bundesregierung vor, dass Anbieter generativer KI zahlen, wenn ihre Systeme Texte, Musik oder Videos erzeugen, die mit menschlichen Werken konkurrieren. Das Geld soll über Verwertungsgesellschaften an Rechteinhaber fließen. Zudem sollen Anbieter nachweisen, dass ihre Modelle das EU-Urheberrecht einhalten, egal wo sie trainiert wurden. Die EU-Kommission plant für das zweite Quartal 2027 ein Gesetzespaket.",
+      "warum_wichtig": "Käme die Abgabe, würde sie die Kosten für KI-Dienste in der EU erhöhen und Autoren, Musiker und Verlage an den Erlösen beteiligen.",
+      "themen": [
+        "ki",
+        "politik"
+      ],
+      "hauptthema": "ki",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/wirtschaft/technologie/ki-urheberrecht-verguetung-100.html"
+        },
+        {
+          "name": "n-tv",
+          "url": "https://www.n-tv.de/wirtschaft/KI-Anbieter-sollen-fuer-erzeugte-Texte-Musik-und-Videos-zahlen-id31583377.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-27-wirtschaft-1",
+      "datum": "2026-11-27",
+      "datum_bis": null,
+      "titel": "Uber sichert sich über 87 Prozent an Delivery Hero",
+      "text": "Nach Ablauf der zweiten Annahmefrist hat Uber mehr als 87 Prozent der Delivery-Hero-Anteile gesichert. Das Angebot lag bei 41,50 Euro je Aktie, das Geschäft ist bis zu 13 Milliarden Euro schwer. Um Kartellprobleme zu vermeiden, verkauft Delivery Hero sein Geschäft in 14 Ländern, darunter Österreich mit foodora, für 1,4 Milliarden Euro an den Finanzinvestor SSW Partners. Der Abschluss wird im zweiten Halbjahr 2027 erwartet und braucht noch die Zustimmung der Wettbewerbsbehörden.",
+      "warum_wichtig": "Uber wird damit zum größten Essenslieferdienst außerhalb Chinas, und foodora in Österreich bekommt einen neuen Eigentümer.",
+      "themen": [
+        "wirtschaft"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3449462/"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-27-wirtschaft-2",
+      "datum": "2026-11-27",
+      "datum_bis": null,
+      "titel": "S&P senkt den Ausblick für Frankreichs Bonität auf negativ",
+      "text": "Die Ratingagentur S&P hat den Ausblick für Frankreich von stabil auf negativ gesetzt und die Note A plus bestätigt. Sie nennt steigende Schulden, schwaches Wachstum und fehlenden politischen Konsens über den Abbau des Defizits. S&P rechnet mit einem Defizit von 5,5 Prozent der Wirtschaftsleistung heuer und 5,3 Prozent 2027, die Staatsschulden sollen bis 2029 auf rund 118 Prozent steigen.",
+      "warum_wichtig": "Eine Herabstufung in den kommenden Monaten würde Frankreichs Kreditkosten erhöhen, und die Präsidentschaftswahl 2027 verschärft die Lage.",
+      "themen": [
+        "wirtschaft",
+        "politik"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": false,
+      "quellen": [
+        {
+          "name": "ORF",
+          "url": "https://orf.at/stories/3449496/"
+        },
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/politik/international/schuldenkrise-hohe-schulden-politikrisiken-sp-droht-frankreich-mit-abstufung/100273395.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-27-wirtschaft-3",
+      "datum": "2026-11-27",
+      "datum_bis": null,
+      "titel": "Anthropic-Aktie liegt nach turbulenter erster Börsenwoche wieder über dem Ausgabepreis",
+      "text": "Anthropic startete am 83-Dollar-Ausgabepreis mit einem ersten Kurs von 111,50 Dollar und einem Börsenwert von rund 2 Billionen Dollar, verlor dann aber etwa ein Drittel und fiel zeitweise unter den Ausgabepreis. Zum verkürzten Handel am Black Friday lag die Aktie laut Handelsblatt wieder darüber. Die US-Indizes lagen zur Mittagszeit im Plus: Dow Jones 1,2 Prozent, S&P 500 1,7 Prozent und Nasdaq 100 2,6 Prozent. Der DAX schloss 0,8 Prozent höher bei 25.418 Punkten.",
+      "warum_wichtig": "Die Erholung zeigt, dass die Sorge vor überzogenen KI-Investitionen die Kurse zwar drückt, Käufer aber zurückkehren.",
+      "themen": [
+        "wirtschaft",
+        "ki"
+      ],
+      "hauptthema": "wirtschaft",
+      "update": true,
+      "quellen": [
+        {
+          "name": "tagesschau",
+          "url": "https://www.tagesschau.de/wirtschaft/finanzen/marktbericht-anthropic-ipo-ki-100.html"
+        },
+        {
+          "name": "Handelsblatt",
+          "url": "https://www.handelsblatt.com/finanzen/maerkte/marktberichte/dow-sp-500-nasdaq-us-boersen-schliessen-im-plus-anthropic-wieder-ueber-ausgabepreis/100273324.html"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-27-tirol-1",
+      "datum": "2026-11-27",
+      "datum_bis": null,
+      "titel": "Neue Kanzelgalerie an der Reschenstraße ist in beide Richtungen befahrbar",
+      "text": "Die 400 Meter lange Kanzelgalerie zwischen Pfunds und Nauders ist seit Freitag in beide Richtungen offen. Der Bau kostete 35 Millionen Euro, vier Millionen weniger als geplant. Sie schützt vor Steinschlag und hält dem Aufprall eines 14 Tonnen schweren Felsblocks stand. Bis Weihnachten und im Frühjahr 2027 gibt es Restarbeiten, nach Ostern 2027 sind für den Asphalt noch einzelne Sperrtage nötig. Zuvor war angekündigt, dass nur am 27. November eine Vollsperre gilt.",
+      "warum_wichtig": "Die wichtige Verbindung nach Nauders ist damit weitgehend sicher und frei, nur wenige Sperren stehen noch an.",
+      "themen": [
+        "tirol"
+      ],
+      "hauptthema": "tirol",
+      "update": true,
+      "quellen": [
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3381316/"
+        },
+        {
+          "name": "Tiroler Tageszeitung",
+          "url": "https://www.tt.com/artikel/30947897/endlich-freie-fahrt-tirols-groesstes-strassenbauprojekt-ist-fertig"
+        }
+      ]
+    },
+    {
+      "id": "2026-11-27-tirol-2",
+      "datum": "2026-11-27",
+      "datum_bis": null,
+      "titel": "Skischaukel Sillian-Sexten wird vorerst nicht weiterverfolgt",
+      "text": "Die Hochgruben Seilbahnen GmbH hat ihren Antrag im laufenden Umweltverträglichkeitsverfahren zurückgezogen. Die geplante Seilbahnverbindung zwischen Osttirol und Südtirol sei unter den aktuellen Bedingungen nicht realisierbar, sagte Geschäftsführer Heinz Schultz. Das Projekt war zunächst mit rund 40 Millionen Euro veranschlagt und wegen Naturschutzbedenken seit Jahren verzögert. Die Betreiber wollen nun neu planen.",
+      "warum_wichtig": "Ein seit über 20 Jahren diskutiertes Tourismusprojekt in Osttirol ist in der bisherigen Form vom Tisch.",
+      "themen": [
+        "tirol"
+      ],
+      "hauptthema": "tirol",
+      "update": false,
+      "quellen": [
+        {
+          "name": "tirol.ORF.at",
+          "url": "https://tirol.orf.at/stories/3381332/"
+        }
+      ]
+    }
+  ],
+  "videos": [],
+  "abschnitte": []
+}
